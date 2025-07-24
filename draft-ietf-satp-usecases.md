@@ -146,6 +146,64 @@ informative:
     title: End-to-End Arguments in System Design, ACM Transactions on Computer Systems, vol. 2, no. 4, pp. 277-288
 
 normative:
+  Aug23:
+    author:
+    - ins: A. Augusto
+    - ins: R. Belchior
+    - ins: I. Kocsis
+    - ins: L. Gönczy
+    - ins: A. Vasconcelos
+    - ins: M. Correia
+    date: 2023
+    target: https://www.techrxiv.org/articles/preprint/CBDC_bridging_between_Hyperledger_Fabric_and_permissioned_EVM-based_blockchains/21809430
+    title: '2023 IEEE International Conference on Blockchain and Cryptocurrency (ICBC), Dubai, United Arab Emirates, 2023, pp. 1-9 (doi: 10.1109/ICBC56567.2023.10174953)'
+  BISCBDC:
+    author:
+    - ins: Bank of Canada
+    - ins: European Central Bank
+    - ins: Bank of Japan
+    - ins: Sveriges Riksbank
+    - ins: Swiss National Bank
+    - ins: Bank of England
+    - ins: Board of Governors of the Federal Reserve
+    - ins: Bank for International Settlements
+    date: October 2020
+    target: https://www.bis.org/publ/othp33.htm
+    title: 'Central bank digital currencies: foundational principles and core features. Bank for International Settlements, BIS Report'
+  BISCBP:
+    author:
+    - ins: Bank for International Settlements
+    - ins: Committee on Payments and Market Infrastructures
+    - ins: Innovation Hub
+    - ins: International Monetary Fund
+    - ins: World Bank Group
+    date: July 2021
+    target: https://www.bis.org/publ/othp38.htm
+    title: Central bank digital currencies for cross-border payments. Bank for International Settlements, Report to the G20
+  BISDeFi:
+    author:
+    - ins: R. Auer
+    - ins: B. Haslhofer
+    - ins: S. Kitzler
+    - ins: P. Saggese
+    - ins: F. Victor
+    target: https://www.bis.org/publ/work1066.htm
+    title: The Technology of Decentralized Finance (DeFi). Bank for International Settlements, BIS Working Paper No. 1066
+  BISMCBDC:
+    author:
+    - ins: R. Auer
+    - ins: P. Haene
+    - ins: H. Holden
+    date: March 2021
+    target: https://www.bis.org/publ/bppdf/bispap115.htm
+    title: Multi-CBDC arrangements and the future of cross-border payments. Bank for International Settlements, BIS Paper No. 115
+  BISRCBDC:
+    author:
+    - ins: R. Auer
+    - ins: R. Boehme
+    date: March 2020
+    target: https://www.bis.org/publ/qtrpdf/r_qt2003j.htm
+    title: The technology of retail central bank digital currency. Bank for International Settlements, BIS Quarterly Review
   BKYC:
     author:
     - ins: K. Bhaskaran
@@ -162,6 +220,23 @@ normative:
     - ins: C. H. Suen
     date: April 17, 2018
     title: Double-Blind Consent-Driven Data Sharing on Blockchain. First IEEE Workshop on Blockchain Technologies and Applications (BTA) 2018, Co-located with 2018 IEEE International Conference on Cloud Engineering (IC2E)
+  HLB:
+    author:
+    target: https://www.hyperledger.org/use/besu
+    title: Hyperledger Besu
+  HLC:
+    author:
+    - ins: P. Somogyvari
+    - ins: J. S. Sasan
+    - ins: I. Sato
+    - ins: T. Takeuchi
+    - ins: V. Ramakrishna
+    - ins: S. Nishad
+    - ins: K. Narayanam
+    - ins: D. Vinayagamurthy
+    date: November 2022
+    target: https://www.hyperledger.org/blog/2022/11/07/introducing-hyperledger-cacti-a-multi-faceted-pluggable-interoperability-framework
+    title: Introducing Hyperledger Cacti, a multi-faceted pluggable interoperability framework. Hyperledger Foundation Blog
   HLF:
     author:
     - ins: E. Androulaki
@@ -215,6 +290,22 @@ normative:
     date: October 2018
     target: https://doi.org/10.6028/NIST.IR.8202
     title: NIST Blockchain Technology Overview (NISTR-8202)
+  PUbin:
+    author:
+    - ins: Bank of America Merrill Lynch
+    - ins: BCS Information Systems
+    - ins: Credit Suisse
+    - ins: DBS Bank
+    - ins: HSBC
+    - ins: J.P. Morgan
+    - ins: Mitsubishi UFJ Financial Group
+    - ins: OCBC Bank
+    - ins: R3
+    - ins: Singapore Exchange
+    - ins: UOB Bank
+    date: 2017
+    target: https://www2.deloitte.com/content/dam/Deloitte/sg/Documents/financial-services/sg-fsi-project-ubin-report.pdf
+    title: 'The future is here: Project Ubin: SGD on Distributed Ledger. Deloitte and Monetary Authority of Singapore (MAS), Report'
   R3C:
     author:
     - ins: R3
@@ -227,18 +318,17 @@ normative:
     - ins: M. Hargreaves
     - ins: N. Smith
     - ins: V. Ramakrishna
-    date: April 2023
+    date: July 2023
     target: https://datatracker.ietf.org/doc/draft-ietf-satp-architecture/
-    title: Secure Asset Transfer (SAT) Interoperability Architecture, IETF, draft-ietf-satp-architecture-00
+    title: Secure Asset Transfer (SAT) Interoperability Architecture, IETF, draft-ietf-satp-architecture-01
   SATP:
     author:
-    - ins: T. Hardjono
     - ins: M. Hargreaves
-    - ins: N. Smith
-    - ins: V. Ramakrishna
-    date: April 2023
+    - ins: T. Hardjono
+    - ins: R. Belchior
+    date: July 2023
     target: https://datatracker.ietf.org/doc/draft-ietf-satp-core/
-    title: Secure Asset Transfer Protocol, IETF, draft-ietf-satp-core-00
+    title: Secure Asset Transfer Protocol, IETF, draft-ietf-satp-core-02
   SKYC:
     author:
     - ins: M. Curry
@@ -257,6 +347,11 @@ normative:
     date: 2022
     target: https://www.tradelens.com/
     title: 'TradeLens: Supply chain data and docs'
+  WBGCBP:
+    author:
+    date: November 2021
+    target: https://documents1.worldbank.org/curated/en/369001638871862939/pdf/Central-Bank-Digital-Currencies-for-Cross-border-Payments-A-Review-of-Current-Experiments-and-Ideas.pdf
+    title: 'Central Bank Digital Currencies for Cross-Border Payments: A Review of Current Experiments and Ideas. World Bank Group, Other Financial Sector Study'
   WET:
     author:
     - ins: IBM
@@ -274,7 +369,7 @@ This document describes prominent scenarios where enterprise systems and network
 
 {: #introduction-doc}
 
-Business networks, built on both centralized and decentralized models, have emerged to manage cross-organization assets and workflows. The scope of such workflows and the assets they govern, as well as the set of participating organizations within a network, have been quite limited, partly for security, privacy, and scalability reasons, and partly because organizations have been reticent to moving large portions of their pre existing workflows to such networks. We see this especially in the areas of trade, finance, supply chain logistics, and property management. Yet the workflows managed by these networks are naturally interlinked in the real world, and therefore cannot afford to remain isolated from each other technologically, which would diminish the value of their assets. At the same time, a network, once built, has institutional staying power, and it is therefore impractical to assume that they will expand or merge. Interoperability is therefore an imperative in this fragmented business network ecosystem. This comes in different flavors, namely the ability to move an asset from one network to another, interlinking workflows to share asset state with proof of authenticity from one network to another, and swapping assets in different networks as part of a business transaction, as listed in the SAT Architecture Specification [SATA]. The purpose of this document is to describe prominent examples of these modes that have been encountered by enterprises and business consortiums and identified as challenges to be overcome.
+Business networks, built on both centralized and decentralized models, have emerged to manage cross-organization assets and workflows. The scope of such workflows and the assets they govern, as well as the set of participating organizations within a network, have been quite limited, partly for security, privacy, and scalability reasons, and partly because organizations have been reticent to moving large portions of their pre existing workflows to such networks. We see this especially in the areas of trade, finance, supply chain logistics, and property management. Yet the workflows managed by these networks are naturally interlinked in the real world, and therefore cannot afford to remain isolated from each other technologically, which would diminish the value of their assets. At the same time, a network, once built, has institutional staying power, and it is therefore impractical to assume that they will expand or merge. Interoperability is therefore an imperative in this fragmented business network ecosystem. This comes in different flavors, namely the ability to move an asset from one network to another, interlinking workflows to share asset state with proof of authenticity from one network to another, and swapping assets in different networks as part of a business transaction, as listed in the SAT Architecture Specification {{SATA}}. The purpose of this document is to describe prominent examples of these modes that have been encountered by enterprises and business consortiums and identified as challenges to be overcome. In particular, this document describes scenarios where the Secure Asset Transfer Protocol (SATP) {{SATP}} can be directly applied to solve the problem of moving digital assets across networks, for which no other canonical protocol exists in the literature.
 
 # Terminology
 
@@ -360,7 +455,7 @@ An exporter who belongs to both systems must produce a valid bill of lading in t
     +-------------------------------+     +-------------------------------+
             ˄              ˄    |               ˄      ˄     ˄
             |              |    |  6 Share L/C  |      |     |
-            |              |    |____________¬¬___|      |     |
+            |              |    |_______________|      |     |
             |              |                           |     |
        3    |              |    2               10     |     |    8
     Propose |              | Request        Dispatch   |     | Upload
@@ -399,7 +494,7 @@ The use case linking a trade finance network with a trade logistics network can 
     +-------------------------------+     +-------------------------------+
                                 |               ˄
                                 |   Share L/C   |
-                                |____________¬¬___|
+                                |_______________|
 ~~~
 {: #food-tracking-figure}
 
@@ -423,7 +518,7 @@ To complete the picture, we can add a payments network to the mix, which maintai
     +-------------------------------+     +-------------------------------+
                 | ˄               |               ˄
         Share   | |   Share       |   Share L/C   |
-       Payment  | |  Payment      |____________¬¬___|
+       Payment  | |  Payment      |_______________|
      Obligation | | Fulfilment
                 | |
                 V |
@@ -435,15 +530,25 @@ To complete the picture, we can add a payments network to the mix, which maintai
 
 Addendum: we can add yet another network to the mix, one that manages regulatory compliance. (E.g., proof-of-concept systems have been built to bring banks and corporations on a single distributed ledger and smart contract platform to share KYC information in privacy-preserving ways {{BKYC}} {{SKYC}}.) Now issuances of letters of credit in the trade finance system will be dependent on valid KYC records being maintained as assets in the regulatory compliance system.
 
-# Financial Instruments and Currency Exchanges
+# Currency and Finance
 
 {: #finance-currency}
+
+The emerging paradigm of Decentralized Finance (DeFi) and the emerging application of Central Bank Digital Currency (CBDC) have opened up a spectrum of scenarios that require management of financial digital assets across multiple systems, typically built on distributed ledgers.
+
+DeFi is a “new financial paradigm that leverages distributed ledger technologies to offer services such as lending, investing, or exchanging cryptoassets without relying on a traditional centralized intermediary” {{BISDeFi}}. Following the Web3 philosophy, scoped for the world of finance, DeFi offers architecture and protocols built on smart contracts deployed on blockchain or other distributed ledger technology. It thereby obviates the need for centralized management and orchestration of financial processes (e.g., currency transfers, exchanges, securities settlements) by trusted authorities who can gain undue leverage.
+
+CBDC is a form of tokenized cryptocurrency that various central banks around the world are experimenting with as the digital equivalent of traditional central bank-issued money used by banks and other financial institutions as well as end users for commercial transactions and settlements. Central banks possess exclusive authority to mint and issue money in physical cash form and in the form of electronic reserves. They also support commercial bank money used in retail transactions by banks and other users in their private capacities. Central banks have traditionally used their control over these different forms of money to enforce monetary policy in a way that promotes financial stability and provides broad access to safe and efficient payments {{BISCBDC}}. CBDCs would form a new, or alternative, type of central bank money, typically (but not always) built on blockchain or other distributed ledger technology. They have recently garnered significant interest in government circles by promising increased access and inclusion, better resilience, and increased scale and efficiency of currency transfers, compared to traditional forms of central bank-issued or central bank-backed currency.
+
+CBDCs can broadly be classified into “wholesale” and “retail”. Wholesale CBDC, which facilitates inter-bank and cross-border settlements, is currency that is available only to banks and other financial institutions. Retail CBDC is available to the public and can be used as a digital form of cash, enabling fast transparent payments for goods and services at high scale and volume; in effect, it can be used as a substitute for legacy payment mechanisms.
+
+Different system architectures exist to manage CBDC for banks and end users, from issuance to transfers to redemptions. A 2-tier model as illustrated in Figure 5 has recently gained popularity, where wholesale CBDC networks manage interactions between central and commercial banks, and retail CBDC networks manage interactions between commercial banks and end users. If we consider the role of the central bank as the defining characteristic of a system architecture, this model can be referred to as “indirect”, because commercial banks mediate claims between the central bank and end users and also facilitate payments. Other architectures also exist, including “direct CBDC”, where the central bank issues CBDC directly to end users and facilitates payments, and “hybrid CBDC”, which provides users the facility to make direct claims on the central bank while allowing intermediaries to facilitate payments {{BISRCBDC}}.
 
 ## Currency Transfers
 
 {: #finance-currency-transfers}
 
-Central Bank Digital Currencies, or CBDCs for short, have garnered significant interest in governmental circles recently as an efficient and transparent mechanism to enforce monetary policy and to enable transactions at scale as a substitute for legacy payment mechanisms. CBDC systems can come in different varieties, with a 2-tier model as illustrated in Figure 5 gaining recent popularity. In the higher tier lie wholesale CBDC networks, built on distributed ledger and smart contract platforms, bringing together central or reserve banks and various commercial banks. Commercial banks hold reserve currency deposits with the reserve bank, which has the special power to mint currency and issue CBDC and also enforce regulatory compliance. In the lower tier lie retail CBDC networks for commercial banks and their customers, built on similar technologies, enabling seamless, efficient, and transparent payments using CBDCs. A retail CBDC network may involve a single commercial bank or multiple commercial banks, depending on the market caps of those banks and their purposes for joining such a network.
+The 2-tier “indirect CBDC” model illustrated in Figure 5 presents unique interoperability challenges that require protocols for asset transfers and which SATP is well-suited to handle. In the higher tier lie wholesale CBDC networks, bringing together central or reserve banks and various commercial banks. Following the DeFi logic, these networks are typically built on distributed ledger and smart contract technologies. Commercial banks hold reserve currency deposits with the reserve bank, which has the special power to mint currency and issue CBDC and also enforce regulatory compliance. In the lower tier lie retail CBDC networks for commercial banks and their customers, built on similar technologies, enabling seamless, efficient, and transparent payments using CBDCs. A retail CBDC network may involve a single commercial bank or multiple commercial banks, depending on the market caps of those banks and their purposes for joining such a network.
 
 ~~~
                   +----------------------------------------+
@@ -489,9 +594,21 @@ Central Bank Digital Currencies, or CBDCs for short, have garnered significant i
 ~~~
 {: #cbdc-transfer-figure}
 
-Here we will encounter scenarios where a given commercial bank maintains digital currency accounts in a wholesale CBDC network as well as one or more retail CBDC networks. To inject liquidity into a retail CBDC network, this bank will need to transfer currency from its reserve account in the wholesale CBDC network. Or it may need to transfer currency from one retail CBDC network to another bank in another retail CBDC network. In the world of decentralized finance, or DeFi for short, currency cannot afford to remain siloed in any single CBDC network. Hence, these networks must be interoperable in order to facilitate secure transfers of currency among themselves, as illustrated in Figure 5.
+Here we will encounter scenarios where a given commercial bank maintains digital currency accounts in a wholesale CBDC network as well as one or more retail CBDC networks. To inject liquidity into a retail CBDC network, this bank will need to transfer currency from its reserve account in the wholesale CBDC network. Or it may need to approve (or at least audit) the transfer of currency from one retail CBDC network to another bank in another retail CBDC network. In the world of decentralized finance, or DeFi for short, currency cannot afford to remain siloed in any single CBDC network. Hence, these networks must be interoperable in order to facilitate secure transfers of currency among themselves, as illustrated in Figure 5.
 
-## Delivery vs Payment of Securities
+We can identify two specific instances of currency transfer across networks in this example: one from a wholesale CBDC network to a retail CBDC network, and another from one retail CBDC network to another. Since currency in tokenized form is a digital asset, these scenarios require the direct application of a secure protocol for asset transfer. SATP {{SATP}} fits the bill, is agnostic of the types of distributed ledger technologies on which the respective networks are built, and simply requires the networks to use SATP gateways. This is not just a theoretical proposition; a candidate design for a bridge between Hyperledger Fabric {{HLF}} and Hyperledger Besu {{HLB}} networks using SATP and the Hyperledger Cacti interoperability platform {{HLC}} has been proposed by distributed ledger researchers {{Aug23}}.
+
+## Multi-CBDC Economy
+
+{: #finance-currency-multi-cbdc}
+
+Several governments, banks and financial communities have explored the use of a shared ledger containing multiple CBDCs as way to potentially obtain an economy of scale in the development and maintenance of their own respective CBDCs. Such a Multi-CBDC approach has the potential benefit to improve cross-border payments and protect monetary sovereignty, without necessarily becoming a monetary union {{BISMCBDC}}.
+
+However, even within a Multi-CBDC configuration, there must be a mechanism to interconnect each respective national (sovereign) bank network with the shared Multi-CBDC network. Gateways appear to be an attractive means to permit the transfer of a CBDC from one national network/ledger into the shared Multi-CBDC ledger, and vice versa.  One major requirement is the assurance that consistency is maintained between the CBDC counts on the national network with that on the Multi-CBDC network (i.e. no counterfeiting; no double-spend).
+
+With or without a Multi-CBDC ledger, the existence of different national networks managing different wholesale CBDC assets will necessitate inter-network transfers for cross-border payments and settlements {{BISCBP}} {{WBGCBP}} {{PUbin}}. Whether directly between two wholesale CBDC networks or between a wholesale CBDC network and the Multi-CBDC network, transfer of currency assets is a problem for which SATP appears to be the most suitable solution.
+
+## Delivery vs Payment (DvP) of Securities
 
 {: #finance-currency-dvp}
 
@@ -536,6 +653,8 @@ In Decentralized Finance, or DeFi for short, investors and financial institution
    +-----------------------------------------------------------------------+
 ~~~
 {: #securities-dvp-figure}
+
+In a variation of this example, the two commercial banks may hold CBDC accounts in two different Payment Networks. In that case, fulfilment of the DvP would require transfer of CBDC from one network to another. An instance of SATP between gateways representing those two networks would handle that problem.
 
 # Transferal of Digital Art and Payments across National Borders
 
