@@ -220,6 +220,22 @@ normative:
     - ins: C. H. Suen
     date: April 17, 2018
     title: Double-Blind Consent-Driven Data Sharing on Blockchain. First IEEE Workshop on Blockchain Technologies and Applications (BTA) 2018, Co-located with 2018 IEEE International Conference on Cloud Engineering (IC2E)
+  ERC721:
+    author:
+    - ins: Ethereum.org
+    date: November 19, 2023
+    target: https://ethereum.org/en/developers/docs/standards/tokens/erc-721/
+    title: ERC-721 Non-Fungible Token Standard.
+  Ethereum:
+    author:
+    target: https://ethereum.org/
+    title: Ethereum
+  GoDaddy:
+    author:
+    - ins: GoDaddy
+    date: 2024
+    target: https://www.godaddy.com/
+    title: Domain Names, Websites, Hosting & Online Marketing Tools.
   HLB:
     author:
     target: https://www.hyperledger.org/use/besu
@@ -312,46 +328,73 @@ normative:
     date: August 2019
     target: https://www.r3.com/reports/corda-technical-whitepaper/
     title: 'Corda: A Technical White Paper'
+  RFC1034: RFC1034
+  RFC1035: RFC1035
+  RFC5730: RFC5730
   SATA:
     author:
     - ins: T. Hardjono
     - ins: M. Hargreaves
     - ins: N. Smith
     - ins: V. Ramakrishna
-    date: January 2024
+    date: June 2024
     target: https://datatracker.ietf.org/doc/draft-ietf-satp-architecture/
-    title: Secure Asset Transfer (SAT) Interoperability Architecture, IETF, draft-ietf-satp-architecture-02
+    title: Secure Asset Transfer (SAT) Interoperability Architecture, IETF, draft-ietf-satp-architecture-05
   SATP:
     author:
     - ins: M. Hargreaves
     - ins: T. Hardjono
     - ins: R. Belchior
-    date: July 2023
+    date: April 2024
     target: https://datatracker.ietf.org/doc/draft-ietf-satp-core/
-    title: Secure Asset Transfer Protocol (SATP), IETF, draft-ietf-satp-core-02
+    title: Secure Asset Transfer Protocol (SATP) Core, IETF, draft-ietf-satp-core-04
   SKYC:
     author:
     - ins: M. Curry
     date: September 21, 2018
     target: https://www.ibm.com/blogs/blockchain/2018/09/blockchain-for-kyc-game-changing-regtech-innovation/
     title: 'Blockchain for KYC: Game-changing RegTech innovation'
+  SSpace:
+    author:
+    - ins: Squarespace Domains
+    date: 2024
+    target: https://domains.squarespace.com/
+    title: Domain Name Search – Register Your Domain Name.
   STN:
     author:
     - ins: Stellar Development Foundation
     date: 2022
     target: https://www.stellar.org/
     title: Stellar – Access your universe of opportunities
+  StOpt:
+    author:
+    - ins: Investopedia
+    date: 2024
+    target: https://www.investopedia.com/terms/s/stockoption.asp
+    title: What Are Stock Options? Parameters and Trading, With Examples
   TL:
     author:
     - ins: TradeLens
     date: 2022
     target: https://www.tradelens.com/
     title: 'TradeLens: Supply chain data and docs'
+  VSign:
+    author:
+    - ins: Verisign
+    date: 2024
+    target: https://www.verisign.com/
+    title: Verisign is a global provider of domain name registry services and internet infrastructure.
   WBGCBP:
     author:
     date: November 2021
     target: https://documents1.worldbank.org/curated/en/369001638871862939/pdf/Central-Bank-Digital-Currencies-for-Cross-border-Payments-A-Review-of-Current-Experiments-and-Ideas.pdf
     title: 'Central Bank Digital Currencies for Cross-Border Payments: A Review of Current Experiments and Ideas. World Bank Group, Other Financial Sector Study'
+  Web3:
+    author:
+    - ins: Wikipedia
+    date: 2024
+    target: https://en.wikipedia.org/wiki/Web3
+    title: Web3
   WET:
     author:
     - ins: IBM
@@ -536,7 +579,7 @@ Addendum: we can add yet another network to the mix, one that manages regulatory
 
 The emerging paradigm of Decentralized Finance (DeFi) and the emerging application of Central Bank Digital Currency (CBDC) have opened up a spectrum of scenarios that require management of financial digital assets across multiple systems, typically built on distributed ledgers.
 
-DeFi is a “new financial paradigm that leverages distributed ledger technologies to offer services such as lending, investing, or exchanging cryptoassets without relying on a traditional centralized intermediary” {{BISDeFi}}. Following the Web3 philosophy, scoped for the world of finance, DeFi offers architecture and protocols built on smart contracts deployed on blockchain or other distributed ledger technology. It thereby obviates the need for centralized management and orchestration of financial processes (e.g., currency transfers, exchanges, securities settlements) by trusted authorities who can gain undue leverage.
+DeFi is a “new financial paradigm that leverages distributed ledger technologies to offer services such as lending, investing, or exchanging cryptoassets without relying on a traditional centralized intermediary” {{BISDeFi}}. Following the Web3 philosophy {{Web3}}, scoped for the world of finance, DeFi offers architecture and protocols built on smart contracts deployed on blockchain or other distributed ledger technology. It thereby obviates the need for centralized management and orchestration of financial processes (e.g., currency transfers, exchanges, securities settlements) by trusted authorities who can gain undue leverage.
 
 CBDC is a form of tokenized cryptocurrency that various central banks around the world are experimenting with as the digital equivalent of traditional central bank-issued money used by banks and other financial institutions as well as end users for commercial transactions and settlements. Central banks possess exclusive authority to mint and issue money in physical cash form and in the form of electronic reserves. They also support commercial bank money used in retail transactions by banks and other users in their private capacities. Central banks have traditionally used their control over these different forms of money to enforce monetary policy in a way that promotes financial stability and provides broad access to safe and efficient payments {{BISCBDC}}. CBDCs would form a new, or alternative, type of central bank money, typically (but not always) built on blockchain or other distributed ledger technology. They have recently garnered significant interest in government circles by promising increased access and inclusion, better resilience, and increased scale and efficiency of currency transfers, compared to traditional forms of central bank-issued or central bank-backed currency.
 
@@ -632,8 +675,8 @@ In Decentralized Finance, or DeFi for short, investors and financial institution
    |                                    +---------------------------+      |
    +-----------------------------------------------------------------------+
                                        ˄
-                                       ∥
-                                       ∥
+                                       |
+                                       |
                                        V
    +-----------------------------------------------------------------------+
    |                 Payment Network / Retail CBDC Network                 |
@@ -656,18 +699,105 @@ In Decentralized Finance, or DeFi for short, investors and financial institution
 
 In a variation of this example, the two commercial banks may hold CBDC accounts in two different Payment Networks. In that case, fulfilment of the DvP would require transfer of CBDC from one network to another. An instance of SATP between gateways representing those two networks would handle that problem.
 
-# Transferal of Digital Art and Payments across National Borders
+## Stock Options Contract Fulfilment
 
-{: #digital-art-payments}
+{: #finance-currency-stock-options}
+
+Stock options are financial instruments that allow holders to buy or sell stock at predetermined prices until specific expiration dates {{StOpt}}. Exercising an option, i.e., buying or selling a stock by paying a “strike price”, involves a more complex cross-network financial transaction than the securities DvP use case. Option contracts can be managed and enforced in a specific business network (which we can label as a “stock network”) to which entities like an Options Clearing Corporation (OCC), stock exchanges (e.g., the Chicago Board Options Exchange), and brokerage firms, belong. The OCC is the issuer and guarantor for all options and futures contracts traded on U.S. exchanges. It provides secured back-end clearing services, while exchanges provide front-end trading markets. Transfer and settlement of payments, just like in the DvP scenario, will typically occur in a dedicated payment network in which buyers and sellers of stock have currency accounts. Options contract fulfilment requires the stock and payment networks to work in concert, and hence need SATP to coordinate transactions across them.
+
+Figure 7 illustrates a simplified flow for the exercising of a “call” option, where a buyer acquires stock from a seller by paying it a strike price. First, the buyer informs its brokerage, which then notifies its exchange about the buyer's intent to exercise the option. The exchange in turn notifies the OCC in the Stock Network. (All these notifications typically occur via a smart contract). Steps 1-2 illustrate these notifications. The OCC then verifies the contract’s validity and the buyer’s right to exercise the option. If this is successful, the OCC triggers a payment request to the buyer through a contract-to-contract communication from the Stock Network to the Payment Network (step 3). (Alternatively, the buyer may trigger a payment request in the Payment Network, which then requests the Stock Network for proof of the contract’s validity from the OCC before approving the payment.) The buyer then pays the strike price to the seller (step 4). The payment receipt is now sent to the Stock Network for the OCC’s verification (or alternatively, the buyer can request the OCC to fetch and verify the receipt from the Payment Network) and fulfilment of the contract (step 5). The OCC, via the exchange, requests the brokerage to transfer stock from the seller’s to the buyer’s account (steps 6-7).
+
+This cross-network transactions require SATP using gateways, either to communicate information of a contract’s validity (step 3) or a payment receipt (step 5) with authenticity proof (i.e., data sharing), or by ensuring that strike price payment (step 4) and contract fulfilment (step 6-7) occur atomically as an exchange using a coordinated set of commitments.
+
+~~~
+   +-----------------------------------------------------------------------+
+   | Stock Network                                                         |
+   |                                                                       |
+   | +-------------+          +--------------+           +---------------+ |
+   | |  Brokerage  |          |   Exchange   | 2.        |      OCC      | |
+   | |             |          |              | Request   |               | |
+   | | +---------+ | 1.       | +----------+ | to        | +-----------+ | |
+   | | | Buyer   | | Exercise | |          | | Clear     | |           | | |
+   | | | Equity  |-|----------|>|          |-|-----------|>|           | | |
+   | | | Account | |          | | Options  | |           | | Options   | | |
+   | | +---------+ |          | | Contract | |           | | Contract  | | |
+   | |             |          | | (Copy)   | |           | | (Primary) | | |
+   | | +---------+ |          | |          | |           | |           | | |
+   | | | Seller  |<|----------|-|          |<|-----------|-|           | | |
+   | | | Equity  | | 7.       | +----------+ | 6.        | +-----------+ | |
+   | | | Account | | Fulfil & |              | Fulfil &  |               | |
+   | | +---------+ | Transfer |              | Transfer  |               | |
+   | |             | Stock    |              | Stock     |               | |
+   | +-------------+          +--------------+           +---------------+ |
+   |                                                                       |
+   +-----------------------------------------------------------------------+
+                           |                    ˄
+         3. Request to Pay |                    |
+            Strike Price   |                    | 5. Send Payment Receipt
+                           |                    |
+                           V                    |
+   +-----------------------------------------------------------------------+
+   | Payment Network                                                       |
+   |                                                                       |
+   |      +--------------+                           +--------------+      |
+   |      |   Buyer      |    4. Pay Strike Price    |   Seller     |      |
+   |      |   Payment    |-------------------------->|   Payment    |      |
+   |      |   Account    |                           |   Account    |      |
+   |      +--------------+                           +--------------+      |
+   |                                                                       |
+   +-----------------------------------------------------------------------+
+~~~
+{: #stock-options-contract-figure}
+
+# Decentralized Commerce: Payments for Goods and Services
+
+{: #decentralized-commerce}
+
+In the emerging Web3 world, undergirded by blockchain and DLT, goods and services are increasingly available on decentralized networks, either as purely digital objects or proxies of physical objects. The networks typically manage these assets in the form of non-fungible tokens (NFTs) using smart contracts and decentralized applications (DApps for short). DeFi in a Web3 ecosystem can create thriving online marketplaces where goods and services can be bought and sold across network boundaries if those networks are interoperable (i.e., assets and data can be moved or managed seamlessly across networks). SATP is a necessary requirement to enable and secure such a decentralized form of commerce.
+
+## Transferal of Digital Art and Payments across National Borders
+
+{: #decentralized-commerce-digital-art}
 
 There is currently growing interest within many artist communities of developing and selling digital-only artwork, in which the artwork consists of a file in a well-known (e.g. JPEG, MPEG) format that is created by an artist. The artists seek to sell copies of the digital-only artwork on the global marketplace, allowing anyone in the world to purchase a copy and consume (e.g. display offline) the artwork at the buyer’s discretion. Currently, the most popular technological vehicle to achieve this goal is through the tokenization of the copies of the artwork coupled with digital encryption/signature technologies to transfer control (and thereby legal ownership) of the digital-only artwork to the buyer.
 
 Although there are a number of technical and legal challenges (e.g. copyright enforcement) to completing such a sale, one key issue pertains to the sale and payment for digital-only artwork across national borders. Many nations enforce taxation upon the sale of any asset, including that of artwork generally both domestically and internationally. Thus, when the control/ownership of a tokenized digital-only artwork is transferred to a new owner in a foreign nation and payment is received, taxation must be obtained at the point-of-sale (which could be an online platform) and proof of delivery must be traceable to ensure that no taxation-avoidance occurs. A secure asset transfer protocol between systems that can be built on distributed or shared ledgers via gateways with designated legal authority is necessary to enforce governmental regulations and provide accountability.
+
+## Payment for Streaming Services
+
+{: #decentralized-commerce-streaming}
+
+Streaming services like Netflix and IPTV can tap into the cryptocurrency and DeFi user market by offering content on distributed ledger networks using smart contracts. Instead of monthly subscriptions, they can offer pay-as-you-go streaming of arbitrarily low amounts to large numbers of users on such networks. Content transfer can be backed by NFTs, which the user can redeem on any video or audio playback app. Because there already exist several payment networks for unregulated (e.g., Bitcoin) and regulated (e.g., CBDC) currencies, the content networks are likely to remain independent and not involve any monetary transactions on their own ledgers, as that would create safety and regulatory issues. Content transfer in a content network can be backed by a corresponding payment in a payment network if there is a facility to transfer payment receipts from the latter to the former. This can be fulfilled through the data sharing mode of SATP, whereby knowledge of payment along with authenticity proof can be communicated across networks. Alternatively, an atomic swap of the content and the payment can occur across both networks using the asset exchange mode of SATP.
+
+In a related example, if the user wishes to obtain content that is not available currently with the streaming service provider, that provider may seek and purchase that content from another distributer that is offering it on a different content network. The copyright to that content can be backed by NFTs and the secure transfer of those NFTs from one network to another will require SATP.
+
+# Trustworthy DNS Resource Record Migrations using an Augmented EPP
+
+{: #dns-epp-migration}
+
+We have seen several examples where SATP is indispensable for enabling cross-network asset and data transfer and transaction settlement. But SATP can also be used to augment an existing protocol by making it more secure, trustworthy, and efficient rather than creating an altogether new feature that preexisting technology was unable to provide. Conventional Internet architecture offers scope for such augmentation. Though highly decentralized, the Internet consists of nodes (or actors) that play critical roles in various protocols. Such protocols would benefit if the actions of these actors can be recorded and tracked on blockchain or other decentralized ledger networks. (It must be noted that the performance implications of these augmentations ought to be studied before firm recommendations are made.)
+
+We consider the DNS architecture {{RFC1034}} {{RFC1035}}, where multiple registries and registrars may co-exist, managing DNS records for owners (registrants). For example, Verisign {{VSign}} acts as a TLD (top-level domain) registry for the “.com” namespace, and GoDaddy {{GoDaddy}} and Squarespace {{SSpace}} are registrars that can issue and sell SLDs (second- level domains) to customers (say Alice and Bob). The Extensible Provisioning Protocol (EPP) allows registrars to communicate with registries for resource record updates, including changes in domain ownership {{RFC5730}}. Consider a scenario in which Alice, who owns an SLD (say alice.com) issued by GoDaddy, wishes to transfer that SLD to Squarespace. She can submit a request to Squarespace for this purpose, following which the respective registrars (GoDaddy and Squarespace) can communicate with the registry (Verisign) using EPP to transfer the SLD between themselves. Squarespace will then reissue the domain to Alice. In a related scenario, Alice can transfer (or sell) her GoDaddy-issued domain to Bob, who uses Squarespace as a registrant.
+
+Though EPP facilitates these resource updates and transfers, and reputed registrars offer customers these features in a usable manner, we can see that such scenarios face safety issues as they require trust and proper coordination among the participants. These issues can be mitigated by distributed ledger networks, smart contracts, and NFTs, which collectively provide a platform for safe and transparent DNS resource transfers with easy detection of non-compliance.
+
+In such a scheme, domains (or domain names) can be monetized as NFTs or digital assets, e.g., in the form of ERC-721 {{ERC721}} tokens, a popular NFT standard in the Ethereum ecosystem {{Ethereum}}. The creation of a domain is represented by minting of an NFT and the deletion of a domain by the burning of the NFT using smart contracts whose transactions are tracked on a distributed ledger maintained by a network of entities. Registrants Alice and Bob also participate in the smart contracts and hold wallet identities, allowing them to trade assets by submitting transactions to the ledger. Registrants, registrars, and registries can engage in commercial transactions using contracts governing tokenized (and monetized) domains for the purposes of issuing and transferring domains (among owners and registrars). This provides more safety where registrars are not reputed, and allows new registrar services to emerge and build reputations. It also enables customers like Alice and Bob to sell domains to each other safely and seamlessly.
+
+SATP is crucial to enabling this scheme where registrars belong to, and issue, NFT-backed domains in different ledgers maintained by different networks. Ensuring that tokens are securely and atomically transferred between the ledgers will be a necessary prerequisite for an EPP resource record update operation. Further, non-compliance, or non-fulfilment of EPP, by either registrar, can be easily detected by examining the SATP logs from the respective networks’ gateways, thereby safeguarding the process. In future, reputed registrars may require their counterparties to comply with SATP-based transfers across ledgers as a prerequisite to engaging in a domain transfer with them.
+
+This scenario additionally illustrates an example of what typically occurs in Stage 0 of a SATP instance {{SATP}}, which is where negotiation and agreement-building occurs between gateways. EPP instances among registrars and registries will occur in this stage, both prior to the start of an SATP instance and after its conclusion. EPP will produce the transaction context the gateways need to transfer an asset (in this case, a tokenized domain) using SATP. Many other applications of SATP for asset transfers may similarly augment or bolster pre-existing business workflows, which (like EPP here) will produce transactions contexts for SATP instances.
 
 # Interoperation Protocol Considerations
 
 {: #interop-protocol-considerations}
 
 The use cases provided as examples serve to illustrate instances of general phenomena that the Secure Asset Transfer Protocol {{SATP}}, with a limited number of variations, is designed to handle. The data sharing examples in Section 3 can be extrapolated to any kinds of data that need to be shared between networks running arbitrary workflows. The asset transfer example in Section 4.1 and the asset exchange example in Section 4.2 similarly can be extrapolated to any kinds of digital assets lying within any kind of network. Considerations for the interoperability protocol, or SATP, can therefore be limited to standard distributed systems issues like integrity, fault tolerance, and liveness, while completely disregarding the nature of the assets, networks, and workflows, which can all remain opaque to the protocol.
+
+# Contributors
+
+{: #satp-usecases-contributors}
+
+The authors would like to thank André Augusto of INESC-ID and Técnico Lisboa (Portugal), Zainan Victor Zhou of Namefi by D3Serve Labs, and Dr. Chunchi (Peter) Liu of Huawei Research, for reviewing this draft and suggesting (and inspiring) use cases in the areas of CBDC, stock options trading, streaming media commerce, and DNS record maintenance, which augmented the existing use cases to show more applications for the interoperability modes listed in the SATP Architecture document.
+
 
 --- back
