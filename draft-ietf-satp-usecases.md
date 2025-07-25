@@ -85,6 +85,12 @@ informative:
     date: May 2020
     target: https://arxiv.org/abs/2007.11877
     title: Proposal for a Comprehensive Crypto Asset Taxonomy
+  BSN22:
+    author:
+    - ins: A. Kharpal
+    date: May 2022
+    target: https://www.cnbc.com/2022/05/16/china-blockchain-explainer-what-is-bsn-.html
+    title: China has been quietly building a blockchain platform. Here’s what we know. CNBC
   BVGC20:
     author:
     - ins: R. Belchior
@@ -94,6 +100,12 @@ informative:
     date: May 2020
     target: https://arxiv.org/abs/2005.14282v2
     title: 'A Survey on Blockchain Interoperability: Past, Present, and Future Trends'
+  CDE23:
+    author:
+    - ins: S. Bhardwaj
+    date: August 2023
+    target: https://www.forbesindia.com/article/cryptocurrency/china-unveils-revolutionary-blockchain-data-exchange-at-hangzhou-summit/87745/1
+    title: China Unveils Revolutionary Blockchain Data Exchange at Hangzhou Summit. Forbes India
   Clar88:
     author:
     - ins: D. Clark
@@ -770,6 +782,8 @@ Although there are a number of technical and legal challenges (e.g. copyright en
 Streaming services like Netflix and IPTV can tap into the cryptocurrency and DeFi user market by offering content on distributed ledger networks using smart contracts. Instead of monthly subscriptions, they can offer pay-as-you-go streaming of arbitrarily low amounts to large numbers of users on such networks. Content transfer can be backed by NFTs, which the user can redeem on any video or audio playback app. Because there already exist several payment networks for unregulated (e.g., Bitcoin) and regulated (e.g., CBDC) currencies, the content networks are likely to remain independent and not involve any monetary transactions on their own ledgers, as that would create safety and regulatory issues. Content transfer in a content network can be backed by a corresponding payment in a payment network if there is a facility to transfer payment receipts from the latter to the former. This can be fulfilled through the data sharing mode of SATP, whereby knowledge of payment along with authenticity proof can be communicated across networks. Alternatively, an atomic swap of the content and the payment can occur across both networks using the asset exchange mode of SATP.
 
 In a related example, if the user wishes to obtain content that is not available currently with the streaming service provider, that provider may seek and purchase that content from another distributer that is offering it on a different content network. The copyright to that content can be backed by NFTs and the secure transfer of those NFTs from one network to another will require SATP.
+
+Though these examples show what is possible, there are actual ongoing attempts to facilitate transactions of this ilk by prominent content providers and even countries. In China, for instance, telecom operators like China Mobile and Huawei, and companies like Alibaba Cloud, are building large-scale networks like the Blockchain-based Service Network (BSN) {{BSN22}} and data exchanges {{CDE23}} using distributed ledger technology to facilitate cross-system applications for content exchanges and transfers.
 
 # Trustworthy DNS Resource Record Migrations using an Augmented EPP
 
