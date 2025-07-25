@@ -328,7 +328,7 @@ normative:
     - ins: R. Belchior
     date: July 2023
     target: https://datatracker.ietf.org/doc/draft-ietf-satp-core/
-    title: Secure Asset Transfer Protocol, IETF, draft-ietf-satp-core-02
+    title: Secure Asset Transfer Protocol (SATP), IETF, draft-ietf-satp-core-02
   SKYC:
     author:
     - ins: M. Curry
