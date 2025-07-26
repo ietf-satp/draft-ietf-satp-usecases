@@ -47,6 +47,11 @@ author:
     name: Thomas Hardjono
     organization: MIT
     email: hardjono@mit.edu
+  -
+    ins: C. Liu
+    name: Chunchi (Peter) Liu
+    organization: Huawei
+    email: liuchunchi@huawei.com
 
 informative:
   Abebe19:
@@ -232,6 +237,36 @@ normative:
     - ins: C. H. Suen
     date: April 17, 2018
     title: Double-Blind Consent-Driven Data Sharing on Blockchain. First IEEE Workshop on Blockchain Technologies and Applications (BTA) 2018, Co-located with 2018 IEEE International Conference on Cloud Engineering (IC2E)
+  CatenaX:
+    author:
+    - ins: Catena-X
+    date: 2025
+    target: https://catena-x.net/
+    title: Catena-X is the first globally trusted and collaborative data ecosystem for the automotive industry
+  CNDatInf:
+    author:
+    - ins: Xinhua
+    date: November 2024
+    target: https://english.www.gov.cn/news/202411/23/content_WS67417342c6d0868f4e8ed59e.html
+    title: Data infrastructure blueprint unveiled
+  CNMeas:
+    author:
+    - ins: Xinhua
+    date: December 2022
+    target: https://english.www.gov.cn/policies/latestreleases/202212/19/content_WS63a17f7dc6d0a757729e49bd.html
+    title: China unveils measures to build basic systems for data
+  DSP:
+    author:
+    - ins: International Data Spaces Association
+    date: 2025
+    target: https://internationaldataspaces.org/offers/dataspace-protocol/
+    title: 'Advancing interoperability: the Dataspace Protocol'
+  EclDS:
+    author:
+    - ins: Eclipse Foundation
+    date: 2025
+    target: https://projects.eclipse.org/working-group/eclipse-dataspace
+    title: Eclipse Dataspace Working Group
   ERC721:
     author:
     - ins: Ethereum.org
@@ -242,6 +277,12 @@ normative:
     author:
     target: https://ethereum.org/
     title: Ethereum
+  GaiaX:
+    author:
+    - ins: Gaia-X, European Association for Data and Cloud AISBL
+    date: 2025
+    target: https://gaia-x.eu/wp-content/uploads/2025/01/Gaia-X-Brochure_Overview-2025.pdf
+    title: Together towards a federated and secure data infrastructure
   GoDaddy:
     author:
     - ins: GoDaddy
@@ -250,7 +291,7 @@ normative:
     title: Domain Names, Websites, Hosting & Online Marketing Tools.
   HLB:
     author:
-    target: https://www.hyperledger.org/use/besu
+    target: https://www.lfdecentralizedtrust.org/projects/besu
     title: Hyperledger Besu
   HLC:
     author:
@@ -263,7 +304,7 @@ normative:
     - ins: K. Narayanam
     - ins: D. Vinayagamurthy
     date: November 2022
-    target: https://www.hyperledger.org/blog/2022/11/07/introducing-hyperledger-cacti-a-multi-faceted-pluggable-interoperability-framework
+    target: https://www.lfdecentralizedtrust.org/blog/2022/11/07/introducing-hyperledger-cacti-a-multi-faceted-pluggable-interoperability-framework
     title: Introducing Hyperledger Cacti, a multi-faceted pluggable interoperability framework. Hyperledger Foundation Blog
   HLF:
     author:
@@ -291,24 +332,30 @@ normative:
     date: April 2018
     target: https://dl.acm.org/doi/pdf/10.1145/3190508.3190538
     title: 'Hyperledger Fabric: A Distributed Operating System for Permissioned Blockchains (EuroSys 2018)'
+  IDSA:
+    author:
+    - ins: International Data Spaces Association
+    date: 2025
+    target: https://internationaldataspaces.org/why/international-standards/
+    title: 'International Standards: Worldwide access, European principles'
   IFT:
     author:
     - ins: IBM
     date: 2022
-    target: https://www.ibm.com/blockchain/solutions/food-trust
+    target: https://www.ibm.com/docs/en/food-trust
     title: IBM Food Trust – Blockchain for the world’s food supply
   ISO:
     author:
     - ins: ISO
     date: July 2020
-    target: https://www.iso.org
+    target: https://www.iso.org/standard/82208.html
     title: Blockchain and distributed ledger technologies-Vocabulary (ISO:22739:2020)
   MP:
     author:
-    - ins: Marco Polo Network Operations (Ireland) Limited
+    - ins: P. Ignatova
     date: 2022
-    target: https://marcopolonetwork.com/
-    title: 'Marco Polo Network: Blockchain Enabled Supply Chain & Payment Solutions'
+    target: https://www.tradefinanceglobal.com/posts/marco-polo-network-successfully-completes-largest-blockchain-open-account-trade-finance-trial-on-r3s-corda-platform/
+    title: Marco Polo Network successfully completes largest Blockchain Open Account Trade Finance Trial on R3’s Corda platform, Trade Finance Global
   NIST:
     author:
     - ins: D. Yaga
@@ -336,10 +383,11 @@ normative:
     title: 'The future is here: Project Ubin: SGD on Distributed Ledger. Deloitte and Monetary Authority of Singapore (MAS), Report'
   R3C:
     author:
-    - ins: R3
+    - ins: M. Hearn
+    - ins: R. G. Brown
     date: August 2019
-    target: https://www.r3.com/reports/corda-technical-whitepaper/
-    title: 'Corda: A Technical White Paper'
+    target: https://docs.r3.com/en/pdf/corda-technical-whitepaper.pdf
+    title: 'Corda: A Distributed Ledger'
   RFC1034: RFC1034
   RFC1035: RFC1035
   RFC5730: RFC5730
@@ -349,22 +397,23 @@ normative:
     - ins: M. Hargreaves
     - ins: N. Smith
     - ins: V. Ramakrishna
-    date: June 2024
+    date: June 2025
     target: https://datatracker.ietf.org/doc/draft-ietf-satp-architecture/
-    title: Secure Asset Transfer (SAT) Interoperability Architecture, IETF, draft-ietf-satp-architecture-05
+    title: Secure Asset Transfer (SAT) Interoperability Architecture, IETF, draft-ietf-satp-architecture-07
   SATP:
     author:
     - ins: M. Hargreaves
     - ins: T. Hardjono
     - ins: R. Belchior
-    date: April 2024
+    - ins: V. Ramakrishna
+    date: July 2025
     target: https://datatracker.ietf.org/doc/draft-ietf-satp-core/
-    title: Secure Asset Transfer Protocol (SATP) Core, IETF, draft-ietf-satp-core-04
+    title: Secure Asset Transfer Protocol (SATP) Core, IETF, draft-ietf-satp-core-10
   SKYC:
     author:
     - ins: M. Curry
-    date: September 21, 2018
-    target: https://www.ibm.com/blogs/blockchain/2018/09/blockchain-for-kyc-game-changing-regtech-innovation/
+    date: August 7, 2018
+    target: https://www.linkedin.com/pulse/blockchain-kyc-game-changing-regtech-innovation-michael-curry/
     title: 'Blockchain for KYC: Game-changing RegTech innovation'
   SSpace:
     author:
@@ -411,7 +460,7 @@ normative:
     author:
     - ins: IBM
     date: 2019
-    target: https://www.ibm.com/case-studies/we-trade-blockchain
+    target: https://www.ibm.com/case-studies/wetrade-blockchain-fintech-trade-finance
     title: we.trade
 
 --- abstract
@@ -430,11 +479,11 @@ Business networks, built on both centralized and decentralized models, have emer
 
 {: #terminology-doc}
 
-There following are some terminology used in the current document. We borrow terminology from NIST and ISO as much as possible, introducing new terms only when needed:
+The following are some terminology used in the current document. We borrow terminology from NIST and ISO as much as possible, introducing new terms only when needed:
 
 - Asset network (system): The network or system where a digital asset is utilized.
 
-- Asset Transfer Protocol: The protocol used to transfer (move) a digital asset from one network to another using gateways.
+- Secure Asset Transfer Protocol (SATP): The protocol used to transfer (move) a digital asset from one network to another using gateways.
 
 - Origin network: The current network where the digital asset is located.
 
@@ -445,8 +494,6 @@ There following are some terminology used in the current document. We borrow ter
 - Asset Transfer: A fail-safe process of moving an asset from one network to another, with the destruction of the asset in the Origin network and its recreation in the Destination network occurring as a single atomic action.
 
 - Asset Exchange: A fail-safe process of exchanging (or swapping) assets held by a pair of owners, each asset being maintained in a different network, with the two in-network transfers occurring as a single atomic action.
-
-Further terminology definitions can be found in {{NIST}} and {{ISO}}.
 
 # International Trade and Supply Chains
 
@@ -557,7 +604,7 @@ The use case linking a trade finance network with a trade logistics network can 
 
 {: #trade-sc-management}
 
-To complete the picture, we can add a payments network to the mix, which maintains currency accounts for clients in different countries and enables cross-border payments, an example being the Stellar network {{STN}}. After goods have been dispatched, and optionally after verification of the delivery and proper condition of a shipment, payment is due from an importer to an exporter. The trade finance network can record a payment obligation on its ledger but it will rely on the payments network to process and confirm the actual transfer of funds. The former shares data about the obligation to the latter, which shares data about a successful (or otherwise) payment in return, as illustrated in Figure 4.
+To complete the picture, we can add a payment network to the mix, which maintains currency accounts for clients in different countries and enables cross-border payments, an example being the Stellar network {{STN}}. After goods have been dispatched, and optionally after verification of the delivery and proper condition of a shipment, payment is due from an importer to an exporter. The trade finance network can record a payment obligation on its ledger but it will rely on the payment network to process and confirm the actual transfer of funds. The former shares data about the obligation to the latter, which shares data about a successful (or otherwise) payment in return, as illustrated in Figure 4.
 
 ~~~
                       +-------------------------------+
@@ -577,9 +624,9 @@ To complete the picture, we can add a payments network to the mix, which maintai
      Obligation | | Fulfilment
                 | |
                 V |
-      +----------------------+
-      |   Payments Network   |
-      +----------------------+
+      +---------------------+
+      |   Payment Network   |
+      +---------------------+
 ~~~
 {: #supply-chain-figure}
 
@@ -667,7 +714,7 @@ With or without a Multi-CBDC ledger, the existence of different national network
 
 {: #finance-currency-dvp}
 
-In Decentralized Finance, or DeFi for short, investors and financial institutions will form networks to manage the creation and purchase of securities. As a simple example, we can consider a network consisting of the Treasury, which issues bonds, and commercial banks, which purchase and trade bonds. We can also consider a payments network of the kind we saw in Section 3.3 (or a retail CBDC network of the kind we saw in Section 4.1), which allows CBDC transfers between commercial banks’ accounts. In the securities network, banks may wish to transfer bonds to each other but only in exchange for compensation. But such compensation can be made only on a payments network where the two maintain currency accounts (e.g., in CBDC). Therefore, the securities and payment networks must be able to interoperate in such a way that two banks can carry out a delivery-vs-payment transaction spanning these two independent networks. Such a transaction must be atomic, i.e., either both bond and CBDC tokens get transferred in their respective networks or neither gets transferred. Figure 6 illustrates this exchange.
+In Decentralized Finance, or DeFi for short, investors and financial institutions will form networks to manage the creation and purchase of securities. As a simple example, we can consider a network consisting of the Treasury, which issues bonds, and commercial banks, which purchase and trade bonds. We can also consider a payment network of the kind we saw in Section 3.3 (or a retail CBDC network of the kind we saw in Section 4.1), which allows CBDC transfers between commercial banks’ accounts. In the securities network, banks may wish to transfer bonds to each other but only in exchange for compensation. But such compensation can be made only on a payment network where the two maintain currency accounts (e.g., in CBDC). Therefore, the securities and payment networks must be able to interoperate in such a way that two banks can carry out a delivery-vs-payment transaction spanning these two independent networks. Such a transaction must be atomic, i.e., either both bond and CBDC tokens get transferred in their respective networks or neither gets transferred. Figure 6 illustrates this exchange.
 
 ~~~
    +-----------------------------------------------------------------------+
@@ -726,9 +773,9 @@ This cross-network transactions require SATP using gateways, either to communica
    | Stock Network                                                         |
    |                                                                       |
    | +-------------+          +--------------+           +---------------+ |
-   | |  Brokerage  |          |   Exchange   | 2.        |      OCC      | |
+   | |  Brokerage  |          |   Exchange   | 2         |      OCC      | |
    | |             |          |              | Request   |               | |
-   | | +---------+ | 1.       | +----------+ | to        | +-----------+ | |
+   | | +---------+ | 1        | +----------+ | to        | +-----------+ | |
    | | | Buyer   | | Exercise | |          | | Clear     | |           | | |
    | | | Equity  |-|----------|>|          |-|-----------|>|           | | |
    | | | Account | |          | | Options  | |           | | Options   | | |
@@ -736,7 +783,7 @@ This cross-network transactions require SATP using gateways, either to communica
    | |             |          | | (Copy)   | |           | | (Primary) | | |
    | | +---------+ |          | |          | |           | |           | | |
    | | | Seller  |<|----------|-|          |<|-----------|-|           | | |
-   | | | Equity  | | 7.       | +----------+ | 6.        | +-----------+ | |
+   | | | Equity  | | 7        | +----------+ | 6         | +-----------+ | |
    | | | Account | | Fulfil & |              | Fulfil &  |               | |
    | | +---------+ | Transfer |              | Transfer  |               | |
    | |             | Stock    |              | Stock     |               | |
@@ -744,15 +791,15 @@ This cross-network transactions require SATP using gateways, either to communica
    |                                                                       |
    +-----------------------------------------------------------------------+
                            |                    ˄
-         3. Request to Pay |                    |
-            Strike Price   |                    | 5. Send Payment Receipt
+          3 Request to Pay |                    |
+            Strike Price   |                    |  5 Send Payment Receipt
                            |                    |
                            V                    |
    +-----------------------------------------------------------------------+
    | Payment Network                                                       |
    |                                                                       |
    |      +--------------+                           +--------------+      |
-   |      |   Buyer      |    4. Pay Strike Price    |   Seller     |      |
+   |      |   Buyer      |    4 Pay Strike Price     |   Seller     |      |
    |      |   Payment    |-------------------------->|   Payment    |      |
    |      |   Account    |                           |   Account    |      |
    |      +--------------+                           +--------------+      |
@@ -771,19 +818,21 @@ In the emerging Web3 world, undergirded by blockchain and DLT, goods and service
 
 {: #decentralized-commerce-digital-art}
 
-There is currently growing interest within many artist communities of developing and selling digital-only artwork, in which the artwork consists of a file in a well-known (e.g. JPEG, MPEG) format that is created by an artist. The artists seek to sell copies of the digital-only artwork on the global marketplace, allowing anyone in the world to purchase a copy and consume (e.g. display offline) the artwork at the buyer’s discretion. Currently, the most popular technological vehicle to achieve this goal is through the tokenization of the copies of the artwork coupled with digital encryption/signature technologies to transfer control (and thereby legal ownership) of the digital-only artwork to the buyer.
+There is currently growing interest within many artist communities of developing and selling digital-only artwork, in which the artwork consists of a file in a well-known (e.g., JPEG, MPEG) format that is created by an artist. The artists seek to sell copies of the digital-only artwork on the global marketplace, allowing anyone in the world to purchase a copy and consume (e.g., display offline) the artwork at the buyer’s discretion. Currently, the most popular technological vehicle to achieve this goal is through the tokenization of the copies of the artwork coupled with digital encryption/signature technologies to transfer control (and thereby legal ownership) of the digital-only artwork to the buyer.
 
-Although there are a number of technical and legal challenges (e.g. copyright enforcement) to completing such a sale, one key issue pertains to the sale and payment for digital-only artwork across national borders. Many nations enforce taxation upon the sale of any asset, including that of artwork generally both domestically and internationally. Thus, when the control/ownership of a tokenized digital-only artwork is transferred to a new owner in a foreign nation and payment is received, taxation must be obtained at the point-of-sale (which could be an online platform) and proof of delivery must be traceable to ensure that no taxation-avoidance occurs. A secure asset transfer protocol between systems that can be built on distributed or shared ledgers via gateways with designated legal authority is necessary to enforce governmental regulations and provide accountability.
+Although there are a number of technical and legal challenges (e.g., copyright enforcement) to completing such a sale, one key issue pertains to the sale and payment for digital-only artwork across national borders. Many nations enforce taxation upon the sale of any asset, including that of artwork generally both domestically and internationally. Thus, when the control/ownership of a tokenized digital-only artwork is transferred to a new owner in a foreign nation and payment is received, taxation must be obtained at the point-of-sale (which could be an online platform) and proof of delivery must be traceable to ensure that no taxation-avoidance occurs. A secure asset transfer protocol between systems that can be built on distributed or shared ledgers via gateways with designated legal authority is necessary to enforce governmental regulations and provide accountability.
 
 ## Payment for Streaming Services
 
 {: #decentralized-commerce-streaming}
 
-Streaming services like Netflix and IPTV can tap into the cryptocurrency and DeFi user market by offering content on distributed ledger networks using smart contracts. Instead of monthly subscriptions, they can offer pay-as-you-go streaming of arbitrarily low amounts to large numbers of users on such networks. Content transfer can be backed by NFTs, which the user can redeem on any video or audio playback app. Because there already exist several payment networks for unregulated (e.g., Bitcoin) and regulated (e.g., CBDC) currencies, the content networks are likely to remain independent and not involve any monetary transactions on their own ledgers, as that would create safety and regulatory issues. Content transfer in a content network can be backed by a corresponding payment in a payment network if there is a facility to transfer payment receipts from the latter to the former. This can be fulfilled through the data sharing mode of SATP, whereby knowledge of payment along with authenticity proof can be communicated across networks. Alternatively, an atomic swap of the content and the payment can occur across both networks using the asset exchange mode of SATP.
+Streaming services like Netflix and IPTV can tap into the cryptocurrency and DeFi user markets by offering content on distributed ledger networks using smart contracts. Instead of monthly subscriptions, they can offer pay-as-you-go streaming of arbitrarily low amounts to large numbers of users on such networks. Content transfer can be backed by NFTs, which users can redeem on any video or audio playback application. Because here already exist several payment networks for unregulated (e.g., Bitcoin) and regulated (e.g., CBDC) currencies, the content networks are likely to remain independent and not involve any monetary transactions on their own ledgers, as that would create safety and regulatory issues. Content transfer in a content network can be backed by a corresponding payment in a payment network if there is a facility to transfer payment receipts from the latter to the former. This can be fulfilled through the data sharing mode of SATP, whereby knowledge of payment along with authenticity proof can be communicated across networks. Alternatively, an atomic swap of the content and the payment can occur across both networks using the asset exchange mode of SATP.
 
-In a related example, if the user wishes to obtain content that is not available currently with the streaming service provider, that provider may seek and purchase that content from another distributer that is offering it on a different content network. The copyright to that content can be backed by NFTs and the secure transfer of those NFTs from one network to another will require SATP.
+In a related example, if users wish to obtain content that is not available currently with the streaming service provider, that provider may seek and purchase that content from another distributer that is offering it on a different content network. The copyright to that content can be backed by NFTs and the secure transfer of those NFTs from one network to another will require SATP.
 
-Though these examples show what is possible, there are actual ongoing attempts to facilitate transactions of this ilk by prominent content providers and even countries. In China, for instance, telecom operators like China Mobile and Huawei, and companies like Alibaba Cloud, are building large-scale networks like the Blockchain-based Service Network (BSN) {{BSN22}} and data exchanges {{CDE23}} using distributed ledger technology to facilitate cross-system applications for content exchanges and transfers.
+Though these examples show what is possible, ongoing initiatives in Europe and China are aimed at facilitating data and asset transfers. Since 2022, China has issued a series of policies and guidelines to promote the development of a nationwide data market that supports data elements' assetization, capitalization, and circulation {{CNMeas}}. A multi-layered national data infrastructure is slated be built by the end of 2029 to support transaction, transmission, and utilization, of data; telecom operators like China Mobile and China Unicom are building large- scale networks to enable data transmission {{CNDatInf}}. Design and implementation of this infrastructure will be guided by the newly established National Data Standardization Technical Committee (TC609), which will coordinate with existing data circulation standards organizations like ISO/IEC JTC 1/SC 32 and ISO/IEC JTC 1/SC 42, and reuse existing standards.
+
+In Europe, several projects like Gaia-X {{GaiaX}} and Catena-X {{CatenaX}} aim to create secure, decentralized, and interoperable data infrastructures. Catena-X specifically targets data exchanges in automotive industry operations while Gaia-X is a more generic, EU-wide data infrastructure. The International Data Spaces Association (IDSA) produces several ISO standards like ISO/IEC AWI 20151 and ISO/IEC 23751:2022 for exchanges across data spaces {{IDSA}}. The IDSA also partners with the Eclipse Foundation to implement open-source solutions {{EclDS}} and jointly develop the Dataspace Protocol (DSP), using which data usage policies, usage contracts, and schemas can be negotiated (in the so-called "control plane") between two data-exchange gateway peers {{DSP}}. The actual post-negotiation data transfer (in the so-called "data plane") is out of scope of DSP, and here SATP can fill the gap.
 
 # Trustworthy DNS Resource Record Migrations using an Augmented EPP
 
@@ -811,7 +860,7 @@ The use cases provided as examples serve to illustrate instances of general phen
 
 {: #satp-usecases-contributors}
 
-The authors would like to thank André Augusto of INESC-ID and Técnico Lisboa (Portugal), Zainan Victor Zhou of Namefi by D3Serve Labs, and Dr. Chunchi (Peter) Liu of Huawei Research, for reviewing this draft and suggesting (and inspiring) use cases in the areas of CBDC, stock options trading, streaming media commerce, and DNS record maintenance, which augmented the existing use cases to show more applications for the interoperability modes listed in the SATP Architecture document.
+The authors would like to thank André Augusto of INESC-ID and Técnico Lisboa (Portugal), Zainan Victor Zhou of Namefi by D3Serve Labs, and Hyojin Song of Seoul National University (South Korea) for reviewing this draft, helping us improve its quality, and inspiring use cases in the areas of CBDC and DNS record maintenance, which augmented the existing use cases to show more applications for the interoperability modes listed in the SATP Architecture document.
 
 
 --- back
