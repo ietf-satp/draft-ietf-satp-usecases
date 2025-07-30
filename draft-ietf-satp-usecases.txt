@@ -88,10 +88,11 @@ Table of Contents
    6.  Trustworthy DNS Resource Record Migrations using an Augmented
            EPP
    7.  Interoperation Protocol Considerations
-   8.  Contributors
-   9.  References
-     9.1.  Normative References
-     9.2.  Informative References
+   8.  IANA Considerations
+   9.  Contributors
+   10. References
+     10.1.  Normative References
+     10.2.  Informative References
    Authors' Addresses
 
 1.  Introduction
@@ -128,8 +129,8 @@ Table of Contents
 2.  Terminology
 
    The following are some terminology used in the current document.  We
-   borrow terminology from NIST and ISO as much as possible, introducing
-   new terms only when needed:
+   borrow terminology from [NIST] and [ISO] as much as possible,
+   introducing new terms only when needed:
 
    *  Asset network (system): The network or system where a digital
       asset is utilized.
@@ -621,8 +622,8 @@ Table of Contents
    Options Clearing Corporation (OCC), stock exchanges (e.g., the
    Chicago Board Options Exchange), and brokerage firms, belong.  The
    OCC is the issuer and guarantor for all options and futures contracts
-   traded on U.S. exchanges.  It provides secured back-end clearing
-   services, while exchanges provide front-end trading markets.
+   traded on U.S. exchanges [OCC].  It provides secured back-end
+   clearing services, while exchanges provide front-end trading markets.
    Transfer and settlement of payments, just like in the DvP scenario,
    will typically occur in a dedicated payment network in which buyers
    and sellers of stock have currency accounts.  Options contract
@@ -888,7 +889,7 @@ Table of Contents
    sharing examples in Section 3 can be extrapolated to any kinds of
    data that need to be shared between networks running arbitrary
    workflows.  The asset transfer example in Section 4.1 and the asset
-   exchange example in Section 4.2 similarly can be extrapolated to any
+   exchange example in Section 4.3 similarly can be extrapolated to any
    kinds of digital assets lying within any kind of network.
    Considerations for the interoperability protocol, or SATP, can
    therefore be limited to standard distributed systems issues like
@@ -896,7 +897,11 @@ Table of Contents
    disregarding the nature of the assets, networks, and workflows, which
    can all remain opaque to the protocol.
 
-8.  Contributors
+8.  IANA Considerations
+
+   This document has no IANA actions.
+
+9.  Contributors
 
    The authors would like to thank André Augusto of INESC-ID and Técnico
    Lisboa (Portugal), Zainan Victor Zhou of Namefi by D3Serve Labs, and
@@ -906,9 +911,9 @@ Table of Contents
    existing use cases to show more applications for the interoperability
    modes listed in the SATP Architecture document.
 
-9.  References
+10.  References
 
-9.1.  Normative References
+10.1.  Normative References
 
    [Aug23]    Augusto, A., Belchior, R., Kocsis, I., Gönczy, L.,
               Vasconcelos, A., and M. Correia, "2023 IEEE International
@@ -1002,8 +1007,8 @@ Table of Contents
    [HLC]      Somogyvari, P., Sasan, J. S., Sato, I., Takeuchi, T.,
               Ramakrishna, V., Nishad, S., Narayanam, K., and D.
               Vinayagamurthy, "Introducing Hyperledger Cacti, a multi-
-              faceted pluggable interoperability framework. Hyperledger
-              Foundation Blog", November 2022,
+              faceted pluggable interoperability framework. Linux
+              Foundation Decentralized Trust Blog", November 2022,
               <https://www.lfdecentralizedtrust.org/blog/2022/11/07/
               introducing-hyperledger-cacti-a-multi-faceted-pluggable-
               interoperability-framework>.
@@ -1040,6 +1045,10 @@ Table of Contents
    [NIST]     Yaga, D., Mell, P., Roby, N., and K. Scarfone, "NIST
               Blockchain Technology Overview (NISTR-8202)", October
               2018, <https://doi.org/10.6028/NIST.IR.8202>.
+
+   [OCC]      Adam Hayes, "Options Clearing Corporation (OCC): Meaning,
+              Overview, History (Investopedia)", October 2022,
+              <https://www.investopedia.com/terms/o/occ.asp>.
 
    [PUbin]    Bank of America Merrill Lynch, BCS Information Systems,
               Credit Suisse, DBS Bank, HSBC, Morgan, J. P., Mitsubishi
@@ -1115,7 +1124,7 @@ Table of Contents
    [WET]      IBM, "we.trade", 2019, <https://www.ibm.com/case-studies/
               wetrade-blockchain-fintech-trade-finance>.
 
-9.2.  Informative References
+10.2.  Informative References
 
    [ABCH20]   Ankenbrand, T., Bieri, D., Cortivo, R., Hoehener, J., and
               T. Hardjono, "Proposal for a Comprehensive Crypto Asset
