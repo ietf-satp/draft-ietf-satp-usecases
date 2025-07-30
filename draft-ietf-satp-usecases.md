@@ -305,7 +305,7 @@ normative:
     - ins: D. Vinayagamurthy
     date: November 2022
     target: https://www.lfdecentralizedtrust.org/blog/2022/11/07/introducing-hyperledger-cacti-a-multi-faceted-pluggable-interoperability-framework
-    title: Introducing Hyperledger Cacti, a multi-faceted pluggable interoperability framework. Hyperledger Foundation Blog
+    title: Introducing Hyperledger Cacti, a multi-faceted pluggable interoperability framework. Linux Foundation Decentralized Trust Blog
   HLF:
     author:
     - ins: E. Androulaki
@@ -365,6 +365,12 @@ normative:
     date: October 2018
     target: https://doi.org/10.6028/NIST.IR.8202
     title: NIST Blockchain Technology Overview (NISTR-8202)
+  OCC:
+    author:
+    - ins: Adam Hayes
+    date: October 6, 2022
+    target: https://www.investopedia.com/terms/o/occ.asp
+    title: 'Options Clearing Corporation (OCC): Meaning, Overview, History (Investopedia)'
   PUbin:
     author:
     - ins: Bank of America Merrill Lynch
@@ -479,7 +485,7 @@ Business networks, built on both centralized and decentralized models, have emer
 
 {: #terminology-doc}
 
-The following are some terminology used in the current document. We borrow terminology from NIST and ISO as much as possible, introducing new terms only when needed:
+The following are some terminology used in the current document. We borrow terminology from {{NIST}} and {{ISO}} as much as possible, introducing new terms only when needed:
 
 - Asset network (system): The network or system where a digital asset is utilized.
 
@@ -762,7 +768,7 @@ In a variation of this example, the two commercial banks may hold CBDC accounts 
 
 {: #finance-currency-stock-options}
 
-Stock options are financial instruments that allow holders to buy or sell stock at predetermined prices until specific expiration dates {{StOpt}}. Exercising an option, i.e., buying or selling a stock by paying a “strike price”, involves a more complex cross-network financial transaction than the securities DvP use case. Option contracts can be managed and enforced in a specific business network (which we can label as a “stock network”) to which entities like an Options Clearing Corporation (OCC), stock exchanges (e.g., the Chicago Board Options Exchange), and brokerage firms, belong. The OCC is the issuer and guarantor for all options and futures contracts traded on U.S. exchanges. It provides secured back-end clearing services, while exchanges provide front-end trading markets. Transfer and settlement of payments, just like in the DvP scenario, will typically occur in a dedicated payment network in which buyers and sellers of stock have currency accounts. Options contract fulfilment requires the stock and payment networks to work in concert, and hence need SATP to coordinate transactions across them.
+Stock options are financial instruments that allow holders to buy or sell stock at predetermined prices until specific expiration dates {{StOpt}}. Exercising an option, i.e., buying or selling a stock by paying a “strike price”, involves a more complex cross-network financial transaction than the securities DvP use case. Option contracts can be managed and enforced in a specific business network (which we can label as a “stock network”) to which entities like an Options Clearing Corporation (OCC), stock exchanges (e.g., the Chicago Board Options Exchange), and brokerage firms, belong. The OCC is the issuer and guarantor for all options and futures contracts traded on U.S. exchanges {{OCC}}. It provides secured back-end clearing services, while exchanges provide front-end trading markets. Transfer and settlement of payments, just like in the DvP scenario, will typically occur in a dedicated payment network in which buyers and sellers of stock have currency accounts. Options contract fulfilment requires the stock and payment networks to work in concert, and hence need SATP to coordinate transactions across them.
 
 Figure 7 illustrates a simplified flow for the exercising of a “call” option, where a buyer acquires stock from a seller by paying it a strike price. First, the buyer informs its brokerage, which then notifies its exchange about the buyer's intent to exercise the option. The exchange in turn notifies the OCC in the Stock Network. (All these notifications typically occur via a smart contract). Steps 1-2 illustrate these notifications. The OCC then verifies the contract’s validity and the buyer’s right to exercise the option. If this is successful, the OCC triggers a payment request to the buyer through a contract-to-contract communication from the Stock Network to the Payment Network (step 3). (Alternatively, the buyer may trigger a payment request in the Payment Network, which then requests the Stock Network for proof of the contract’s validity from the OCC before approving the payment.) The buyer then pays the strike price to the seller (step 4). The payment receipt is now sent to the Stock Network for the OCC’s verification (or alternatively, the buyer can request the OCC to fetch and verify the receipt from the Payment Network) and fulfilment of the contract (step 5). The OCC, via the exchange, requests the brokerage to transfer stock from the seller’s to the buyer’s account (steps 6-7).
 
@@ -854,7 +860,13 @@ This scenario additionally illustrates an example of what typically occurs in St
 
 {: #interop-protocol-considerations}
 
-The use cases provided as examples serve to illustrate instances of general phenomena that the Secure Asset Transfer Protocol {{SATP}}, with a limited number of variations, is designed to handle. The data sharing examples in Section 3 can be extrapolated to any kinds of data that need to be shared between networks running arbitrary workflows. The asset transfer example in Section 4.1 and the asset exchange example in Section 4.2 similarly can be extrapolated to any kinds of digital assets lying within any kind of network. Considerations for the interoperability protocol, or SATP, can therefore be limited to standard distributed systems issues like integrity, fault tolerance, and liveness, while completely disregarding the nature of the assets, networks, and workflows, which can all remain opaque to the protocol.
+The use cases provided as examples serve to illustrate instances of general phenomena that the Secure Asset Transfer Protocol {{SATP}}, with a limited number of variations, is designed to handle. The data sharing examples in Section 3 can be extrapolated to any kinds of data that need to be shared between networks running arbitrary workflows. The asset transfer example in Section 4.1 and the asset exchange example in Section 4.3 similarly can be extrapolated to any kinds of digital assets lying within any kind of network. Considerations for the interoperability protocol, or SATP, can therefore be limited to standard distributed systems issues like integrity, fault tolerance, and liveness, while completely disregarding the nature of the assets, networks, and workflows, which can all remain opaque to the protocol.
+
+# IANA Considerations
+
+{: #satp-iana-considerations}
+
+This document has no IANA actions.
 
 # Contributors
 
