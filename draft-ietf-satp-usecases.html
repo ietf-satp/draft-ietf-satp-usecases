@@ -1,0 +1,1986 @@
+<!DOCTYPE html>
+<html lang="en" class="Internet-Draft">
+<head>
+<meta charset="utf-8">
+<meta content="Common,Latin" name="scripts">
+<meta content="initial-scale=1.0" name="viewport">
+<title>Secure Asset Transfer (SAT) Use Cases</title>
+<meta content="Venkatraman Ramakrishna" name="author">
+<meta content="Thomas Hardjono" name="author">
+<meta content="Chunchi (Peter) Liu" name="author">
+<meta content="
+       This document describes prominent scenarios where enterprise systems and networks maintaining digital assets require the ability to securely transfer assets or data to each other. 
+    " name="description">
+<meta content="xml2rfc 3.30.0" name="generator">
+<meta content="Internet-Draft" name="keyword">
+<meta content="draft-ietf-satp-usecases-latest" name="ietf.draft">
+<!-- Generator version information:
+  xml2rfc 3.30.0
+    Python 3.12.11
+    ConfigArgParse 1.7
+    google-i18n-address 3.1.1
+    intervaltree 3.1.0
+    Jinja2 3.1.6
+    lxml 5.3.1
+    platformdirs 4.3.8
+    pycountry 24.6.1
+    PyYAML 6.0.2
+    requests 2.32.4
+    setuptools 80.9.0
+    wcwidth 0.2.13
+-->
+<link href="draft-ietf-satp-usecases.xml" rel="alternate" type="application/rfc+xml">
+<link href="#copyright" rel="license">
+<style type="text/css">@font-face {
+  font-family: 'Lora';
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: local('Lora Italic'), local('Lora-Italic'), url('https://martinthomson.github.io/rfc-css/fonts/lora-italic-cyrillic-ext.woff2') format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+@font-face {
+  font-family: 'Lora';
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: local('Lora Italic'), local('Lora-Italic'), url('https://martinthomson.github.io/rfc-css/fonts/lora-italic-cyrillic-ext.woff2') format('woff2');
+  unicode-range: U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+@font-face {
+  font-family: 'Lora';
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: local('Lora Italic'), local('Lora-Italic'), url('https://martinthomson.github.io/rfc-css/fonts/lora-italic-vietnamese.woff2') format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+1EA0-1EF9, U+20AB;
+}
+@font-face {
+  font-family: 'Lora';
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: local('Lora Italic'), local('Lora-Italic'), url('https://martinthomson.github.io/rfc-css/fonts/lora-italic-latin-ext.woff2') format('woff2');
+  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+@font-face {
+  font-family: 'Lora';
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: local('Lora Italic'), local('Lora-Italic'), url('https://martinthomson.github.io/rfc-css/fonts/lora-italic-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Lora';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local('Lora Regular'), local('Lora-Regular'), url('https://martinthomson.github.io/rfc-css/fonts/lora-regular-cyrillic-ext.woff2') format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+@font-face {
+  font-family: 'Lora';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local('Lora Regular'), local('Lora-Regular'), url('https://martinthomson.github.io/rfc-css/fonts/lora-regular-cyrillic.woff2') format('woff2');
+  unicode-range: U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+@font-face {
+  font-family: 'Lora';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local('Lora Regular'), local('Lora-Regular'), url('https://martinthomson.github.io/rfc-css/fonts/lora-regular-vietnamese.woff2') format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+1EA0-1EF9, U+20AB;
+}
+@font-face {
+  font-family: 'Lora';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local('Lora Regular'), local('Lora-Regular'), url('https://martinthomson.github.io/rfc-css/fonts/lora-regular-latin-ext.woff2') format('woff2');
+  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Lora';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local('Lora Regular'), local('Lora-Regular'), url('https://martinthomson.github.io/rfc-css/fonts/lora-regular-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: 'Lora';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: local('Lora Bold'), local('Lora-Bold'), url('https://martinthomson.github.io/rfc-css/fonts/lora-bold-cyrillic-ext.woff2') format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+@font-face {
+  font-family: 'Lora';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: local('Lora Bold'), local('Lora-Bold'), url('https://martinthomson.github.io/rfc-css/fonts/lora-bold-cyrillic.woff2') format('woff2');
+  unicode-range: U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+@font-face {
+  font-family: 'Lora';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: local('Lora Bold'), local('Lora-Bold'), url('https://martinthomson.github.io/rfc-css/fonts/lora-bold-vietnamese.woff2') format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+1EA0-1EF9, U+20AB;
+}
+@font-face {
+  font-family: 'Lora';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: local('Lora Bold'), local('Lora-Bold'), url('https://martinthomson.github.io/rfc-css/fonts/lora-bold-latin-ext.woff2') format('woff2');
+  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Lora';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: local('Lora Bold'), local('Lora-Bold'), url('https://martinthomson.github.io/rfc-css/fonts/lora-bold-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Lora';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: local('Lora SemiBold'), local('Lora-SemiBold'), url('https://martinthomson.github.io/rfc-css/fonts/lora-semibold-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: 'Oxygen Mono';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local('Oxygen Mono'), local('OxygenMono-Regular'), url('https://martinthomson.github.io/rfc-css/fonts/oxygenmono-regular-latin-ext.woff2') format('woff2');
+  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Oxygen Mono';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local('Oxygen Mono'), local('OxygenMono-Regular'), url('https://martinthomson.github.io/rfc-css/fonts/oxygenmono-regular-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: 'Sofia Sans Semi Condensed';
+  font-style: italic;
+  font-weight: 1 1000;
+  src: url('https://martinthomson.github.io/rfc-css/fonts/sofiasanssemicondensed-italic-cyrillic-ext.woff2') format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+@font-face {
+  font-family: 'Sofia Sans Semi Condensed';
+  font-style: italic;
+  font-weight: 1 1000;
+  src: url('https://martinthomson.github.io/rfc-css/fonts/sofiasanssemicondensed-italic-cyrillic.woff2') format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+@font-face {
+  font-family: 'Sofia Sans Semi Condensed';
+  font-style: italic;
+  font-weight: 1 1000;
+  src: url('https://martinthomson.github.io/rfc-css/fonts/sofiasanssemicondensed-italic-greek.woff2') format('woff2');
+  unicode-range: U+0370-0377, U+037A-037F, U+0384-038A, U+038C, U+038E-03A1, U+03A3-03FF;
+}
+@font-face {
+  font-family: 'Sofia Sans Semi Condensed';
+  font-style: italic;
+  font-weight: 1 1000;
+  src: url('https://martinthomson.github.io/rfc-css/fonts/sofiasanssemicondensed-italic-latin-ext.woff2') format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Sofia Sans Semi Condensed';
+  font-style: italic;
+  font-weight: 1 1000;
+  src: url('https://martinthomson.github.io/rfc-css/fonts/sofiasanssemicondensed-italic-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Sofia Sans Semi Condensed';
+  font-style: normal;
+  font-weight: 1 1000;
+  src: url('https://martinthomson.github.io/rfc-css/fonts/sofiasanssemicondensed-regular-cyrillic-ext.woff2') format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+@font-face {
+  font-family: 'Sofia Sans Semi Condensed';
+  font-style: normal;
+  font-weight: 1 1000;
+  src: url('https://martinthomson.github.io/rfc-css/fonts/sofiasanssemicondensed-regular-cyrillic.woff2') format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+@font-face {
+  font-family: 'Sofia Sans Semi Condensed';
+  font-style: normal;
+  font-weight: 1 1000;
+  src: url('https://martinthomson.github.io/rfc-css/fonts/sofiasanssemicondensed-regular-greek.woff2') format('woff2');
+  unicode-range: U+0370-0377, U+037A-037F, U+0384-038A, U+038C, U+038E-03A1, U+03A3-03FF;
+}
+@font-face {
+  font-family: 'Sofia Sans Semi Condensed';
+  font-style: normal;
+  font-weight: 1 1000;
+  src: url('https://martinthomson.github.io/rfc-css/fonts/sofiasanssemicondensed-regular-latin-ext.woff2') format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Sofia Sans Semi Condensed';
+  font-style: normal;
+  font-weight: 1 1000;
+  src: url('https://martinthomson.github.io/rfc-css/fonts/sofiasanssemicondensed-regular-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+:root {
+  color-scheme: light dark;
+  --background-color: #fff;
+  --text-color: #222;
+  --title-color: #191919;
+  --link-color: #2a6496;
+  --highlight-color: #f9f9f9;
+  --line-color: #eee;
+  --pilcrow-weak: #ddd;
+  --pilcrow-strong: #bbb;
+  --small-font-size: 14.5px;
+  --font-mono: 'Oxygen Mono', monospace;
+  --font-title: "Sofia Sans Semi Condensed", sans-serif;
+  scrollbar-color: #bbb #eee;
+}
+body {
+  max-width: 600px;
+  margin: 75px auto;
+  padding: 0 5px;
+  color: var(--text-color);
+  background-color: var(--background-color);
+  font: 16px/22px "Lora", serif;
+  scroll-behavior: smooth;
+}
+
+.ears {
+  display: none;
+}
+
+/* headings */
+section {
+  clear: both;
+}
+.section-number {
+  padding-right: 0.5em;
+}
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-title);
+  font-weight: 680;
+  margin: 0.8em 0 0.3em;
+  font-size-adjust: 0.5;
+  color: var(--title-color);
+}
+h1#title {
+  font-size: 32px;
+  line-height: 40px;
+  clear: both;
+}
+h1#title, h1#rfcnum {
+  margin: 1.5em 0 0.2em;
+}
+h1#rfcnum + h1#title {
+  margin: 0.2em 0;
+}
+
+h1, h2, h3 {
+  font-size: 22px;
+  line-height: 27px;
+}
+h4, h5, h6 {
+  font-size: 20px;
+  line-height: 24px;
+}
+
+/* general structure */
+.author {
+  padding-bottom: 0.3em;
+  vertical-align: top;
+}
+#abstract+p {
+  font-size: 18px;
+  line-height: 24px;
+}
+#abstract+p code, #abstract+p samp, #abstract+p tt {
+  font-size: 16px;
+  line-height: 0;
+}
+
+p {
+  padding: 0;
+  margin: 0.5em 0;
+  text-align: left;
+}
+div {
+  margin: 0;
+}
+.alignRight.art-text {
+  background-color: var(--highlight-color);
+  border: 1px solid var(--line-color);
+  border-radius: 3px;
+  padding: 0.5em 1em 0;
+  margin-bottom: 0.5em;
+}
+.alignRight.art-text pre {
+  padding: 0;
+  width: auto;
+}
+.alignRight {
+  margin: 1em 0;
+}
+.alignRight > *:first-child {
+  border: none;
+  margin: 0;
+  float: right;
+  clear: both;
+}
+.alignRight > *:nth-child(2) {
+  clear: both;
+  display: block;
+  border: none;
+}
+svg {
+  display: block;
+}
+/* font-family isn't space-separated, but =~ will have to do */
+svg[font-family~="monospace" i], svg [font-family~="monospace" i] {
+  font-family: var(--font-mono);
+}
+.alignCenter.art-text {
+  background-color: var(--highlight-color);
+  border: 1px solid var(--line-color);
+  border-radius: 3px;
+  padding: 0.5em 1em 0;
+  margin-bottom: 0.5em;
+}
+.alignCenter.art-text pre {
+  padding: 0;
+  width: auto;
+}
+.alignCenter {
+  margin: 1em 0;
+}
+.alignCenter > *:first-child {
+  border: none;
+  /* this isn't optimal, but it's an existence proof.  PrinceXML doesn't
+     support flexbox yet.
+  */
+  display: table;
+  margin: 0 auto;
+}
+
+/* lists */
+ol, ul {
+  padding: 0;
+  margin: 0 0 0.5em 2em;
+  & :is(ol, ul) {
+    margin-left: 1em;
+  }
+}
+li {
+  margin: 0 0 0.25em 0;
+}
+ul.empty, .ulEmpty {
+  list-style-type: none;
+  & li {
+    margin-top: 0.5em;
+  }
+}
+:is(ul, ol).compact, .ulCompact, .olCompact {
+  margin: 0 0 0 2em;
+  & li {
+    margin: 0;
+    & :first-child { margin-top: 0; }
+    & :last-child { margin-bottom: 0; }
+  }
+}
+
+/* definition lists */
+dl {
+  clear: left;
+  --indent: 3ch;
+  /* --indent: attr(indent ch); not supported in any browser, but we can dream */
+  &.olPercent {
+    --indent: 5ch;
+    & > dt {
+      min-width: calc(var(--indent) - 2ch);
+    }
+  }
+  &.olPercent > dt {
+    float: none;
+  }
+
+  dl > dd > & {
+    margin-top: 0.5em;
+    margin-bottom: 0;
+  }
+}
+dl:not(.dlNewline) > dt {
+  float: left;
+  margin-right: 2ch;
+  min-width: 8ch;
+}
+dl > dd {
+  margin-bottom: .8em;
+  margin-left: var(--indent) !important; /* stupid element overrides */
+  min-height: 2ex;
+}
+:is(dl.compact, .dlCompact) > dd {
+  margin-bottom: 0;
+  & > :is(:first-child, .break:first-child + *) {
+    margin-top: 0;
+  }
+  & > :is(:last-child) {
+    margin-bottom: 0;
+  }
+}
+:is(dd, span).break {
+  display: none;
+}
+
+/* links */
+a, a[href].selfRef:hover {
+  text-decoration: none;
+}
+a[href] {
+  color: var(--link-color);
+}
+a[href].selfRef, .iref + a[href].internal {
+  color: var(--text-color);
+}
+a[href]:hover {
+  text-decoration: underline;
+}
+a[href].selfRef:hover {
+  background-color: var(--highlight-color);
+}
+a.xref:is(.cite, .auto), :is(#status-of-memo, #copyright) a {
+  white-space: nowrap;
+}
+
+/* Figures */
+tt, code, pre {
+  background-color: var(--highlight-color);
+  font: 14px/22px var(--font-mono);
+}
+tt, code {
+  /* changing the font for inline elements leads to different ascender
+     and descender heights; as we want to retain baseline alignment,
+     remove leading to avoid altering the final height of lines
+     note: this fails if these blocks take an entire line,
+     a different solution would be great */
+  line-height: 0;
+}
+:is(h1, h2, h3, h4, h5, h6) :is(tt, code) {
+  font-size: 84%;
+}
+pre {
+  border: 1px solid var(--line-color);
+  font-size: 13.5px;
+  line-height: 16px;
+  letter-spacing: -0.2px;
+  margin: 5px;
+  padding: 5px;
+}
+img {
+  max-width: 100%;
+}
+figure {
+  margin: 0.5em 0;
+  padding: 0;
+}
+figure blockquote {
+  margin: 0.8em 0.4em 0.4em;
+}
+figcaption, caption {
+  font-style: italic;
+  margin: 0.5em 1.5em;
+  text-align: left;
+  caption-side: bottom;
+}
+@media screen {
+  /* Auto-collapse boilerplate. */
+  :is(#status-of-memo, #copyright) p {
+    margin: -2px 0;
+    max-height: 0;
+    transition: max-height 2s ease, margin 0.5s ease 0.5s;
+    overflow: hidden;
+  }
+  :is(#status-of-memo, #copyright):hover p,
+  :is(#status-of-memo, #copyright) h2:target ~ p {
+    margin: 0.5em 0;
+    max-height: 500px;
+    overflow: auto;
+  }
+  pre, svg {
+    display: inline-block;
+    /* In the horizontal direction, sometimes people make over-sized figures.
+       Scrollbars for those is therefore necessary: auto adds them as necessary..
+       In the vertical direction, the line-height can combine with the font
+       asender/descender height to produce scrollbars: hidden avoids that. */
+    overflow: auto hidden;
+  }
+  pre {
+    max-width: 100%;
+    width: calc(100% - 22px - 1em);
+  }
+  svg {
+    max-width: calc(100% - 22px - 1em);
+  }
+  figure pre {
+    display: block;
+    width: calc(100% - 25px);
+  }
+  :is(pre, svg) + .pilcrow {
+    display: inline-block;
+    vertical-align: text-bottom;
+    padding-bottom: 8px;
+  }
+}
+
+/* aside, blockquote */
+aside, blockquote {
+  margin-left: 0;
+  padding: 0 2em;
+  font-style: italic;
+}
+blockquote {
+  margin: 1em 0;
+}
+cite {
+  display: block;
+  text-align: right;
+  font-style: italic;
+}
+
+/* tables */
+table {
+  width: auto;
+  max-width: 100%;
+  margin: 0 0 1em;
+  border-collapse: collapse;
+}
+table.right {
+  margin-left: auto;
+}
+table.center {
+  margin-left: auto;
+  margin-right: auto;
+}
+table.left {
+  margin-right: auto;
+}
+table .text-left {
+  text-align: left;
+}
+table .text-center {
+  text-align: center;
+}
+table .text-right {
+  text-align: right;
+}
+
+thead, tbody {
+  border: 1px solid var(--line-color);
+}
+th, td {
+  text-align: left;
+  vertical-align: top;
+  padding: 5px 10px;
+}
+th {
+  background-color: var(--line-color);
+}
+:is(tr:nth-child(2n), thead+tbody > tr:nth-child(2n+1)) > td {
+  background-color: var(--background-color);
+}
+:is(tr:nth-child(2n+1), thead+tbody > tr:nth-child(2n)) > td {
+  background-color: var(--highlight-color);
+}
+table caption {
+  margin: 0;
+  padding: 3px 0 3px 1em;
+}
+table p {
+  margin: 0;
+}
+
+/* pilcrow */
+a.pilcrow {
+  margin-left: 3px;
+  opacity: 0.2;
+  user-select: none;
+  &[href] {
+    color: var(--pilcrow-weak);
+    &:hover { text-decoration: none; }
+  }
+}
+@media not print {
+  :hover > a.pilcrow {
+    opacity: 1;
+  }
+  a.pilcrow[href]:hover {
+    color: var(--pilcrow-strong);
+    background-color: transparent;
+  }
+}
+@media print {
+  a.pilcrow {
+    display: none;
+  }
+}
+
+/* misc */
+hr {
+  border: 0;
+  border-top: 1px solid var(--line-color);
+}
+.bcp14 {
+  font-variant: small-caps;
+  font-weight: 600;
+  font-size: var(--small-font-size);
+}
+.role {
+  font-variant: all-small-caps;
+}
+sub, sup {
+  line-height: 1;
+  font-size: 80%;
+}
+
+/* info block */
+#identifiers {
+  margin: 0;
+  font-size: var(--small-font-size);
+  line-height: 18px;
+  --identifier-width: 15ch;
+  & dt {
+    width: var(--identifier-width);
+    min-width: var(--identifier-width);
+    clear: left;
+    float: left;
+    text-align: right;
+    margin-right: 1ch;
+  }
+  & dd {
+    margin: 0;
+    margin-left: calc(1em + var(--identifier-width)) !important;
+    min-width: 5em;
+  }
+  & .authors {
+    & .author {
+      display: inline-block;
+      margin-right: 1.5em;
+    }
+    & .org {
+      font-style: italic;
+    }
+  }
+}
+
+/* The prepared/rendered info at the very bottom of the page */
+.docInfo {
+  color: #999;
+  font-size: 0.9em;
+  font-style: italic;
+  margin-top: 2em;
+}
+.docInfo .prepared {
+  float: right;
+}
+
+/* table of contents */
+#toc {
+  padding: 0.75em 0 2em 0;
+  margin-bottom: 1em;
+
+  & nav {
+    & ul {
+      margin: 0 0.5em 0 0;
+      padding: 0;
+      list-style: none;
+    }
+    & li {
+      line-height: 1.3em;
+      margin: 2px 0;
+      padding-left: 1.2em;
+      text-indent: -1.2em;
+    }
+  }
+  & a.xref {
+    white-space: normal;
+  }
+}
+
+.references {
+  & > dt {
+    text-align: right;
+    font-weight: bold;
+    min-width: 10ch;
+    margin-right: 1.5ch;
+    &:target::before {
+      content: "⇒";
+      margin: 0 10px 0 -25px;
+    }
+  }
+  & > dd {
+    margin-left: 12ch !important;
+    overflow: visible;
+    & .refInstance {
+      margin-bottom: 0.8em;
+    }
+    & .ascii {
+      margin-bottom: 0.25em;
+    }
+  }
+}
+
+#rfc\.index\.index + ul {
+  margin-left: 0;
+}
+
+/* authors */
+address.vcard {
+  font-style: normal;
+  max-width: 20em;
+  margin: 1em auto 1em 0;
+
+  & .nameRole {
+    font-weight: 700;
+    margin-left: 0;
+  }
+  & .label {
+    margin: 0.5em 0;
+  }
+  & .type {
+    display: none;
+  }
+  & .alternative-contact {
+    margin: 0.5em 0 0.25em 0;
+  }
+  & .non-ascii {
+    margin: 0 0 0 2em;
+  }
+  & div.left {
+    text-align: left;
+  }
+  & div.right {
+    text-align: right;
+  }
+}
+
+hr.addr {
+  border-top: 1px dashed;
+  margin: 0;
+  color: #ddd;
+  max-width: calc(100% - 16px);
+}
+@media (min-width: 500px) {
+  #authors-addresses > section {
+    column-count: 2;
+    column-gap: 20px;
+  }
+  #authors-addresses > section > h2 {
+    column-span: all;
+  }
+  /* hack for break-inside: avoid-column */
+  #authors-addresses address {
+    display: inline-block;
+    break-inside: avoid-column;
+  }
+}
+
+/* Comments */
+.rfcEditorRemove p:first-of-type {
+  font-style: italic;
+}
+.cref {
+  background-color: rgba(249, 232, 105, 0.3);
+  padding: 2px 4px;
+}
+.crefSource {
+  font-style: italic;
+}
+
+@media screen {
+  #toc nav {
+    font-family: var(--font-title);
+    font-weight: 360;
+    & > ul { margin-bottom: 2em; }
+    & ul {
+      margin: 0 0 0 4px;
+      & :is(p, li) {
+        margin: 2px 0;
+      }
+    }
+  }
+  #toc a.toplink {
+    float: right;
+  }
+}
+@media not screen {
+  #toc a.toplink {
+    display: none;
+  }
+}
+
+
+/* TOC layout for smaller screens */
+@media screen and (max-width: 929px) {
+  #toc {
+    position: fixed;
+    z-index: 2;
+    top: 0;
+    right: 0;
+    padding: 1px 0 0 0;
+    margin: 0;
+    border-bottom: 1px solid #ccc;
+    opacity: 0.6;
+  }
+  #toc h2 {
+    margin: 0;
+    padding: 2px 0 2px 6px;
+    padding-right: 1em;
+    font-size: 18px;
+    line-height: 24px;
+    min-width: 190px;
+    text-align: right;
+    background-color: #444;
+    color: white;
+    cursor: pointer;
+    &::before { /* css hamburger */
+      float: right;
+      position: relative;
+      width: 1em;
+      height: 1px;
+      left: -164px;
+      margin: 8px 0 0 0;
+      background: white none repeat scroll 0 0;
+      box-shadow: 0 4px 0 0 white, 0 8px 0 0 white;
+      content: "";
+    }
+  }
+  #toc nav {
+    display: none;
+    background-color: var(--background-color);
+    padding: 0.5em 1em 1em;
+    overflow: auto;
+    overscroll-behavior: contain;
+    height: calc(100vh - 48px);
+    border-left: 1px solid #ddd;
+  }
+  #toc.active {
+    opacity: 1;
+    & nav { display: block; }
+  }
+  /* Make the collapsed ToC header render white on gray also when it's a link */
+  #toc h2 a,
+  #toc h2 a:is(:link, :focus, :hover),
+  #toc a.toplink,
+  #toc a.toplink:hover {
+    color: white;
+    background-color: #444;
+    text-decoration: none;
+  }
+  #toc a.toplink {
+    margin: 2px 0.5em 0;
+  }
+}
+
+/* TOC layout for wide screens */
+@media screen and (min-width: 930px) {
+  body {
+    padding-right: 360px;
+    padding-right: calc(min(180px + 20%, 500px));
+  }
+  #toc {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    right: calc(50vw - 480px);
+    width: 312px;
+    margin: 0;
+    padding: 0;
+    z-index: 1;
+  }
+  #toc h2 {
+    margin: 0;
+    padding: 0.25em 1em 1em 0;
+  }
+  #toc nav {
+    display: block;
+    height: calc(90vh - 84px);
+    bottom: 0;
+    padding: 0.5em 0 2em;
+    overflow: auto;
+    overscroll-behavior: contain;
+    scrollbar-width: thin;
+  }
+  img { /* future proofing */
+    max-width: 100%;
+    height: auto;
+  }
+  #toc a.toplink {
+    margin: 8px 0.5em 0;
+  }
+}
+
+/* pagination */
+@media print {
+  body {
+    width: 100%;
+  }
+  p {
+    orphans: 3;
+    widows: 3;
+  }
+  #n-copyright-notice {
+    border-bottom: none;
+  }
+  #toc, #n-introduction {
+    page-break-before: always;
+  }
+  #toc {
+    border-top: none;
+    padding-top: 0;
+  }
+  figure, pre, .vcard {
+    page-break-inside: avoid;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    page-break-after: avoid;
+  }
+  :is(h2, h3, h4, h5, h6)+*, dd {
+    page-break-before: avoid;
+  }
+  pre {
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    font-size: 10pt;
+  }
+  table {
+    border: 1px solid #ddd;
+  }
+  td {
+    border-top: 1px solid #ddd;
+  }
+}
+
+@page :first {
+  padding-top: 0;
+  @top-left {
+    content: normal;
+    border: none;
+  }
+  @top-center {
+    content: normal;
+    border: none;
+  }
+  @top-right {
+    content: normal;
+    border: none;
+  }
+}
+
+@page {
+  size: A4;
+  margin-bottom: 45mm;
+  padding-top: 20px;
+}
+
+/* Dark mode. */
+@media (prefers-color-scheme: dark) {
+:root {
+  --background-color: #121212;
+  --text-color: #f0f0f0;
+  --title-color: #fff;
+  --link-color: #4da4f0;
+  --highlight-color: #282828;
+  --line-color: #444;
+  --pilcrow-weak: #444;
+  --pilcrow-strong: #666;
+  scrollbar-color: #777 #333;
+}
+}
+
+/* SVG Trick: a prefix match works because only black and white are allowed */
+svg :is([stroke="black"], [stroke^="#000"]) {
+  stroke: var(--text-color);
+}
+svg :is([stroke="white"], [stroke^="#fff"]) {
+  stroke: var(--background-color);
+}
+svg :is([fill="black"], [fill^="#000"], :not([fill])) {
+  fill: var(--text-color);
+}
+svg :is([fill="white"], [fill^="#fff"]) {
+  fill: var(--background-color);
+}
+</style>
+
+</head>
+<body class="xml2rfc">
+<table class="ears">
+<thead><tr>
+<td class="left">Internet-Draft</td>
+<td class="center">SAT Use Cases</td>
+<td class="right">July 2025</td>
+</tr></thead>
+<tfoot><tr>
+<td class="left">Ramakrishna, et al.</td>
+<td class="center">Expires 31 January 2026</td>
+<td class="right">[Page]</td>
+</tr></tfoot>
+</table>
+<div id="external-metadata" class="document-information"></div>
+<div id="internal-metadata" class="document-information">
+<dl id="identifiers">
+<dt class="label-workgroup">Workgroup:</dt>
+<dd class="workgroup">Secure Asset Transfer Protocol</dd>
+<dt class="label-internet-draft">Internet-Draft:</dt>
+<dd class="internet-draft">draft-ietf-satp-usecases-latest</dd>
+<dt class="label-published">Published:</dt>
+<dd class="published">
+<time datetime="2025-07-30" class="published">30 July 2025</time>
+    </dd>
+<dt class="label-intended-status">Intended Status:</dt>
+<dd class="intended-status">Informational</dd>
+<dt class="label-expires">Expires:</dt>
+<dd class="expires"><time datetime="2026-01-31">31 January 2026</time></dd>
+<dt class="label-authors">Authors:</dt>
+<dd class="authors">
+<div class="author">
+      <div class="author-name">V. Ramakrishna</div>
+<div class="org">IBM Research</div>
+</div>
+<div class="author">
+      <div class="author-name">T. Hardjono</div>
+<div class="org">MIT</div>
+</div>
+<div class="author">
+      <div class="author-name">C. Liu</div>
+<div class="org">Huawei</div>
+</div>
+</dd>
+</dl>
+</div>
+<h1 id="title">Secure Asset Transfer (SAT) Use Cases</h1>
+<section id="section-abstract">
+      <h2 id="abstract"><a href="#abstract" class="selfRef">Abstract</a></h2>
+<p id="section-abstract-1">This document describes prominent scenarios where enterprise systems and networks maintaining digital assets require the ability to securely transfer assets or data to each other.<a href="#section-abstract-1" class="pilcrow">¶</a></p>
+</section>
+<section class="note rfcEditorRemove" id="section-note.1">
+      <h2 id="name-about-this-document">
+<a href="#name-about-this-document" class="section-name selfRef">About This Document</a>
+      </h2>
+<p id="section-note.1-1">This note is to be removed before publishing as an RFC.<a href="#section-note.1-1" class="pilcrow">¶</a></p>
+<p id="section-note.1-2">
+        The latest revision of this draft can be found at <span><a href="https://ietf-satp.github.io/draft-ietf-satp-usecases/draft-ietf-satp-usecases.html">https://ietf-satp.github.io/draft-ietf-satp-usecases/draft-ietf-satp-usecases.html</a></span>.
+        Status information for this document may be found at <span><a href="https://datatracker.ietf.org/doc/draft-ietf-satp-usecases/">https://datatracker.ietf.org/doc/draft-ietf-satp-usecases/</a></span>.<a href="#section-note.1-2" class="pilcrow">¶</a></p>
+<p id="section-note.1-3">
+        Discussion of this document takes place on the
+        Secure Asset Transfer Protocol Working Group mailing list (<span><a href="mailto:sat@ietf.org">mailto:sat@ietf.org</a></span>),
+        which is archived at <span><a href="https://mailarchive.ietf.org/arch/browse/sat/">https://mailarchive.ietf.org/arch/browse/sat/</a></span>.
+        Subscribe at <span><a href="https://www.ietf.org/mailman/listinfo/sat/">https://www.ietf.org/mailman/listinfo/sat/</a></span>.<a href="#section-note.1-3" class="pilcrow">¶</a></p>
+<p id="section-note.1-4">Source for this draft and an issue tracker can be found at
+        <span><a href="https://github.com/ietf-satp/draft-ietf-satp-usecases">https://github.com/ietf-satp/draft-ietf-satp-usecases</a></span>.<a href="#section-note.1-4" class="pilcrow">¶</a></p>
+</section>
+<div id="status-of-memo">
+<section id="section-boilerplate.1">
+        <h2 id="name-status-of-this-memo">
+<a href="#name-status-of-this-memo" class="section-name selfRef">Status of This Memo</a>
+        </h2>
+<p id="section-boilerplate.1-1">
+        This Internet-Draft is submitted in full conformance with the
+        provisions of BCP 78 and BCP 79.<a href="#section-boilerplate.1-1" class="pilcrow">¶</a></p>
+<p id="section-boilerplate.1-2">
+        Internet-Drafts are working documents of the Internet Engineering Task
+        Force (IETF). Note that other groups may also distribute working
+        documents as Internet-Drafts. The list of current Internet-Drafts is
+        at <span><a href="https://datatracker.ietf.org/drafts/current/">https://datatracker.ietf.org/drafts/current/</a></span>.<a href="#section-boilerplate.1-2" class="pilcrow">¶</a></p>
+<p id="section-boilerplate.1-3">
+        Internet-Drafts are draft documents valid for a maximum of six months
+        and may be updated, replaced, or obsoleted by other documents at any
+        time. It is inappropriate to use Internet-Drafts as reference
+        material or to cite them other than as "work in progress."<a href="#section-boilerplate.1-3" class="pilcrow">¶</a></p>
+<p id="section-boilerplate.1-4">
+        This Internet-Draft will expire on 31 January 2026.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="copyright">
+<section id="section-boilerplate.2">
+        <h2 id="name-copyright-notice">
+<a href="#name-copyright-notice" class="section-name selfRef">Copyright Notice</a>
+        </h2>
+<p id="section-boilerplate.2-1">
+            Copyright (c) 2025 IETF Trust and the persons identified as the
+            document authors. All rights reserved.<a href="#section-boilerplate.2-1" class="pilcrow">¶</a></p>
+<p id="section-boilerplate.2-2">
+            This document is subject to BCP 78 and the IETF Trust's Legal
+            Provisions Relating to IETF Documents
+            (<span><a href="https://trustee.ietf.org/license-info">https://trustee.ietf.org/license-info</a></span>) in effect on the date of
+            publication of this document. Please review these documents
+            carefully, as they describe your rights and restrictions with
+            respect to this document. Code Components extracted from this
+            document must include Revised BSD License text as described in
+            Section 4.e of the Trust Legal Provisions and are provided without
+            warranty as described in the Revised BSD License.<a href="#section-boilerplate.2-2" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="toc">
+<section id="section-toc.1">
+        <a href="#" onclick="scroll(0,0)" class="toplink">▲</a><h2 id="name-table-of-contents">
+<a href="#name-table-of-contents" class="section-name selfRef">Table of Contents</a>
+        </h2>
+<nav class="toc"><ul class="compact toc ulBare ulEmpty">
+<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.1">
+            <p id="section-toc.1-1.1.1" class="keepWithNext"><a href="#section-1" class="auto internal xref">1</a>.  <a href="#name-introduction" class="internal xref">Introduction</a></p>
+</li>
+          <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.2">
+            <p id="section-toc.1-1.2.1" class="keepWithNext"><a href="#section-2" class="auto internal xref">2</a>.  <a href="#name-terminology" class="internal xref">Terminology</a></p>
+</li>
+          <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3">
+            <p id="section-toc.1-1.3.1"><a href="#section-3" class="auto internal xref">3</a>.  <a href="#name-international-trade-and-sup" class="internal xref">International Trade and Supply Chains</a></p>
+<ul class="compact toc ulBare ulEmpty">
+<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.1">
+                <p id="section-toc.1-1.3.2.1.1" class="keepWithNext"><a href="#section-3.1" class="auto internal xref">3.1</a>.  <a href="#name-trade-finance-and-logistics" class="internal xref">Trade Finance and Logistics</a></p>
+</li>
+              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.2">
+                <p id="section-toc.1-1.3.2.2.1"><a href="#section-3.2" class="auto internal xref">3.2</a>.  <a href="#name-tracking-food-shipments" class="internal xref">Tracking Food Shipments</a></p>
+</li>
+              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.3">
+                <p id="section-toc.1-1.3.2.3.1"><a href="#section-3.3" class="auto internal xref">3.3</a>.  <a href="#name-supply-chain-management" class="internal xref">Supply Chain Management</a></p>
+</li>
+            </ul>
+</li>
+          <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4">
+            <p id="section-toc.1-1.4.1"><a href="#section-4" class="auto internal xref">4</a>.  <a href="#name-currency-and-finance" class="internal xref">Currency and Finance</a></p>
+<ul class="compact toc ulBare ulEmpty">
+<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4.2.1">
+                <p id="section-toc.1-1.4.2.1.1"><a href="#section-4.1" class="auto internal xref">4.1</a>.  <a href="#name-currency-transfers" class="internal xref">Currency Transfers</a></p>
+</li>
+              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4.2.2">
+                <p id="section-toc.1-1.4.2.2.1"><a href="#section-4.2" class="auto internal xref">4.2</a>.  <a href="#name-multi-cbdc-economy" class="internal xref">Multi-CBDC Economy</a></p>
+</li>
+              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4.2.3">
+                <p id="section-toc.1-1.4.2.3.1"><a href="#section-4.3" class="auto internal xref">4.3</a>.  <a href="#name-delivery-vs-payment-dvp-of-" class="internal xref">Delivery vs Payment (DvP) of Securities</a></p>
+</li>
+              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4.2.4">
+                <p id="section-toc.1-1.4.2.4.1"><a href="#section-4.4" class="auto internal xref">4.4</a>.  <a href="#name-stock-options-contract-fulf" class="internal xref">Stock Options Contract Fulfilment</a></p>
+</li>
+            </ul>
+</li>
+          <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.5">
+            <p id="section-toc.1-1.5.1"><a href="#section-5" class="auto internal xref">5</a>.  <a href="#name-decentralized-commerce-paym" class="internal xref">Decentralized Commerce: Payments for Goods and Services</a></p>
+<ul class="compact toc ulBare ulEmpty">
+<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.5.2.1">
+                <p id="section-toc.1-1.5.2.1.1"><a href="#section-5.1" class="auto internal xref">5.1</a>.  <a href="#name-transferal-of-digital-art-a" class="internal xref">Transferal of Digital Art and Payments across National Borders</a></p>
+</li>
+              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.5.2.2">
+                <p id="section-toc.1-1.5.2.2.1"><a href="#section-5.2" class="auto internal xref">5.2</a>.  <a href="#name-payment-for-streaming-servi" class="internal xref">Payment for Streaming Services</a></p>
+</li>
+            </ul>
+</li>
+          <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.6">
+            <p id="section-toc.1-1.6.1"><a href="#section-6" class="auto internal xref">6</a>.  <a href="#name-trustworthy-dns-resource-re" class="internal xref">Trustworthy DNS Resource Record Migrations using an Augmented EPP</a></p>
+</li>
+          <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.7">
+            <p id="section-toc.1-1.7.1"><a href="#section-7" class="auto internal xref">7</a>.  <a href="#name-interoperation-protocol-con" class="internal xref">Interoperation Protocol Considerations</a></p>
+</li>
+          <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.8">
+            <p id="section-toc.1-1.8.1"><a href="#section-8" class="auto internal xref">8</a>.  <a href="#name-contributors" class="internal xref">Contributors</a></p>
+</li>
+          <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.9">
+            <p id="section-toc.1-1.9.1"><a href="#section-9" class="auto internal xref">9</a>.  <a href="#name-references" class="internal xref">References</a></p>
+<ul class="compact toc ulBare ulEmpty">
+<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.9.2.1">
+                <p id="section-toc.1-1.9.2.1.1"><a href="#section-9.1" class="auto internal xref">9.1</a>.  <a href="#name-normative-references" class="internal xref">Normative References</a></p>
+</li>
+              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.9.2.2">
+                <p id="section-toc.1-1.9.2.2.1"><a href="#section-9.2" class="auto internal xref">9.2</a>.  <a href="#name-informative-references" class="internal xref">Informative References</a></p>
+</li>
+            </ul>
+</li>
+          <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.10">
+            <p id="section-toc.1-1.10.1"><a href="#appendix-A" class="auto internal xref"></a><a href="#name-authors-addresses" class="internal xref">Authors' Addresses</a></p>
+</li>
+        </ul>
+</nav>
+</section>
+</div>
+<div id="introduction">
+<section id="section-1">
+      <h2 id="name-introduction">
+<a href="#section-1" class="section-number selfRef">1. </a><a href="#name-introduction" class="section-name selfRef">Introduction</a>
+      </h2>
+<div id="introduction-doc">
+<p id="section-1-1">Business networks, built on both centralized and decentralized models, have emerged to manage cross-organization assets and workflows. The scope of such workflows and the assets they govern, as well as the set of participating organizations within a network, have been quite limited, partly for security, privacy, and scalability reasons, and partly because organizations have been reticent to moving large portions of their pre existing workflows to such networks. We see this especially in the areas of trade, finance, supply chain logistics, and property management. Yet the workflows managed by these networks are naturally interlinked in the real world, and therefore cannot afford to remain isolated from each other technologically, which would diminish the value of their assets. At the same time, a network, once built, has institutional staying power, and it is therefore impractical to assume that they will expand or merge. Interoperability is therefore an imperative in this fragmented business network ecosystem. This comes in different flavors, namely the ability to move an asset from one network to another, interlinking workflows to share asset state with proof of authenticity from one network to another, and swapping assets in different networks as part of a business transaction, as listed in the SAT Architecture Specification <span>[<a href="#SATA" class="cite xref">SATA</a>]</span>. The purpose of this document is to describe prominent examples of these modes that have been encountered by enterprises and business consortiums and identified as challenges to be overcome. In particular, this document describes scenarios where the Secure Asset Transfer Protocol (SATP) <span>[<a href="#SATP" class="cite xref">SATP</a>]</span> can be directly applied to solve the problem of moving digital assets across networks, for which no other canonical protocol exists in the literature.<a href="#section-1-1" class="pilcrow">¶</a></p>
+</div>
+</section>
+</div>
+<div id="terminology">
+<section id="section-2">
+      <h2 id="name-terminology">
+<a href="#section-2" class="section-number selfRef">2. </a><a href="#name-terminology" class="section-name selfRef">Terminology</a>
+      </h2>
+<div id="terminology-doc">
+<p id="section-2-1">The following are some terminology used in the current document. We borrow terminology from NIST and ISO as much as possible, introducing new terms only when needed:<a href="#section-2-1" class="pilcrow">¶</a></p>
+</div>
+<ul class="normal">
+<li class="normal" id="section-2-2.1">
+          <p id="section-2-2.1.1">Asset network (system): The network or system where a digital asset is utilized.<a href="#section-2-2.1.1" class="pilcrow">¶</a></p>
+</li>
+        <li class="normal" id="section-2-2.2">
+          <p id="section-2-2.2.1">Secure Asset Transfer Protocol (SATP): The protocol used to transfer (move) a digital asset from one network to another using gateways.<a href="#section-2-2.2.1" class="pilcrow">¶</a></p>
+</li>
+        <li class="normal" id="section-2-2.3">
+          <p id="section-2-2.3.1">Origin network: The current network where the digital asset is located.<a href="#section-2-2.3.1" class="pilcrow">¶</a></p>
+</li>
+        <li class="normal" id="section-2-2.4">
+          <p id="section-2-2.4.1">Destination network: The network to which a digital asset is to be transferred.<a href="#section-2-2.4.1" class="pilcrow">¶</a></p>
+</li>
+        <li class="normal" id="section-2-2.5">
+          <p id="section-2-2.5.1">Data sharing: The process, using the Asset Transfer Protocol, by which one or more units of verifiably authentic data are communicated from an Origin network to a Destination network, either voluntarily or upon request.<a href="#section-2-2.5.1" class="pilcrow">¶</a></p>
+</li>
+        <li class="normal" id="section-2-2.6">
+          <p id="section-2-2.6.1">Asset Transfer: A fail-safe process of moving an asset from one network to another, with the destruction of the asset in the Origin network and its recreation in the Destination network occurring as a single atomic action.<a href="#section-2-2.6.1" class="pilcrow">¶</a></p>
+</li>
+        <li class="normal" id="section-2-2.7">
+          <p id="section-2-2.7.1">Asset Exchange: A fail-safe process of exchanging (or swapping) assets held by a pair of owners, each asset being maintained in a different network, with the two in-network transfers occurring as a single atomic action.<a href="#section-2-2.7.1" class="pilcrow">¶</a></p>
+</li>
+      </ul>
+</section>
+</div>
+<div id="international-trade-and-supply-chains">
+<section id="section-3">
+      <h2 id="name-international-trade-and-sup">
+<a href="#section-3" class="section-number selfRef">3. </a><a href="#name-international-trade-and-sup" class="section-name selfRef">International Trade and Supply Chains</a>
+      </h2>
+<div id="trade-sc">
+<section id="section-3.1">
+        <h3 id="name-trade-finance-and-logistics">
+<a href="#section-3.1" class="section-number selfRef">3.1. </a><a href="#name-trade-finance-and-logistics" class="section-name selfRef">Trade Finance and Logistics</a>
+        </h3>
+<div id="trade-sc-overview">
+<p id="section-3.1-1">There are several real-world examples of consortium networks managing different aspects of international trade. Networks like We.Trade <span>[<a href="#WET" class="cite xref">WET</a>]</span>, built on Hyperledger Fabric <span>[<a href="#HLF" class="cite xref">HLF</a>]</span>, and Marco Polo <span>[<a href="#MP" class="cite xref">MP</a>]</span>, built on R3 Corda <span>[<a href="#R3C" class="cite xref">R3C</a>]</span>, manage trade finance workflows by connecting exporters, importers, and financial institutions (primarily banks). Other networks like TradeLens <span>[<a href="#TL" class="cite xref">TL</a>]</span>, built on Hyperledger Fabric, manage trade shipping and documentation logistics, by connecting exporters and shipping carriers. As an example, consider a system of two networks as illustrated in Figure 1: (a) a trade finance network managing letters of credit business lifecycles from application to fulfilment, and (b) a trade logistics network managing shipping consignment creation and dispatch documents like bills of lading.<a href="#section-3.1-1" class="pilcrow">¶</a></p>
+</div>
+<div id="trade-bill-figure">
+<figure id="figure-1">
+          <div class="alignLeft art-text artwork" id="section-3.1-2.1">
+<pre>
+      +------------+
+      | Exporter’s |  +----------+              +---------------------+
+      |    Bank    |  | Exporter |              |       Exporter      |
+      +------------+  +----------+              +---------------------+
+            | |            |                       | |              |
+       3    | |    5       |    4           1      | |      2       |   4
+    Approve | | Request    | Upload       Book     | |   Create     | Accept
+      L/C   | | Payment    |   B/L     Consignment | | Consignment  |  B/L
+            | |            |                       | |              |
+            V V            V                       V V              V
+    +-------------------------------+     +-------------------------------+
+    |     Trade Finance Network     |     |    Trade Logistics Network    |
+    +-------------------------------+     +-------------------------------+
+            ˄              ˄                           ˄     ˄
+       2    |              |    1               5      |     |    3
+    Propose |              | Request        Dispatch   |     | Upload
+      L/C   |              |   L/C         Consignment |     |   B/L
+            |              |                           |     |
+      +------------+  +----------+                 +-------------+
+      | Importer’s |  | Importer |                 |   Carrier   |
+      |    Bank    |  +----------+                 +-------------+
+      +------------+
+                   (a)                                   (b)
+</pre>
+</div>
+<figcaption><a href="#figure-1" class="selfRef">Figure 1</a></figcaption></figure>
+</div>
+<p id="section-3.1-3">An exporter who belongs to both systems must produce a valid bill of lading in the trade finance network to enforce a payment from the buyer to fulfil the terms of the letter of credit. But this bill, which serves as evidence of a shipping consignment’s dispatch via a carrier, lies in the other, i.e., trade logistics, network.  The two networks must therefore be interoperable in such a way that the logistics network can share a bill with the finance network along with independently verifiable proof of authenticity. Otherwise, the trade finance network’s workflow must trust that the exporter is acting in good faith and supplying genuine bills of lading, which adds insecurity. This interoperation, which involves sharing of network data, can be extrapolated to other scenarios involving the two networks. The trade logistics network can require an exporter to produce a valid letter of credit from the trade finance network before permitting a consignment record creation. Both these cross-network data sharing instances are illustrated in Figure 2.<a href="#section-3.1-3" class="pilcrow">¶</a></p>
+<div id="trade-letter-bill-figure">
+<figure id="figure-2">
+          <div class="alignLeft art-text artwork" id="section-3.1-4.1">
+<pre>
+               +----------+    1 Agree on      +----------+
+               | Exporter |&lt;------------------&gt;| Importer |
+               +----------+   Purchase Order   +----------+
+
+      +------------+
+      | Exporter’s |  +----------+              +---------------------+
+      |    Bank    |  | Exporter |              |       Exporter      |
+      +------------+  +----------+              +---------------------+
+            | |                                    | |              |
+       4    | |   12                        5      | |      7       |   9
+    Approve | | Request                   Book     | |   Create     | Accept
+      L/C   | |   L/C                  Consignment | | Consignment  |  B/L
+            | |                                    | |              |
+            | |                                    | |              |
+            | |            |¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯|  | |              |
+            | |            |    11 Share B/L    |  | |              |
+            V V            V                    |  V V              V
+    +-------------------------------+     +-------------------------------+
+    |     Trade Finance Network     |     |    Trade Logistics Network    |
+    +-------------------------------+     +-------------------------------+
+            ˄              ˄    |               ˄      ˄     ˄
+            |              |    |  6 Share L/C  |      |     |
+            |              |    |_______________|      |     |
+            |              |                           |     |
+       3    |              |    2               10     |     |    8
+    Propose |              | Request        Dispatch   |     | Upload
+      L/C   |              |   L/C         Consignment |     |   B/L
+            |              |                           |     |
+      +------------+  +----------+                 +-------------+
+      | Importer’s |  | Importer |                 |   Carrier   |
+      |    Bank    |  +----------+                 +-------------+
+      +------------+
+</pre>
+</div>
+<figcaption><a href="#figure-2" class="selfRef">Figure 2</a></figcaption></figure>
+</div>
+<p id="section-3.1-5">Asset transfers among trade networks: In the preceding example, letters of credit and bills of lading represent portions of state of the larger export-import workflow. But these documents are also digital assets in their own rights.<a href="#section-3.1-5" class="pilcrow">¶</a></p>
+<p id="section-3.1-6">A bill of lading can serve as title to the consignment of goods being shipped, and hence can be traded as a security or used as collateral against debt obligations in the financial market. Hence, Step 11 in Figure 2 may well be embodied by the transfer rather than the sharing of state of a bill so that it ceases to remain on the Trade Logistics Network ledger and instead belongs to the Seller’s Bank on the Trade Finance Network’s ledger.<a href="#section-3.1-6" class="pilcrow">¶</a></p>
+<p id="section-3.1-7">A letter of credit may also assume the properties of a digital asset in certain situations. Consider the case of an importer who wishes to move their business to a different trade finance network and maintain their records on that network’s ledger. We can assume that the banks and the exporter participate in the second trade finance network as well, which exists to serve a different clientele. The importer needs to be able to move its letter of credit state to the other network and resume the trade workflow after migration. This requires the ability to transfer the letter in the form of a digital asset from one trade finance network to another.<a href="#section-3.1-7" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="tracking-food-shipments">
+<section id="section-3.2">
+        <h3 id="name-tracking-food-shipments">
+<a href="#section-3.2" class="section-number selfRef">3.2. </a><a href="#name-tracking-food-shipments" class="section-name selfRef">Tracking Food Shipments</a>
+        </h3>
+<div id="trade-sc-tracking">
+<p id="section-3.2-1">The use case linking a trade finance network with a trade logistics network can be augmented by adding a food tracking network like the IBM Food Trust <span>[<a href="#IFT" class="cite xref">IFT</a>]</span> to the mix. Such a network connects producers, suppliers, manufactures, and retailers, who participate in food supply chains. Purchase orders, like those negotiated between producers and retailers, and which are illustrated as negotiated between exporter and importers in Figure 2, are recorded in this network’s ledger. For quality control, its business workflow will track at periodic intervals the state (e.g., temperature and humidity) of containers carrying, for example, produce from farm to source port and from destination port to warehouse. The trade logistics network handles documentation and dispatch but does not track the location or condition of a consignment outside of a carrier’s purview. Clearly, these networks play complementary roles in a supply chain. The logistics network should be able to get the state and history of a container before dispatch from the food tracking network, as should the latter from the former after the carrier has delivered a consignment. End-to-end supply chain visibility and effectiveness relies on the interoperability of these two networks, or to be precise, their ability to share verifiably authentic data with each other. Further, such interoperation also enables the trade finance network to allow the creation of a letter of credit only after verifying the existence of a valid purchase order in the food tracking network. Figure 3 illustrates the links between these networks.<a href="#section-3.2-1" class="pilcrow">¶</a></p>
+</div>
+<div id="food-tracking-figure">
+<figure id="figure-3">
+          <div class="alignLeft art-text artwork" id="section-3.2-2.1">
+<pre>
+                      +-------------------------------+
+                 |¯¯¯¯|     Food Tracking Network     |¯¯¯¯¯¯¯¯¯¯|
+                 |    +-------------------------------+          |
+         Share   |                              ˄                |  Share
+        Purchase |                              |  Share         | Shipment
+         Order   |         |¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯|   | Shipment       |  State
+                 |         |   Share B/L    |   |  State         |
+                 V         V                |   |                V
+    +-------------------------------+     +-------------------------------+
+    |     Trade Finance Network     |     |    Trade Logistics Network    |
+    +-------------------------------+     +-------------------------------+
+                                |               ˄
+                                |   Share L/C   |
+                                |_______________|
+</pre>
+</div>
+<figcaption><a href="#figure-3" class="selfRef">Figure 3</a></figcaption></figure>
+</div>
+</section>
+</div>
+<div id="supply-chain-management">
+<section id="section-3.3">
+        <h3 id="name-supply-chain-management">
+<a href="#section-3.3" class="section-number selfRef">3.3. </a><a href="#name-supply-chain-management" class="section-name selfRef">Supply Chain Management</a>
+        </h3>
+<div id="trade-sc-management">
+<p id="section-3.3-1">To complete the picture, we can add a payment network to the mix, which maintains currency accounts for clients in different countries and enables cross-border payments, an example being the Stellar network <span>[<a href="#STN" class="cite xref">STN</a>]</span>. After goods have been dispatched, and optionally after verification of the delivery and proper condition of a shipment, payment is due from an importer to an exporter. The trade finance network can record a payment obligation on its ledger but it will rely on the payment network to process and confirm the actual transfer of funds. The former shares data about the obligation to the latter, which shares data about a successful (or otherwise) payment in return, as illustrated in Figure 4.<a href="#section-3.3-1" class="pilcrow">¶</a></p>
+</div>
+<div id="supply-chain-figure">
+<figure id="figure-4">
+          <div class="alignLeft art-text artwork" id="section-3.3-2.1">
+<pre>
+                      +-------------------------------+
+                 |¯¯¯¯|     Food Tracking Network     |¯¯¯¯¯¯¯¯¯¯|
+                 |    +-------------------------------+          |
+         Share   |                              ˄                |  Share
+        Purchase |                              |  Share         | Shipment
+         Order   |         |¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯|   | Shipment       |  State
+                 |         |   Share B/L    |   |  State         |
+                 V         V                |   |                V
+    +-------------------------------+     +-------------------------------+
+    |     Trade Finance Network     |     |    Trade Logistics Network    |
+    +-------------------------------+     +-------------------------------+
+                | ˄               |               ˄
+        Share   | |   Share       |   Share L/C   |
+       Payment  | |  Payment      |_______________|
+     Obligation | | Fulfilment
+                | |
+                V |
+      +---------------------+
+      |   Payment Network   |
+      +---------------------+
+</pre>
+</div>
+<figcaption><a href="#figure-4" class="selfRef">Figure 4</a></figcaption></figure>
+</div>
+<p id="section-3.3-3">Addendum: we can add yet another network to the mix, one that manages regulatory compliance. (E.g., proof-of-concept systems have been built to bring banks and corporations on a single distributed ledger and smart contract platform to share KYC information in privacy-preserving ways <span>[<a href="#BKYC" class="cite xref">BKYC</a>]</span> <span>[<a href="#SKYC" class="cite xref">SKYC</a>]</span>.) Now issuances of letters of credit in the trade finance system will be dependent on valid KYC records being maintained as assets in the regulatory compliance system.<a href="#section-3.3-3" class="pilcrow">¶</a></p>
+</section>
+</div>
+</section>
+</div>
+<div id="currency-and-finance">
+<section id="section-4">
+      <h2 id="name-currency-and-finance">
+<a href="#section-4" class="section-number selfRef">4. </a><a href="#name-currency-and-finance" class="section-name selfRef">Currency and Finance</a>
+      </h2>
+<div id="finance-currency">
+<p id="section-4-1">The emerging paradigm of Decentralized Finance (DeFi) and the emerging application of Central Bank Digital Currency (CBDC) have opened up a spectrum of scenarios that require management of financial digital assets across multiple systems, typically built on distributed ledgers.<a href="#section-4-1" class="pilcrow">¶</a></p>
+</div>
+<p id="section-4-2">DeFi is a “new financial paradigm that leverages distributed ledger technologies to offer services such as lending, investing, or exchanging cryptoassets without relying on a traditional centralized intermediary” <span>[<a href="#BISDeFi" class="cite xref">BISDeFi</a>]</span>. Following the Web3 philosophy <span>[<a href="#Web3" class="cite xref">Web3</a>]</span>, scoped for the world of finance, DeFi offers architecture and protocols built on smart contracts deployed on blockchain or other distributed ledger technology. It thereby obviates the need for centralized management and orchestration of financial processes (e.g., currency transfers, exchanges, securities settlements) by trusted authorities who can gain undue leverage.<a href="#section-4-2" class="pilcrow">¶</a></p>
+<p id="section-4-3">CBDC is a form of tokenized cryptocurrency that various central banks around the world are experimenting with as the digital equivalent of traditional central bank-issued money used by banks and other financial institutions as well as end users for commercial transactions and settlements. Central banks possess exclusive authority to mint and issue money in physical cash form and in the form of electronic reserves. They also support commercial bank money used in retail transactions by banks and other users in their private capacities. Central banks have traditionally used their control over these different forms of money to enforce monetary policy in a way that promotes financial stability and provides broad access to safe and efficient payments <span>[<a href="#BISCBDC" class="cite xref">BISCBDC</a>]</span>. CBDCs would form a new, or alternative, type of central bank money, typically (but not always) built on blockchain or other distributed ledger technology. They have recently garnered significant interest in government circles by promising increased access and inclusion, better resilience, and increased scale and efficiency of currency transfers, compared to traditional forms of central bank-issued or central bank-backed currency.<a href="#section-4-3" class="pilcrow">¶</a></p>
+<p id="section-4-4">CBDCs can broadly be classified into “wholesale” and “retail”. Wholesale CBDC, which facilitates inter-bank and cross-border settlements, is currency that is available only to banks and other financial institutions. Retail CBDC is available to the public and can be used as a digital form of cash, enabling fast transparent payments for goods and services at high scale and volume; in effect, it can be used as a substitute for legacy payment mechanisms.<a href="#section-4-4" class="pilcrow">¶</a></p>
+<p id="section-4-5">Different system architectures exist to manage CBDC for banks and end users, from issuance to transfers to redemptions. A 2-tier model as illustrated in Figure 5 has recently gained popularity, where wholesale CBDC networks manage interactions between central and commercial banks, and retail CBDC networks manage interactions between commercial banks and end users. If we consider the role of the central bank as the defining characteristic of a system architecture, this model can be referred to as “indirect”, because commercial banks mediate claims between the central bank and end users and also facilitate payments. Other architectures also exist, including “direct CBDC”, where the central bank issues CBDC directly to end users and facilitates payments, and “hybrid CBDC”, which provides users the facility to make direct claims on the central bank while allowing intermediaries to facilitate payments <span>[<a href="#BISRCBDC" class="cite xref">BISRCBDC</a>]</span>.<a href="#section-4-5" class="pilcrow">¶</a></p>
+<div id="currency-transfers">
+<section id="section-4.1">
+        <h3 id="name-currency-transfers">
+<a href="#section-4.1" class="section-number selfRef">4.1. </a><a href="#name-currency-transfers" class="section-name selfRef">Currency Transfers</a>
+        </h3>
+<div id="finance-currency-transfers">
+<p id="section-4.1-1">The 2-tier “indirect CBDC” model illustrated in Figure 5 presents unique interoperability challenges that require protocols for asset transfers and which SATP is well-suited to handle. In the higher tier lie wholesale CBDC networks, bringing together central or reserve banks and various commercial banks. Following the DeFi logic, these networks are typically built on distributed ledger and smart contract technologies. Commercial banks hold reserve currency deposits with the reserve bank, which has the special power to mint currency and issue CBDC and also enforce regulatory compliance. In the lower tier lie retail CBDC networks for commercial banks and their customers, built on similar technologies, enabling seamless, efficient, and transparent payments using CBDCs. A retail CBDC network may involve a single commercial bank or multiple commercial banks, depending on the market caps of those banks and their purposes for joining such a network.<a href="#section-4.1-1" class="pilcrow">¶</a></p>
+</div>
+<div id="cbdc-transfer-figure">
+<figure id="figure-5">
+          <div class="alignLeft art-text artwork" id="section-4.1-2.1">
+<pre>
+                  +----------------------------------------+
+                  |                                        |
+                  |         Wholesale CBDC Network         |
+                  |                                        |
+                  |           +----------------+           |
+                  |           |  Central Bank  |           |
+                  |           +----------------+           |
+                  |                                        |
+                  |  +------------+  +------------+        |
+                  |  | Commercial |  | Commercial |        |
+                  |  |  Bank A’s  |  |  Bank B’s  | ...... |
+                  |  |   Account  |  |   Account  |        |
+                  |  +------------+  +------------+        |
+                  |                                        |
+                  +----------------------------------------+
+                        ˄                      ˄
+                        |                      |
+                        |                      |
+                        V                      V
+   +----------------------------+  +----------------------------+
+   |                            |  |                            |
+   |    Retail CBDC Network     |  |    Retail CBDC Network     |
+   |                            |  |                            |
+   | +------------+ +---------+ |  | +------------+ +---------+ |
+   | | Commercial | | Central | |  | | Commercial | | Central | |
+   | |  Bank A’s  | |  Bank   | |  | |  Bank B’s  | |  Bank   | |
+   | |   Account  | +---------+ |  | |   Account  | +---------+ |
+   | +------------+             |  | +------------+             |
+   |                            |  |                            | .......
+   | +----------------+         |  | +------------+             |
+   | | Client Account | ....... |  | | Commercial |             |
+   | +----------------+         |  | |  Bank C’s  |             |
+   |                            |  | |   Account  |             |
+   +----------------------------+  | +------------+             |
+                                   |                            |
+                                   | +----------------+         |
+                                   | | Client Account | ....... |
+                                   | +----------------+         |
+                                   |                            |
+                                   +----------------------------+
+</pre>
+</div>
+<figcaption><a href="#figure-5" class="selfRef">Figure 5</a></figcaption></figure>
+</div>
+<p id="section-4.1-3">Here we will encounter scenarios where a given commercial bank maintains digital currency accounts in a wholesale CBDC network as well as one or more retail CBDC networks. To inject liquidity into a retail CBDC network, this bank will need to transfer currency from its reserve account in the wholesale CBDC network. Or it may need to approve (or at least audit) the transfer of currency from one retail CBDC network to another bank in another retail CBDC network. In the world of decentralized finance, or DeFi for short, currency cannot afford to remain siloed in any single CBDC network. Hence, these networks must be interoperable in order to facilitate secure transfers of currency among themselves, as illustrated in Figure 5.<a href="#section-4.1-3" class="pilcrow">¶</a></p>
+<p id="section-4.1-4">We can identify two specific instances of currency transfer across networks in this example: one from a wholesale CBDC network to a retail CBDC network, and another from one retail CBDC network to another. Since currency in tokenized form is a digital asset, these scenarios require the direct application of a secure protocol for asset transfer. SATP <span>[<a href="#SATP" class="cite xref">SATP</a>]</span> fits the bill, is agnostic of the types of distributed ledger technologies on which the respective networks are built, and simply requires the networks to use SATP gateways. This is not just a theoretical proposition; a candidate design for a bridge between Hyperledger Fabric <span>[<a href="#HLF" class="cite xref">HLF</a>]</span> and Hyperledger Besu <span>[<a href="#HLB" class="cite xref">HLB</a>]</span> networks using SATP and the Hyperledger Cacti interoperability platform <span>[<a href="#HLC" class="cite xref">HLC</a>]</span> has been proposed by distributed ledger researchers <span>[<a href="#Aug23" class="cite xref">Aug23</a>]</span>.<a href="#section-4.1-4" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="multi-cbdc-economy">
+<section id="section-4.2">
+        <h3 id="name-multi-cbdc-economy">
+<a href="#section-4.2" class="section-number selfRef">4.2. </a><a href="#name-multi-cbdc-economy" class="section-name selfRef">Multi-CBDC Economy</a>
+        </h3>
+<div id="finance-currency-multi-cbdc">
+<p id="section-4.2-1">Several governments, banks and financial communities have explored the use of a shared ledger containing multiple CBDCs as way to potentially obtain an economy of scale in the development and maintenance of their own respective CBDCs. Such a Multi-CBDC approach has the potential benefit to improve cross-border payments and protect monetary sovereignty, without necessarily becoming a monetary union <span>[<a href="#BISMCBDC" class="cite xref">BISMCBDC</a>]</span>.<a href="#section-4.2-1" class="pilcrow">¶</a></p>
+</div>
+<p id="section-4.2-2">However, even within a Multi-CBDC configuration, there must be a mechanism to interconnect each respective national (sovereign) bank network with the shared Multi-CBDC network. Gateways appear to be an attractive means to permit the transfer of a CBDC from one national network/ledger into the shared Multi-CBDC ledger, and vice versa.  One major requirement is the assurance that consistency is maintained between the CBDC counts on the national network with that on the Multi-CBDC network (i.e. no counterfeiting; no double-spend).<a href="#section-4.2-2" class="pilcrow">¶</a></p>
+<p id="section-4.2-3">With or without a Multi-CBDC ledger, the existence of different national networks managing different wholesale CBDC assets will necessitate inter-network transfers for cross-border payments and settlements <span>[<a href="#BISCBP" class="cite xref">BISCBP</a>]</span> <span>[<a href="#WBGCBP" class="cite xref">WBGCBP</a>]</span> <span>[<a href="#PUbin" class="cite xref">PUbin</a>]</span>. Whether directly between two wholesale CBDC networks or between a wholesale CBDC network and the Multi-CBDC network, transfer of currency assets is a problem for which SATP appears to be the most suitable solution.<a href="#section-4.2-3" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="delivery-vs-payment-dvp-of-securities">
+<section id="section-4.3">
+        <h3 id="name-delivery-vs-payment-dvp-of-">
+<a href="#section-4.3" class="section-number selfRef">4.3. </a><a href="#name-delivery-vs-payment-dvp-of-" class="section-name selfRef">Delivery vs Payment (DvP) of Securities</a>
+        </h3>
+<div id="finance-currency-dvp">
+<p id="section-4.3-1">In Decentralized Finance, or DeFi for short, investors and financial institutions will form networks to manage the creation and purchase of securities. As a simple example, we can consider a network consisting of the Treasury, which issues bonds, and commercial banks, which purchase and trade bonds. We can also consider a payment network of the kind we saw in Section 3.3 (or a retail CBDC network of the kind we saw in Section 4.1), which allows CBDC transfers between commercial banks’ accounts. In the securities network, banks may wish to transfer bonds to each other but only in exchange for compensation. But such compensation can be made only on a payment network where the two maintain currency accounts (e.g., in CBDC). Therefore, the securities and payment networks must be able to interoperate in such a way that two banks can carry out a delivery-vs-payment transaction spanning these two independent networks. Such a transaction must be atomic, i.e., either both bond and CBDC tokens get transferred in their respective networks or neither gets transferred. Figure 6 illustrates this exchange.<a href="#section-4.3-1" class="pilcrow">¶</a></p>
+</div>
+<div id="securities-dvp-figure">
+<figure id="figure-6">
+          <div class="alignLeft art-text artwork" id="section-4.3-2.1">
+<pre>
+   +-----------------------------------------------------------------------+
+   |                             Bond Network                              |
+   |                                                                       |
+   |     +----------+      Issue        +---------------------------+      |
+   |     | Treasury |------------------&gt;|    Commercial Bank A’s    |      |
+   |     +----------+       Bond        |         Portfolio         |      |
+   |                                    +---------------------------+      |
+   |                                                  |                    |
+   |                                                  |  Transfer          |
+   |                                                  |    Bond            |
+   |                                                  V                    |
+   |                                    +---------------------------+      |
+   |                                    |    Commercial Bank B’s    |      |
+   |                                    |         Portfolio         |      |
+   |                                    +---------------------------+      |
+   +-----------------------------------------------------------------------+
+                                       ˄
+                                       |
+                                       |
+                                       V
+   +-----------------------------------------------------------------------+
+   |                 Payment Network / Retail CBDC Network                 |
+   |                                                                       |
+   |     +-----------+                  +---------------------------+      |
+   |     |  Central  |                  |    Commercial Bank A’s    |      |
+   |     |    Bank   |                  |           Account         |      |
+   |     +-----------+                  +---------------------------+      |
+   |                                                  |                    |
+   |                                                  |  Transfer          |
+   |                                                  |  Currency          |
+   |                                                  V                    |
+   |                                    +---------------------------+      |
+   |                                    |    Commercial Bank B’s    |      |
+   |                                    |          Account          |      |
+   |                                    +---------------------------+      |
+   +-----------------------------------------------------------------------+
+</pre>
+</div>
+<figcaption><a href="#figure-6" class="selfRef">Figure 6</a></figcaption></figure>
+</div>
+<p id="section-4.3-3">In a variation of this example, the two commercial banks may hold CBDC accounts in two different Payment Networks. In that case, fulfilment of the DvP would require transfer of CBDC from one network to another. An instance of SATP between gateways representing those two networks would handle that problem.<a href="#section-4.3-3" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="stock-options-contract-fulfilment">
+<section id="section-4.4">
+        <h3 id="name-stock-options-contract-fulf">
+<a href="#section-4.4" class="section-number selfRef">4.4. </a><a href="#name-stock-options-contract-fulf" class="section-name selfRef">Stock Options Contract Fulfilment</a>
+        </h3>
+<div id="finance-currency-stock-options">
+<p id="section-4.4-1">Stock options are financial instruments that allow holders to buy or sell stock at predetermined prices until specific expiration dates <span>[<a href="#StOpt" class="cite xref">StOpt</a>]</span>. Exercising an option, i.e., buying or selling a stock by paying a “strike price”, involves a more complex cross-network financial transaction than the securities DvP use case. Option contracts can be managed and enforced in a specific business network (which we can label as a “stock network”) to which entities like an Options Clearing Corporation (OCC), stock exchanges (e.g., the Chicago Board Options Exchange), and brokerage firms, belong. The OCC is the issuer and guarantor for all options and futures contracts traded on U.S. exchanges. It provides secured back-end clearing services, while exchanges provide front-end trading markets. Transfer and settlement of payments, just like in the DvP scenario, will typically occur in a dedicated payment network in which buyers and sellers of stock have currency accounts. Options contract fulfilment requires the stock and payment networks to work in concert, and hence need SATP to coordinate transactions across them.<a href="#section-4.4-1" class="pilcrow">¶</a></p>
+</div>
+<p id="section-4.4-2">Figure 7 illustrates a simplified flow for the exercising of a “call” option, where a buyer acquires stock from a seller by paying it a strike price. First, the buyer informs its brokerage, which then notifies its exchange about the buyer's intent to exercise the option. The exchange in turn notifies the OCC in the Stock Network. (All these notifications typically occur via a smart contract). Steps 1-2 illustrate these notifications. The OCC then verifies the contract’s validity and the buyer’s right to exercise the option. If this is successful, the OCC triggers a payment request to the buyer through a contract-to-contract communication from the Stock Network to the Payment Network (step 3). (Alternatively, the buyer may trigger a payment request in the Payment Network, which then requests the Stock Network for proof of the contract’s validity from the OCC before approving the payment.) The buyer then pays the strike price to the seller (step 4). The payment receipt is now sent to the Stock Network for the OCC’s verification (or alternatively, the buyer can request the OCC to fetch and verify the receipt from the Payment Network) and fulfilment of the contract (step 5). The OCC, via the exchange, requests the brokerage to transfer stock from the seller’s to the buyer’s account (steps 6-7).<a href="#section-4.4-2" class="pilcrow">¶</a></p>
+<p id="section-4.4-3">This cross-network transactions require SATP using gateways, either to communicate information of a contract’s validity (step 3) or a payment receipt (step 5) with authenticity proof (i.e., data sharing), or by ensuring that strike price payment (step 4) and contract fulfilment (step 6-7) occur atomically as an exchange using a coordinated set of commitments.<a href="#section-4.4-3" class="pilcrow">¶</a></p>
+<div id="stock-options-contract-figure">
+<figure id="figure-7">
+          <div class="alignLeft art-text artwork" id="section-4.4-4.1">
+<pre>
+   +-----------------------------------------------------------------------+
+   | Stock Network                                                         |
+   |                                                                       |
+   | +-------------+          +--------------+           +---------------+ |
+   | |  Brokerage  |          |   Exchange   | 2         |      OCC      | |
+   | |             |          |              | Request   |               | |
+   | | +---------+ | 1        | +----------+ | to        | +-----------+ | |
+   | | | Buyer   | | Exercise | |          | | Clear     | |           | | |
+   | | | Equity  |-|----------|&gt;|          |-|-----------|&gt;|           | | |
+   | | | Account | |          | | Options  | |           | | Options   | | |
+   | | +---------+ |          | | Contract | |           | | Contract  | | |
+   | |             |          | | (Copy)   | |           | | (Primary) | | |
+   | | +---------+ |          | |          | |           | |           | | |
+   | | | Seller  |&lt;|----------|-|          |&lt;|-----------|-|           | | |
+   | | | Equity  | | 7        | +----------+ | 6         | +-----------+ | |
+   | | | Account | | Fulfil &amp; |              | Fulfil &amp;  |               | |
+   | | +---------+ | Transfer |              | Transfer  |               | |
+   | |             | Stock    |              | Stock     |               | |
+   | +-------------+          +--------------+           +---------------+ |
+   |                                                                       |
+   +-----------------------------------------------------------------------+
+                           |                    ˄
+          3 Request to Pay |                    |
+            Strike Price   |                    |  5 Send Payment Receipt
+                           |                    |
+                           V                    |
+   +-----------------------------------------------------------------------+
+   | Payment Network                                                       |
+   |                                                                       |
+   |      +--------------+                           +--------------+      |
+   |      |   Buyer      |    4 Pay Strike Price     |   Seller     |      |
+   |      |   Payment    |--------------------------&gt;|   Payment    |      |
+   |      |   Account    |                           |   Account    |      |
+   |      +--------------+                           +--------------+      |
+   |                                                                       |
+   +-----------------------------------------------------------------------+
+</pre>
+</div>
+<figcaption><a href="#figure-7" class="selfRef">Figure 7</a></figcaption></figure>
+</div>
+</section>
+</div>
+</section>
+</div>
+<div id="decentralized-commerce-payments-for-goods-and-services">
+<section id="section-5">
+      <h2 id="name-decentralized-commerce-paym">
+<a href="#section-5" class="section-number selfRef">5. </a><a href="#name-decentralized-commerce-paym" class="section-name selfRef">Decentralized Commerce: Payments for Goods and Services</a>
+      </h2>
+<div id="decentralized-commerce">
+<p id="section-5-1">In the emerging Web3 world, undergirded by blockchain and DLT, goods and services are increasingly available on decentralized networks, either as purely digital objects or proxies of physical objects. The networks typically manage these assets in the form of non-fungible tokens (NFTs) using smart contracts and decentralized applications (DApps for short). DeFi in a Web3 ecosystem can create thriving online marketplaces where goods and services can be bought and sold across network boundaries if those networks are interoperable (i.e., assets and data can be moved or managed seamlessly across networks). SATP is a necessary requirement to enable and secure such a decentralized form of commerce.<a href="#section-5-1" class="pilcrow">¶</a></p>
+</div>
+<div id="transferal-of-digital-art-and-payments-across-national-borders">
+<section id="section-5.1">
+        <h3 id="name-transferal-of-digital-art-a">
+<a href="#section-5.1" class="section-number selfRef">5.1. </a><a href="#name-transferal-of-digital-art-a" class="section-name selfRef">Transferal of Digital Art and Payments across National Borders</a>
+        </h3>
+<div id="decentralized-commerce-digital-art">
+<p id="section-5.1-1">There is currently growing interest within many artist communities of developing and selling digital-only artwork, in which the artwork consists of a file in a well-known (e.g., JPEG, MPEG) format that is created by an artist. The artists seek to sell copies of the digital-only artwork on the global marketplace, allowing anyone in the world to purchase a copy and consume (e.g., display offline) the artwork at the buyer’s discretion. Currently, the most popular technological vehicle to achieve this goal is through the tokenization of the copies of the artwork coupled with digital encryption/signature technologies to transfer control (and thereby legal ownership) of the digital-only artwork to the buyer.<a href="#section-5.1-1" class="pilcrow">¶</a></p>
+</div>
+<p id="section-5.1-2">Although there are a number of technical and legal challenges (e.g., copyright enforcement) to completing such a sale, one key issue pertains to the sale and payment for digital-only artwork across national borders. Many nations enforce taxation upon the sale of any asset, including that of artwork generally both domestically and internationally. Thus, when the control/ownership of a tokenized digital-only artwork is transferred to a new owner in a foreign nation and payment is received, taxation must be obtained at the point-of-sale (which could be an online platform) and proof of delivery must be traceable to ensure that no taxation-avoidance occurs. A secure asset transfer protocol between systems that can be built on distributed or shared ledgers via gateways with designated legal authority is necessary to enforce governmental regulations and provide accountability.<a href="#section-5.1-2" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="payment-for-streaming-services">
+<section id="section-5.2">
+        <h3 id="name-payment-for-streaming-servi">
+<a href="#section-5.2" class="section-number selfRef">5.2. </a><a href="#name-payment-for-streaming-servi" class="section-name selfRef">Payment for Streaming Services</a>
+        </h3>
+<div id="decentralized-commerce-streaming">
+<p id="section-5.2-1">Streaming services like Netflix and IPTV can tap into the cryptocurrency and DeFi user markets by offering content on distributed ledger networks using smart contracts. Instead of monthly subscriptions, they can offer pay-as-you-go streaming of arbitrarily low amounts to large numbers of users on such networks. Content transfer can be backed by NFTs, which users can redeem on any video or audio playback application. Because here already exist several payment networks for unregulated (e.g., Bitcoin) and regulated (e.g., CBDC) currencies, the content networks are likely to remain independent and not involve any monetary transactions on their own ledgers, as that would create safety and regulatory issues. Content transfer in a content network can be backed by a corresponding payment in a payment network if there is a facility to transfer payment receipts from the latter to the former. This can be fulfilled through the data sharing mode of SATP, whereby knowledge of payment along with authenticity proof can be communicated across networks. Alternatively, an atomic swap of the content and the payment can occur across both networks using the asset exchange mode of SATP.<a href="#section-5.2-1" class="pilcrow">¶</a></p>
+</div>
+<p id="section-5.2-2">In a related example, if users wish to obtain content that is not available currently with the streaming service provider, that provider may seek and purchase that content from another distributer that is offering it on a different content network. The copyright to that content can be backed by NFTs and the secure transfer of those NFTs from one network to another will require SATP.<a href="#section-5.2-2" class="pilcrow">¶</a></p>
+<p id="section-5.2-3">Though these examples show what is possible, ongoing initiatives in Europe and China are aimed at facilitating data and asset transfers. Since 2022, China has issued a series of policies and guidelines to promote the development of a nationwide data market that supports data elements' assetization, capitalization, and circulation <span>[<a href="#CNMeas" class="cite xref">CNMeas</a>]</span>. A multi-layered national data infrastructure is slated be built by the end of 2029 to support transaction, transmission, and utilization, of data; telecom operators like China Mobile and China Unicom are building large- scale networks to enable data transmission <span>[<a href="#CNDatInf" class="cite xref">CNDatInf</a>]</span>. Design and implementation of this infrastructure will be guided by the newly established National Data Standardization Technical Committee (TC609), which will coordinate with existing data circulation standards organizations like ISO/IEC JTC 1/SC 32 and ISO/IEC JTC 1/SC 42, and reuse existing standards.<a href="#section-5.2-3" class="pilcrow">¶</a></p>
+<p id="section-5.2-4">In Europe, several projects like Gaia-X <span>[<a href="#GaiaX" class="cite xref">GaiaX</a>]</span> and Catena-X <span>[<a href="#CatenaX" class="cite xref">CatenaX</a>]</span> aim to create secure, decentralized, and interoperable data infrastructures. Catena-X specifically targets data exchanges in automotive industry operations while Gaia-X is a more generic, EU-wide data infrastructure. The International Data Spaces Association (IDSA) produces several ISO standards like ISO/IEC AWI 20151 and ISO/IEC 23751:2022 for exchanges across data spaces <span>[<a href="#IDSA" class="cite xref">IDSA</a>]</span>. The IDSA also partners with the Eclipse Foundation to implement open-source solutions <span>[<a href="#EclDS" class="cite xref">EclDS</a>]</span> and jointly develop the Dataspace Protocol (DSP), using which data usage policies, usage contracts, and schemas can be negotiated (in the so-called "control plane") between two data-exchange gateway peers <span>[<a href="#DSP" class="cite xref">DSP</a>]</span>. The actual post-negotiation data transfer (in the so-called "data plane") is out of scope of DSP, and here SATP can fill the gap.<a href="#section-5.2-4" class="pilcrow">¶</a></p>
+</section>
+</div>
+</section>
+</div>
+<div id="trustworthy-dns-resource-record-migrations-using-an-augmented-epp">
+<section id="section-6">
+      <h2 id="name-trustworthy-dns-resource-re">
+<a href="#section-6" class="section-number selfRef">6. </a><a href="#name-trustworthy-dns-resource-re" class="section-name selfRef">Trustworthy DNS Resource Record Migrations using an Augmented EPP</a>
+      </h2>
+<div id="dns-epp-migration">
+<p id="section-6-1">We have seen several examples where SATP is indispensable for enabling cross-network asset and data transfer and transaction settlement. But SATP can also be used to augment an existing protocol by making it more secure, trustworthy, and efficient rather than creating an altogether new feature that preexisting technology was unable to provide. Conventional Internet architecture offers scope for such augmentation. Though highly decentralized, the Internet consists of nodes (or actors) that play critical roles in various protocols. Such protocols would benefit if the actions of these actors can be recorded and tracked on blockchain or other decentralized ledger networks. (It must be noted that the performance implications of these augmentations ought to be studied before firm recommendations are made.)<a href="#section-6-1" class="pilcrow">¶</a></p>
+</div>
+<p id="section-6-2">We consider the DNS architecture <span>[<a href="#RFC1034" class="cite xref">RFC1034</a>]</span> <span>[<a href="#RFC1035" class="cite xref">RFC1035</a>]</span>, where multiple registries and registrars may co-exist, managing DNS records for owners (registrants). For example, Verisign <span>[<a href="#VSign" class="cite xref">VSign</a>]</span> acts as a TLD (top-level domain) registry for the “.com” namespace, and GoDaddy <span>[<a href="#GoDaddy" class="cite xref">GoDaddy</a>]</span> and Squarespace <span>[<a href="#SSpace" class="cite xref">SSpace</a>]</span> are registrars that can issue and sell SLDs (second- level domains) to customers (say Alice and Bob). The Extensible Provisioning Protocol (EPP) allows registrars to communicate with registries for resource record updates, including changes in domain ownership <span>[<a href="#RFC5730" class="cite xref">RFC5730</a>]</span>. Consider a scenario in which Alice, who owns an SLD (say alice.com) issued by GoDaddy, wishes to transfer that SLD to Squarespace. She can submit a request to Squarespace for this purpose, following which the respective registrars (GoDaddy and Squarespace) can communicate with the registry (Verisign) using EPP to transfer the SLD between themselves. Squarespace will then reissue the domain to Alice. In a related scenario, Alice can transfer (or sell) her GoDaddy-issued domain to Bob, who uses Squarespace as a registrant.<a href="#section-6-2" class="pilcrow">¶</a></p>
+<p id="section-6-3">Though EPP facilitates these resource updates and transfers, and reputed registrars offer customers these features in a usable manner, we can see that such scenarios face safety issues as they require trust and proper coordination among the participants. These issues can be mitigated by distributed ledger networks, smart contracts, and NFTs, which collectively provide a platform for safe and transparent DNS resource transfers with easy detection of non-compliance.<a href="#section-6-3" class="pilcrow">¶</a></p>
+<p id="section-6-4">In such a scheme, domains (or domain names) can be monetized as NFTs or digital assets, e.g., in the form of ERC-721 <span>[<a href="#ERC721" class="cite xref">ERC721</a>]</span> tokens, a popular NFT standard in the Ethereum ecosystem <span>[<a href="#Ethereum" class="cite xref">Ethereum</a>]</span>. The creation of a domain is represented by minting of an NFT and the deletion of a domain by the burning of the NFT using smart contracts whose transactions are tracked on a distributed ledger maintained by a network of entities. Registrants Alice and Bob also participate in the smart contracts and hold wallet identities, allowing them to trade assets by submitting transactions to the ledger. Registrants, registrars, and registries can engage in commercial transactions using contracts governing tokenized (and monetized) domains for the purposes of issuing and transferring domains (among owners and registrars). This provides more safety where registrars are not reputed, and allows new registrar services to emerge and build reputations. It also enables customers like Alice and Bob to sell domains to each other safely and seamlessly.<a href="#section-6-4" class="pilcrow">¶</a></p>
+<p id="section-6-5">SATP is crucial to enabling this scheme where registrars belong to, and issue, NFT-backed domains in different ledgers maintained by different networks. Ensuring that tokens are securely and atomically transferred between the ledgers will be a necessary prerequisite for an EPP resource record update operation. Further, non-compliance, or non-fulfilment of EPP, by either registrar, can be easily detected by examining the SATP logs from the respective networks’ gateways, thereby safeguarding the process. In future, reputed registrars may require their counterparties to comply with SATP-based transfers across ledgers as a prerequisite to engaging in a domain transfer with them.<a href="#section-6-5" class="pilcrow">¶</a></p>
+<p id="section-6-6">This scenario additionally illustrates an example of what typically occurs in Stage 0 of a SATP instance <span>[<a href="#SATP" class="cite xref">SATP</a>]</span>, which is where negotiation and agreement-building occurs between gateways. EPP instances among registrars and registries will occur in this stage, both prior to the start of an SATP instance and after its conclusion. EPP will produce the transaction context the gateways need to transfer an asset (in this case, a tokenized domain) using SATP. Many other applications of SATP for asset transfers may similarly augment or bolster pre-existing business workflows, which (like EPP here) will produce transactions contexts for SATP instances.<a href="#section-6-6" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="interoperation-protocol-considerations">
+<section id="section-7">
+      <h2 id="name-interoperation-protocol-con">
+<a href="#section-7" class="section-number selfRef">7. </a><a href="#name-interoperation-protocol-con" class="section-name selfRef">Interoperation Protocol Considerations</a>
+      </h2>
+<div id="interop-protocol-considerations">
+<p id="section-7-1">The use cases provided as examples serve to illustrate instances of general phenomena that the Secure Asset Transfer Protocol <span>[<a href="#SATP" class="cite xref">SATP</a>]</span>, with a limited number of variations, is designed to handle. The data sharing examples in Section 3 can be extrapolated to any kinds of data that need to be shared between networks running arbitrary workflows. The asset transfer example in Section 4.1 and the asset exchange example in Section 4.2 similarly can be extrapolated to any kinds of digital assets lying within any kind of network. Considerations for the interoperability protocol, or SATP, can therefore be limited to standard distributed systems issues like integrity, fault tolerance, and liveness, while completely disregarding the nature of the assets, networks, and workflows, which can all remain opaque to the protocol.<a href="#section-7-1" class="pilcrow">¶</a></p>
+</div>
+</section>
+</div>
+<div id="contributors">
+<section id="section-8">
+      <h2 id="name-contributors">
+<a href="#section-8" class="section-number selfRef">8. </a><a href="#name-contributors" class="section-name selfRef">Contributors</a>
+      </h2>
+<div id="satp-usecases-contributors">
+<p id="section-8-1">The authors would like to thank André Augusto of INESC-ID and Técnico Lisboa (Portugal), Zainan Victor Zhou of Namefi by D3Serve Labs, and Hyojin Song of Seoul National University (South Korea) for reviewing this draft, helping us improve its quality, and inspiring use cases in the areas of CBDC and DNS record maintenance, which augmented the existing use cases to show more applications for the interoperability modes listed in the SATP Architecture document.<a href="#section-8-1" class="pilcrow">¶</a></p>
+</div>
+</section>
+</div>
+<div id="sec-combined-references">
+<section id="section-9">
+      <h2 id="name-references">
+<a href="#section-9" class="section-number selfRef">9. </a><a href="#name-references" class="section-name selfRef">References</a>
+      </h2>
+<div id="sec-normative-references">
+<section id="section-9.1">
+        <h3 id="name-normative-references">
+<a href="#section-9.1" class="section-number selfRef">9.1. </a><a href="#name-normative-references" class="section-name selfRef">Normative References</a>
+        </h3>
+<dl class="references">
+<dt id="Aug23">[Aug23]</dt>
+        <dd>
+<span class="refAuthor">Augusto, A.</span>, <span class="refAuthor">Belchior, R.</span>, <span class="refAuthor">Kocsis, I.</span>, <span class="refAuthor">Gönczy, L.</span>, <span class="refAuthor">Vasconcelos, A.</span>, and <span class="refAuthor">M. Correia</span>, <span class="refTitle">"2023 IEEE International Conference on Blockchain and Cryptocurrency (ICBC), Dubai, United Arab Emirates, 2023, pp. 1-9 (doi: 10.1109/ICBC56567.2023.10174953)"</span>, <time datetime="2023" class="refDate">2023</time>, <span>&lt;<a href="https://www.techrxiv.org/articles/preprint/CBDC_bridging_between_Hyperledger_Fabric_and_permissioned_EVM-based_blockchains/21809430">https://www.techrxiv.org/articles/preprint/CBDC_bridging_between_Hyperledger_Fabric_and_permissioned_EVM-based_blockchains/21809430</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="BISCBDC">[BISCBDC]</dt>
+        <dd>
+<span class="refAuthor">Bank of Canada</span>, <span class="refAuthor">European Central Bank</span>, <span class="refAuthor">Bank of Japan</span>, <span class="refAuthor">Sveriges Riksbank</span>, <span class="refAuthor">Swiss National Bank</span>, <span class="refAuthor">Bank of England</span>, <span class="refAuthor">Board of Governors of the Federal Reserve</span>, and <span class="refAuthor">Bank for International Settlements</span>, <span class="refTitle">"Central bank digital currencies: foundational principles and core features. Bank for International Settlements, BIS Report"</span>, <time datetime="2020-10" class="refDate">October 2020</time>, <span>&lt;<a href="https://www.bis.org/publ/othp33.htm">https://www.bis.org/publ/othp33.htm</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="BISCBP">[BISCBP]</dt>
+        <dd>
+<span class="refAuthor">Bank for International Settlements</span>, <span class="refAuthor">Committee on Payments and Market Infrastructures</span>, <span class="refAuthor">Innovation Hub</span>, <span class="refAuthor">International Monetary Fund</span>, and <span class="refAuthor">World Bank Group</span>, <span class="refTitle">"Central bank digital currencies for cross-border payments. Bank for International Settlements, Report to the G20"</span>, <time datetime="2021-07" class="refDate">July 2021</time>, <span>&lt;<a href="https://www.bis.org/publ/othp38.htm">https://www.bis.org/publ/othp38.htm</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="BISDeFi">[BISDeFi]</dt>
+        <dd>
+<span class="refAuthor">Auer, R.</span>, <span class="refAuthor">Haslhofer, B.</span>, <span class="refAuthor">Kitzler, S.</span>, <span class="refAuthor">Saggese, P.</span>, and <span class="refAuthor">F. Victor</span>, <span class="refTitle">"The Technology of Decentralized Finance (DeFi). Bank for International Settlements, BIS Working Paper No. 1066"</span>, <span>n.d.</span>, <span>&lt;<a href="https://www.bis.org/publ/work1066.htm">https://www.bis.org/publ/work1066.htm</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="BISMCBDC">[BISMCBDC]</dt>
+        <dd>
+<span class="refAuthor">Auer, R.</span>, <span class="refAuthor">Haene, P.</span>, and <span class="refAuthor">H. Holden</span>, <span class="refTitle">"Multi-CBDC arrangements and the future of cross-border payments. Bank for International Settlements, BIS Paper No. 115"</span>, <time datetime="2021-03" class="refDate">March 2021</time>, <span>&lt;<a href="https://www.bis.org/publ/bppdf/bispap115.htm">https://www.bis.org/publ/bppdf/bispap115.htm</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="BISRCBDC">[BISRCBDC]</dt>
+        <dd>
+<span class="refAuthor">Auer, R.</span> and <span class="refAuthor">R. Boehme</span>, <span class="refTitle">"The technology of retail central bank digital currency. Bank for International Settlements, BIS Quarterly Review"</span>, <time datetime="2020-03" class="refDate">March 2020</time>, <span>&lt;<a href="https://www.bis.org/publ/qtrpdf/r_qt2003j.htm">https://www.bis.org/publ/qtrpdf/r_qt2003j.htm</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="BKYC">[BKYC]</dt>
+        <dd>
+<span class="refAuthor">Bhaskaran, K.</span>, <span class="refAuthor">Ilfrich, P.</span>, <span class="refAuthor">Liffman, D.</span>, <span class="refAuthor">Vecchiola, C.</span>, <span class="refAuthor">Jayachandran, P.</span>, <span class="refAuthor">Kumar, A.</span>, <span class="refAuthor">Lim, F.</span>, <span class="refAuthor">Nandakumar, K.</span>, <span class="refAuthor">Qin, Z.</span>, <span class="refAuthor">Ramakrishna, V.</span>, <span class="refAuthor">GS Teo, E.</span>, and <span class="refAuthor">C. H. Suen</span>, <span class="refTitle">"Double-Blind Consent-Driven Data Sharing on Blockchain. First IEEE Workshop on Blockchain Technologies and Applications (BTA) 2018, Co-located with 2018 IEEE International Conference on Cloud Engineering (IC2E)"</span>, <time datetime="2018-04" class="refDate">April 2018</time>. </dd>
+<dd class="break"></dd>
+<dt id="CatenaX">[CatenaX]</dt>
+        <dd>
+<span class="refAuthor">Catena-X</span>, <span class="refTitle">"Catena-X is the first globally trusted and collaborative data ecosystem for the automotive industry"</span>, <time datetime="2025" class="refDate">2025</time>, <span>&lt;<a href="https://catena-x.net/">https://catena-x.net/</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="CNDatInf">[CNDatInf]</dt>
+        <dd>
+<span class="refAuthor">Xinhua</span>, <span class="refTitle">"Data infrastructure blueprint unveiled"</span>, <time datetime="2024-11" class="refDate">November 2024</time>, <span>&lt;<a href="https://english.www.gov.cn/news/202411/23/content_WS67417342c6d0868f4e8ed59e.html">https://english.www.gov.cn/news/202411/23/content_WS67417342c6d0868f4e8ed59e.html</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="CNMeas">[CNMeas]</dt>
+        <dd>
+<span class="refAuthor">Xinhua</span>, <span class="refTitle">"China unveils measures to build basic systems for data"</span>, <time datetime="2022-12" class="refDate">December 2022</time>, <span>&lt;<a href="https://english.www.gov.cn/policies/latestreleases/202212/19/content_WS63a17f7dc6d0a757729e49bd.html">https://english.www.gov.cn/policies/latestreleases/202212/19/content_WS63a17f7dc6d0a757729e49bd.html</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="DSP">[DSP]</dt>
+        <dd>
+<span class="refAuthor">International Data Spaces Association</span>, <span class="refTitle">"Advancing interoperability: the Dataspace Protocol"</span>, <time datetime="2025" class="refDate">2025</time>, <span>&lt;<a href="https://internationaldataspaces.org/offers/dataspace-protocol/">https://internationaldataspaces.org/offers/dataspace-protocol/</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="EclDS">[EclDS]</dt>
+        <dd>
+<span class="refAuthor">Eclipse Foundation</span>, <span class="refTitle">"Eclipse Dataspace Working Group"</span>, <time datetime="2025" class="refDate">2025</time>, <span>&lt;<a href="https://projects.eclipse.org/working-group/eclipse-dataspace">https://projects.eclipse.org/working-group/eclipse-dataspace</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="ERC721">[ERC721]</dt>
+        <dd>
+<span class="refAuthor">Ethereum org</span>, <span class="refTitle">"ERC-721 Non-Fungible Token Standard."</span>, <time datetime="2023-11" class="refDate">November 2023</time>, <span>&lt;<a href="https://ethereum.org/en/developers/docs/standards/tokens/erc-721/">https://ethereum.org/en/developers/docs/standards/tokens/erc-721/</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="Ethereum">[Ethereum]</dt>
+        <dd>
+<span class="refTitle">"Ethereum"</span>, <span>n.d.</span>, <span>&lt;<a href="https://ethereum.org/">https://ethereum.org/</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="GaiaX">[GaiaX]</dt>
+        <dd>
+<span class="refAuthor">Gaia-X, European Association for Data and Cloud AISBL</span>, <span class="refTitle">"Together towards a federated and secure data infrastructure"</span>, <time datetime="2025" class="refDate">2025</time>, <span>&lt;<a href="https://gaia-x.eu/wp-content/uploads/2025/01/Gaia-X-Brochure_Overview-2025.pdf">https://gaia-x.eu/wp-content/uploads/2025/01/Gaia-X-Brochure_Overview-2025.pdf</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="GoDaddy">[GoDaddy]</dt>
+        <dd>
+<span class="refAuthor">GoDaddy</span>, <span class="refTitle">"Domain Names, Websites, Hosting &amp; Online Marketing Tools."</span>, <time datetime="2024" class="refDate">2024</time>, <span>&lt;<a href="https://www.godaddy.com/">https://www.godaddy.com/</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="HLB">[HLB]</dt>
+        <dd>
+<span class="refTitle">"Hyperledger Besu"</span>, <span>n.d.</span>, <span>&lt;<a href="https://www.lfdecentralizedtrust.org/projects/besu">https://www.lfdecentralizedtrust.org/projects/besu</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="HLC">[HLC]</dt>
+        <dd>
+<span class="refAuthor">Somogyvari, P.</span>, <span class="refAuthor">Sasan, J. S.</span>, <span class="refAuthor">Sato, I.</span>, <span class="refAuthor">Takeuchi, T.</span>, <span class="refAuthor">Ramakrishna, V.</span>, <span class="refAuthor">Nishad, S.</span>, <span class="refAuthor">Narayanam, K.</span>, and <span class="refAuthor">D. Vinayagamurthy</span>, <span class="refTitle">"Introducing Hyperledger Cacti, a multi-faceted pluggable interoperability framework. Hyperledger Foundation Blog"</span>, <time datetime="2022-11" class="refDate">November 2022</time>, <span>&lt;<a href="https://www.lfdecentralizedtrust.org/blog/2022/11/07/introducing-hyperledger-cacti-a-multi-faceted-pluggable-interoperability-framework">https://www.lfdecentralizedtrust.org/blog/2022/11/07/introducing-hyperledger-cacti-a-multi-faceted-pluggable-interoperability-framework</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="HLF">[HLF]</dt>
+        <dd>
+<span class="refAuthor">Androulaki, E.</span>, <span class="refAuthor">Barger, A.</span>, <span class="refAuthor">Bortnikov, V.</span>, <span class="refAuthor">Cachin, C.</span>, <span class="refAuthor">Christidis, K.</span>, <span class="refAuthor">De Caro, A.</span>, <span class="refAuthor">Enyeart, D.</span>, <span class="refAuthor">Ferris, C.</span>, <span class="refAuthor">Laventman, G.</span>, <span class="refAuthor">Manevich, Y.</span>, <span class="refAuthor">Muralidharan, S.</span>, <span class="refAuthor">Murthy, C.</span>, <span class="refAuthor">Nguyen, B.</span>, <span class="refAuthor">Sethi, M.</span>, <span class="refAuthor">Singh, G.</span>, <span class="refAuthor">Smith, K.</span>, <span class="refAuthor">Sorniotti, A.</span>, <span class="refAuthor">Stathakopoulou, C.</span>, <span class="refAuthor">Vukolic, M.</span>, <span class="refAuthor">Weed Cocco, S.</span>, and <span class="refAuthor">J. Yellick</span>, <span class="refTitle">"Hyperledger Fabric: A Distributed Operating System for Permissioned Blockchains (EuroSys 2018)"</span>, <time datetime="2018-04" class="refDate">April 2018</time>, <span>&lt;<a href="https://dl.acm.org/doi/pdf/10.1145/3190508.3190538">https://dl.acm.org/doi/pdf/10.1145/3190508.3190538</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="IDSA">[IDSA]</dt>
+        <dd>
+<span class="refAuthor">International Data Spaces Association</span>, <span class="refTitle">"International Standards: Worldwide access, European principles"</span>, <time datetime="2025" class="refDate">2025</time>, <span>&lt;<a href="https://internationaldataspaces.org/why/international-standards/">https://internationaldataspaces.org/why/international-standards/</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="IFT">[IFT]</dt>
+        <dd>
+<span class="refAuthor">IBM</span>, <span class="refTitle">"IBM Food Trust – Blockchain for the world’s food supply"</span>, <time datetime="2022" class="refDate">2022</time>, <span>&lt;<a href="https://www.ibm.com/docs/en/food-trust">https://www.ibm.com/docs/en/food-trust</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="ISO">[ISO]</dt>
+        <dd>
+<span class="refAuthor">ISO</span>, <span class="refTitle">"Blockchain and distributed ledger technologies-Vocabulary (ISO:22739:2020)"</span>, <time datetime="2020-07" class="refDate">July 2020</time>, <span>&lt;<a href="https://www.iso.org/standard/82208.html">https://www.iso.org/standard/82208.html</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="MP">[MP]</dt>
+        <dd>
+<span class="refAuthor">Ignatova, P.</span>, <span class="refTitle">"Marco Polo Network successfully completes largest Blockchain Open Account Trade Finance Trial on R3’s Corda platform, Trade Finance Global"</span>, <time datetime="2022" class="refDate">2022</time>, <span>&lt;<a href="https://www.tradefinanceglobal.com/posts/marco-polo-network-successfully-completes-largest-blockchain-open-account-trade-finance-trial-on-r3s-corda-platform/">https://www.tradefinanceglobal.com/posts/marco-polo-network-successfully-completes-largest-blockchain-open-account-trade-finance-trial-on-r3s-corda-platform/</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="NIST">[NIST]</dt>
+        <dd>
+<span class="refAuthor">Yaga, D.</span>, <span class="refAuthor">Mell, P.</span>, <span class="refAuthor">Roby, N.</span>, and <span class="refAuthor">K. Scarfone</span>, <span class="refTitle">"NIST Blockchain Technology Overview (NISTR-8202)"</span>, <time datetime="2018-10" class="refDate">October 2018</time>, <span>&lt;<a href="https://doi.org/10.6028/NIST.IR.8202">https://doi.org/10.6028/NIST.IR.8202</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="PUbin">[PUbin]</dt>
+        <dd>
+<span class="refAuthor">Bank of America Merrill Lynch</span>, <span class="refAuthor">BCS Information Systems</span>, <span class="refAuthor">Credit Suisse</span>, <span class="refAuthor">DBS Bank</span>, <span class="refAuthor">HSBC</span>, <span class="refAuthor">Morgan, J. P.</span>, <span class="refAuthor">Mitsubishi UFJ Financial Group</span>, <span class="refAuthor">OCBC Bank</span>, <span class="refAuthor">R3</span>, <span class="refAuthor">Singapore Exchange</span>, and <span class="refAuthor">UOB Bank</span>, <span class="refTitle">"The future is here: Project Ubin: SGD on Distributed Ledger. Deloitte and Monetary Authority of Singapore (MAS), Report"</span>, <time datetime="2017" class="refDate">2017</time>, <span>&lt;<a href="https://www2.deloitte.com/content/dam/Deloitte/sg/Documents/financial-services/sg-fsi-project-ubin-report.pdf">https://www2.deloitte.com/content/dam/Deloitte/sg/Documents/financial-services/sg-fsi-project-ubin-report.pdf</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="R3C">[R3C]</dt>
+        <dd>
+<span class="refAuthor">Hearn, M.</span> and <span class="refAuthor">R. G. Brown</span>, <span class="refTitle">"Corda: A Distributed Ledger"</span>, <time datetime="2019-08" class="refDate">August 2019</time>, <span>&lt;<a href="https://docs.r3.com/en/pdf/corda-technical-whitepaper.pdf">https://docs.r3.com/en/pdf/corda-technical-whitepaper.pdf</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="RFC1034">[RFC1034]</dt>
+        <dd>
+<span class="refAuthor">Mockapetris, P.</span>, <span class="refTitle">"Domain names - concepts and facilities"</span>, <span class="seriesInfo">STD 13</span>, <span class="seriesInfo">RFC 1034</span>, <span class="seriesInfo">DOI 10.17487/RFC1034</span>, <time datetime="1987-11" class="refDate">November 1987</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc1034">https://www.rfc-editor.org/rfc/rfc1034</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="RFC1035">[RFC1035]</dt>
+        <dd>
+<span class="refAuthor">Mockapetris, P.</span>, <span class="refTitle">"Domain names - implementation and specification"</span>, <span class="seriesInfo">STD 13</span>, <span class="seriesInfo">RFC 1035</span>, <span class="seriesInfo">DOI 10.17487/RFC1035</span>, <time datetime="1987-11" class="refDate">November 1987</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc1035">https://www.rfc-editor.org/rfc/rfc1035</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="RFC5730">[RFC5730]</dt>
+        <dd>
+<span class="refAuthor">Hollenbeck, S.</span>, <span class="refTitle">"Extensible Provisioning Protocol (EPP)"</span>, <span class="seriesInfo">STD 69</span>, <span class="seriesInfo">RFC 5730</span>, <span class="seriesInfo">DOI 10.17487/RFC5730</span>, <time datetime="2009-08" class="refDate">August 2009</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc5730">https://www.rfc-editor.org/rfc/rfc5730</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="SATA">[SATA]</dt>
+        <dd>
+<span class="refAuthor">Hardjono, T.</span>, <span class="refAuthor">Hargreaves, M.</span>, <span class="refAuthor">Smith, N.</span>, and <span class="refAuthor">V. Ramakrishna</span>, <span class="refTitle">"Secure Asset Transfer (SAT) Interoperability Architecture, IETF, draft-ietf-satp-architecture-07"</span>, <time datetime="2025-06" class="refDate">June 2025</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/draft-ietf-satp-architecture/">https://datatracker.ietf.org/doc/draft-ietf-satp-architecture/</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="SATP">[SATP]</dt>
+        <dd>
+<span class="refAuthor">Hargreaves, M.</span>, <span class="refAuthor">Hardjono, T.</span>, <span class="refAuthor">Belchior, R.</span>, and <span class="refAuthor">V. Ramakrishna</span>, <span class="refTitle">"Secure Asset Transfer Protocol (SATP) Core, IETF, draft-ietf-satp-core-10"</span>, <time datetime="2025-07" class="refDate">July 2025</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/draft-ietf-satp-core/">https://datatracker.ietf.org/doc/draft-ietf-satp-core/</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="SKYC">[SKYC]</dt>
+        <dd>
+<span class="refAuthor">Curry, M.</span>, <span class="refTitle">"Blockchain for KYC: Game-changing RegTech innovation"</span>, <time datetime="2018-08" class="refDate">August 2018</time>, <span>&lt;<a href="https://www.linkedin.com/pulse/blockchain-kyc-game-changing-regtech-innovation-michael-curry/">https://www.linkedin.com/pulse/blockchain-kyc-game-changing-regtech-innovation-michael-curry/</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="SSpace">[SSpace]</dt>
+        <dd>
+<span class="refAuthor">Squarespace Domains</span>, <span class="refTitle">"Domain Name Search – Register Your Domain Name."</span>, <time datetime="2024" class="refDate">2024</time>, <span>&lt;<a href="https://domains.squarespace.com/">https://domains.squarespace.com/</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="STN">[STN]</dt>
+        <dd>
+<span class="refAuthor">Stellar Development Foundation</span>, <span class="refTitle">"Stellar – Access your universe of opportunities"</span>, <time datetime="2022" class="refDate">2022</time>, <span>&lt;<a href="https://www.stellar.org/">https://www.stellar.org/</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="StOpt">[StOpt]</dt>
+        <dd>
+<span class="refAuthor">Investopedia</span>, <span class="refTitle">"What Are Stock Options? Parameters and Trading, With Examples"</span>, <time datetime="2024" class="refDate">2024</time>, <span>&lt;<a href="https://www.investopedia.com/terms/s/stockoption.asp">https://www.investopedia.com/terms/s/stockoption.asp</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="TL">[TL]</dt>
+        <dd>
+<span class="refAuthor">TradeLens</span>, <span class="refTitle">"TradeLens: Supply chain data and docs"</span>, <time datetime="2022" class="refDate">2022</time>, <span>&lt;<a href="https://www.tradelens.com/">https://www.tradelens.com/</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="VSign">[VSign]</dt>
+        <dd>
+<span class="refAuthor">Verisign</span>, <span class="refTitle">"Verisign is a global provider of domain name registry services and internet infrastructure."</span>, <time datetime="2024" class="refDate">2024</time>, <span>&lt;<a href="https://www.verisign.com/">https://www.verisign.com/</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="WBGCBP">[WBGCBP]</dt>
+        <dd>
+<span class="refTitle">"Central Bank Digital Currencies for Cross-Border Payments: A Review of Current Experiments and Ideas. World Bank Group, Other Financial Sector Study"</span>, <time datetime="2021-11" class="refDate">November 2021</time>, <span>&lt;<a href="https://documents1.worldbank.org/curated/en/369001638871862939/pdf/Central-Bank-Digital-Currencies-for-Cross-border-Payments-A-Review-of-Current-Experiments-and-Ideas.pdf">https://documents1.worldbank.org/curated/en/369001638871862939/pdf/Central-Bank-Digital-Currencies-for-Cross-border-Payments-A-Review-of-Current-Experiments-and-Ideas.pdf</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="Web3">[Web3]</dt>
+        <dd>
+<span class="refAuthor">Wikipedia</span>, <span class="refTitle">"Web3"</span>, <time datetime="2024" class="refDate">2024</time>, <span>&lt;<a href="https://en.wikipedia.org/wiki/Web3">https://en.wikipedia.org/wiki/Web3</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="WET">[WET]</dt>
+      <dd>
+<span class="refAuthor">IBM</span>, <span class="refTitle">"we.trade"</span>, <time datetime="2019" class="refDate">2019</time>, <span>&lt;<a href="https://www.ibm.com/case-studies/wetrade-blockchain-fintech-trade-finance">https://www.ibm.com/case-studies/wetrade-blockchain-fintech-trade-finance</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+</dl>
+</section>
+</div>
+<div id="sec-informative-references">
+<section id="section-9.2">
+        <h3 id="name-informative-references">
+<a href="#section-9.2" class="section-number selfRef">9.2. </a><a href="#name-informative-references" class="section-name selfRef">Informative References</a>
+        </h3>
+<dl class="references">
+<dt id="ABCH20">[ABCH20]</dt>
+        <dd>
+<span class="refAuthor">Ankenbrand, T.</span>, <span class="refAuthor">Bieri, D.</span>, <span class="refAuthor">Cortivo, R.</span>, <span class="refAuthor">Hoehener, J.</span>, and <span class="refAuthor">T. Hardjono</span>, <span class="refTitle">"Proposal for a Comprehensive Crypto Asset Taxonomy"</span>, <time datetime="2020-05" class="refDate">May 2020</time>, <span>&lt;<a href="https://arxiv.org/abs/2007.11877">https://arxiv.org/abs/2007.11877</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="Abebe19">[Abebe19]</dt>
+        <dd>
+<span class="refAuthor">Abebe, E.</span>, <span class="refAuthor">Behl, D.</span>, <span class="refAuthor">Govindarajan, C.</span>, <span class="refAuthor">Hu, Y.</span>, <span class="refAuthor">Karunamoorthy, D.</span>, <span class="refAuthor">Novotny, P.</span>, <span class="refAuthor">Pandit, V.</span>, <span class="refAuthor">Ramakrishna, V.</span>, and <span class="refAuthor">C. Vecchiola</span>, <span class="refTitle">"Enabling Enterprise Blockchain Interoperability with Trusted Data Transfer (Middleware 2019 - Industry Track)"</span>, <time datetime="2019-12" class="refDate">December 2019</time>, <span>&lt;<a href="https://arxiv.org/abs/1911.01064">https://arxiv.org/abs/1911.01064</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="Abebe21">[Abebe21]</dt>
+        <dd>
+<span class="refAuthor">Abebe, E.</span>, <span class="refAuthor">Hu, Y.</span>, <span class="refAuthor">Irvin, A.</span>, <span class="refAuthor">Karunamoorthy, D.</span>, <span class="refAuthor">Pandit, V.</span>, <span class="refAuthor">Ramakrishna, V.</span>, and <span class="refAuthor">J. Yu</span>, <span class="refTitle">"Verifiable Observation of Permissioned Ledgers (ICBC 2021)"</span>, <time datetime="2021-05" class="refDate">May 2021</time>, <span>&lt;<a href="https://arxiv.org/abs/2012.07339">https://arxiv.org/abs/2012.07339</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="BSN22">[BSN22]</dt>
+        <dd>
+<span class="refAuthor">Kharpal, A.</span>, <span class="refTitle">"China has been quietly building a blockchain platform. Here’s what we know. CNBC"</span>, <time datetime="2022-05" class="refDate">May 2022</time>, <span>&lt;<a href="https://www.cnbc.com/2022/05/16/china-blockchain-explainer-what-is-bsn-.html">https://www.cnbc.com/2022/05/16/china-blockchain-explainer-what-is-bsn-.html</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="BVGC20">[BVGC20]</dt>
+        <dd>
+<span class="refAuthor">Belchior, R.</span>, <span class="refAuthor">Vasconcelos, A.</span>, <span class="refAuthor">Guerreiro, S.</span>, and <span class="refAuthor">M. Correia</span>, <span class="refTitle">"A Survey on Blockchain Interoperability: Past, Present, and Future Trends"</span>, <time datetime="2020-05" class="refDate">May 2020</time>, <span>&lt;<a href="https://arxiv.org/abs/2005.14282v2">https://arxiv.org/abs/2005.14282v2</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="CDE23">[CDE23]</dt>
+        <dd>
+<span class="refAuthor">Bhardwaj, S.</span>, <span class="refTitle">"China Unveils Revolutionary Blockchain Data Exchange at Hangzhou Summit. Forbes India"</span>, <time datetime="2023-08" class="refDate">August 2023</time>, <span>&lt;<a href="https://www.forbesindia.com/article/cryptocurrency/china-unveils-revolutionary-blockchain-data-exchange-at-hangzhou-summit/87745/1">https://www.forbesindia.com/article/cryptocurrency/china-unveils-revolutionary-blockchain-data-exchange-at-hangzhou-summit/87745/1</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="Clar88">[Clar88]</dt>
+        <dd>
+<span class="refAuthor">Clark, D.</span>, <span class="refTitle">"The Design Philosophy of the DARPA Internet Protocols, ACM Computer Communication Review, Proc SIGCOMM 88, vol. 18, no. 4, pp. 106-114"</span>, <time datetime="1988-08" class="refDate">August 1988</time>. </dd>
+<dd class="break"></dd>
+<dt id="Gray81">[Gray81]</dt>
+        <dd>
+<span class="refAuthor">Gray, J.</span>, <span class="refTitle">"The Transaction Concept: Virtues and Limitations, in VLDB Proceedings of the 7th International Conference, Cannes, France, September 1981, pp. 144-154"</span>, <time datetime="1981-09" class="refDate">September 1981</time>. </dd>
+<dd class="break"></dd>
+<dt id="Herl19">[Herl19]</dt>
+        <dd>
+<span class="refAuthor">Herlihy, M.</span>, <span class="refTitle">"Blockchains from a Distributed Computing Perspective, Communications of the ACM, vol. 62, no. 2, pp. 78-85"</span>, <time datetime="2019-02" class="refDate">February 2019</time>, <span>&lt;<a href="https://doi.org/10.1145/3209623">https://doi.org/10.1145/3209623</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="HLP19">[HLP19]</dt>
+        <dd>
+<span class="refAuthor">Hardjono, T.</span>, <span class="refAuthor">Lipton, A.</span>, and <span class="refAuthor">A. Pentland</span>, <span class="refTitle">"Towards and Interoperability Architecture for Blockchain Autonomous Systems, IEEE Transactions on Engineering Management"</span>, <time datetime="2019-06" class="refDate">June 2019</time>, <span>&lt;<a href="https://doi:10.1109/TEM.2019.2920154">https://doi:10.1109/TEM.2019.2920154</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="HS2019">[HS2019]</dt>
+        <dd>
+<span class="refAuthor">Hardjono, T.</span> and <span class="refAuthor">N. Smith</span>, <span class="refTitle">"Decentralized Trusted Computing Base for Blockchain Infrastructure Security, Frontiers Journal, Special Issue on Blockchain Technology, Vol. 2, No. 24"</span>, <time datetime="2019-12" class="refDate">December 2019</time>, <span>&lt;<a href="https://doi.org/10.3389/fbloc.2019.00024">https://doi.org/10.3389/fbloc.2019.00024</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="HTLC21">[HTLC21]</dt>
+        <dd>
+<span class="refTitle">"Hash Time Locked Contracts, Bitcoin Wiki"</span>, <span>n.d.</span>, <span>&lt;<a href="https://en.bitcoin.it/wiki/Hash_Time_Locked_Contracts">https://en.bitcoin.it/wiki/Hash_Time_Locked_Contracts</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="IDevID">[IDevID]</dt>
+        <dd>
+<span class="refAuthor">Richardson, M.</span> and <span class="refAuthor">J. Yang</span>, <span class="refTitle">"A Taxonomy of operational security of manufacturer installed keys and anchors. IETF draft-richardson-t2trg-idevid-considerations-01"</span>, <time datetime="2020-08" class="refDate">August 2020</time>, <span>&lt;<a href="https://tools.ietf.org/html/draft-richardson-t2trg-idevid-considerations-01">https://tools.ietf.org/html/draft-richardson-t2trg-idevid-considerations-01</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="SRC84">[SRC84]</dt>
+      <dd>
+<span class="refAuthor">Saltzer, J.</span>, <span class="refAuthor">Reed, D.</span>, and <span class="refAuthor">D. Clark</span>, <span class="refTitle">"End-to-End Arguments in System Design, ACM Transactions on Computer Systems, vol. 2, no. 4, pp. 277-288"</span>, <time datetime="1984-11" class="refDate">November 1984</time>. </dd>
+<dd class="break"></dd>
+</dl>
+</section>
+</div>
+</section>
+</div>
+<div id="authors-addresses">
+<section id="appendix-A">
+      <h2 id="name-authors-addresses">
+<a href="#name-authors-addresses" class="section-name selfRef">Authors' Addresses</a>
+      </h2>
+<address class="vcard">
+        <div dir="auto" class="left"><span class="fn nameRole">Venkatraman Ramakrishna</span></div>
+<div dir="auto" class="left"><span class="org">IBM Research</span></div>
+<div class="email">
+<span>Email:</span>
+<a href="mailto:vramakr2@in.ibm.com" class="email">vramakr2@in.ibm.com</a>
+</div>
+</address>
+<address class="vcard">
+        <div dir="auto" class="left"><span class="fn nameRole">Thomas Hardjono</span></div>
+<div dir="auto" class="left"><span class="org">MIT</span></div>
+<div class="email">
+<span>Email:</span>
+<a href="mailto:hardjono@mit.edu" class="email">hardjono@mit.edu</a>
+</div>
+</address>
+<address class="vcard">
+        <div dir="auto" class="left"><span class="fn nameRole">Chunchi (Peter) Liu</span></div>
+<div dir="auto" class="left"><span class="org">Huawei</span></div>
+<div class="email">
+<span>Email:</span>
+<a href="mailto:liuchunchi@huawei.com" class="email">liuchunchi@huawei.com</a>
+</div>
+</address>
+</section>
+</div>
+<script>const toc = document.getElementById("toc");
+toc.querySelector("h2").addEventListener("click", e => {
+  toc.classList.toggle("active");
+});
+toc.querySelector("nav").addEventListener("click", e => {
+  toc.classList.remove("active");
+});
+</script>
+</body>
+</html>
