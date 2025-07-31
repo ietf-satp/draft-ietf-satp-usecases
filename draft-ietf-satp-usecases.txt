@@ -5,10 +5,10 @@
 Secure Asset Transfer Protocol                            V. Ramakrishna
 Internet-Draft                                              IBM Research
 Intended status: Informational                               T. Hardjono
-Expires: 31 January 2026                                             MIT
+Expires: 1 February 2026                                             MIT
                                                                   C. Liu
                                                                   Huawei
-                                                            30 July 2025
+                                                            31 July 2025
 
 
                  Secure Asset Transfer (SAT) Use Cases
@@ -52,7 +52,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 31 January 2026.
+   This Internet-Draft will expire on 1 February 2026.
 
 Copyright Notice
 
