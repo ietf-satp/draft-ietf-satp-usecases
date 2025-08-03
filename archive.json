@@ -1,0 +1,402 @@
+{
+  "magic": "E!vIA5L86J2I",
+  "timestamp": "2025-08-03T01:22:50.603042+00:00",
+  "repo": "ietf-satp/draft-ietf-satp-usecases",
+  "labels": [
+    {
+      "name": "bug",
+      "description": "Something isn't working",
+      "color": "d73a4a"
+    },
+    {
+      "name": "documentation",
+      "description": "Improvements or additions to documentation",
+      "color": "0075ca"
+    },
+    {
+      "name": "duplicate",
+      "description": "This issue or pull request already exists",
+      "color": "cfd3d7"
+    },
+    {
+      "name": "enhancement",
+      "description": "New feature or request",
+      "color": "a2eeef"
+    },
+    {
+      "name": "good first issue",
+      "description": "Good for newcomers",
+      "color": "7057ff"
+    },
+    {
+      "name": "help wanted",
+      "description": "Extra attention is needed",
+      "color": "008672"
+    },
+    {
+      "name": "invalid",
+      "description": "This doesn't seem right",
+      "color": "e4e669"
+    },
+    {
+      "name": "question",
+      "description": "Further information is requested",
+      "color": "d876e3"
+    },
+    {
+      "name": "wontfix",
+      "description": "This will not be worked on",
+      "color": "ffffff"
+    }
+  ],
+  "issues": [
+    {
+      "number": 1,
+      "id": "I_kwDOKAkX786wnowg",
+      "title": "A brief review on draft-ietf-satp-usecases",
+      "url": "https://github.com/ietf-satp/draft-ietf-satp-usecases/issues/1",
+      "state": "CLOSED",
+      "author": "anawhj",
+      "authorAssociation": "NONE",
+      "assignees": [],
+      "labels": [],
+      "body": "Hello.\n\n> (1.a)  Has the Document Shepherd personally reviewed this version of the document and, in particular, does he or she believe this version is ready for forwarding to the IESG for publication? (Ref. https://www.rfc-editor.org/rfc/rfc4858.html#section-3.1)\n\nAccording to Chair's call and confirmation at IETF 122 meeting, I'm supposed to be in charge of the document shepherd's role for draft-ietf-satp-usecases.\nFor handling (1.a) question above, I provide some minor comments for better degree of completion for the usecases draft.\nPlease also handle the previous comments shared via SATP mailing list before. (e.g. Does not have a table of contents in draft-ietf-satp-usecases, https://mailarchive.ietf.org/arch/msg/sat/gtbhvvdhx6n08vUFqT713TuAC1c/)\n\n**Minor comments (They can be applied to the draft selectively by authors)**\n* \u201cInternet Engineering Task Force\u201d is specified at the first line of the draft, but  \u201cSecure Asset Transfer Protocol\u201d would be better in terms of the consistency with the satp-core draft and other WGs\u2019 I-Ds.\n* The draft includes seven figures that could be specified with a short caption right to \u201cFigure\u201d keyword.\n* In Figure 7, dot is used for describing the meaning of a direction indicator, but the other figures have no dot on the same case. In other words, \u201c1. Exercise\u201d can be modified as \u201c1 Exercise\u201d in Figure 7.\n* \u201cconsortiums and identified as challenges\u201d \u2192 \u201cconsortiums, and identified as challenges\u201d (In \u201c1. Introduction\u201c section. a comma can be added for better sentence.)\n* There following are \u2192 The following are (2. Terminology section. The current one would be no problem, but the proposed change would be better I think.)\n* Asset Transfer Protocol \u2192 Secure Asset Transfer Protocol (2. Terminology section. There\u2019s no case using the \u201cAsset Transfer Protocol in the document, but \u201cSecure Asset Transfer Protocol\u201d is used.)\n* Further terminology definitions can be found in [NIST] and [ISO]. (2. Terminology section. I\u2019m not sure the statement is really needed in the document. I tried to find some terminology in the reference links, but it would be difficult to find something meaningful.)\n* \u201cE.g.,\u201d, \u201ce.g.\u201d and \u201ce.g.\u201d are used in the document as mixed, so it can be unified as a single one.\n* \u201cpayment network\u201d, \u201cpayments network\u201d, \u201cpayment networks\u201d, \u201cPayment Networks\u201d are used in the document as mixed, so parts of them could be integrated as a single one.\n\n**Trivial error (Please check them using Ctrl + F)**\n* DeFi user market \u2192 DeFi user markets\n* arbitrarily \u2192 arbitrary\n* audio playback app. \u2192 audio playback application.\n* user \u2192 users (for consistency)\n* <[https://ethereum.org/\u201d](https://ethereum.org/%E2%80%9D) \u2192 <[https://ethereum.org/\u201d](https://ethereum.org/%E2%80%9D)> Let\u2019s add \u201c>\u201d.\n\n**Weird links to be updated**\n* [https://www.hyperledger.org/use/besu](https://www.hyperledger.org/use/besu%3E) \u2192 https://www.lfdecentralizedtrust.org/projects/besu\n* [https://www.hyperledger.org/blog/2022/11/07/introducing- hyperledger-cacti-a-multi-faceted-pluggable-interoperability- framework](https://https//www.hyperledger.org/blog/2022/11/07/introducing-%20hyperledger-cacti-a-multi-faceted-pluggable-interoperability-%20framework) \u2192 https://www.lfdecentralizedtrust.org/blog/2022/11/07/introducing-hyperledger-cacti-a-multi-faceted-pluggable-interoperability-framework\n* https://www.iso.org/ \u2192 https://www.iso.org/standard/82208.html\n* https://datatracker.ietf.org/doc/html/rfc5730.html \u2192 https://datatracker.ietf.org/doc/html/rfc5730 (For consistency)\n* https://www.ibm.com/case-studies/we-trade-blockchain \u2192 https://www.ibm.com/case-studies/wetrade-blockchain-fintech-trade-finance\n* https://www.ibm.com/blockchain/solutions/food-trust isn\u2019t available now.\n* https://marcopolonetwork.com/ isn\u2019t available now.\n* https://www.r3.com/reports/corda-technical-whitepaper isn\u2019t available now.\n* https://www.ibm.com/blogs/blockchain/2018/09/blockchain-for-kyc-game-changing-regtech-innovation isn\u2019t available now.",
+      "createdAt": "2025-04-01T11:39:38Z",
+      "updatedAt": "2025-07-31T15:07:04Z",
+      "closedAt": "2025-07-14T08:55:15Z",
+      "comments": [
+        {
+          "author": "VRamakrishna",
+          "authorAssociation": "COLLABORATOR",
+          "body": "@anawhj Thanks for the comments. We'll go through them in detail and apply the necessary changes. On the links containing `hyperledger`: the organization previously called Hyperledger was moved and renamed to Linux Foundation Decentralized Trust at the end of 2024, hence the links (originally added more then 2 years ago) are out-of-date. Thanks especially for pointing them out.",
+          "createdAt": "2025-04-01T13:50:55Z",
+          "updatedAt": "2025-04-01T14:36:11Z"
+        },
+        {
+          "author": "VRamakrishna",
+          "authorAssociation": "COLLABORATOR",
+          "body": "@anawhj I've incorporated your feedback into the document and acknowledged you in the \"Contributors\" section at the end (please check if your affiliation is stated correctly): https://datatracker.ietf.org/doc/draft-ietf-satp-usecases/.\n\nI still haven't figured out the table of contents, but I'll do that as soon as I can using the other SATP drafts' GitHub repos as examples, and using the XML conversion too.",
+          "createdAt": "2025-07-07T18:39:11Z",
+          "updatedAt": "2025-07-07T18:39:11Z"
+        },
+        {
+          "author": "anawhj",
+          "authorAssociation": "NONE",
+          "body": "@VRamakrishna Great! The affiliation is correct for me. Thanks for mentioning me to the section. :)",
+          "createdAt": "2025-07-14T08:55:15Z",
+          "updatedAt": "2025-07-14T08:55:15Z"
+        },
+        {
+          "author": "anawhj",
+          "authorAssociation": "NONE",
+          "body": "@VRamakrishna Could you briefly share the plan of the final update incl. the table of contents? If needed, I would be able to help the problem of the table of contents together.",
+          "createdAt": "2025-07-21T15:10:36Z",
+          "updatedAt": "2025-07-21T15:10:36Z"
+        },
+        {
+          "author": "VRamakrishna",
+          "authorAssociation": "COLLABORATOR",
+          "body": "@anawhj I'm working on it as we speak. Sorry for the procrastination. I'll make some commits this week (and seek help from you as needed). Thanks.",
+          "createdAt": "2025-07-21T15:17:50Z",
+          "updatedAt": "2025-07-21T15:17:50Z"
+        },
+        {
+          "author": "anawhj",
+          "authorAssociation": "NONE",
+          "body": "Great! Thanks for the info.\nI will provide a shepherding document via the STAP mailing list once you confirm the final version of the draft.",
+          "createdAt": "2025-07-21T15:20:05Z",
+          "updatedAt": "2025-07-21T15:20:05Z"
+        },
+        {
+          "author": "VRamakrishna",
+          "authorAssociation": "COLLABORATOR",
+          "body": "@anawhj I've checked in the draft and added a branch protection rule for PRs to `main`. (I uploaded all previous drafts, too, and tagged those commits by version number.)\n\nYou can now submit corrections and suggestions directly against the draft. A table of contents is also generated now. I have some newer changes pending, and whenever I upload a new draft to datatracker, I'll ensure it has the ToC by building it from this repo.",
+          "createdAt": "2025-07-26T12:33:58Z",
+          "updatedAt": "2025-07-26T12:35:10Z"
+        },
+        {
+          "author": "anawhj",
+          "authorAssociation": "NONE",
+          "body": "@VRamakrishna Thanks for the update. Please submit it to the datatracker incl. IANA section shared from Claire via SATP mailing list.",
+          "createdAt": "2025-07-30T05:26:38Z",
+          "updatedAt": "2025-07-30T05:26:38Z"
+        },
+        {
+          "author": "hardaker",
+          "authorAssociation": "NONE",
+          "body": "Thank you very much for tracking all of these issues and ensuring they get done!  Very much appreciated.",
+          "createdAt": "2025-07-31T15:07:03Z",
+          "updatedAt": "2025-07-31T15:07:03Z"
+        }
+      ]
+    }
+  ],
+  "pulls": [
+    {
+      "number": 2,
+      "id": "PR_kwDOKAkX786gIzsg",
+      "title": "Checking in a copy of draft version 00",
+      "url": "https://github.com/ietf-satp/draft-ietf-satp-usecases/pull/2",
+      "state": "MERGED",
+      "author": "VRamakrishna",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Original version: https://datatracker.ietf.org/doc/draft-ietf-satp-usecases/00/",
+      "createdAt": "2025-07-22T19:57:27Z",
+      "updatedAt": "2025-07-22T20:04:46Z",
+      "baseRepository": "ietf-satp/draft-ietf-satp-usecases",
+      "baseRefName": "main",
+      "baseRefOid": "5563fb20a84b8f97a2b8832b1c083810cd5dd294",
+      "headRepository": null,
+      "headRefName": "main",
+      "headRefOid": "7d429ec580dae7a69577152d35a6aa3ee63eb10b",
+      "closedAt": "2025-07-22T20:04:46Z",
+      "mergedAt": "2025-07-22T20:04:46Z",
+      "mergedBy": "VRamakrishna",
+      "mergeCommit": {
+        "oid": "42725a80ead6bf54318af8b7ef9498f085def771"
+      },
+      "comments": [
+        {
+          "author": "VRamakrishna",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Just to save the history of the published versions of this draft, I'm merging each old version in sequence starting from `00`. Once I have the latest version checked in, I'll enable branch protection rules and GitHub Actions for CI/CD.",
+          "createdAt": "2025-07-22T20:04:34Z",
+          "updatedAt": "2025-07-22T20:04:34Z"
+        }
+      ],
+      "reviews": []
+    },
+    {
+      "number": 3,
+      "id": "PR_kwDOKAkX786gg0xR",
+      "title": "Checking in a copy of draft version 01",
+      "url": "https://github.com/ietf-satp/draft-ietf-satp-usecases/pull/3",
+      "state": "MERGED",
+      "author": "VRamakrishna",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Original version: https://datatracker.ietf.org/doc/draft-ietf-satp-usecases/01/",
+      "createdAt": "2025-07-24T19:13:20Z",
+      "updatedAt": "2025-07-24T19:13:48Z",
+      "baseRepository": "ietf-satp/draft-ietf-satp-usecases",
+      "baseRefName": "main",
+      "baseRefOid": "42725a80ead6bf54318af8b7ef9498f085def771",
+      "headRepository": null,
+      "headRefName": "main",
+      "headRefOid": "6d047436c892484f179c0cab61d10a444a738016",
+      "closedAt": "2025-07-24T19:13:48Z",
+      "mergedAt": "2025-07-24T19:13:48Z",
+      "mergedBy": "VRamakrishna",
+      "mergeCommit": {
+        "oid": "9c39d8e90a30f34a0973223c3393b2dddcd5cdff"
+      },
+      "comments": [],
+      "reviews": []
+    },
+    {
+      "number": 4,
+      "id": "PR_kwDOKAkX786grDuT",
+      "title": "Updating Draft Version 01 and Adding Versions 02 and 03",
+      "url": "https://github.com/ietf-satp/draft-ietf-satp-usecases/pull/4",
+      "state": "MERGED",
+      "author": "VRamakrishna",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Original drafts:\r\n- `01`: https://datatracker.ietf.org/doc/draft-ietf-satp-usecases/01/\r\n- `02`: https://datatracker.ietf.org/doc/draft-ietf-satp-usecases/02/\r\n- `03`: https://datatracker.ietf.org/doc/draft-ietf-satp-usecases/03/",
+      "createdAt": "2025-07-25T18:05:57Z",
+      "updatedAt": "2025-07-25T18:06:26Z",
+      "baseRepository": "ietf-satp/draft-ietf-satp-usecases",
+      "baseRefName": "main",
+      "baseRefOid": "9c39d8e90a30f34a0973223c3393b2dddcd5cdff",
+      "headRepository": null,
+      "headRefName": "main",
+      "headRefOid": "1179252bc2450c3a3fd7761ba8162202b58e292a",
+      "closedAt": "2025-07-25T18:06:25Z",
+      "mergedAt": "2025-07-25T18:06:25Z",
+      "mergedBy": "VRamakrishna",
+      "mergeCommit": {
+        "oid": "8fd459c5089229bfe6c6d2dbc9b957d26d997ea7"
+      },
+      "comments": [],
+      "reviews": []
+    },
+    {
+      "number": 5,
+      "id": "PR_kwDOKAkX786gwAlQ",
+      "title": "Adding versions 04 and 05 (latest)",
+      "url": "https://github.com/ietf-satp/draft-ietf-satp-usecases/pull/5",
+      "state": "MERGED",
+      "author": "VRamakrishna",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Original drafts:\r\n- `04`: https://datatracker.ietf.org/doc/draft-ietf-satp-usecases/04/\r\n- `05` (`latest`): https://datatracker.ietf.org/doc/draft-ietf-satp-usecases/05/",
+      "createdAt": "2025-07-26T12:19:45Z",
+      "updatedAt": "2025-07-26T12:19:57Z",
+      "baseRepository": "ietf-satp/draft-ietf-satp-usecases",
+      "baseRefName": "main",
+      "baseRefOid": "8fd459c5089229bfe6c6d2dbc9b957d26d997ea7",
+      "headRepository": null,
+      "headRefName": "main",
+      "headRefOid": "55e40801d6898d4c980f1f47edce53fe8440611e",
+      "closedAt": "2025-07-26T12:19:57Z",
+      "mergedAt": "2025-07-26T12:19:57Z",
+      "mergedBy": "VRamakrishna",
+      "mergeCommit": {
+        "oid": "6b48b425b56d154a2b0f5a8efb4ca2a235b1baae"
+      },
+      "comments": [],
+      "reviews": []
+    },
+    {
+      "number": 6,
+      "id": "PR_kwDOKAkX786hUl1C",
+      "title": "Adding GitHub actions copied from other repos",
+      "url": "https://github.com/ietf-satp/draft-ietf-satp-usecases/pull/6",
+      "state": "MERGED",
+      "author": "VRamakrishna",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "",
+      "createdAt": "2025-07-30T09:46:06Z",
+      "updatedAt": "2025-07-30T09:51:14Z",
+      "baseRepository": "ietf-satp/draft-ietf-satp-usecases",
+      "baseRefName": "main",
+      "baseRefOid": "6b48b425b56d154a2b0f5a8efb4ca2a235b1baae",
+      "headRepository": null,
+      "headRefName": "main",
+      "headRefOid": "f8f0c6eab3ee2fb76f05f694650c4519300e6df4",
+      "closedAt": "2025-07-30T09:51:13Z",
+      "mergedAt": "2025-07-30T09:51:13Z",
+      "mergedBy": "VRamakrishna",
+      "mergeCommit": {
+        "oid": "9d19f0e05bbeda3ac7dfa271e2fc00a9d4f2c23a"
+      },
+      "comments": [],
+      "reviews": []
+    },
+    {
+      "number": 7,
+      "id": "PR_kwDOKAkX786hVG-q",
+      "title": "Upgraded 'actions/upload-artifact' to 'v4'",
+      "url": "https://github.com/ietf-satp/draft-ietf-satp-usecases/pull/7",
+      "state": "MERGED",
+      "author": "VRamakrishna",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "",
+      "createdAt": "2025-07-30T10:38:17Z",
+      "updatedAt": "2025-07-30T10:38:56Z",
+      "baseRepository": "ietf-satp/draft-ietf-satp-usecases",
+      "baseRefName": "main",
+      "baseRefOid": "9d19f0e05bbeda3ac7dfa271e2fc00a9d4f2c23a",
+      "headRepository": null,
+      "headRefName": "main",
+      "headRefOid": "3fa8abee09ff56ec870482227afb8f5aa4debb6c",
+      "closedAt": "2025-07-30T10:38:56Z",
+      "mergedAt": "2025-07-30T10:38:56Z",
+      "mergedBy": "VRamakrishna",
+      "mergeCommit": {
+        "oid": "67c20e01632cccb04e127aef877c65f41486caee"
+      },
+      "comments": [],
+      "reviews": []
+    },
+    {
+      "number": 8,
+      "id": "PR_kwDOKAkX786hVd03",
+      "title": "Checking in draft version 06",
+      "url": "https://github.com/ietf-satp/draft-ietf-satp-usecases/pull/8",
+      "state": "CLOSED",
+      "author": "VRamakrishna",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Added a missing reference.\r\nFixed incorrect normative and section references.\r\nAdded IANA Considerations section.",
+      "createdAt": "2025-07-30T11:17:28Z",
+      "updatedAt": "2025-07-30T11:23:11Z",
+      "baseRepository": "ietf-satp/draft-ietf-satp-usecases",
+      "baseRefName": "main",
+      "baseRefOid": "67c20e01632cccb04e127aef877c65f41486caee",
+      "headRepository": null,
+      "headRefName": "main",
+      "headRefOid": "a71868c05826c35a1ffcd5aad0df0f1f02441f46",
+      "closedAt": "2025-07-30T11:22:44Z",
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [
+        {
+          "author": "VRamakrishna",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Will resubmit after fixing commit-signing.",
+          "createdAt": "2025-07-30T11:23:11Z",
+          "updatedAt": "2025-07-30T11:23:11Z"
+        }
+      ],
+      "reviews": []
+    },
+    {
+      "number": 9,
+      "id": "PR_kwDOKAkX786hVzvn",
+      "title": "Checking in draft version 06",
+      "url": "https://github.com/ietf-satp/draft-ietf-satp-usecases/pull/9",
+      "state": "MERGED",
+      "author": "VRamakrishna",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Added a missing reference.\r\nFixed incorrect normative and section references.\r\nAdded IANA Considerations section.",
+      "createdAt": "2025-07-30T11:54:07Z",
+      "updatedAt": "2025-07-30T12:07:50Z",
+      "baseRepository": "ietf-satp/draft-ietf-satp-usecases",
+      "baseRefName": "main",
+      "baseRefOid": "67c20e01632cccb04e127aef877c65f41486caee",
+      "headRepository": null,
+      "headRefName": "main",
+      "headRefOid": "4a8a089c02eed886fa8d6d7b7b0daeccd0437a8f",
+      "closedAt": "2025-07-30T12:07:50Z",
+      "mergedAt": "2025-07-30T12:07:50Z",
+      "mergedBy": "VRamakrishna",
+      "mergeCommit": {
+        "oid": "67469bca78b27c662094d9f89d6c1d4bdb8022bd"
+      },
+      "comments": [],
+      "reviews": []
+    },
+    {
+      "number": 10,
+      "id": "PR_kwDOKAkX786hhapK",
+      "title": "Upgrading 'upload-artifact' in actions to 'v4'",
+      "url": "https://github.com/ietf-satp/draft-ietf-satp-usecases/pull/10",
+      "state": "MERGED",
+      "author": "VRamakrishna",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "",
+      "createdAt": "2025-07-31T12:00:57Z",
+      "updatedAt": "2025-07-31T12:01:33Z",
+      "baseRepository": "ietf-satp/draft-ietf-satp-usecases",
+      "baseRefName": "main",
+      "baseRefOid": "67469bca78b27c662094d9f89d6c1d4bdb8022bd",
+      "headRepository": "VRamakrishna/draft-ietf-satp-usecases",
+      "headRefName": "main",
+      "headRefOid": "15f91b4ef3e2a42b166b724a2b16e75f21b1005b",
+      "closedAt": "2025-07-31T12:01:33Z",
+      "mergedAt": "2025-07-31T12:01:33Z",
+      "mergedBy": "VRamakrishna",
+      "mergeCommit": {
+        "oid": "432d602fb2fb6482b5be6b2172ba1d19af285075"
+      },
+      "comments": [],
+      "reviews": []
+    }
+  ]
+}
