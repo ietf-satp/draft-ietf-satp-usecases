@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-08-03T01:22:50.603042+00:00",
+  "timestamp": "2025-08-05T01:18:07.373497+00:00",
   "repo": "ietf-satp/draft-ietf-satp-usecases",
   "labels": [
     {
@@ -62,7 +62,7 @@
       "labels": [],
       "body": "Hello.\n\n> (1.a)  Has the Document Shepherd personally reviewed this version of the document and, in particular, does he or she believe this version is ready for forwarding to the IESG for publication? (Ref. https://www.rfc-editor.org/rfc/rfc4858.html#section-3.1)\n\nAccording to Chair's call and confirmation at IETF 122 meeting, I'm supposed to be in charge of the document shepherd's role for draft-ietf-satp-usecases.\nFor handling (1.a) question above, I provide some minor comments for better degree of completion for the usecases draft.\nPlease also handle the previous comments shared via SATP mailing list before. (e.g. Does not have a table of contents in draft-ietf-satp-usecases, https://mailarchive.ietf.org/arch/msg/sat/gtbhvvdhx6n08vUFqT713TuAC1c/)\n\n**Minor comments (They can be applied to the draft selectively by authors)**\n* \u201cInternet Engineering Task Force\u201d is specified at the first line of the draft, but  \u201cSecure Asset Transfer Protocol\u201d would be better in terms of the consistency with the satp-core draft and other WGs\u2019 I-Ds.\n* The draft includes seven figures that could be specified with a short caption right to \u201cFigure\u201d keyword.\n* In Figure 7, dot is used for describing the meaning of a direction indicator, but the other figures have no dot on the same case. In other words, \u201c1. Exercise\u201d can be modified as \u201c1 Exercise\u201d in Figure 7.\n* \u201cconsortiums and identified as challenges\u201d \u2192 \u201cconsortiums, and identified as challenges\u201d (In \u201c1. Introduction\u201c section. a comma can be added for better sentence.)\n* There following are \u2192 The following are (2. Terminology section. The current one would be no problem, but the proposed change would be better I think.)\n* Asset Transfer Protocol \u2192 Secure Asset Transfer Protocol (2. Terminology section. There\u2019s no case using the \u201cAsset Transfer Protocol in the document, but \u201cSecure Asset Transfer Protocol\u201d is used.)\n* Further terminology definitions can be found in [NIST] and [ISO]. (2. Terminology section. I\u2019m not sure the statement is really needed in the document. I tried to find some terminology in the reference links, but it would be difficult to find something meaningful.)\n* \u201cE.g.,\u201d, \u201ce.g.\u201d and \u201ce.g.\u201d are used in the document as mixed, so it can be unified as a single one.\n* \u201cpayment network\u201d, \u201cpayments network\u201d, \u201cpayment networks\u201d, \u201cPayment Networks\u201d are used in the document as mixed, so parts of them could be integrated as a single one.\n\n**Trivial error (Please check them using Ctrl + F)**\n* DeFi user market \u2192 DeFi user markets\n* arbitrarily \u2192 arbitrary\n* audio playback app. \u2192 audio playback application.\n* user \u2192 users (for consistency)\n* <[https://ethereum.org/\u201d](https://ethereum.org/%E2%80%9D) \u2192 <[https://ethereum.org/\u201d](https://ethereum.org/%E2%80%9D)> Let\u2019s add \u201c>\u201d.\n\n**Weird links to be updated**\n* [https://www.hyperledger.org/use/besu](https://www.hyperledger.org/use/besu%3E) \u2192 https://www.lfdecentralizedtrust.org/projects/besu\n* [https://www.hyperledger.org/blog/2022/11/07/introducing- hyperledger-cacti-a-multi-faceted-pluggable-interoperability- framework](https://https//www.hyperledger.org/blog/2022/11/07/introducing-%20hyperledger-cacti-a-multi-faceted-pluggable-interoperability-%20framework) \u2192 https://www.lfdecentralizedtrust.org/blog/2022/11/07/introducing-hyperledger-cacti-a-multi-faceted-pluggable-interoperability-framework\n* https://www.iso.org/ \u2192 https://www.iso.org/standard/82208.html\n* https://datatracker.ietf.org/doc/html/rfc5730.html \u2192 https://datatracker.ietf.org/doc/html/rfc5730 (For consistency)\n* https://www.ibm.com/case-studies/we-trade-blockchain \u2192 https://www.ibm.com/case-studies/wetrade-blockchain-fintech-trade-finance\n* https://www.ibm.com/blockchain/solutions/food-trust isn\u2019t available now.\n* https://marcopolonetwork.com/ isn\u2019t available now.\n* https://www.r3.com/reports/corda-technical-whitepaper isn\u2019t available now.\n* https://www.ibm.com/blogs/blockchain/2018/09/blockchain-for-kyc-game-changing-regtech-innovation isn\u2019t available now.",
       "createdAt": "2025-04-01T11:39:38Z",
-      "updatedAt": "2025-07-31T15:07:04Z",
+      "updatedAt": "2025-08-04T09:14:43Z",
       "closedAt": "2025-07-14T08:55:15Z",
       "comments": [
         {
@@ -127,6 +127,13 @@
           "body": "Thank you very much for tracking all of these issues and ensuring they get done!  Very much appreciated.",
           "createdAt": "2025-07-31T15:07:03Z",
           "updatedAt": "2025-07-31T15:07:03Z"
+        },
+        {
+          "author": "anawhj",
+          "authorAssociation": "NONE",
+          "body": "@VRamakrishna As last questions for describing the shepherd note, could you please check the following two items?\n\n* There seems two errors on the validation result of the link below. Do we need to fix or just skip them? Please provide your opinion. (I'll add your opinion to the shepherd note.)\n  * https://author-tools.ietf.org/api/idnits?url=https://www.ietf.org/archive/id/draft-ietf-satp-usecases-06.txt\n\n> 8. Describe reviews and automated checks performed to validate sections of the final version of the document written in a formal language, such as XML code, BNF rules, MIB definitions, CBOR's CDDL, etc.\n\n* Regarding the shepherding checklist item 8 above, please share your document type (e.g. XML, md) and automated validation method (e.g. what types of tools)\n\nThanks again for your prompt response, indeed.",
+          "createdAt": "2025-08-04T09:14:43Z",
+          "updatedAt": "2025-08-04T09:14:43Z"
         }
       ]
     }
