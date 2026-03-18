@@ -11,23 +11,22 @@
 <meta content="
        This document describes prominent scenarios where enterprise systems and networks maintaining digital assets require the ability to securely transfer assets or data to each other. 
     " name="description">
-<meta content="xml2rfc 3.30.0" name="generator">
+<meta content="xml2rfc 3.32.0" name="generator">
 <meta content="Internet-Draft" name="keyword">
 <meta content="draft-ietf-satp-usecases-latest" name="ietf.draft">
 <!-- Generator version information:
-  xml2rfc 3.30.0
-    Python 3.12.11
+  xml2rfc 3.32.0
+    Python 3.12.12
     ConfigArgParse 1.7
     google-i18n-address 3.1.1
-    intervaltree 3.1.0
+    intervaltree 3.2.1
     Jinja2 3.1.6
-    lxml 5.3.1
-    platformdirs 4.3.8
+    lxml 6.0.2
+    platformdirs 4.9.4
     pycountry 24.6.1
-    PyYAML 6.0.2
-    requests 2.32.4
-    setuptools 80.9.0
-    wcwidth 0.2.13
+    PyYAML 6.0.3
+    requests 2.32.5
+    wcwidth 0.6.0
 -->
 <link href="draft-ietf-satp-usecases.xml" rel="alternate" type="application/rfc+xml">
 <link href="#copyright" rel="license">
@@ -168,7 +167,7 @@
   font-weight: 400;
   font-display: swap;
   src: local('Oxygen Mono'), local('OxygenMono-Regular'), url('https://martinthomson.github.io/rfc-css/fonts/oxygenmono-regular-latin-ext.woff2') format('woff2');
-  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
 }
 @font-face {
   font-family: 'Oxygen Mono';
@@ -176,7 +175,8 @@
   font-weight: 400;
   font-display: swap;
   src: local('Oxygen Mono'), local('OxygenMono-Regular'), url('https://martinthomson.github.io/rfc-css/fonts/oxygenmono-regular-latin.woff2') format('woff2');
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
 }
 
 @font-face {
@@ -568,6 +568,7 @@ aside, blockquote {
 }
 blockquote {
   margin: 1em 0;
+  border-left: 2px var(--pilcrow-strong) solid;
 }
 cite {
   display: block;
@@ -638,7 +639,7 @@ a.pilcrow {
   }
 }
 @media not print {
-  :hover > a.pilcrow {
+  :hover > a.pilcrow, a.pilcrow:focus {
     opacity: 1;
   }
   a.pilcrow[href]:hover {
@@ -1046,11 +1047,11 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <thead><tr>
 <td class="left">Internet-Draft</td>
 <td class="center">SAT Use Cases</td>
-<td class="right">July 2025</td>
+<td class="right">March 2026</td>
 </tr></thead>
 <tfoot><tr>
 <td class="left">Ramakrishna, et al.</td>
-<td class="center">Expires 1 February 2026</td>
+<td class="center">Expires 19 September 2026</td>
 <td class="right">[Page]</td>
 </tr></tfoot>
 </table>
@@ -1063,12 +1064,12 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <dd class="internet-draft">draft-ietf-satp-usecases-latest</dd>
 <dt class="label-published">Published:</dt>
 <dd class="published">
-<time datetime="2025-07-31" class="published">31 July 2025</time>
+<time datetime="2026-03-18" class="published">18 March 2026</time>
     </dd>
 <dt class="label-intended-status">Intended Status:</dt>
 <dd class="intended-status">Informational</dd>
 <dt class="label-expires">Expires:</dt>
-<dd class="expires"><time datetime="2026-02-01">1 February 2026</time></dd>
+<dd class="expires"><time datetime="2026-09-19">19 September 2026</time></dd>
 <dt class="label-authors">Authors:</dt>
 <dd class="authors">
 <div class="author">
@@ -1126,7 +1127,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
         time. It is inappropriate to use Internet-Drafts as reference
         material or to cite them other than as "work in progress."<a href="#section-boilerplate.1-3" class="pilcrow">¶</a></p>
 <p id="section-boilerplate.1-4">
-        This Internet-Draft will expire on 1 February 2026.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
+        This Internet-Draft will expire on 19 September 2026.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="copyright">
@@ -1135,7 +1136,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <a href="#name-copyright-notice" class="section-name selfRef">Copyright Notice</a>
         </h2>
 <p id="section-boilerplate.2-1">
-            Copyright (c) 2025 IETF Trust and the persons identified as the
+            Copyright (c) 2026 IETF Trust and the persons identified as the
             document authors. All rights reserved.<a href="#section-boilerplate.2-1" class="pilcrow">¶</a></p>
 <p id="section-boilerplate.2-2">
             This document is subject to BCP 78 and the IETF Trust's Legal
@@ -1239,7 +1240,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <a href="#section-1" class="section-number selfRef">1. </a><a href="#name-introduction" class="section-name selfRef">Introduction</a>
       </h2>
 <div id="introduction-doc">
-<p id="section-1-1">Business networks, built on both centralized and decentralized models, have emerged to manage cross-organization assets and workflows. The scope of such workflows and the assets they govern, as well as the set of participating organizations within a network, have been quite limited, partly for security, privacy, and scalability reasons, and partly because organizations have been reticent to moving large portions of their pre existing workflows to such networks. We see this especially in the areas of trade, finance, supply chain logistics, and property management. Yet the workflows managed by these networks are naturally interlinked in the real world, and therefore cannot afford to remain isolated from each other technologically, which would diminish the value of their assets. At the same time, a network, once built, has institutional staying power, and it is therefore impractical to assume that they will expand or merge. Interoperability is therefore an imperative in this fragmented business network ecosystem. This comes in different flavors, namely the ability to move an asset from one network to another, interlinking workflows to share asset state with proof of authenticity from one network to another, and swapping assets in different networks as part of a business transaction, as listed in the SAT Architecture Specification <span>[<a href="#SATA" class="cite xref">SATA</a>]</span>. The purpose of this document is to describe prominent examples of these modes that have been encountered by enterprises and business consortiums and identified as challenges to be overcome. In particular, this document describes scenarios where the Secure Asset Transfer Protocol (SATP) <span>[<a href="#SATP" class="cite xref">SATP</a>]</span> can be directly applied to solve the problem of moving digital assets across networks, for which no other canonical protocol exists in the literature.<a href="#section-1-1" class="pilcrow">¶</a></p>
+<p id="section-1-1">Business networks, built on both centralized and decentralized models, have emerged to manage cross-organization assets and workflows. The scope of such workflows and the assets they govern, as well as the set of participating organizations within a network, have been quite limited, partly for security, privacy, and scalability reasons, and partly because organizations have been reticent to moving large portions of their pre existing workflows to such networks. This is especially observable in the areas of trade, finance, supply chain logistics, and property management. Yet the workflows managed by these networks are naturally interlinked in the real world, and therefore cannot afford to remain isolated from each other technologically, which would diminish the value of their assets. At the same time, a network, once built, has institutional staying power, and it is therefore impractical to assume that they will expand or merge. Interoperability is therefore an imperative in this fragmented business network ecosystem. This comes in different flavors, namely the ability to move an asset from one network to another, interlinking workflows to share asset state with proof of authenticity from one network to another, and swapping assets in different networks as part of a business transaction, as listed in the SAT Architecture Specification <span>[<a href="#SATA" class="cite xref">SATA</a>]</span>. The purpose of this document is to describe prominent examples of these modes that have been encountered by enterprises and business consortiums and identified as challenges to be overcome. In particular, this document describes scenarios where the Secure Asset Transfer Protocol (SATP) <span>[<a href="#SATP" class="cite xref">SATP</a>]</span> can be directly applied to solve the problem of moving digital assets across networks, for which no other canonical protocol exists in the literature.<a href="#section-1-1" class="pilcrow">¶</a></p>
 </div>
 </section>
 </div>
@@ -1249,7 +1250,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <a href="#section-2" class="section-number selfRef">2. </a><a href="#name-terminology" class="section-name selfRef">Terminology</a>
       </h2>
 <div id="terminology-doc">
-<p id="section-2-1">The following are some terminology used in the current document. We borrow terminology from <span>[<a href="#NIST" class="cite xref">NIST</a>]</span> and <span>[<a href="#ISO" class="cite xref">ISO</a>]</span> as much as possible, introducing new terms only when needed:<a href="#section-2-1" class="pilcrow">¶</a></p>
+<p id="section-2-1">The following are some terminology used in the current document, with some borrowed from <span>[<a href="#NIST" class="cite xref">NIST</a>]</span> and <span>[<a href="#ISO" class="cite xref">ISO</a>]</span>, and new terms introduced only when needed:<a href="#section-2-1" class="pilcrow">¶</a></p>
 </div>
 <ul class="normal">
 <li class="normal" id="section-2-2.1">
@@ -1363,7 +1364,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
 </div>
 <p id="section-3.1-5">Asset transfers among trade networks: In the preceding example, letters of credit and bills of lading represent portions of state of the larger export-import workflow. But these documents are also digital assets in their own rights.<a href="#section-3.1-5" class="pilcrow">¶</a></p>
 <p id="section-3.1-6">A bill of lading can serve as title to the consignment of goods being shipped, and hence can be traded as a security or used as collateral against debt obligations in the financial market. Hence, Step 11 in Figure 2 may well be embodied by the transfer rather than the sharing of state of a bill so that it ceases to remain on the Trade Logistics Network ledger and instead belongs to the Seller’s Bank on the Trade Finance Network’s ledger.<a href="#section-3.1-6" class="pilcrow">¶</a></p>
-<p id="section-3.1-7">A letter of credit may also assume the properties of a digital asset in certain situations. Consider the case of an importer who wishes to move their business to a different trade finance network and maintain their records on that network’s ledger. We can assume that the banks and the exporter participate in the second trade finance network as well, which exists to serve a different clientele. The importer needs to be able to move its letter of credit state to the other network and resume the trade workflow after migration. This requires the ability to transfer the letter in the form of a digital asset from one trade finance network to another.<a href="#section-3.1-7" class="pilcrow">¶</a></p>
+<p id="section-3.1-7">A letter of credit may also assume the properties of a digital asset in certain situations. Consider the case of an importer who wishes to move their business to a different trade finance network and maintain their records on that network’s ledger. The banks and the exporter can be assumed to participate in the second trade finance network as well, which exists to serve a different clientele. The importer needs to be able to move its letter of credit state to the other network and resume the trade workflow after migration. This requires the ability to transfer the letter in the form of a digital asset from one trade finance network to another.<a href="#section-3.1-7" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="tracking-food-shipments">
@@ -1404,7 +1405,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <a href="#section-3.3" class="section-number selfRef">3.3. </a><a href="#name-supply-chain-management" class="section-name selfRef">Supply Chain Management</a>
         </h3>
 <div id="trade-sc-management">
-<p id="section-3.3-1">To complete the picture, we can add a payment network to the mix, which maintains currency accounts for clients in different countries and enables cross-border payments, an example being the Stellar network <span>[<a href="#STN" class="cite xref">STN</a>]</span>. After goods have been dispatched, and optionally after verification of the delivery and proper condition of a shipment, payment is due from an importer to an exporter. The trade finance network can record a payment obligation on its ledger but it will rely on the payment network to process and confirm the actual transfer of funds. The former shares data about the obligation to the latter, which shares data about a successful (or otherwise) payment in return, as illustrated in Figure 4.<a href="#section-3.3-1" class="pilcrow">¶</a></p>
+<p id="section-3.3-1">To complete the picture, a payment network can be added to the mix. This payment network maintains currency accounts for clients in different countries and enables cross-border payments, an example being the Stellar network <span>[<a href="#STN" class="cite xref">STN</a>]</span>. After goods have been dispatched, and optionally after verification of the delivery and proper condition of a shipment, payment is due from an importer to an exporter. The trade finance network can record a payment obligation on its ledger but it will rely on the payment network to process and confirm the actual transfer of funds. The former shares data about the obligation to the latter, which shares data about a successful (or otherwise) payment in return, as illustrated in Figure 4.<a href="#section-3.3-1" class="pilcrow">¶</a></p>
 </div>
 <div id="supply-chain-figure">
 <figure id="figure-4">
@@ -1434,7 +1435,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
 </div>
 <figcaption><a href="#figure-4" class="selfRef">Figure 4</a></figcaption></figure>
 </div>
-<p id="section-3.3-3">Addendum: we can add yet another network to the mix, one that manages regulatory compliance. (E.g., proof-of-concept systems have been built to bring banks and corporations on a single distributed ledger and smart contract platform to share KYC information in privacy-preserving ways <span>[<a href="#BKYC" class="cite xref">BKYC</a>]</span> <span>[<a href="#SKYC" class="cite xref">SKYC</a>]</span>.) Now issuances of letters of credit in the trade finance system will be dependent on valid KYC records being maintained as assets in the regulatory compliance system.<a href="#section-3.3-3" class="pilcrow">¶</a></p>
+<p id="section-3.3-3">Addendum: yet another network, one that manages regulatory compliance, can be added to the mix. (E.g., proof-of-concept systems have been built to bring banks and corporations on a single distributed ledger and smart contract platform to share KYC information in privacy-preserving ways <span>[<a href="#BKYC" class="cite xref">BKYC</a>]</span> <span>[<a href="#SKYC" class="cite xref">SKYC</a>]</span>.) Now issuances of letters of credit in the trade finance system will be dependent on valid KYC records being maintained as assets in the regulatory compliance system.<a href="#section-3.3-3" class="pilcrow">¶</a></p>
 </section>
 </div>
 </section>
@@ -1450,7 +1451,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <p id="section-4-2">DeFi is a “new financial paradigm that leverages distributed ledger technologies to offer services such as lending, investing, or exchanging cryptoassets without relying on a traditional centralized intermediary” <span>[<a href="#BISDeFi" class="cite xref">BISDeFi</a>]</span>. Following the Web3 philosophy <span>[<a href="#Web3" class="cite xref">Web3</a>]</span>, scoped for the world of finance, DeFi offers architecture and protocols built on smart contracts deployed on blockchain or other distributed ledger technology. It thereby obviates the need for centralized management and orchestration of financial processes (e.g., currency transfers, exchanges, securities settlements) by trusted authorities who can gain undue leverage.<a href="#section-4-2" class="pilcrow">¶</a></p>
 <p id="section-4-3">CBDC is a form of tokenized cryptocurrency that various central banks around the world are experimenting with as the digital equivalent of traditional central bank-issued money used by banks and other financial institutions as well as end users for commercial transactions and settlements. Central banks possess exclusive authority to mint and issue money in physical cash form and in the form of electronic reserves. They also support commercial bank money used in retail transactions by banks and other users in their private capacities. Central banks have traditionally used their control over these different forms of money to enforce monetary policy in a way that promotes financial stability and provides broad access to safe and efficient payments <span>[<a href="#BISCBDC" class="cite xref">BISCBDC</a>]</span>. CBDCs would form a new, or alternative, type of central bank money, typically (but not always) built on blockchain or other distributed ledger technology. They have recently garnered significant interest in government circles by promising increased access and inclusion, better resilience, and increased scale and efficiency of currency transfers, compared to traditional forms of central bank-issued or central bank-backed currency.<a href="#section-4-3" class="pilcrow">¶</a></p>
 <p id="section-4-4">CBDCs can broadly be classified into “wholesale” and “retail”. Wholesale CBDC, which facilitates inter-bank and cross-border settlements, is currency that is available only to banks and other financial institutions. Retail CBDC is available to the public and can be used as a digital form of cash, enabling fast transparent payments for goods and services at high scale and volume; in effect, it can be used as a substitute for legacy payment mechanisms.<a href="#section-4-4" class="pilcrow">¶</a></p>
-<p id="section-4-5">Different system architectures exist to manage CBDC for banks and end users, from issuance to transfers to redemptions. A 2-tier model as illustrated in Figure 5 has recently gained popularity, where wholesale CBDC networks manage interactions between central and commercial banks, and retail CBDC networks manage interactions between commercial banks and end users. If we consider the role of the central bank as the defining characteristic of a system architecture, this model can be referred to as “indirect”, because commercial banks mediate claims between the central bank and end users and also facilitate payments. Other architectures also exist, including “direct CBDC”, where the central bank issues CBDC directly to end users and facilitates payments, and “hybrid CBDC”, which provides users the facility to make direct claims on the central bank while allowing intermediaries to facilitate payments <span>[<a href="#BISRCBDC" class="cite xref">BISRCBDC</a>]</span>.<a href="#section-4-5" class="pilcrow">¶</a></p>
+<p id="section-4-5">Different system architectures exist to manage CBDC for banks and end users, from issuance to transfers to redemptions. A 2-tier model as illustrated in Figure 5 has recently gained popularity, where wholesale CBDC networks manage interactions between central and commercial banks, and retail CBDC networks manage interactions between commercial banks and end users. If the role of the central bank is treated as the defining characteristic of a system architecture, this model can be referred to as “indirect”, because commercial banks mediate claims between the central bank and end users and also facilitate payments. Other architectures also exist, including “direct CBDC”, where the central bank issues CBDC directly to end users and facilitates payments, and “hybrid CBDC”, which provides users the facility to make direct claims on the central bank while allowing intermediaries to facilitate payments <span>[<a href="#BISRCBDC" class="cite xref">BISRCBDC</a>]</span>.<a href="#section-4-5" class="pilcrow">¶</a></p>
 <div id="currency-transfers">
 <section id="section-4.1">
         <h3 id="name-currency-transfers">
@@ -1507,8 +1508,8 @@ svg :is([fill="white"], [fill^="#fff"]) {
 </div>
 <figcaption><a href="#figure-5" class="selfRef">Figure 5</a></figcaption></figure>
 </div>
-<p id="section-4.1-3">Here we will encounter scenarios where a given commercial bank maintains digital currency accounts in a wholesale CBDC network as well as one or more retail CBDC networks. To inject liquidity into a retail CBDC network, this bank will need to transfer currency from its reserve account in the wholesale CBDC network. Or it may need to approve (or at least audit) the transfer of currency from one retail CBDC network to another bank in another retail CBDC network. In the world of decentralized finance, or DeFi for short, currency cannot afford to remain siloed in any single CBDC network. Hence, these networks must be interoperable in order to facilitate secure transfers of currency among themselves, as illustrated in Figure 5.<a href="#section-4.1-3" class="pilcrow">¶</a></p>
-<p id="section-4.1-4">We can identify two specific instances of currency transfer across networks in this example: one from a wholesale CBDC network to a retail CBDC network, and another from one retail CBDC network to another. Since currency in tokenized form is a digital asset, these scenarios require the direct application of a secure protocol for asset transfer. SATP <span>[<a href="#SATP" class="cite xref">SATP</a>]</span> fits the bill, is agnostic of the types of distributed ledger technologies on which the respective networks are built, and simply requires the networks to use SATP gateways. This is not just a theoretical proposition; a candidate design for a bridge between Hyperledger Fabric <span>[<a href="#HLF" class="cite xref">HLF</a>]</span> and Hyperledger Besu <span>[<a href="#HLB" class="cite xref">HLB</a>]</span> networks using SATP and the Hyperledger Cacti interoperability platform <span>[<a href="#HLC" class="cite xref">HLC</a>]</span> has been proposed by distributed ledger researchers <span>[<a href="#Aug23" class="cite xref">Aug23</a>]</span>.<a href="#section-4.1-4" class="pilcrow">¶</a></p>
+<p id="section-4.1-3">In scenarios described subsequently, a given commercial bank maintains digital currency accounts in a wholesale CBDC network as well as one or more retail CBDC networks. To inject liquidity into a retail CBDC network, this bank will need to transfer currency from its reserve account in the wholesale CBDC network. Or it may need to approve (or at least audit) the transfer of currency from one retail CBDC network to another bank in another retail CBDC network. In the world of decentralized finance, or DeFi for short, currency cannot afford to remain siloed in any single CBDC network. Hence, these networks must be interoperable in order to facilitate secure transfers of currency among themselves, as illustrated in Figure 5.<a href="#section-4.1-3" class="pilcrow">¶</a></p>
+<p id="section-4.1-4">Two specific instances of currency transfer across networks can be observed in this example: one from a wholesale CBDC network to a retail CBDC network, and another from one retail CBDC network to another. Since currency in tokenized form is a digital asset, these scenarios require the direct application of a secure protocol for asset transfer. SATP <span>[<a href="#SATP" class="cite xref">SATP</a>]</span> fits the bill, is agnostic of the types of distributed ledger technologies on which the respective networks are built, and simply requires the networks to use SATP gateways. This is not just a theoretical proposition; a candidate design for a bridge between Hyperledger Fabric <span>[<a href="#HLF" class="cite xref">HLF</a>]</span> and Hyperledger Besu <span>[<a href="#HLB" class="cite xref">HLB</a>]</span> networks using SATP and the Hyperledger Cacti interoperability platform <span>[<a href="#HLC" class="cite xref">HLC</a>]</span> has been proposed by distributed ledger researchers <span>[<a href="#Aug23" class="cite xref">Aug23</a>]</span>.<a href="#section-4.1-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="multi-cbdc-economy">
@@ -1529,7 +1530,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <a href="#section-4.3" class="section-number selfRef">4.3. </a><a href="#name-delivery-vs-payment-dvp-of-" class="section-name selfRef">Delivery vs Payment (DvP) of Securities</a>
         </h3>
 <div id="finance-currency-dvp">
-<p id="section-4.3-1">In Decentralized Finance, or DeFi for short, investors and financial institutions will form networks to manage the creation and purchase of securities. As a simple example, we can consider a network consisting of the Treasury, which issues bonds, and commercial banks, which purchase and trade bonds. We can also consider a payment network of the kind we saw in Section 3.3 (or a retail CBDC network of the kind we saw in Section 4.1), which allows CBDC transfers between commercial banks’ accounts. In the securities network, banks may wish to transfer bonds to each other but only in exchange for compensation. But such compensation can be made only on a payment network where the two maintain currency accounts (e.g., in CBDC). Therefore, the securities and payment networks must be able to interoperate in such a way that two banks can carry out a delivery-vs-payment transaction spanning these two independent networks. Such a transaction must be atomic, i.e., either both bond and CBDC tokens get transferred in their respective networks or neither gets transferred. Figure 6 illustrates this exchange.<a href="#section-4.3-1" class="pilcrow">¶</a></p>
+<p id="section-4.3-1">In Decentralized Finance, or DeFi for short, investors and financial institutions will form networks to manage the creation and purchase of securities. As a simple example, consider a network to which the Treasury, which issues bonds, and commercial banks, which purchase and trade bonds, belong. Also consider a payment network of the kind seen in Section 3.3 (or a retail CBDC network of the kind seen in Section 4.1), which allows CBDC transfers between commercial banks’ accounts. In the securities network, banks may wish to transfer bonds to each other but only in exchange for compensation. But such compensation can be made only on a payment network where the two maintain currency accounts (e.g., in CBDC). Therefore, the securities and payment networks must be able to interoperate in such a way that two banks can carry out a delivery-vs-payment transaction spanning these two independent networks. Such a transaction must be atomic, i.e., either both bond and CBDC tokens get transferred in their respective networks or neither gets transferred. Figure 6 illustrates this exchange.<a href="#section-4.3-1" class="pilcrow">¶</a></p>
 </div>
 <div id="securities-dvp-figure">
 <figure id="figure-6">
@@ -1584,7 +1585,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <a href="#section-4.4" class="section-number selfRef">4.4. </a><a href="#name-stock-options-contract-fulf" class="section-name selfRef">Stock Options Contract Fulfilment</a>
         </h3>
 <div id="finance-currency-stock-options">
-<p id="section-4.4-1">Stock options are financial instruments that allow holders to buy or sell stock at predetermined prices until specific expiration dates <span>[<a href="#StOpt" class="cite xref">StOpt</a>]</span>. Exercising an option, i.e., buying or selling a stock by paying a “strike price”, involves a more complex cross-network financial transaction than the securities DvP use case. Option contracts can be managed and enforced in a specific business network (which we can label as a “stock network”) to which entities like an Options Clearing Corporation (OCC), stock exchanges (e.g., the Chicago Board Options Exchange), and brokerage firms, belong. The OCC is the issuer and guarantor for all options and futures contracts traded on U.S. exchanges <span>[<a href="#OCC" class="cite xref">OCC</a>]</span>. It provides secured back-end clearing services, while exchanges provide front-end trading markets. Transfer and settlement of payments, just like in the DvP scenario, will typically occur in a dedicated payment network in which buyers and sellers of stock have currency accounts. Options contract fulfilment requires the stock and payment networks to work in concert, and hence need SATP to coordinate transactions across them.<a href="#section-4.4-1" class="pilcrow">¶</a></p>
+<p id="section-4.4-1">Stock options are financial instruments that allow holders to buy or sell stock at predetermined prices until specific expiration dates <span>[<a href="#StOpt" class="cite xref">StOpt</a>]</span>. Exercising an option, i.e., buying or selling a stock by paying a “strike price”, involves a more complex cross-network financial transaction than the securities DvP use case. Option contracts can be managed and enforced in a specific business network (which can be labeled a “stock network”) to which entities like an Options Clearing Corporation (OCC), stock exchanges (e.g., the Chicago Board Options Exchange), and brokerage firms, belong. The OCC is the issuer and guarantor for all options and futures contracts traded on U.S. exchanges <span>[<a href="#OCC" class="cite xref">OCC</a>]</span>. It provides secured back-end clearing services, while exchanges provide front-end trading markets. Transfer and settlement of payments, just like in the DvP scenario, will typically occur in a dedicated payment network in which buyers and sellers of stock have currency accounts. Options contract fulfilment requires the stock and payment networks to work in concert, and hence need SATP to coordinate transactions across them.<a href="#section-4.4-1" class="pilcrow">¶</a></p>
 </div>
 <p id="section-4.4-2">Figure 7 illustrates a simplified flow for the exercising of a “call” option, where a buyer acquires stock from a seller by paying it a strike price. First, the buyer informs its brokerage, which then notifies its exchange about the buyer's intent to exercise the option. The exchange in turn notifies the OCC in the Stock Network. (All these notifications typically occur via a smart contract). Steps 1-2 illustrate these notifications. The OCC then verifies the contract’s validity and the buyer’s right to exercise the option. If this is successful, the OCC triggers a payment request to the buyer through a contract-to-contract communication from the Stock Network to the Payment Network (step 3). (Alternatively, the buyer may trigger a payment request in the Payment Network, which then requests the Stock Network for proof of the contract’s validity from the OCC before approving the payment.) The buyer then pays the strike price to the seller (step 4). The payment receipt is now sent to the Stock Network for the OCC’s verification (or alternatively, the buyer can request the OCC to fetch and verify the receipt from the Payment Network) and fulfilment of the contract (step 5). The OCC, via the exchange, requests the brokerage to transfer stock from the seller’s to the buyer’s account (steps 6-7).<a href="#section-4.4-2" class="pilcrow">¶</a></p>
 <p id="section-4.4-3">This cross-network transactions require SATP using gateways, either to communicate information of a contract’s validity (step 3) or a payment receipt (step 5) with authenticity proof (i.e., data sharing), or by ensuring that strike price payment (step 4) and contract fulfilment (step 6-7) occur atomically as an exchange using a coordinated set of commitments.<a href="#section-4.4-3" class="pilcrow">¶</a></p>
@@ -1676,10 +1677,10 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <a href="#section-6" class="section-number selfRef">6. </a><a href="#name-trustworthy-dns-resource-re" class="section-name selfRef">Trustworthy DNS Resource Record Migrations using an Augmented EPP</a>
       </h2>
 <div id="dns-epp-migration">
-<p id="section-6-1">We have seen several examples where SATP is indispensable for enabling cross-network asset and data transfer and transaction settlement. But SATP can also be used to augment an existing protocol by making it more secure, trustworthy, and efficient rather than creating an altogether new feature that preexisting technology was unable to provide. Conventional Internet architecture offers scope for such augmentation. Though highly decentralized, the Internet consists of nodes (or actors) that play critical roles in various protocols. Such protocols would benefit if the actions of these actors can be recorded and tracked on blockchain or other decentralized ledger networks. (It must be noted that the performance implications of these augmentations ought to be studied before firm recommendations are made.)<a href="#section-6-1" class="pilcrow">¶</a></p>
+<p id="section-6-1">Several examples have been presented in this document where SATP is indispensable for enabling cross-network asset and data transfer and transaction settlement. But SATP can also be used to augment an existing protocol by making it more secure, trustworthy, and efficient rather than creating an altogether new feature that preexisting technology was unable to provide. Conventional Internet architecture offers scope for such augmentation. Though highly decentralized, the Internet consists of nodes (or actors) that play critical roles in various protocols. Such protocols would benefit if the actions of these actors can be recorded and tracked on blockchain or other decentralized ledger networks. (It must be noted that the performance implications of these augmentations ought to be studied before firm recommendations are made.)<a href="#section-6-1" class="pilcrow">¶</a></p>
 </div>
-<p id="section-6-2">We consider the DNS architecture <span>[<a href="#RFC1034" class="cite xref">RFC1034</a>]</span> <span>[<a href="#RFC1035" class="cite xref">RFC1035</a>]</span>, where multiple registries and registrars may co-exist, managing DNS records for owners (registrants). For example, Verisign <span>[<a href="#VSign" class="cite xref">VSign</a>]</span> acts as a TLD (top-level domain) registry for the “.com” namespace, and GoDaddy <span>[<a href="#GoDaddy" class="cite xref">GoDaddy</a>]</span> and Squarespace <span>[<a href="#SSpace" class="cite xref">SSpace</a>]</span> are registrars that can issue and sell SLDs (second- level domains) to customers (say Alice and Bob). The Extensible Provisioning Protocol (EPP) allows registrars to communicate with registries for resource record updates, including changes in domain ownership <span>[<a href="#RFC5730" class="cite xref">RFC5730</a>]</span>. Consider a scenario in which Alice, who owns an SLD (say alice.com) issued by GoDaddy, wishes to transfer that SLD to Squarespace. She can submit a request to Squarespace for this purpose, following which the respective registrars (GoDaddy and Squarespace) can communicate with the registry (Verisign) using EPP to transfer the SLD between themselves. Squarespace will then reissue the domain to Alice. In a related scenario, Alice can transfer (or sell) her GoDaddy-issued domain to Bob, who uses Squarespace as a registrant.<a href="#section-6-2" class="pilcrow">¶</a></p>
-<p id="section-6-3">Though EPP facilitates these resource updates and transfers, and reputed registrars offer customers these features in a usable manner, we can see that such scenarios face safety issues as they require trust and proper coordination among the participants. These issues can be mitigated by distributed ledger networks, smart contracts, and NFTs, which collectively provide a platform for safe and transparent DNS resource transfers with easy detection of non-compliance.<a href="#section-6-3" class="pilcrow">¶</a></p>
+<p id="section-6-2">Consider the DNS architecture <span>[<a href="#RFC1034" class="cite xref">RFC1034</a>]</span> <span>[<a href="#RFC1035" class="cite xref">RFC1035</a>]</span>, where multiple registries and registrars may co-exist, managing DNS records for owners (registrants). For example, Verisign <span>[<a href="#VSign" class="cite xref">VSign</a>]</span> acts as a TLD (top-level domain) registry for the “.example” namespace, and GoDaddy <span>[<a href="#GoDaddy" class="cite xref">GoDaddy</a>]</span> and Squarespace <span>[<a href="#SSpace" class="cite xref">SSpace</a>]</span> are registrars that can issue and sell SLDs (second- level domains) to customers (say Alice and Bob). The Extensible Provisioning Protocol (EPP) allows registrars to communicate with registries for resource record updates, including changes in domain ownership <span>[<a href="#RFC5730" class="cite xref">RFC5730</a>]</span>. Consider a scenario in which Alice, who owns an SLD (say alice.example) issued by GoDaddy, wishes to transfer that SLD to Squarespace. She can submit a request to Squarespace for this purpose, following which the respective registrars (GoDaddy and Squarespace) can communicate with the registry (Verisign) using EPP to transfer the SLD between themselves. Squarespace will then reissue the domain to Alice. In a related scenario, Alice can transfer (or sell) her GoDaddy-issued domain to Bob, who uses Squarespace as a registrant.<a href="#section-6-2" class="pilcrow">¶</a></p>
+<p id="section-6-3">Though EPP facilitates these resource updates and transfers, and reputed registrars offer customers these features in a usable manner, such scenarios face safety issues as they require trust and proper coordination among the participants. These issues can be mitigated by distributed ledger networks, smart contracts, and NFTs, which collectively provide a platform for safe and transparent DNS resource transfers with easy detection of non-compliance.<a href="#section-6-3" class="pilcrow">¶</a></p>
 <p id="section-6-4">In such a scheme, domains (or domain names) can be monetized as NFTs or digital assets, e.g., in the form of ERC-721 <span>[<a href="#ERC721" class="cite xref">ERC721</a>]</span> tokens, a popular NFT standard in the Ethereum ecosystem <span>[<a href="#Ethereum" class="cite xref">Ethereum</a>]</span>. The creation of a domain is represented by minting of an NFT and the deletion of a domain by the burning of the NFT using smart contracts whose transactions are tracked on a distributed ledger maintained by a network of entities. Registrants Alice and Bob also participate in the smart contracts and hold wallet identities, allowing them to trade assets by submitting transactions to the ledger. Registrants, registrars, and registries can engage in commercial transactions using contracts governing tokenized (and monetized) domains for the purposes of issuing and transferring domains (among owners and registrars). This provides more safety where registrars are not reputed, and allows new registrar services to emerge and build reputations. It also enables customers like Alice and Bob to sell domains to each other safely and seamlessly.<a href="#section-6-4" class="pilcrow">¶</a></p>
 <p id="section-6-5">SATP is crucial to enabling this scheme where registrars belong to, and issue, NFT-backed domains in different ledgers maintained by different networks. Ensuring that tokens are securely and atomically transferred between the ledgers will be a necessary prerequisite for an EPP resource record update operation. Further, non-compliance, or non-fulfilment of EPP, by either registrar, can be easily detected by examining the SATP logs from the respective networks’ gateways, thereby safeguarding the process. In future, reputed registrars may require their counterparties to comply with SATP-based transfers across ledgers as a prerequisite to engaging in a domain transfer with them.<a href="#section-6-5" class="pilcrow">¶</a></p>
 <p id="section-6-6">This scenario additionally illustrates an example of what typically occurs in Stage 0 of a SATP instance <span>[<a href="#SATP" class="cite xref">SATP</a>]</span>, which is where negotiation and agreement-building occurs between gateways. EPP instances among registrars and registries will occur in this stage, both prior to the start of an SATP instance and after its conclusion. EPP will produce the transaction context the gateways need to transfer an asset (in this case, a tokenized domain) using SATP. Many other applications of SATP for asset transfers may similarly augment or bolster pre-existing business workflows, which (like EPP here) will produce transactions contexts for SATP instances.<a href="#section-6-6" class="pilcrow">¶</a></p>
@@ -1812,7 +1813,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <dd class="break"></dd>
 <dt id="ISO">[ISO]</dt>
         <dd>
-<span class="refAuthor">ISO</span>, <span class="refTitle">"Blockchain and distributed ledger technologies-Vocabulary (ISO:22739:2020)"</span>, <time datetime="2020-07" class="refDate">July 2020</time>, <span>&lt;<a href="https://www.iso.org/standard/82208.html">https://www.iso.org/standard/82208.html</a>&gt;</span>. </dd>
+<span class="refAuthor">ISO</span>, <span class="refTitle">"Blockchain and distributed ledger technologies-Vocabulary (ISO:22739:2024)"</span>, <time datetime="2024-01" class="refDate">January 2024</time>, <span>&lt;<a href="https://www.iso.org/standard/82208.html">https://www.iso.org/standard/82208.html</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="MP">[MP]</dt>
         <dd>
@@ -1848,11 +1849,11 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <dd class="break"></dd>
 <dt id="SATA">[SATA]</dt>
         <dd>
-<span class="refAuthor">Hardjono, T.</span>, <span class="refAuthor">Hargreaves, M.</span>, <span class="refAuthor">Smith, N.</span>, and <span class="refAuthor">V. Ramakrishna</span>, <span class="refTitle">"Secure Asset Transfer (SAT) Interoperability Architecture, IETF, draft-ietf-satp-architecture-07"</span>, <time datetime="2025-06" class="refDate">June 2025</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/draft-ietf-satp-architecture/">https://datatracker.ietf.org/doc/draft-ietf-satp-architecture/</a>&gt;</span>. </dd>
+<span class="refAuthor">Hardjono, T.</span>, <span class="refAuthor">Hargreaves, M.</span>, <span class="refAuthor">Smith, N.</span>, and <span class="refAuthor">V. Ramakrishna</span>, <span class="refTitle">"Secure Asset Transfer (SAT) Interoperability Architecture, IETF, draft-ietf-satp-architecture-09"</span>, <time datetime="2026-02" class="refDate">February 2026</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/draft-ietf-satp-architecture/">https://datatracker.ietf.org/doc/draft-ietf-satp-architecture/</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="SATP">[SATP]</dt>
         <dd>
-<span class="refAuthor">Hargreaves, M.</span>, <span class="refAuthor">Hardjono, T.</span>, <span class="refAuthor">Belchior, R.</span>, and <span class="refAuthor">V. Ramakrishna</span>, <span class="refTitle">"Secure Asset Transfer Protocol (SATP) Core, IETF, draft-ietf-satp-core-10"</span>, <time datetime="2025-07" class="refDate">July 2025</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/draft-ietf-satp-core/">https://datatracker.ietf.org/doc/draft-ietf-satp-core/</a>&gt;</span>. </dd>
+<span class="refAuthor">Hargreaves, M.</span>, <span class="refAuthor">Hardjono, T.</span>, <span class="refAuthor">Belchior, R.</span>, <span class="refAuthor">Ramakrishna, V.</span>, and <span class="refAuthor">A. Chiriac</span>, <span class="refTitle">"Secure Asset Transfer Protocol (SATP) Core, IETF, draft-ietf-satp-core-13"</span>, <time datetime="2026-03" class="refDate">March 2026</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/draft-ietf-satp-core/">https://datatracker.ietf.org/doc/draft-ietf-satp-core/</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="SKYC">[SKYC]</dt>
         <dd>
@@ -1937,7 +1938,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <dd class="break"></dd>
 <dt id="HLP19">[HLP19]</dt>
         <dd>
-<span class="refAuthor">Hardjono, T.</span>, <span class="refAuthor">Lipton, A.</span>, and <span class="refAuthor">A. Pentland</span>, <span class="refTitle">"Towards and Interoperability Architecture for Blockchain Autonomous Systems, IEEE Transactions on Engineering Management"</span>, <time datetime="2019-06" class="refDate">June 2019</time>, <span>&lt;<a href="https://doi:10.1109/TEM.2019.2920154">https://doi:10.1109/TEM.2019.2920154</a>&gt;</span>. </dd>
+<span class="refAuthor">Hardjono, T.</span>, <span class="refAuthor">Lipton, A.</span>, and <span class="refAuthor">A. Pentland</span>, <span class="refTitle">"Towards an Interoperability Architecture for Blockchain Autonomous Systems, IEEE Transactions on Engineering Management"</span>, <time datetime="2019-06" class="refDate">June 2019</time>, <span>&lt;<a href="https://ieeexplore.ieee.org/document/8743548">https://ieeexplore.ieee.org/document/8743548</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="HS2019">[HS2019]</dt>
         <dd>

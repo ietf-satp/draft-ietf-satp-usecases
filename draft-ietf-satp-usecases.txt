@@ -5,10 +5,10 @@
 Secure Asset Transfer Protocol                            V. Ramakrishna
 Internet-Draft                                              IBM Research
 Intended status: Informational                               T. Hardjono
-Expires: 1 February 2026                                             MIT
+Expires: 19 September 2026                                           MIT
                                                                   C. Liu
                                                                   Huawei
-                                                            31 July 2025
+                                                           18 March 2026
 
 
                  Secure Asset Transfer (SAT) Use Cases
@@ -52,11 +52,11 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 1 February 2026.
+   This Internet-Draft will expire on 19 September 2026.
 
 Copyright Notice
 
-   Copyright (c) 2025 IETF Trust and the persons identified as the
+   Copyright (c) 2026 IETF Trust and the persons identified as the
    document authors.  All rights reserved.
 
    This document is subject to BCP 78 and the IETF Trust's Legal
@@ -104,7 +104,7 @@ Table of Contents
    have been quite limited, partly for security, privacy, and
    scalability reasons, and partly because organizations have been
    reticent to moving large portions of their pre existing workflows to
-   such networks.  We see this especially in the areas of trade,
+   such networks.  This is especially observable in the areas of trade,
    finance, supply chain logistics, and property management.  Yet the
    workflows managed by these networks are naturally interlinked in the
    real world, and therefore cannot afford to remain isolated from each
@@ -128,9 +128,9 @@ Table of Contents
 
 2.  Terminology
 
-   The following are some terminology used in the current document.  We
-   borrow terminology from [NIST] and [ISO] as much as possible,
-   introducing new terms only when needed:
+   The following are some terminology used in the current document, with
+   some borrowed from [NIST] and [ISO], and new terms introduced only
+   when needed:
 
    *  Asset network (system): The network or system where a digital
       asset is utilized.
@@ -271,8 +271,8 @@ Table of Contents
    A letter of credit may also assume the properties of a digital asset
    in certain situations.  Consider the case of an importer who wishes
    to move their business to a different trade finance network and
-   maintain their records on that network’s ledger.  We can assume that
-   the banks and the exporter participate in the second trade finance
+   maintain their records on that network’s ledger.  The banks and the
+   exporter can be assumed to participate in the second trade finance
    network as well, which exists to serve a different clientele.  The
    importer needs to be able to move its letter of credit state to the
    other network and resume the trade workflow after migration.  This
@@ -326,17 +326,17 @@ Table of Contents
 
 3.3.  Supply Chain Management
 
-   To complete the picture, we can add a payment network to the mix,
-   which maintains currency accounts for clients in different countries
-   and enables cross-border payments, an example being the Stellar
-   network [STN].  After goods have been dispatched, and optionally
-   after verification of the delivery and proper condition of a
-   shipment, payment is due from an importer to an exporter.  The trade
-   finance network can record a payment obligation on its ledger but it
-   will rely on the payment network to process and confirm the actual
-   transfer of funds.  The former shares data about the obligation to
-   the latter, which shares data about a successful (or otherwise)
-   payment in return, as illustrated in Figure 4.
+   To complete the picture, a payment network can be added to the mix.
+   This payment network maintains currency accounts for clients in
+   different countries and enables cross-border payments, an example
+   being the Stellar network [STN].  After goods have been dispatched,
+   and optionally after verification of the delivery and proper
+   condition of a shipment, payment is due from an importer to an
+   exporter.  The trade finance network can record a payment obligation
+   on its ledger but it will rely on the payment network to process and
+   confirm the actual transfer of funds.  The former shares data about
+   the obligation to the latter, which shares data about a successful
+   (or otherwise) payment in return, as illustrated in Figure 4.
 
                       +-------------------------------+
                  |¯¯¯¯|     Food Tracking Network     |¯¯¯¯¯¯¯¯¯¯|
@@ -361,13 +361,14 @@ Table of Contents
 
                                Figure 4
 
-   Addendum: we can add yet another network to the mix, one that manages
-   regulatory compliance.  (E.g., proof-of-concept systems have been
-   built to bring banks and corporations on a single distributed ledger
-   and smart contract platform to share KYC information in privacy-
-   preserving ways [BKYC] [SKYC].)  Now issuances of letters of credit
-   in the trade finance system will be dependent on valid KYC records
-   being maintained as assets in the regulatory compliance system.
+   Addendum: yet another network, one that manages regulatory
+   compliance, can be added to the mix.  (E.g., proof-of-concept systems
+   have been built to bring banks and corporations on a single
+   distributed ledger and smart contract platform to share KYC
+   information in privacy-preserving ways [BKYC] [SKYC].)  Now issuances
+   of letters of credit in the trade finance system will be dependent on
+   valid KYC records being maintained as assets in the regulatory
+   compliance system.
 
 4.  Currency and Finance
 
@@ -421,8 +422,8 @@ Table of Contents
    illustrated in Figure 5 has recently gained popularity, where
    wholesale CBDC networks manage interactions between central and
    commercial banks, and retail CBDC networks manage interactions
-   between commercial banks and end users.  If we consider the role of
-   the central bank as the defining characteristic of a system
+   between commercial banks and end users.  If the role of the central
+   bank is treated as the defining characteristic of a system
    architecture, this model can be referred to as “indirect”, because
    commercial banks mediate claims between the central bank and end
    users and also facilitate payments.  Other architectures also exist,
@@ -492,7 +493,7 @@ Table of Contents
 
                                Figure 5
 
-   Here we will encounter scenarios where a given commercial bank
+   In scenarios described subsequently, a given commercial bank
    maintains digital currency accounts in a wholesale CBDC network as
    well as one or more retail CBDC networks.  To inject liquidity into a
    retail CBDC network, this bank will need to transfer currency from
@@ -504,8 +505,8 @@ Table of Contents
    networks must be interoperable in order to facilitate secure
    transfers of currency among themselves, as illustrated in Figure 5.
 
-   We can identify two specific instances of currency transfer across
-   networks in this example: one from a wholesale CBDC network to a
+   Two specific instances of currency transfer across networks can be
+   observed in this example: one from a wholesale CBDC network to a
    retail CBDC network, and another from one retail CBDC network to
    another.  Since currency in tokenized form is a digital asset, these
    scenarios require the direct application of a secure protocol for
@@ -549,21 +550,21 @@ Table of Contents
 
    In Decentralized Finance, or DeFi for short, investors and financial
    institutions will form networks to manage the creation and purchase
-   of securities.  As a simple example, we can consider a network
-   consisting of the Treasury, which issues bonds, and commercial banks,
-   which purchase and trade bonds.  We can also consider a payment
-   network of the kind we saw in Section 3.3 (or a retail CBDC network
-   of the kind we saw in Section 4.1), which allows CBDC transfers
-   between commercial banks’ accounts.  In the securities network, banks
-   may wish to transfer bonds to each other but only in exchange for
-   compensation.  But such compensation can be made only on a payment
-   network where the two maintain currency accounts (e.g., in CBDC).
-   Therefore, the securities and payment networks must be able to
-   interoperate in such a way that two banks can carry out a delivery-
-   vs-payment transaction spanning these two independent networks.  Such
-   a transaction must be atomic, i.e., either both bond and CBDC tokens
-   get transferred in their respective networks or neither gets
-   transferred.  Figure 6 illustrates this exchange.
+   of securities.  As a simple example, consider a network to which the
+   Treasury, which issues bonds, and commercial banks, which purchase
+   and trade bonds, belong.  Also consider a payment network of the kind
+   seen in Section 3.3 (or a retail CBDC network of the kind seen in
+   Section 4.1), which allows CBDC transfers between commercial banks’
+   accounts.  In the securities network, banks may wish to transfer
+   bonds to each other but only in exchange for compensation.  But such
+   compensation can be made only on a payment network where the two
+   maintain currency accounts (e.g., in CBDC).  Therefore, the
+   securities and payment networks must be able to interoperate in such
+   a way that two banks can carry out a delivery-vs-payment transaction
+   spanning these two independent networks.  Such a transaction must be
+   atomic, i.e., either both bond and CBDC tokens get transferred in
+   their respective networks or neither gets transferred.  Figure 6
+   illustrates this exchange.
 
    +-----------------------------------------------------------------------+
    |                             Bond Network                              |
@@ -618,7 +619,7 @@ Table of Contents
    paying a “strike price”, involves a more complex cross-network
    financial transaction than the securities DvP use case.  Option
    contracts can be managed and enforced in a specific business network
-   (which we can label as a “stock network”) to which entities like an
+   (which can be labeled a “stock network”) to which entities like an
    Options Clearing Corporation (OCC), stock exchanges (e.g., the
    Chicago Board Options Exchange), and brokerage firms, belong.  The
    OCC is the issuer and guarantor for all options and futures contracts
@@ -801,31 +802,31 @@ Table of Contents
 
 6.  Trustworthy DNS Resource Record Migrations using an Augmented EPP
 
-   We have seen several examples where SATP is indispensable for
-   enabling cross-network asset and data transfer and transaction
-   settlement.  But SATP can also be used to augment an existing
-   protocol by making it more secure, trustworthy, and efficient rather
-   than creating an altogether new feature that preexisting technology
-   was unable to provide.  Conventional Internet architecture offers
-   scope for such augmentation.  Though highly decentralized, the
-   Internet consists of nodes (or actors) that play critical roles in
-   various protocols.  Such protocols would benefit if the actions of
-   these actors can be recorded and tracked on blockchain or other
-   decentralized ledger networks.  (It must be noted that the
+   Several examples have been presented in this document where SATP is
+   indispensable for enabling cross-network asset and data transfer and
+   transaction settlement.  But SATP can also be used to augment an
+   existing protocol by making it more secure, trustworthy, and
+   efficient rather than creating an altogether new feature that
+   preexisting technology was unable to provide.  Conventional Internet
+   architecture offers scope for such augmentation.  Though highly
+   decentralized, the Internet consists of nodes (or actors) that play
+   critical roles in various protocols.  Such protocols would benefit if
+   the actions of these actors can be recorded and tracked on blockchain
+   or other decentralized ledger networks.  (It must be noted that the
    performance implications of these augmentations ought to be studied
    before firm recommendations are made.)
 
-   We consider the DNS architecture [RFC1034] [RFC1035], where multiple
+   Consider the DNS architecture [RFC1034] [RFC1035], where multiple
    registries and registrars may co-exist, managing DNS records for
    owners (registrants).  For example, Verisign [VSign] acts as a TLD
-   (top-level domain) registry for the “.com” namespace, and GoDaddy
+   (top-level domain) registry for the “.example” namespace, and GoDaddy
    [GoDaddy] and Squarespace [SSpace] are registrars that can issue and
    sell SLDs (second- level domains) to customers (say Alice and Bob).
    The Extensible Provisioning Protocol (EPP) allows registrars to
    communicate with registries for resource record updates, including
    changes in domain ownership [RFC5730].  Consider a scenario in which
-   Alice, who owns an SLD (say alice.com) issued by GoDaddy, wishes to
-   transfer that SLD to Squarespace.  She can submit a request to
+   Alice, who owns an SLD (say alice.example) issued by GoDaddy, wishes
+   to transfer that SLD to Squarespace.  She can submit a request to
    Squarespace for this purpose, following which the respective
    registrars (GoDaddy and Squarespace) can communicate with the
    registry (Verisign) using EPP to transfer the SLD between themselves.
@@ -835,11 +836,11 @@ Table of Contents
 
    Though EPP facilitates these resource updates and transfers, and
    reputed registrars offer customers these features in a usable manner,
-   we can see that such scenarios face safety issues as they require
-   trust and proper coordination among the participants.  These issues
-   can be mitigated by distributed ledger networks, smart contracts, and
-   NFTs, which collectively provide a platform for safe and transparent
-   DNS resource transfers with easy detection of non-compliance.
+   such scenarios face safety issues as they require trust and proper
+   coordination among the participants.  These issues can be mitigated
+   by distributed ledger networks, smart contracts, and NFTs, which
+   collectively provide a platform for safe and transparent DNS resource
+   transfers with easy detection of non-compliance.
 
    In such a scheme, domains (or domain names) can be monetized as NFTs
    or digital assets, e.g., in the form of ERC-721 [ERC721] tokens, a
@@ -920,8 +921,8 @@ Table of Contents
               Conference on Blockchain and Cryptocurrency (ICBC), Dubai,
               United Arab Emirates, 2023, pp. 1-9 (doi: 10.1109/
               ICBC56567.2023.10174953)", 2023,
-              <https://www.techrxiv.org/articles/preprint/CBDC_bridging_
-              between_Hyperledger_Fabric_and_permissioned_EVM-
+              <https://www.techrxiv.org/articles/preprint/
+              CBDC_bridging_between_Hyperledger_Fabric_and_permissioned_EVM-
               based_blockchains/21809430>.
 
    [BISCBDC]  Bank of Canada, European Central Bank, Bank of Japan,
@@ -1032,7 +1033,7 @@ Table of Contents
               supply", 2022, <https://www.ibm.com/docs/en/food-trust>.
 
    [ISO]      ISO, "Blockchain and distributed ledger technologies-
-              Vocabulary (ISO:22739:2020)", July 2020,
+              Vocabulary (ISO:22739:2024)", January 2024,
               <https://www.iso.org/standard/82208.html>.
 
    [MP]       Ignatova, P., "Marco Polo Network successfully completes
@@ -1078,13 +1079,13 @@ Table of Contents
 
    [SATA]     Hardjono, T., Hargreaves, M., Smith, N., and V.
               Ramakrishna, "Secure Asset Transfer (SAT) Interoperability
-              Architecture, IETF, draft-ietf-satp-architecture-07", June
-              2025, <https://datatracker.ietf.org/doc/draft-ietf-satp-
-              architecture/>.
+              Architecture, IETF, draft-ietf-satp-architecture-09",
+              February 2026, <https://datatracker.ietf.org/doc/draft-
+              ietf-satp-architecture/>.
 
-   [SATP]     Hargreaves, M., Hardjono, T., Belchior, R., and V.
-              Ramakrishna, "Secure Asset Transfer Protocol (SATP) Core,
-              IETF, draft-ietf-satp-core-10", July 2025,
+   [SATP]     Hargreaves, M., Hardjono, T., Belchior, R., Ramakrishna,
+              V., and A. Chiriac, "Secure Asset Transfer Protocol (SATP)
+              Core, IETF, draft-ietf-satp-core-13", March 2026,
               <https://datatracker.ietf.org/doc/draft-ietf-satp-core/>.
 
    [SKYC]     Curry, M., "Blockchain for KYC: Game-changing RegTech
@@ -1172,10 +1173,10 @@ Table of Contents
               pp. 78-85", February 2019,
               <https://doi.org/10.1145/3209623>.
 
-   [HLP19]    Hardjono, T., Lipton, A., and A. Pentland, "Towards and
+   [HLP19]    Hardjono, T., Lipton, A., and A. Pentland, "Towards an
               Interoperability Architecture for Blockchain Autonomous
               Systems, IEEE Transactions on Engineering Management",
-              June 2019, <https://doi:10.1109/TEM.2019.2920154>.
+              June 2019, <https://ieeexplore.ieee.org/document/8743548>.
 
    [HS2019]   Hardjono, T. and N. Smith, "Decentralized Trusted
               Computing Base for Blockchain Infrastructure Security,
