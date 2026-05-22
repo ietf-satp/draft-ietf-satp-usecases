@@ -5,10 +5,10 @@
 Secure Asset Transfer Protocol                            V. Ramakrishna
 Internet-Draft                                              IBM Research
 Intended status: Informational                               T. Hardjono
-Expires: 19 September 2026                                           MIT
+Expires: 23 November 2026                                            MIT
                                                                   C. Liu
                                                                   Huawei
-                                                           18 March 2026
+                                                             22 May 2026
 
 
                  Secure Asset Transfer (SAT) Use Cases
@@ -52,7 +52,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 19 September 2026.
+   This Internet-Draft will expire on 23 November 2026.
 
 Copyright Notice
 
@@ -816,23 +816,21 @@ Table of Contents
    performance implications of these augmentations ought to be studied
    before firm recommendations are made.)
 
-   Consider the DNS architecture [RFC1034] [RFC1035], where multiple
+   In the canonical DNS architecture [RFC1034] [RFC1035], multiple
    registries and registrars may co-exist, managing DNS records for
-   owners (registrants).  For example, Verisign [VSign] acts as a TLD
-   (top-level domain) registry for the “.example” namespace, and GoDaddy
-   [GoDaddy] and Squarespace [SSpace] are registrars that can issue and
-   sell SLDs (second- level domains) to customers (say Alice and Bob).
-   The Extensible Provisioning Protocol (EPP) allows registrars to
-   communicate with registries for resource record updates, including
-   changes in domain ownership [RFC5730].  Consider a scenario in which
-   Alice, who owns an SLD (say alice.example) issued by GoDaddy, wishes
-   to transfer that SLD to Squarespace.  She can submit a request to
-   Squarespace for this purpose, following which the respective
-   registrars (GoDaddy and Squarespace) can communicate with the
-   registry (Verisign) using EPP to transfer the SLD between themselves.
-   Squarespace will then reissue the domain to Alice.  In a related
-   scenario, Alice can transfer (or sell) her GoDaddy-issued domain to
-   Bob, who uses Squarespace as a registrant.
+   owners (registrants).  The Extensible Provisioning Protocol (EPP)
+   allows registrars to communicate with registries for resource record
+   updates, including changes in domain ownership [RFC5730].  Consider
+   an example where R acts as a TLD (top-level domain) registry for the
+   “.example” namespace, and entities S1 and S2 are registrars that can
+   issue and sell SLDs (second-level domains) to customers.  In one
+   scenario, customer Alice, who owns an SLD (say alice.example) issued
+   by S1, wishes to transfer that SLD to S2.  She can submit a request
+   to S2 for this purpose, following which the respective registrars (S1
+   and S2) can communicate with the registry (R) using EPP to transfer
+   the SLD from S1 to S2.  S2 will then reissue the domain to Alice.  In
+   another scenario, Alice can transfer (or sell) her S1-issued domain
+   to customer Bob, a registrant who relies on S2 for registrations.
 
    Though EPP facilitates these resource updates and transfers, and
    reputed registrars offer customers these features in a usable manner,
@@ -999,9 +997,6 @@ Table of Contents
               content/uploads/2025/01/Gaia-X-Brochure_Overview-
               2025.pdf>.
 
-   [GoDaddy]  GoDaddy, "Domain Names, Websites, Hosting & Online
-              Marketing Tools.", 2024, <https://www.godaddy.com/>.
-
    [HLB]      "Hyperledger Besu", n.d.,
               <https://www.lfdecentralizedtrust.org/projects/besu>.
 
@@ -1093,9 +1088,6 @@ Table of Contents
               blockchain-kyc-game-changing-regtech-innovation-michael-
               curry/>.
 
-   [SSpace]   Squarespace Domains, "Domain Name Search – Register Your
-              Domain Name.", 2024, <https://domains.squarespace.com/>.
-
    [STN]      Stellar Development Foundation, "Stellar – Access your
               universe of opportunities", 2022,
               <https://www.stellar.org/>.
@@ -1106,10 +1098,6 @@ Table of Contents
 
    [TL]       TradeLens, "TradeLens: Supply chain data and docs", 2022,
               <https://www.tradelens.com/>.
-
-   [VSign]    Verisign, "Verisign is a global provider of domain name
-              registry services and internet infrastructure.", 2024,
-              <https://www.verisign.com/>.
 
    [WBGCBP]   "Central Bank Digital Currencies for Cross-Border
               Payments: A Review of Current Experiments and Ideas. World

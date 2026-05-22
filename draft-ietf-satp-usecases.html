@@ -11,22 +11,22 @@
 <meta content="
        This document describes prominent scenarios where enterprise systems and networks maintaining digital assets require the ability to securely transfer assets or data to each other. 
     " name="description">
-<meta content="xml2rfc 3.32.0" name="generator">
+<meta content="xml2rfc 3.33.0" name="generator">
 <meta content="Internet-Draft" name="keyword">
 <meta content="draft-ietf-satp-usecases-latest" name="ietf.draft">
 <!-- Generator version information:
-  xml2rfc 3.32.0
-    Python 3.12.12
+  xml2rfc 3.33.0
+    Python 3.12.13
     ConfigArgParse 1.7
     google-i18n-address 3.1.1
     intervaltree 3.2.1
     Jinja2 3.1.6
     lxml 6.0.2
-    platformdirs 4.9.4
+    platformdirs 4.9.6
     pycountry 24.6.1
     PyYAML 6.0.3
-    requests 2.32.5
-    wcwidth 0.6.0
+    requests 2.33.1
+    wcwidth 0.7.0
 -->
 <link href="draft-ietf-satp-usecases.xml" rel="alternate" type="application/rfc+xml">
 <link href="#copyright" rel="license">
@@ -1047,11 +1047,11 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <thead><tr>
 <td class="left">Internet-Draft</td>
 <td class="center">SAT Use Cases</td>
-<td class="right">March 2026</td>
+<td class="right">May 2026</td>
 </tr></thead>
 <tfoot><tr>
 <td class="left">Ramakrishna, et al.</td>
-<td class="center">Expires 19 September 2026</td>
+<td class="center">Expires 23 November 2026</td>
 <td class="right">[Page]</td>
 </tr></tfoot>
 </table>
@@ -1064,12 +1064,12 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <dd class="internet-draft">draft-ietf-satp-usecases-latest</dd>
 <dt class="label-published">Published:</dt>
 <dd class="published">
-<time datetime="2026-03-18" class="published">18 March 2026</time>
+<time datetime="2026-05-22" class="published">22 May 2026</time>
     </dd>
 <dt class="label-intended-status">Intended Status:</dt>
 <dd class="intended-status">Informational</dd>
 <dt class="label-expires">Expires:</dt>
-<dd class="expires"><time datetime="2026-09-19">19 September 2026</time></dd>
+<dd class="expires"><time datetime="2026-11-23">23 November 2026</time></dd>
 <dt class="label-authors">Authors:</dt>
 <dd class="authors">
 <div class="author">
@@ -1127,7 +1127,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
         time. It is inappropriate to use Internet-Drafts as reference
         material or to cite them other than as "work in progress."<a href="#section-boilerplate.1-3" class="pilcrow">¶</a></p>
 <p id="section-boilerplate.1-4">
-        This Internet-Draft will expire on 19 September 2026.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
+        This Internet-Draft will expire on 23 November 2026.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="copyright">
@@ -1679,7 +1679,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <div id="dns-epp-migration">
 <p id="section-6-1">Several examples have been presented in this document where SATP is indispensable for enabling cross-network asset and data transfer and transaction settlement. But SATP can also be used to augment an existing protocol by making it more secure, trustworthy, and efficient rather than creating an altogether new feature that preexisting technology was unable to provide. Conventional Internet architecture offers scope for such augmentation. Though highly decentralized, the Internet consists of nodes (or actors) that play critical roles in various protocols. Such protocols would benefit if the actions of these actors can be recorded and tracked on blockchain or other decentralized ledger networks. (It must be noted that the performance implications of these augmentations ought to be studied before firm recommendations are made.)<a href="#section-6-1" class="pilcrow">¶</a></p>
 </div>
-<p id="section-6-2">Consider the DNS architecture <span>[<a href="#RFC1034" class="cite xref">RFC1034</a>]</span> <span>[<a href="#RFC1035" class="cite xref">RFC1035</a>]</span>, where multiple registries and registrars may co-exist, managing DNS records for owners (registrants). For example, Verisign <span>[<a href="#VSign" class="cite xref">VSign</a>]</span> acts as a TLD (top-level domain) registry for the “.example” namespace, and GoDaddy <span>[<a href="#GoDaddy" class="cite xref">GoDaddy</a>]</span> and Squarespace <span>[<a href="#SSpace" class="cite xref">SSpace</a>]</span> are registrars that can issue and sell SLDs (second- level domains) to customers (say Alice and Bob). The Extensible Provisioning Protocol (EPP) allows registrars to communicate with registries for resource record updates, including changes in domain ownership <span>[<a href="#RFC5730" class="cite xref">RFC5730</a>]</span>. Consider a scenario in which Alice, who owns an SLD (say alice.example) issued by GoDaddy, wishes to transfer that SLD to Squarespace. She can submit a request to Squarespace for this purpose, following which the respective registrars (GoDaddy and Squarespace) can communicate with the registry (Verisign) using EPP to transfer the SLD between themselves. Squarespace will then reissue the domain to Alice. In a related scenario, Alice can transfer (or sell) her GoDaddy-issued domain to Bob, who uses Squarespace as a registrant.<a href="#section-6-2" class="pilcrow">¶</a></p>
+<p id="section-6-2">In the canonical DNS architecture <span>[<a href="#RFC1034" class="cite xref">RFC1034</a>]</span> <span>[<a href="#RFC1035" class="cite xref">RFC1035</a>]</span>, multiple registries and registrars may co-exist, managing DNS records for owners (registrants). The Extensible Provisioning Protocol (EPP) allows registrars to communicate with registries for resource record updates, including changes in domain ownership <span>[<a href="#RFC5730" class="cite xref">RFC5730</a>]</span>. Consider an example where R acts as a TLD (top-level domain) registry for the “.example” namespace, and entities S1 and S2 are registrars that can issue and sell SLDs (second-level domains) to customers. In one scenario, customer Alice, who owns an SLD (say alice.example) issued by S1, wishes to transfer that SLD to S2. She can submit a request to S2 for this purpose, following which the respective registrars (S1 and S2) can communicate with the registry (R) using EPP to transfer the SLD from S1 to S2. S2 will then reissue the domain to Alice. In another scenario, Alice can transfer (or sell) her S1-issued domain to customer Bob, a registrant who relies on S2 for registrations.<a href="#section-6-2" class="pilcrow">¶</a></p>
 <p id="section-6-3">Though EPP facilitates these resource updates and transfers, and reputed registrars offer customers these features in a usable manner, such scenarios face safety issues as they require trust and proper coordination among the participants. These issues can be mitigated by distributed ledger networks, smart contracts, and NFTs, which collectively provide a platform for safe and transparent DNS resource transfers with easy detection of non-compliance.<a href="#section-6-3" class="pilcrow">¶</a></p>
 <p id="section-6-4">In such a scheme, domains (or domain names) can be monetized as NFTs or digital assets, e.g., in the form of ERC-721 <span>[<a href="#ERC721" class="cite xref">ERC721</a>]</span> tokens, a popular NFT standard in the Ethereum ecosystem <span>[<a href="#Ethereum" class="cite xref">Ethereum</a>]</span>. The creation of a domain is represented by minting of an NFT and the deletion of a domain by the burning of the NFT using smart contracts whose transactions are tracked on a distributed ledger maintained by a network of entities. Registrants Alice and Bob also participate in the smart contracts and hold wallet identities, allowing them to trade assets by submitting transactions to the ledger. Registrants, registrars, and registries can engage in commercial transactions using contracts governing tokenized (and monetized) domains for the purposes of issuing and transferring domains (among owners and registrars). This provides more safety where registrars are not reputed, and allows new registrar services to emerge and build reputations. It also enables customers like Alice and Bob to sell domains to each other safely and seamlessly.<a href="#section-6-4" class="pilcrow">¶</a></p>
 <p id="section-6-5">SATP is crucial to enabling this scheme where registrars belong to, and issue, NFT-backed domains in different ledgers maintained by different networks. Ensuring that tokens are securely and atomically transferred between the ledgers will be a necessary prerequisite for an EPP resource record update operation. Further, non-compliance, or non-fulfilment of EPP, by either registrar, can be easily detected by examining the SATP logs from the respective networks’ gateways, thereby safeguarding the process. In future, reputed registrars may require their counterparties to comply with SATP-based transfers across ledgers as a prerequisite to engaging in a domain transfer with them.<a href="#section-6-5" class="pilcrow">¶</a></p>
@@ -1787,10 +1787,6 @@ svg :is([fill="white"], [fill^="#fff"]) {
         <dd>
 <span class="refAuthor">Gaia-X, European Association for Data and Cloud AISBL</span>, <span class="refTitle">"Together towards a federated and secure data infrastructure"</span>, <time datetime="2025" class="refDate">2025</time>, <span>&lt;<a href="https://gaia-x.eu/wp-content/uploads/2025/01/Gaia-X-Brochure_Overview-2025.pdf">https://gaia-x.eu/wp-content/uploads/2025/01/Gaia-X-Brochure_Overview-2025.pdf</a>&gt;</span>. </dd>
 <dd class="break"></dd>
-<dt id="GoDaddy">[GoDaddy]</dt>
-        <dd>
-<span class="refAuthor">GoDaddy</span>, <span class="refTitle">"Domain Names, Websites, Hosting &amp; Online Marketing Tools."</span>, <time datetime="2024" class="refDate">2024</time>, <span>&lt;<a href="https://www.godaddy.com/">https://www.godaddy.com/</a>&gt;</span>. </dd>
-<dd class="break"></dd>
 <dt id="HLB">[HLB]</dt>
         <dd>
 <span class="refTitle">"Hyperledger Besu"</span>, <span>n.d.</span>, <span>&lt;<a href="https://www.lfdecentralizedtrust.org/projects/besu">https://www.lfdecentralizedtrust.org/projects/besu</a>&gt;</span>. </dd>
@@ -1859,10 +1855,6 @@ svg :is([fill="white"], [fill^="#fff"]) {
         <dd>
 <span class="refAuthor">Curry, M.</span>, <span class="refTitle">"Blockchain for KYC: Game-changing RegTech innovation"</span>, <time datetime="2018-08" class="refDate">August 2018</time>, <span>&lt;<a href="https://www.linkedin.com/pulse/blockchain-kyc-game-changing-regtech-innovation-michael-curry/">https://www.linkedin.com/pulse/blockchain-kyc-game-changing-regtech-innovation-michael-curry/</a>&gt;</span>. </dd>
 <dd class="break"></dd>
-<dt id="SSpace">[SSpace]</dt>
-        <dd>
-<span class="refAuthor">Squarespace Domains</span>, <span class="refTitle">"Domain Name Search – Register Your Domain Name."</span>, <time datetime="2024" class="refDate">2024</time>, <span>&lt;<a href="https://domains.squarespace.com/">https://domains.squarespace.com/</a>&gt;</span>. </dd>
-<dd class="break"></dd>
 <dt id="STN">[STN]</dt>
         <dd>
 <span class="refAuthor">Stellar Development Foundation</span>, <span class="refTitle">"Stellar – Access your universe of opportunities"</span>, <time datetime="2022" class="refDate">2022</time>, <span>&lt;<a href="https://www.stellar.org/">https://www.stellar.org/</a>&gt;</span>. </dd>
@@ -1874,10 +1866,6 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <dt id="TL">[TL]</dt>
         <dd>
 <span class="refAuthor">TradeLens</span>, <span class="refTitle">"TradeLens: Supply chain data and docs"</span>, <time datetime="2022" class="refDate">2022</time>, <span>&lt;<a href="https://www.tradelens.com/">https://www.tradelens.com/</a>&gt;</span>. </dd>
-<dd class="break"></dd>
-<dt id="VSign">[VSign]</dt>
-        <dd>
-<span class="refAuthor">Verisign</span>, <span class="refTitle">"Verisign is a global provider of domain name registry services and internet infrastructure."</span>, <time datetime="2024" class="refDate">2024</time>, <span>&lt;<a href="https://www.verisign.com/">https://www.verisign.com/</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="WBGCBP">[WBGCBP]</dt>
         <dd>
