@@ -283,12 +283,6 @@ normative:
     date: 2025
     target: https://gaia-x.eu/wp-content/uploads/2025/01/Gaia-X-Brochure_Overview-2025.pdf
     title: Together towards a federated and secure data infrastructure
-  GoDaddy:
-    author:
-    - ins: GoDaddy
-    date: 2024
-    target: https://www.godaddy.com/
-    title: Domain Names, Websites, Hosting & Online Marketing Tools.
   HLB:
     author:
     target: https://www.lfdecentralizedtrust.org/projects/besu
@@ -422,12 +416,6 @@ normative:
     date: August 7, 2018
     target: https://www.linkedin.com/pulse/blockchain-kyc-game-changing-regtech-innovation-michael-curry/
     title: 'Blockchain for KYC: Game-changing RegTech innovation'
-  SSpace:
-    author:
-    - ins: Squarespace Domains
-    date: 2024
-    target: https://domains.squarespace.com/
-    title: Domain Name Search – Register Your Domain Name.
   STN:
     author:
     - ins: Stellar Development Foundation
@@ -446,12 +434,6 @@ normative:
     date: 2022
     target: https://www.tradelens.com/
     title: 'TradeLens: Supply chain data and docs'
-  VSign:
-    author:
-    - ins: Verisign
-    date: 2024
-    target: https://www.verisign.com/
-    title: Verisign is a global provider of domain name registry services and internet infrastructure.
   WBGCBP:
     author:
     date: November 2021
@@ -847,7 +829,7 @@ In Europe, several projects like Gaia-X {{GaiaX}} and Catena-X {{CatenaX}} aim t
 
 Several examples have been presented in this document where SATP is indispensable for enabling cross-network asset and data transfer and transaction settlement. But SATP can also be used to augment an existing protocol by making it more secure, trustworthy, and efficient rather than creating an altogether new feature that preexisting technology was unable to provide. Conventional Internet architecture offers scope for such augmentation. Though highly decentralized, the Internet consists of nodes (or actors) that play critical roles in various protocols. Such protocols would benefit if the actions of these actors can be recorded and tracked on blockchain or other decentralized ledger networks. (It must be noted that the performance implications of these augmentations ought to be studied before firm recommendations are made.)
 
-Consider the DNS architecture {{RFC1034}} {{RFC1035}}, where multiple registries and registrars may co-exist, managing DNS records for owners (registrants). For example, Verisign {{VSign}} acts as a TLD (top-level domain) registry for the “.example” namespace, and GoDaddy {{GoDaddy}} and Squarespace {{SSpace}} are registrars that can issue and sell SLDs (second- level domains) to customers (say Alice and Bob). The Extensible Provisioning Protocol (EPP) allows registrars to communicate with registries for resource record updates, including changes in domain ownership {{RFC5730}}. Consider a scenario in which Alice, who owns an SLD (say alice.example) issued by GoDaddy, wishes to transfer that SLD to Squarespace. She can submit a request to Squarespace for this purpose, following which the respective registrars (GoDaddy and Squarespace) can communicate with the registry (Verisign) using EPP to transfer the SLD between themselves. Squarespace will then reissue the domain to Alice. In a related scenario, Alice can transfer (or sell) her GoDaddy-issued domain to Bob, who uses Squarespace as a registrant.
+In the canonical DNS architecture {{RFC1034}} {{RFC1035}}, multiple registries and registrars may co-exist, managing DNS records for owners (registrants). The Extensible Provisioning Protocol (EPP) allows registrars to communicate with registries for resource record updates, including changes in domain ownership {{RFC5730}}. Consider an example where R acts as a TLD (top-level domain) registry for the “.example” namespace, and entities S1 and S2 are registrars that can issue and sell SLDs (second-level domains) to customers. In one scenario, customer Alice, who owns an SLD (say alice.example) issued by S1, wishes to transfer that SLD to S2. She can submit a request to S2 for this purpose, following which the respective registrars (S1 and S2) can communicate with the registry (R) using EPP to transfer the SLD from S1 to S2. S2 will then reissue the domain to Alice. In another scenario, Alice can transfer (or sell) her S1-issued domain to customer Bob, a registrant who relies on S2 for registrations.
 
 Though EPP facilitates these resource updates and transfers, and reputed registrars offer customers these features in a usable manner, such scenarios face safety issues as they require trust and proper coordination among the participants. These issues can be mitigated by distributed ledger networks, smart contracts, and NFTs, which collectively provide a platform for safe and transparent DNS resource transfers with easy detection of non-compliance.
 
