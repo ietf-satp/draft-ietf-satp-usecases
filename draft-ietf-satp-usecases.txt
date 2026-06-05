@@ -5,10 +5,10 @@
 Secure Asset Transfer Protocol                            V. Ramakrishna
 Internet-Draft                                              IBM Research
 Intended status: Informational                               T. Hardjono
-Expires: 23 November 2026                                            MIT
+Expires: 7 December 2026                                             MIT
                                                                   C. Liu
                                                                   Huawei
-                                                             22 May 2026
+                                                             5 June 2026
 
 
                  Secure Asset Transfer (SAT) Use Cases
@@ -52,7 +52,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 23 November 2026.
+   This Internet-Draft will expire on 7 December 2026.
 
 Copyright Notice
 
@@ -818,22 +818,22 @@ Table of Contents
 
    In the canonical DNS architecture [RFC1034] [RFC1035], multiple
    registries and registrars may co-exist, managing DNS records for
-   owners (registrants).  The Extensible Provisioning Protocol (EPP)
-   allows registrars to communicate with registries for resource record
-   updates, including changes in domain ownership [RFC5730].  Consider
-   an example where R acts as a TLD (top-level domain) registry for the
-   “.example” namespace, and entities S1 and S2 are registrars that can
-   issue and sell SLDs (second-level domains) to customers.  In one
-   scenario, customer Alice, who owns an SLD (say alice.example) issued
-   by S1, wishes to transfer that SLD to S2.  She can submit a request
-   to S2 for this purpose, following which the respective registrars (S1
-   and S2) can communicate with the registry (R) using EPP to transfer
-   the SLD from S1 to S2.  S2 will then reissue the domain to Alice.  In
-   another scenario, Alice can transfer (or sell) her S1-issued domain
-   to customer Bob, a registrant who relies on S2 for registrations.
+   domain administrators (registrants).  The Extensible Provisioning
+   Protocol (EPP) allows registrars to communicate with registries for
+   DNS resource record updates [RFC5730].  Consider an example where R
+   acts as a TLD (top-level domain) registry for the “.example”
+   namespace, and entities S1 and S2 are registrars that can issue SLDs
+   (second-level domains) to users.  In one scenario, user Alice, who
+   administers an SLD (say alice.example) issued by S1, wishes to
+   transfer that SLD to S2.  She can submit a request to S2 for this
+   purpose, following which the respective registrars (S1 and S2) can
+   communicate with the registry (R) using EPP to transfer the SLD from
+   S1 to S2.  S2 will then reissue the domain to Alice.  In another
+   scenario, Alice can transfer administration of her S1-issued domain
+   to user Bob, a registrant who relies on S2 for registrations.
 
    Though EPP facilitates these resource updates and transfers, and
-   reputed registrars offer customers these features in a usable manner,
+   reputed registrars offer users these features in a usable manner,
    such scenarios face safety issues as they require trust and proper
    coordination among the participants.  These issues can be mitigated
    by distributed ledger networks, smart contracts, and NFTs, which
@@ -851,10 +851,10 @@ Table of Contents
    trade assets by submitting transactions to the ledger.  Registrants,
    registrars, and registries can engage in commercial transactions
    using contracts governing tokenized (and monetized) domains for the
-   purposes of issuing and transferring domains (among owners and
-   registrars).  This provides more safety where registrars are not
-   reputed, and allows new registrar services to emerge and build
-   reputations.  It also enables customers like Alice and Bob to sell
+   purposes of issuing and transferring domains (among users and
+   registrars).  This setup provides more safety when registrars are not
+   reputed, and also allows new registrar services to emerge and build
+   reputations.  It also enables users like Alice and Bob to transfer
    domains to each other safely and seamlessly.
 
    SATP is crucial to enabling this scheme where registrars belong to,
@@ -874,11 +874,12 @@ Table of Contents
    negotiation and agreement-building occurs between gateways.  EPP
    instances among registrars and registries will occur in this stage,
    both prior to the start of an SATP instance and after its conclusion.
-   EPP will produce the transaction context the gateways need to
-   transfer an asset (in this case, a tokenized domain) using SATP.
-   Many other applications of SATP for asset transfers may similarly
-   augment or bolster pre-existing business workflows, which (like EPP
-   here) will produce transactions contexts for SATP instances.
+   EPP will aid in the generation of transaction contexts, which
+   gateways need to transfer an asset (in this case, a tokenized domain)
+   using SATP.  Many other applications of SATP for asset transfers may
+   similarly augment or bolster pre-existing business workflows, which
+   (like EPP here) will produce transactions contexts for SATP
+   instances.
 
 7.  Interoperation Protocol Considerations
 
