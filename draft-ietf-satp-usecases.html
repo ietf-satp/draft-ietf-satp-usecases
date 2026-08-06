@@ -11,22 +11,23 @@
 <meta content="
        This document describes prominent scenarios where enterprise systems and networks maintaining digital assets require the ability to securely transfer assets or data to each other. 
     " name="description">
-<meta content="xml2rfc 3.33.0" name="generator">
+<meta content="xml2rfc 3.34.0" name="generator">
 <meta content="Internet-Draft" name="keyword">
 <meta content="draft-ietf-satp-usecases-latest" name="ietf.draft">
 <!-- Generator version information:
-  xml2rfc 3.33.0
-    Python 3.12.13
-    ConfigArgParse 1.7
+  xml2rfc 3.34.0
+    Python 3.14.5
+    ConfigArgParse 1.7.5
     google-i18n-address 3.1.1
     intervaltree 3.2.1
     Jinja2 3.1.6
-    lxml 6.0.2
-    platformdirs 4.9.6
+    lxml 6.1.1
+    natsort 8.4.0
+    platformdirs 4.11.0
     pycountry 24.6.1
     PyYAML 6.0.3
     requests 2.33.1
-    wcwidth 0.7.0
+    wcwidth 0.8.2
 -->
 <link href="draft-ietf-satp-usecases.xml" rel="alternate" type="application/rfc+xml">
 <link href="#copyright" rel="license">
@@ -62,7 +63,6 @@
   src: local('Lora Italic'), local('Lora-Italic'), url('https://martinthomson.github.io/rfc-css/fonts/lora-italic-latin-ext.woff2') format('woff2');
   unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
 }
-
 @font-face {
   font-family: 'Lora';
   font-style: italic;
@@ -111,7 +111,6 @@
   src: local('Lora Regular'), local('Lora-Regular'), url('https://martinthomson.github.io/rfc-css/fonts/lora-regular-latin.woff2') format('woff2');
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
-
 @font-face {
   font-family: 'Lora';
   font-style: normal;
@@ -176,7 +175,6 @@
   font-display: swap;
   src: local('Oxygen Mono'), local('OxygenMono-Regular'), url('https://martinthomson.github.io/rfc-css/fonts/oxygenmono-regular-latin.woff2') format('woff2');
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-}
 }
 
 @font-face {
@@ -1045,11 +1043,11 @@ svg {
 <thead><tr>
 <td class="left">Internet-Draft</td>
 <td class="center">SAT Use Cases</td>
-<td class="right">June 2026</td>
+<td class="right">August 2026</td>
 </tr></thead>
 <tfoot><tr>
 <td class="left">Ramakrishna, et al.</td>
-<td class="center">Expires 7 December 2026</td>
+<td class="center">Expires 7 February 2027</td>
 <td class="right">[Page]</td>
 </tr></tfoot>
 </table>
@@ -1062,12 +1060,12 @@ svg {
 <dd class="internet-draft">draft-ietf-satp-usecases-latest</dd>
 <dt class="label-published">Published:</dt>
 <dd class="published">
-<time datetime="2026-06-05" class="published">5 June 2026</time>
+<time datetime="2026-08-06" class="published">6 August 2026</time>
     </dd>
 <dt class="label-intended-status">Intended Status:</dt>
 <dd class="intended-status">Informational</dd>
 <dt class="label-expires">Expires:</dt>
-<dd class="expires"><time datetime="2026-12-07">7 December 2026</time></dd>
+<dd class="expires"><time datetime="2027-02-07">7 February 2027</time></dd>
 <dt class="label-authors">Authors:</dt>
 <dd class="authors">
 <div class="author">
@@ -1125,7 +1123,7 @@ svg {
         time. It is inappropriate to use Internet-Drafts as reference
         material or to cite them other than as "work in progress."<a href="#section-boilerplate.1-3" class="pilcrow">¶</a></p>
 <p id="section-boilerplate.1-4">
-        This Internet-Draft will expire on 7 December 2026.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
+        This Internet-Draft will expire on 7 February 2027.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="copyright">
@@ -1292,77 +1290,77 @@ svg {
 <figure id="figure-1">
           <div class="alignLeft art-text artwork" id="section-3.1-2.1">
 <pre>
-      +------------+
-      | Exporter’s |  +----------+              +---------------------+
-      |    Bank    |  | Exporter |              |       Exporter      |
-      +------------+  +----------+              +---------------------+
-            | |            |                       | |              |
-       3    | |    5       |    4           1      | |      2       |   4
-    Approve | | Request    | Upload       Book     | |   Create     | Accept
-      L/C   | | Payment    |   B/L     Consignment | | Consignment  |  B/L
-            | |            |                       | |              |
-            V V            V                       V V              V
-    +-------------------------------+     +-------------------------------+
-    |     Trade Finance Network     |     |    Trade Logistics Network    |
-    +-------------------------------+     +-------------------------------+
-            ˄              ˄                           ˄     ˄
-       2    |              |    1               5      |     |    3
-    Propose |              | Request        Dispatch   |     | Upload
-      L/C   |              |   L/C         Consignment |     |   B/L
-            |              |                           |     |
-      +------------+  +----------+                 +-------------+
-      | Importer’s |  | Importer |                 |   Carrier   |
-      |    Bank    |  +----------+                 +-------------+
-      +------------+
-                   (a)                                   (b)
+  +------------+
+  | Exporter's |  +----------+             +---------------------+
+  |    Bank    |  | Exporter |             |       Exporter      |
+  +------------+  +----------+             +---------------------+
+        | |            |                      | |              |
+   3    | |    5       |    4          1      | |      2       |   4
+Approve | | Request    | Upload      Book     | |   Create     | Accept
+  L/C   | | Payment    |   B/L    Consignment | | Consignment  |  B/L
+        | |            |                      | |              |
+        V V            V                      V V              V
++-------------------------------+    +-------------------------------+
+|     Trade Finance Network     |    |    Trade Logistics Network    |
++-------------------------------+    +-------------------------------+
+        ^              ^                          ^     ^
+   2    |              |    1              5      |     |    3
+Propose |              | Request       Dispatch   |     | Upload
+  L/C   |              |   L/C        Consignment |     |   B/L
+        |              |                          |     |
+  +------------+  +----------+                +-------------+
+  | Importer's |  | Importer |                |   Carrier   |
+  |    Bank    |  +----------+                +-------------+
+  +------------+
+               (a)                                  (b)
 </pre>
 </div>
 <figcaption><a href="#figure-1" class="selfRef">Figure 1</a></figcaption></figure>
 </div>
-<p id="section-3.1-3">An exporter who belongs to both systems must produce a valid bill of lading in the trade finance network to enforce a payment from the buyer to fulfil the terms of the letter of credit. But this bill, which serves as evidence of a shipping consignment’s dispatch via a carrier, lies in the other, i.e., trade logistics, network.  The two networks must therefore be interoperable in such a way that the logistics network can share a bill with the finance network along with independently verifiable proof of authenticity. Otherwise, the trade finance network’s workflow must trust that the exporter is acting in good faith and supplying genuine bills of lading, which adds insecurity. This interoperation, which involves sharing of network data, can be extrapolated to other scenarios involving the two networks. The trade logistics network can require an exporter to produce a valid letter of credit from the trade finance network before permitting a consignment record creation. Both these cross-network data sharing instances are illustrated in Figure 2.<a href="#section-3.1-3" class="pilcrow">¶</a></p>
+<p id="section-3.1-3">An exporter who belongs to both systems must produce a valid bill of lading in the trade finance network to enforce a payment from the buyer to fulfil the terms of the letter of credit. But this bill, which serves as evidence of a shipping consignment's dispatch via a carrier, lies in the other, i.e., trade logistics, network.  The two networks must therefore be interoperable in such a way that the logistics network can share a bill with the finance network along with independently verifiable proof of authenticity. Otherwise, the trade finance network's workflow must trust that the exporter is acting in good faith and supplying genuine bills of lading, which adds insecurity. This interoperation, which involves sharing of network data, can be extrapolated to other scenarios involving the two networks. The trade logistics network can require an exporter to produce a valid letter of credit from the trade finance network before permitting a consignment record creation. Both these cross-network data sharing instances are illustrated in Figure 2.<a href="#section-3.1-3" class="pilcrow">¶</a></p>
 <div id="trade-letter-bill-figure">
 <figure id="figure-2">
           <div class="alignLeft art-text artwork" id="section-3.1-4.1">
 <pre>
-               +----------+    1 Agree on      +----------+
-               | Exporter |&lt;------------------&gt;| Importer |
-               +----------+   Purchase Order   +----------+
+           +----------+    1 Agree on      +----------+
+           | Exporter |&lt;------------------&gt;| Importer |
+           +----------+   Purchase Order   +----------+
 
-      +------------+
-      | Exporter’s |  +----------+              +---------------------+
-      |    Bank    |  | Exporter |              |       Exporter      |
-      +------------+  +----------+              +---------------------+
-            | |                                    | |              |
-       4    | |   12                        5      | |      7       |   9
-    Approve | | Request                   Book     | |   Create     | Accept
-      L/C   | |   L/C                  Consignment | | Consignment  |  B/L
-            | |                                    | |              |
-            | |                                    | |              |
-            | |            |¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯|  | |              |
-            | |            |    11 Share B/L    |  | |              |
-            V V            V                    |  V V              V
-    +-------------------------------+     +-------------------------------+
-    |     Trade Finance Network     |     |    Trade Logistics Network    |
-    +-------------------------------+     +-------------------------------+
-            ˄              ˄    |               ˄      ˄     ˄
-            |              |    |  6 Share L/C  |      |     |
-            |              |    |_______________|      |     |
-            |              |                           |     |
-       3    |              |    2               10     |     |    8
-    Propose |              | Request        Dispatch   |     | Upload
-      L/C   |              |   L/C         Consignment |     |   B/L
-            |              |                           |     |
-      +------------+  +----------+                 +-------------+
-      | Importer’s |  | Importer |                 |   Carrier   |
-      |    Bank    |  +----------+                 +-------------+
-      +------------+
+  +------------+
+  | Exporter's |  +----------+             +---------------------+
+  |    Bank    |  | Exporter |             |       Exporter      |
+  +------------+  +----------+             +---------------------+
+        | |                                   | |              |
+   4    | |   12                       5      | |      7       |   9
+Approve | | Request                  Book     | |   Create     | Accept
+  L/C   | |   L/C                 Consignment | | Consignment  |  B/L
+        | |                                   | |              |
+        | |             ___________________   | |              |
+        | |            |                   |  | |              |
+        | |            |    11 Share B/L   |  | |              |
+        V V            V                   |  V V              V
++-------------------------------+    +-------------------------------+
+|     Trade Finance Network     |    |    Trade Logistics Network    |
++-------------------------------+    +-------------------------------+
+        ^              ^    |               ^      ^     ^
+        |              |    |  6 Share L/C  |      |     |
+        |              |    |_______________|      |     |
+        |              |                           |     |
+   3    |              |    2               10     |     |    8
+Propose |              | Request        Dispatch   |     | Upload
+  L/C   |              |   L/C         Consignment |     |   B/L
+        |              |                           |     |
+  +------------+  +----------+                 +-------------+
+  | Importer's |  | Importer |                 |   Carrier   |
+  |    Bank    |  +----------+                 +-------------+
+  +------------+
 </pre>
 </div>
 <figcaption><a href="#figure-2" class="selfRef">Figure 2</a></figcaption></figure>
 </div>
 <p id="section-3.1-5">Asset transfers among trade networks: In the preceding example, letters of credit and bills of lading represent portions of state of the larger export-import workflow. But these documents are also digital assets in their own rights.<a href="#section-3.1-5" class="pilcrow">¶</a></p>
-<p id="section-3.1-6">A bill of lading can serve as title to the consignment of goods being shipped, and hence can be traded as a security or used as collateral against debt obligations in the financial market. Hence, Step 11 in Figure 2 may well be embodied by the transfer rather than the sharing of state of a bill so that it ceases to remain on the Trade Logistics Network ledger and instead belongs to the Seller’s Bank on the Trade Finance Network’s ledger.<a href="#section-3.1-6" class="pilcrow">¶</a></p>
-<p id="section-3.1-7">A letter of credit may also assume the properties of a digital asset in certain situations. Consider the case of an importer who wishes to move their business to a different trade finance network and maintain their records on that network’s ledger. The banks and the exporter can be assumed to participate in the second trade finance network as well, which exists to serve a different clientele. The importer needs to be able to move its letter of credit state to the other network and resume the trade workflow after migration. This requires the ability to transfer the letter in the form of a digital asset from one trade finance network to another.<a href="#section-3.1-7" class="pilcrow">¶</a></p>
+<p id="section-3.1-6">A bill of lading can serve as title to the consignment of goods being shipped, and hence can be traded as a security or used as collateral against debt obligations in the financial market. Hence, Step 11 in Figure 2 may well be embodied by the transfer rather than the sharing of state of a bill so that it ceases to remain on the Trade Logistics Network ledger and instead belongs to the Seller's Bank on the Trade Finance Network's ledger.<a href="#section-3.1-6" class="pilcrow">¶</a></p>
+<p id="section-3.1-7">A letter of credit may also assume the properties of a digital asset in certain situations. Consider the case of an importer who wishes to move their business to a different trade finance network and maintain their records on that network's ledger. The banks and the exporter can be assumed to participate in the second trade finance network as well, which exists to serve a different clientele. The importer needs to be able to move its letter of credit state to the other network and resume the trade workflow after migration. This requires the ability to transfer the letter in the form of a digital asset from one trade finance network to another.<a href="#section-3.1-7" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="tracking-food-shipments">
@@ -1371,26 +1369,26 @@ svg {
 <a href="#section-3.2" class="section-number selfRef">3.2. </a><a href="#name-tracking-food-shipments" class="section-name selfRef">Tracking Food Shipments</a>
         </h3>
 <div id="trade-sc-tracking">
-<p id="section-3.2-1">The use case linking a trade finance network with a trade logistics network can be augmented by adding a food tracking network like the IBM Food Trust <span>[<a href="#IFT" class="cite xref">IFT</a>]</span> to the mix. Such a network connects producers, suppliers, manufactures, and retailers, who participate in food supply chains. Purchase orders, like those negotiated between producers and retailers, and which are illustrated as negotiated between exporter and importers in Figure 2, are recorded in this network’s ledger. For quality control, its business workflow will track at periodic intervals the state (e.g., temperature and humidity) of containers carrying, for example, produce from farm to source port and from destination port to warehouse. The trade logistics network handles documentation and dispatch but does not track the location or condition of a consignment outside of a carrier’s purview. Clearly, these networks play complementary roles in a supply chain. The logistics network should be able to get the state and history of a container before dispatch from the food tracking network, as should the latter from the former after the carrier has delivered a consignment. End-to-end supply chain visibility and effectiveness relies on the interoperability of these two networks, or to be precise, their ability to share verifiably authentic data with each other. Further, such interoperation also enables the trade finance network to allow the creation of a letter of credit only after verifying the existence of a valid purchase order in the food tracking network. Figure 3 illustrates the links between these networks.<a href="#section-3.2-1" class="pilcrow">¶</a></p>
+<p id="section-3.2-1">The use case linking a trade finance network with a trade logistics network can be augmented by adding a food tracking network like the IBM Food Trust <span>[<a href="#IFT" class="cite xref">IFT</a>]</span> to the mix. Such a network connects producers, suppliers, manufactures, and retailers, who participate in food supply chains. Purchase orders, like those negotiated between producers and retailers, and which are illustrated as negotiated between exporter and importers in Figure 2, are recorded in this network's ledger. For quality control, its business workflow will track at periodic intervals the state (e.g., temperature and humidity) of containers carrying, for example, produce from farm to source port and from destination port to warehouse. The trade logistics network handles documentation and dispatch but does not track the location or condition of a consignment outside of a carrier's purview. Clearly, these networks play complementary roles in a supply chain. The logistics network should be able to get the state and history of a container before dispatch from the food tracking network, as should the latter from the former after the carrier has delivered a consignment. End-to-end supply chain visibility and effectiveness relies on the interoperability of these two networks, or to be precise, their ability to share verifiably authentic data with each other. Further, such interoperation also enables the trade finance network to allow the creation of a letter of credit only after verifying the existence of a valid purchase order in the food tracking network. Figure 3 illustrates the links between these networks.<a href="#section-3.2-1" class="pilcrow">¶</a></p>
 </div>
 <div id="food-tracking-figure">
 <figure id="figure-3">
           <div class="alignLeft art-text artwork" id="section-3.2-2.1">
 <pre>
-                      +-------------------------------+
-                 |¯¯¯¯|     Food Tracking Network     |¯¯¯¯¯¯¯¯¯¯|
-                 |    +-------------------------------+          |
-         Share   |                              ˄                |  Share
-        Purchase |                              |  Share         | Shipment
-         Order   |         |¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯|   | Shipment       |  State
-                 |         |   Share B/L    |   |  State         |
-                 V         V                |   |                V
-    +-------------------------------+     +-------------------------------+
-    |     Trade Finance Network     |     |    Trade Logistics Network    |
-    +-------------------------------+     +-------------------------------+
-                                |               ˄
-                                |   Share L/C   |
-                                |_______________|
+                  +-------------------------------+
+              ____|     Food Tracking Network     |__________
+             |    +-------------------------------+          |
+     Share   |                              ^                |  Share
+    Purchase |          ________________    |  Share         | Shipment
+     Order   |         |                |   | Shipment       |  State
+             |         |   Share B/L    |   |  State         |
+             V         V                |   |                V
++-------------------------------+     +-------------------------------+
+|     Trade Finance Network     |     |    Trade Logistics Network    |
++-------------------------------+     +-------------------------------+
+                            |               ^
+                            |   Share L/C   |
+                            |_______________|
 </pre>
 </div>
 <figcaption><a href="#figure-3" class="selfRef">Figure 3</a></figcaption></figure>
@@ -1409,26 +1407,26 @@ svg {
 <figure id="figure-4">
           <div class="alignLeft art-text artwork" id="section-3.3-2.1">
 <pre>
-                      +-------------------------------+
-                 |¯¯¯¯|     Food Tracking Network     |¯¯¯¯¯¯¯¯¯¯|
-                 |    +-------------------------------+          |
-         Share   |                              ˄                |  Share
-        Purchase |                              |  Share         | Shipment
-         Order   |         |¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯|   | Shipment       |  State
-                 |         |   Share B/L    |   |  State         |
-                 V         V                |   |                V
-    +-------------------------------+     +-------------------------------+
-    |     Trade Finance Network     |     |    Trade Logistics Network    |
-    +-------------------------------+     +-------------------------------+
-                | ˄               |               ˄
-        Share   | |   Share       |   Share L/C   |
-       Payment  | |  Payment      |_______________|
-     Obligation | | Fulfilment
-                | |
-                V |
-      +---------------------+
-      |   Payment Network   |
-      +---------------------+
+                  +-------------------------------+
+              ____|     Food Tracking Network     |__________
+             |    +-------------------------------+          |
+     Share   |                              ^                |  Share
+    Purchase |          ________________    |  Share         | Shipment
+     Order   |         |                |   | Shipment       |  State
+             |         |   Share B/L    |   |  State         |
+             V         V                |   |                V
++-------------------------------+     +-------------------------------+
+|     Trade Finance Network     |     |    Trade Logistics Network    |
++-------------------------------+     +-------------------------------+
+            | ^               |               ^
+    Share   | |   Share       |   Share L/C   |
+   Payment  | |  Payment      |_______________|
+ Obligation | | Fulfilment
+            | |
+            V |
+  +---------------------+
+  |   Payment Network   |
+  +---------------------+
 </pre>
 </div>
 <figcaption><a href="#figure-4" class="selfRef">Figure 4</a></figcaption></figure>
@@ -1446,62 +1444,62 @@ svg {
 <div id="finance-currency">
 <p id="section-4-1">The emerging paradigm of Decentralized Finance (DeFi) and the emerging application of Central Bank Digital Currency (CBDC) have opened up a spectrum of scenarios that require management of financial digital assets across multiple systems, typically built on distributed ledgers.<a href="#section-4-1" class="pilcrow">¶</a></p>
 </div>
-<p id="section-4-2">DeFi is a “new financial paradigm that leverages distributed ledger technologies to offer services such as lending, investing, or exchanging cryptoassets without relying on a traditional centralized intermediary” <span>[<a href="#BISDeFi" class="cite xref">BISDeFi</a>]</span>. Following the Web3 philosophy <span>[<a href="#Web3" class="cite xref">Web3</a>]</span>, scoped for the world of finance, DeFi offers architecture and protocols built on smart contracts deployed on blockchain or other distributed ledger technology. It thereby obviates the need for centralized management and orchestration of financial processes (e.g., currency transfers, exchanges, securities settlements) by trusted authorities who can gain undue leverage.<a href="#section-4-2" class="pilcrow">¶</a></p>
+<p id="section-4-2">DeFi is a "new financial paradigm that leverages distributed ledger technologies to offer services such as lending, investing, or exchanging cryptoassets without relying on a traditional centralized intermediary" <span>[<a href="#BISDeFi" class="cite xref">BISDeFi</a>]</span>. Following the Web3 philosophy <span>[<a href="#Web3" class="cite xref">Web3</a>]</span>, scoped for the world of finance, DeFi offers architecture and protocols built on smart contracts deployed on blockchain or other distributed ledger technology. It thereby obviates the need for centralized management and orchestration of financial processes (e.g., currency transfers, exchanges, securities settlements) by trusted authorities who can gain undue leverage.<a href="#section-4-2" class="pilcrow">¶</a></p>
 <p id="section-4-3">CBDC is a form of tokenized cryptocurrency that various central banks around the world are experimenting with as the digital equivalent of traditional central bank-issued money used by banks and other financial institutions as well as end users for commercial transactions and settlements. Central banks possess exclusive authority to mint and issue money in physical cash form and in the form of electronic reserves. They also support commercial bank money used in retail transactions by banks and other users in their private capacities. Central banks have traditionally used their control over these different forms of money to enforce monetary policy in a way that promotes financial stability and provides broad access to safe and efficient payments <span>[<a href="#BISCBDC" class="cite xref">BISCBDC</a>]</span>. CBDCs would form a new, or alternative, type of central bank money, typically (but not always) built on blockchain or other distributed ledger technology. They have recently garnered significant interest in government circles by promising increased access and inclusion, better resilience, and increased scale and efficiency of currency transfers, compared to traditional forms of central bank-issued or central bank-backed currency.<a href="#section-4-3" class="pilcrow">¶</a></p>
-<p id="section-4-4">CBDCs can broadly be classified into “wholesale” and “retail”. Wholesale CBDC, which facilitates inter-bank and cross-border settlements, is currency that is available only to banks and other financial institutions. Retail CBDC is available to the public and can be used as a digital form of cash, enabling fast transparent payments for goods and services at high scale and volume; in effect, it can be used as a substitute for legacy payment mechanisms.<a href="#section-4-4" class="pilcrow">¶</a></p>
-<p id="section-4-5">Different system architectures exist to manage CBDC for banks and end users, from issuance to transfers to redemptions. A 2-tier model as illustrated in Figure 5 has recently gained popularity, where wholesale CBDC networks manage interactions between central and commercial banks, and retail CBDC networks manage interactions between commercial banks and end users. If the role of the central bank is treated as the defining characteristic of a system architecture, this model can be referred to as “indirect”, because commercial banks mediate claims between the central bank and end users and also facilitate payments. Other architectures also exist, including “direct CBDC”, where the central bank issues CBDC directly to end users and facilitates payments, and “hybrid CBDC”, which provides users the facility to make direct claims on the central bank while allowing intermediaries to facilitate payments <span>[<a href="#BISRCBDC" class="cite xref">BISRCBDC</a>]</span>.<a href="#section-4-5" class="pilcrow">¶</a></p>
+<p id="section-4-4">CBDCs can broadly be classified into "wholesale" and "retail". Wholesale CBDC, which facilitates inter-bank and cross-border settlements, is currency that is available only to banks and other financial institutions. Retail CBDC is available to the public and can be used as a digital form of cash, enabling fast transparent payments for goods and services at high scale and volume; in effect, it can be used as a substitute for legacy payment mechanisms.<a href="#section-4-4" class="pilcrow">¶</a></p>
+<p id="section-4-5">Different system architectures exist to manage CBDC for banks and end users, from issuance to transfers to redemptions. A 2-tier model as illustrated in Figure 5 has recently gained popularity, where wholesale CBDC networks manage interactions between central and commercial banks, and retail CBDC networks manage interactions between commercial banks and end users. If the role of the central bank is treated as the defining characteristic of a system architecture, this model can be referred to as "indirect", because commercial banks mediate claims between the central bank and end users and also facilitate payments. Other architectures also exist, including "direct CBDC", where the central bank issues CBDC directly to end users and facilitates payments, and "hybrid CBDC", which provides users the facility to make direct claims on the central bank while allowing intermediaries to facilitate payments <span>[<a href="#BISRCBDC" class="cite xref">BISRCBDC</a>]</span>.<a href="#section-4-5" class="pilcrow">¶</a></p>
 <div id="currency-transfers">
 <section id="section-4.1">
         <h3 id="name-currency-transfers">
 <a href="#section-4.1" class="section-number selfRef">4.1. </a><a href="#name-currency-transfers" class="section-name selfRef">Currency Transfers</a>
         </h3>
 <div id="finance-currency-transfers">
-<p id="section-4.1-1">The 2-tier “indirect CBDC” model illustrated in Figure 5 presents unique interoperability challenges that require protocols for asset transfers and which SATP is well-suited to handle. In the higher tier lie wholesale CBDC networks, bringing together central or reserve banks and various commercial banks. Following the DeFi logic, these networks are typically built on distributed ledger and smart contract technologies. Commercial banks hold reserve currency deposits with the reserve bank, which has the special power to mint currency and issue CBDC and also enforce regulatory compliance. In the lower tier lie retail CBDC networks for commercial banks and their customers, built on similar technologies, enabling seamless, efficient, and transparent payments using CBDCs. A retail CBDC network may involve a single commercial bank or multiple commercial banks, depending on the market caps of those banks and their purposes for joining such a network.<a href="#section-4.1-1" class="pilcrow">¶</a></p>
+<p id="section-4.1-1">The 2-tier "indirect CBDC" model illustrated in Figure 5 presents unique interoperability challenges that require protocols for asset transfers and which SATP is well-suited to handle. In the higher tier lie wholesale CBDC networks, bringing together central or reserve banks and various commercial banks. Following the DeFi logic, these networks are typically built on distributed ledger and smart contract technologies. Commercial banks hold reserve currency deposits with the reserve bank, which has the special power to mint currency and issue CBDC and also enforce regulatory compliance. In the lower tier lie retail CBDC networks for commercial banks and their customers, built on similar technologies, enabling seamless, efficient, and transparent payments using CBDCs. A retail CBDC network may involve a single commercial bank or multiple commercial banks, depending on the market caps of those banks and their purposes for joining such a network.<a href="#section-4.1-1" class="pilcrow">¶</a></p>
 </div>
 <div id="cbdc-transfer-figure">
 <figure id="figure-5">
           <div class="alignLeft art-text artwork" id="section-4.1-2.1">
 <pre>
-                  +----------------------------------------+
-                  |                                        |
-                  |         Wholesale CBDC Network         |
-                  |                                        |
-                  |           +----------------+           |
-                  |           |  Central Bank  |           |
-                  |           +----------------+           |
-                  |                                        |
-                  |  +------------+  +------------+        |
-                  |  | Commercial |  | Commercial |        |
-                  |  |  Bank A’s  |  |  Bank B’s  | ...... |
-                  |  |   Account  |  |   Account  |        |
-                  |  +------------+  +------------+        |
-                  |                                        |
-                  +----------------------------------------+
-                        ˄                      ˄
-                        |                      |
-                        |                      |
-                        V                      V
-   +----------------------------+  +----------------------------+
-   |                            |  |                            |
-   |    Retail CBDC Network     |  |    Retail CBDC Network     |
-   |                            |  |                            |
-   | +------------+ +---------+ |  | +------------+ +---------+ |
-   | | Commercial | | Central | |  | | Commercial | | Central | |
-   | |  Bank A’s  | |  Bank   | |  | |  Bank B’s  | |  Bank   | |
-   | |   Account  | +---------+ |  | |   Account  | +---------+ |
-   | +------------+             |  | +------------+             |
-   |                            |  |                            | .......
-   | +----------------+         |  | +------------+             |
-   | | Client Account | ....... |  | | Commercial |             |
-   | +----------------+         |  | |  Bank C’s  |             |
-   |                            |  | |   Account  |             |
-   +----------------------------+  | +------------+             |
-                                   |                            |
-                                   | +----------------+         |
-                                   | | Client Account | ....... |
-                                   | +----------------+         |
-                                   |                            |
-                                   +----------------------------+
+                 +----------------------------------------+
+                 |                                        |
+                 |         Wholesale CBDC Network         |
+                 |                                        |
+                 |           +----------------+           |
+                 |           |  Central Bank  |           |
+                 |           +----------------+           |
+                 |                                        |
+                 |  +------------+  +------------+        |
+                 |  | Commercial |  | Commercial |        |
+                 |  |  Bank A's  |  |  Bank B's  | ...... |
+                 |  |   Account  |  |   Account  |        |
+                 |  +------------+  +------------+        |
+                 |                                        |
+                 +----------------------------------------+
+                       ^                      ^
+                       |                      |
+                       |                      |
+                       V                      V
+  +----------------------------+  +----------------------------+
+  |                            |  |                            |
+  |    Retail CBDC Network     |  |    Retail CBDC Network     |
+  |                            |  |                            |
+  | +------------+ +---------+ |  | +------------+ +---------+ |
+  | | Commercial | | Central | |  | | Commercial | | Central | |
+  | |  Bank A's  | |  Bank   | |  | |  Bank B's  | |  Bank   | |
+  | |   Account  | +---------+ |  | |   Account  | +---------+ |
+  | +------------+             |  | +------------+             |
+  |                            |  |                            | ......
+  | +----------------+         |  | +------------+             |
+  | | Client Account | ....... |  | | Commercial |             |
+  | +----------------+         |  | |  Bank C's  |             |
+  |                            |  | |   Account  |             |
+  +----------------------------+  | +------------+             |
+                                  |                            |
+                                  | +----------------+         |
+                                  | | Client Account | ....... |
+                                  | +----------------+         |
+                                  |                            |
+                                  +----------------------------+
 </pre>
 </div>
 <figcaption><a href="#figure-5" class="selfRef">Figure 5</a></figcaption></figure>
@@ -1528,48 +1526,48 @@ svg {
 <a href="#section-4.3" class="section-number selfRef">4.3. </a><a href="#name-delivery-vs-payment-dvp-of-" class="section-name selfRef">Delivery vs Payment (DvP) of Securities</a>
         </h3>
 <div id="finance-currency-dvp">
-<p id="section-4.3-1">In Decentralized Finance, or DeFi for short, investors and financial institutions will form networks to manage the creation and purchase of securities. As a simple example, consider a network to which the Treasury, which issues bonds, and commercial banks, which purchase and trade bonds, belong. Also consider a payment network of the kind seen in Section 3.3 (or a retail CBDC network of the kind seen in Section 4.1), which allows CBDC transfers between commercial banks’ accounts. In the securities network, banks may wish to transfer bonds to each other but only in exchange for compensation. But such compensation can be made only on a payment network where the two maintain currency accounts (e.g., in CBDC). Therefore, the securities and payment networks must be able to interoperate in such a way that two banks can carry out a delivery-vs-payment transaction spanning these two independent networks. Such a transaction must be atomic, i.e., either both bond and CBDC tokens get transferred in their respective networks or neither gets transferred. Figure 6 illustrates this exchange.<a href="#section-4.3-1" class="pilcrow">¶</a></p>
+<p id="section-4.3-1">In Decentralized Finance, or DeFi for short, investors and financial institutions will form networks to manage the creation and purchase of securities. As a simple example, consider a network to which the Treasury, which issues bonds, and commercial banks, which purchase and trade bonds, belong. Also consider a payment network of the kind seen in Section 3.3 (or a retail CBDC network of the kind seen in Section 4.1), which allows CBDC transfers between commercial banks' accounts. In the securities network, banks may wish to transfer bonds to each other but only in exchange for compensation. But such compensation can be made only on a payment network where the two maintain currency accounts (e.g., in CBDC). Therefore, the securities and payment networks must be able to interoperate in such a way that two banks can carry out a delivery-vs-payment transaction spanning these two independent networks. Such a transaction must be atomic, i.e., either both bond and CBDC tokens get transferred in their respective networks or neither gets transferred. Figure 6 illustrates this exchange.<a href="#section-4.3-1" class="pilcrow">¶</a></p>
 </div>
 <div id="securities-dvp-figure">
 <figure id="figure-6">
           <div class="alignLeft art-text artwork" id="section-4.3-2.1">
 <pre>
-   +-----------------------------------------------------------------------+
-   |                             Bond Network                              |
-   |                                                                       |
-   |     +----------+      Issue        +---------------------------+      |
-   |     | Treasury |------------------&gt;|    Commercial Bank A’s    |      |
-   |     +----------+       Bond        |         Portfolio         |      |
-   |                                    +---------------------------+      |
-   |                                                  |                    |
-   |                                                  |  Transfer          |
-   |                                                  |    Bond            |
-   |                                                  V                    |
-   |                                    +---------------------------+      |
-   |                                    |    Commercial Bank B’s    |      |
-   |                                    |         Portfolio         |      |
-   |                                    +---------------------------+      |
-   +-----------------------------------------------------------------------+
-                                       ˄
-                                       |
-                                       |
-                                       V
-   +-----------------------------------------------------------------------+
-   |                 Payment Network / Retail CBDC Network                 |
-   |                                                                       |
-   |     +-----------+                  +---------------------------+      |
-   |     |  Central  |                  |    Commercial Bank A’s    |      |
-   |     |    Bank   |                  |           Account         |      |
-   |     +-----------+                  +---------------------------+      |
-   |                                                  |                    |
-   |                                                  |  Transfer          |
-   |                                                  |  Currency          |
-   |                                                  V                    |
-   |                                    +---------------------------+      |
-   |                                    |    Commercial Bank B’s    |      |
-   |                                    |          Account          |      |
-   |                                    +---------------------------+      |
-   +-----------------------------------------------------------------------+
+  +-------------------------------------------------------------------+
+  |                           Bond Network                            |
+  |                                                                   |
+  |   +----------+      Issue        +---------------------------+    |
+  |   | Treasury |------------------&gt;|    Commercial Bank A's    |    |
+  |   +----------+       Bond        |         Portfolio         |    |
+  |                                  +---------------------------+    |
+  |                                                |                  |
+  |                                                |  Transfer        |
+  |                                                |    Bond          |
+  |                                                V                  |
+  |                                  +---------------------------+    |
+  |                                  |    Commercial Bank B's    |    |
+  |                                  |         Portfolio         |    |
+  |                                  +---------------------------+    |
+  +-------------------------------------------------------------------+
+                                    ^
+                                    |
+                                    |
+                                    V
+  +-------------------------------------------------------------------+
+  |               Payment Network / Retail CBDC Network               |
+  |                                                                   |
+  |   +-----------+                  +---------------------------+    |
+  |   |  Central  |                  |    Commercial Bank A's    |    |
+  |   |    Bank   |                  |           Account         |    |
+  |   +-----------+                  +---------------------------+    |
+  |                                                |                  |
+  |                                                |  Transfer        |
+  |                                                |  Currency        |
+  |                                                V                  |
+  |                                  +---------------------------+    |
+  |                                  |    Commercial Bank B's    |    |
+  |                                  |          Account          |    |
+  |                                  +---------------------------+    |
+  +-------------------------------------------------------------------+
 </pre>
 </div>
 <figcaption><a href="#figure-6" class="selfRef">Figure 6</a></figcaption></figure>
@@ -1583,50 +1581,50 @@ svg {
 <a href="#section-4.4" class="section-number selfRef">4.4. </a><a href="#name-stock-options-contract-fulf" class="section-name selfRef">Stock Options Contract Fulfilment</a>
         </h3>
 <div id="finance-currency-stock-options">
-<p id="section-4.4-1">Stock options are financial instruments that allow holders to buy or sell stock at predetermined prices until specific expiration dates <span>[<a href="#StOpt" class="cite xref">StOpt</a>]</span>. Exercising an option, i.e., buying or selling a stock by paying a “strike price”, involves a more complex cross-network financial transaction than the securities DvP use case. Option contracts can be managed and enforced in a specific business network (which can be labeled a “stock network”) to which entities like an Options Clearing Corporation (OCC), stock exchanges (e.g., the Chicago Board Options Exchange), and brokerage firms, belong. The OCC is the issuer and guarantor for all options and futures contracts traded on U.S. exchanges <span>[<a href="#OCC" class="cite xref">OCC</a>]</span>. It provides secured back-end clearing services, while exchanges provide front-end trading markets. Transfer and settlement of payments, just like in the DvP scenario, will typically occur in a dedicated payment network in which buyers and sellers of stock have currency accounts. Options contract fulfilment requires the stock and payment networks to work in concert, and hence need SATP to coordinate transactions across them.<a href="#section-4.4-1" class="pilcrow">¶</a></p>
+<p id="section-4.4-1">Stock options are financial instruments that allow holders to buy or sell stock at predetermined prices until specific expiration dates <span>[<a href="#StOpt" class="cite xref">StOpt</a>]</span>. Exercising an option, i.e., buying or selling a stock by paying a "strike price", involves a more complex cross-network financial transaction than the securities DvP use case. Option contracts can be managed and enforced in a specific business network (which can be labeled a "stock network") to which entities like an Options Clearing Corporation (OCC), stock exchanges (e.g., the Chicago Board Options Exchange), and brokerage firms, belong. The OCC is the issuer and guarantor for all options and futures contracts traded on U.S. exchanges <span>[<a href="#OCC" class="cite xref">OCC</a>]</span>. It provides secured back-end clearing services, while exchanges provide front-end trading markets. Transfer and settlement of payments, just like in the DvP scenario, will typically occur in a dedicated payment network in which buyers and sellers of stock have currency accounts. Options contract fulfilment requires the stock and payment networks to work in concert, and hence need SATP to coordinate transactions across them.<a href="#section-4.4-1" class="pilcrow">¶</a></p>
 </div>
-<p id="section-4.4-2">Figure 7 illustrates a simplified flow for the exercising of a “call” option, where a buyer acquires stock from a seller by paying it a strike price. First, the buyer informs its brokerage, which then notifies its exchange about the buyer's intent to exercise the option. The exchange in turn notifies the OCC in the Stock Network. (All these notifications typically occur via a smart contract). Steps 1-2 illustrate these notifications. The OCC then verifies the contract’s validity and the buyer’s right to exercise the option. If this is successful, the OCC triggers a payment request to the buyer through a contract-to-contract communication from the Stock Network to the Payment Network (step 3). (Alternatively, the buyer may trigger a payment request in the Payment Network, which then requests the Stock Network for proof of the contract’s validity from the OCC before approving the payment.) The buyer then pays the strike price to the seller (step 4). The payment receipt is now sent to the Stock Network for the OCC’s verification (or alternatively, the buyer can request the OCC to fetch and verify the receipt from the Payment Network) and fulfilment of the contract (step 5). The OCC, via the exchange, requests the brokerage to transfer stock from the seller’s to the buyer’s account (steps 6-7).<a href="#section-4.4-2" class="pilcrow">¶</a></p>
-<p id="section-4.4-3">This cross-network transactions require SATP using gateways, either to communicate information of a contract’s validity (step 3) or a payment receipt (step 5) with authenticity proof (i.e., data sharing), or by ensuring that strike price payment (step 4) and contract fulfilment (step 6-7) occur atomically as an exchange using a coordinated set of commitments.<a href="#section-4.4-3" class="pilcrow">¶</a></p>
+<p id="section-4.4-2">Figure 7 illustrates a simplified flow for the exercising of a "call" option, where a buyer acquires stock from a seller by paying it a strike price. First, the buyer informs its brokerage, which then notifies its exchange about the buyer's intent to exercise the option. The exchange in turn notifies the OCC in the Stock Network. (All these notifications typically occur via a smart contract). Steps 1-2 illustrate these notifications. The OCC then verifies the contract's validity and the buyer's right to exercise the option. If this is successful, the OCC triggers a payment request to the buyer through a contract-to-contract communication from the Stock Network to the Payment Network (step 3). (Alternatively, the buyer may trigger a payment request in the Payment Network, which then requests the Stock Network for proof of the contract's validity from the OCC before approving the payment.) The buyer then pays the strike price to the seller (step 4). The payment receipt is now sent to the Stock Network for the OCC's verification (or alternatively, the buyer can request the OCC to fetch and verify the receipt from the Payment Network) and fulfilment of the contract (step 5). The OCC, via the exchange, requests the brokerage to transfer stock from the seller's to the buyer's account (steps 6-7).<a href="#section-4.4-2" class="pilcrow">¶</a></p>
+<p id="section-4.4-3">This cross-network transactions require SATP using gateways, either to communicate information of a contract's validity (step 3) or a payment receipt (step 5) with authenticity proof (i.e., data sharing), or by ensuring that strike price payment (step 4) and contract fulfilment (step 6-7) occur atomically as an exchange using a coordinated set of commitments.<a href="#section-4.4-3" class="pilcrow">¶</a></p>
 <div id="stock-options-contract-figure">
 <figure id="figure-7">
           <div class="alignLeft art-text artwork" id="section-4.4-4.1">
 <pre>
-   +-----------------------------------------------------------------------+
-   | Stock Network                                                         |
-   |                                                                       |
-   | +-------------+          +--------------+           +---------------+ |
-   | |  Brokerage  |          |   Exchange   | 2         |      OCC      | |
-   | |             |          |              | Request   |               | |
-   | | +---------+ | 1        | +----------+ | to        | +-----------+ | |
-   | | | Buyer   | | Exercise | |          | | Clear     | |           | | |
-   | | | Equity  |-|----------|&gt;|          |-|-----------|&gt;|           | | |
-   | | | Account | |          | | Options  | |           | | Options   | | |
-   | | +---------+ |          | | Contract | |           | | Contract  | | |
-   | |             |          | | (Copy)   | |           | | (Primary) | | |
-   | | +---------+ |          | |          | |           | |           | | |
-   | | | Seller  |&lt;|----------|-|          |&lt;|-----------|-|           | | |
-   | | | Equity  | | 7        | +----------+ | 6         | +-----------+ | |
-   | | | Account | | Fulfil &amp; |              | Fulfil &amp;  |               | |
-   | | +---------+ | Transfer |              | Transfer  |               | |
-   | |             | Stock    |              | Stock     |               | |
-   | +-------------+          +--------------+           +---------------+ |
-   |                                                                       |
-   +-----------------------------------------------------------------------+
-                           |                    ˄
-          3 Request to Pay |                    |
-            Strike Price   |                    |  5 Send Payment Receipt
-                           |                    |
-                           V                    |
-   +-----------------------------------------------------------------------+
-   | Payment Network                                                       |
-   |                                                                       |
-   |      +--------------+                           +--------------+      |
-   |      |   Buyer      |    4 Pay Strike Price     |   Seller     |      |
-   |      |   Payment    |--------------------------&gt;|   Payment    |      |
-   |      |   Account    |                           |   Account    |      |
-   |      +--------------+                           +--------------+      |
-   |                                                                       |
-   +-----------------------------------------------------------------------+
++---------------------------------------------------------------------+
+| Stock Network                                                       |
+|                                                                     |
+| +-------------+          +--------------+          +--------------+ |
+| |  Brokerage  |          |   Exchange   | 2        |      OCC     | |
+| |             |          |              | Request  |              | |
+| | +---------+ | 1        | +----------+ | to       | +----------+ | |
+| | | Buyer   | | Exercise | |          | | Clear    | |          | | |
+| | | Equity  |-|----------|&gt;|          |-|----------|&gt;|          | | |
+| | | Account | |          | | Options  | |          | | Options  | | |
+| | +---------+ |          | | Contract | |          | | Contract | | |
+| |             |          | | (Copy)   | |          | |          | | |
+| | +---------+ |          | |          | |          | |          | | |
+| | | Seller  |&lt;|----------|-|          |&lt;|----------|-|          | | |
+| | | Equity  | | 7        | +----------+ | 6        | +----------+ | |
+| | | Account | | Fulfil &amp; |              | Fulfil &amp; |              | |
+| | +---------+ | Transfer |              | Transfer |              | |
+| |             | Stock    |              | Stock    |              | |
+| +-------------+          +--------------+          +--------------+ |
+|                                                                     |
++---------------------------------------------------------------------+
+                       |                 ^
+      3 Request to Pay |                 |
+        Strike Price   |                 |  5 Send Payment Receipt
+                       |                 |
+                       V                 |
++---------------------------------------------------------------------+
+| Payment Network                                                     |
+|                                                                     |
+|     +--------------+                           +--------------+     |
+|     |   Buyer      |    4 Pay Strike Price     |   Seller     |     |
+|     |   Payment    |--------------------------&gt;|   Payment    |     |
+|     |   Account    |                           |   Account    |     |
+|     +--------------+                           +--------------+     |
+|                                                                     |
++---------------------------------------------------------------------+
 </pre>
 </div>
 <figcaption><a href="#figure-7" class="selfRef">Figure 7</a></figcaption></figure>
@@ -1649,7 +1647,7 @@ svg {
 <a href="#section-5.1" class="section-number selfRef">5.1. </a><a href="#name-transferal-of-digital-art-a" class="section-name selfRef">Transferal of Digital Art and Payments across National Borders</a>
         </h3>
 <div id="decentralized-commerce-digital-art">
-<p id="section-5.1-1">There is currently growing interest within many artist communities of developing and selling digital-only artwork, in which the artwork consists of a file in a well-known (e.g., JPEG, MPEG) format that is created by an artist. The artists seek to sell copies of the digital-only artwork on the global marketplace, allowing anyone in the world to purchase a copy and consume (e.g., display offline) the artwork at the buyer’s discretion. Currently, the most popular technological vehicle to achieve this goal is through the tokenization of the copies of the artwork coupled with digital encryption/signature technologies to transfer control (and thereby legal ownership) of the digital-only artwork to the buyer.<a href="#section-5.1-1" class="pilcrow">¶</a></p>
+<p id="section-5.1-1">There is currently growing interest within many artist communities of developing and selling digital-only artwork, in which the artwork consists of a file in a well-known (e.g., JPEG, MPEG) format that is created by an artist. The artists seek to sell copies of the digital-only artwork on the global marketplace, allowing anyone in the world to purchase a copy and consume (e.g., display offline) the artwork at the buyer's discretion. Currently, the most popular technological vehicle to achieve this goal is through the tokenization of the copies of the artwork coupled with digital encryption/signature technologies to transfer control (and thereby legal ownership) of the digital-only artwork to the buyer.<a href="#section-5.1-1" class="pilcrow">¶</a></p>
 </div>
 <p id="section-5.1-2">Although there are a number of technical and legal challenges (e.g., copyright enforcement) to completing such a sale, one key issue pertains to the sale and payment for digital-only artwork across national borders. Many nations enforce taxation upon the sale of any asset, including that of artwork generally both domestically and internationally. Thus, when the control/ownership of a tokenized digital-only artwork is transferred to a new owner in a foreign nation and payment is received, taxation must be obtained at the point-of-sale (which could be an online platform) and proof of delivery must be traceable to ensure that no taxation-avoidance occurs. A secure asset transfer protocol between systems that can be built on distributed or shared ledgers via gateways with designated legal authority is necessary to enforce governmental regulations and provide accountability.<a href="#section-5.1-2" class="pilcrow">¶</a></p>
 </section>
@@ -1677,10 +1675,10 @@ svg {
 <div id="dns-epp-migration">
 <p id="section-6-1">Several examples have been presented in this document where SATP is indispensable for enabling cross-network asset and data transfer and transaction settlement. But SATP can also be used to augment an existing protocol by making it more secure, trustworthy, and efficient rather than creating an altogether new feature that preexisting technology was unable to provide. Conventional Internet architecture offers scope for such augmentation. Though highly decentralized, the Internet consists of nodes (or actors) that play critical roles in various protocols. Such protocols would benefit if the actions of these actors can be recorded and tracked on blockchain or other decentralized ledger networks. (It must be noted that the performance implications of these augmentations ought to be studied before firm recommendations are made.)<a href="#section-6-1" class="pilcrow">¶</a></p>
 </div>
-<p id="section-6-2">In the canonical DNS architecture <span>[<a href="#RFC1034" class="cite xref">RFC1034</a>]</span> <span>[<a href="#RFC1035" class="cite xref">RFC1035</a>]</span>, multiple registries and registrars may co-exist, managing DNS records for domain administrators (registrants). The Extensible Provisioning Protocol (EPP) allows registrars to communicate with registries for DNS resource record updates <span>[<a href="#RFC5730" class="cite xref">RFC5730</a>]</span>. Consider an example where R acts as a TLD (top-level domain) registry for the “.example” namespace, and entities S1 and S2 are registrars that can issue SLDs (second-level domains) to users. In one scenario, user Alice, who administers an SLD (say alice.example) issued by S1, wishes to transfer that SLD to S2. She can submit a request to S2 for this purpose, following which the respective registrars (S1 and S2) can communicate with the registry (R) using EPP to transfer the SLD from S1 to S2. S2 will then reissue the domain to Alice. In another scenario, Alice can transfer administration of her S1-issued domain to user Bob, a registrant who relies on S2 for registrations.<a href="#section-6-2" class="pilcrow">¶</a></p>
+<p id="section-6-2">In the canonical DNS architecture <span>[<a href="#RFC1034" class="cite xref">RFC1034</a>]</span> <span>[<a href="#RFC1035" class="cite xref">RFC1035</a>]</span>, multiple registries and registrars may co-exist, managing DNS records for domain administrators (registrants). The Extensible Provisioning Protocol (EPP) allows registrars to communicate with registries for DNS resource record updates <span>[<a href="#RFC5730" class="cite xref">RFC5730</a>]</span>. Consider an example where R acts as a TLD (top-level domain) registry for the ".example" namespace, and entities S1 and S2 are registrars that can issue SLDs (second-level domains) to users. In one scenario, user Alice, who administers an SLD (say alice.example) issued by S1, wishes to transfer that SLD to S2. She can submit a request to S2 for this purpose, following which the respective registrars (S1 and S2) can communicate with the registry (R) using EPP to transfer the SLD from S1 to S2. S2 will then reissue the domain to Alice. In another scenario, Alice can transfer administration of her S1-issued domain to user Bob, a registrant who relies on S2 for registrations.<a href="#section-6-2" class="pilcrow">¶</a></p>
 <p id="section-6-3">Though EPP facilitates these resource updates and transfers, and reputed registrars offer users these features in a usable manner, such scenarios face safety issues as they require trust and proper coordination among the participants. These issues can be mitigated by distributed ledger networks, smart contracts, and NFTs, which collectively provide a platform for safe and transparent DNS resource transfers with easy detection of non-compliance.<a href="#section-6-3" class="pilcrow">¶</a></p>
 <p id="section-6-4">In such a scheme, domains (or domain names) can be monetized as NFTs or digital assets, e.g., in the form of ERC-721 <span>[<a href="#ERC721" class="cite xref">ERC721</a>]</span> tokens, a popular NFT standard in the Ethereum ecosystem <span>[<a href="#Ethereum" class="cite xref">Ethereum</a>]</span>. The creation of a domain is represented by minting of an NFT and the deletion of a domain by the burning of the NFT using smart contracts whose transactions are tracked on a distributed ledger maintained by a network of entities. Registrants Alice and Bob also participate in the smart contracts and hold wallet identities, allowing them to trade assets by submitting transactions to the ledger. Registrants, registrars, and registries can engage in commercial transactions using contracts governing tokenized (and monetized) domains for the purposes of issuing and transferring domains (among users and registrars). This setup provides more safety when registrars are not reputed, and also allows new registrar services to emerge and build reputations. It also enables users like Alice and Bob to transfer domains to each other safely and seamlessly.<a href="#section-6-4" class="pilcrow">¶</a></p>
-<p id="section-6-5">SATP is crucial to enabling this scheme where registrars belong to, and issue, NFT-backed domains in different ledgers maintained by different networks. Ensuring that tokens are securely and atomically transferred between the ledgers will be a necessary prerequisite for an EPP resource record update operation. Further, non-compliance, or non-fulfilment of EPP, by either registrar, can be easily detected by examining the SATP logs from the respective networks’ gateways, thereby safeguarding the process. In future, reputed registrars may require their counterparties to comply with SATP-based transfers across ledgers as a prerequisite to engaging in a domain transfer with them.<a href="#section-6-5" class="pilcrow">¶</a></p>
+<p id="section-6-5">SATP is crucial to enabling this scheme where registrars belong to, and issue, NFT-backed domains in different ledgers maintained by different networks. Ensuring that tokens are securely and atomically transferred between the ledgers will be a necessary prerequisite for an EPP resource record update operation. Further, non-compliance, or non-fulfilment of EPP, by either registrar, can be easily detected by examining the SATP logs from the respective networks' gateways, thereby safeguarding the process. In future, reputed registrars may require their counterparties to comply with SATP-based transfers across ledgers as a prerequisite to engaging in a domain transfer with them.<a href="#section-6-5" class="pilcrow">¶</a></p>
 <p id="section-6-6">This scenario additionally illustrates an example of what typically occurs in Stage 0 of a SATP instance <span>[<a href="#SATP" class="cite xref">SATP</a>]</span>, which is where negotiation and agreement-building occurs between gateways. EPP instances among registrars and registries will occur in this stage, both prior to the start of an SATP instance and after its conclusion. EPP will aid in the generation of transaction contexts, which gateways need to transfer an asset (in this case, a tokenized domain) using SATP. Many other applications of SATP for asset transfers may similarly augment or bolster pre-existing business workflows, which (like EPP here) will produce transactions contexts for SATP instances.<a href="#section-6-6" class="pilcrow">¶</a></p>
 </section>
 </div>
@@ -1803,7 +1801,7 @@ svg {
 <dd class="break"></dd>
 <dt id="IFT">[IFT]</dt>
         <dd>
-<span class="refAuthor">IBM</span>, <span class="refTitle">"IBM Food Trust – Blockchain for the world’s food supply"</span>, <time datetime="2022" class="refDate">2022</time>, <span>&lt;<a href="https://www.ibm.com/docs/en/food-trust">https://www.ibm.com/docs/en/food-trust</a>&gt;</span>. </dd>
+<span class="refAuthor">IBM</span>, <span class="refTitle">"IBM Food Trust – Blockchain for the world's food supply"</span>, <time datetime="2022" class="refDate">2022</time>, <span>&lt;<a href="https://www.ibm.com/docs/en/food-trust">https://www.ibm.com/docs/en/food-trust</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="ISO">[ISO]</dt>
         <dd>
@@ -1811,7 +1809,7 @@ svg {
 <dd class="break"></dd>
 <dt id="MP">[MP]</dt>
         <dd>
-<span class="refAuthor">Ignatova, P.</span>, <span class="refTitle">"Marco Polo Network successfully completes largest Blockchain Open Account Trade Finance Trial on R3’s Corda platform, Trade Finance Global"</span>, <time datetime="2022" class="refDate">2022</time>, <span>&lt;<a href="https://www.tradefinanceglobal.com/posts/marco-polo-network-successfully-completes-largest-blockchain-open-account-trade-finance-trial-on-r3s-corda-platform/">https://www.tradefinanceglobal.com/posts/marco-polo-network-successfully-completes-largest-blockchain-open-account-trade-finance-trial-on-r3s-corda-platform/</a>&gt;</span>. </dd>
+<span class="refAuthor">Ignatova, P.</span>, <span class="refTitle">"Marco Polo Network successfully completes largest Blockchain Open Account Trade Finance Trial on R3's Corda platform, Trade Finance Global"</span>, <time datetime="2022" class="refDate">2022</time>, <span>&lt;<a href="https://www.tradefinanceglobal.com/posts/marco-polo-network-successfully-completes-largest-blockchain-open-account-trade-finance-trial-on-r3s-corda-platform/">https://www.tradefinanceglobal.com/posts/marco-polo-network-successfully-completes-largest-blockchain-open-account-trade-finance-trial-on-r3s-corda-platform/</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="NIST">[NIST]</dt>
         <dd>
@@ -1900,7 +1898,7 @@ svg {
 <dd class="break"></dd>
 <dt id="BSN22">[BSN22]</dt>
         <dd>
-<span class="refAuthor">Kharpal, A.</span>, <span class="refTitle">"China has been quietly building a blockchain platform. Here’s what we know. CNBC"</span>, <time datetime="2022-05" class="refDate">May 2022</time>, <span>&lt;<a href="https://www.cnbc.com/2022/05/16/china-blockchain-explainer-what-is-bsn-.html">https://www.cnbc.com/2022/05/16/china-blockchain-explainer-what-is-bsn-.html</a>&gt;</span>. </dd>
+<span class="refAuthor">Kharpal, A.</span>, <span class="refTitle">"China has been quietly building a blockchain platform. Here's what we know. CNBC"</span>, <time datetime="2022-05" class="refDate">May 2022</time>, <span>&lt;<a href="https://www.cnbc.com/2022/05/16/china-blockchain-explainer-what-is-bsn-.html">https://www.cnbc.com/2022/05/16/china-blockchain-explainer-what-is-bsn-.html</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="BVGC20">[BVGC20]</dt>
         <dd>
