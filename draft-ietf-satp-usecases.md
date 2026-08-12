@@ -68,101 +68,6 @@ informative:
     date: December 2019
     target: https://arxiv.org/abs/1911.01064
     title: Enabling Enterprise Blockchain Interoperability with Trusted Data Transfer (Middleware 2019 - Industry Track)
-  Abebe21:
-    author:
-    - ins: E. Abebe
-    - ins: Y. Hu
-    - ins: A. Irvin
-    - ins: D. Karunamoorthy
-    - ins: V. Pandit
-    - ins: V. Ramakrishna
-    - ins: J. Yu
-    date: May 2021
-    target: https://arxiv.org/abs/2012.07339
-    title: Verifiable Observation of Permissioned Ledgers (ICBC 2021)
-  ABCH20:
-    author:
-    - ins: T. Ankenbrand
-    - ins: D. Bieri
-    - ins: R. Cortivo
-    - ins: J. Hoehener
-    - ins: T. Hardjono
-    date: May 2020
-    target: https://arxiv.org/abs/2007.11877
-    title: Proposal for a Comprehensive Crypto Asset Taxonomy
-  BSN22:
-    author:
-    - ins: A. Kharpal
-    date: May 2022
-    target: https://www.cnbc.com/2022/05/16/china-blockchain-explainer-what-is-bsn-.html
-    title: China has been quietly building a blockchain platform. Here's what we know. CNBC
-  BVGC20:
-    author:
-    - ins: R. Belchior
-    - ins: A. Vasconcelos
-    - ins: S. Guerreiro
-    - ins: M. Correia
-    date: May 2020
-    target: https://arxiv.org/abs/2005.14282v2
-    title: 'A Survey on Blockchain Interoperability: Past, Present, and Future Trends'
-  CDE23:
-    author:
-    - ins: S. Bhardwaj
-    date: August 2023
-    target: https://www.forbesindia.com/article/cryptocurrency/china-unveils-revolutionary-blockchain-data-exchange-at-hangzhou-summit/87745/1
-    title: China Unveils Revolutionary Blockchain Data Exchange at Hangzhou Summit. Forbes India
-  Clar88:
-    author:
-    - ins: D. Clark
-    date: August 1988
-    title: The Design Philosophy of the DARPA Internet Protocols, ACM Computer Communication Review, Proc SIGCOMM 88, vol. 18, no. 4, pp. 106-114
-  Gray81:
-    author:
-    - ins: J. Gray
-    date: September 1981
-    title: 'The Transaction Concept: Virtues and Limitations, in VLDB Proceedings of the 7th International Conference, Cannes, France, September 1981, pp. 144-154'
-  Herl19:
-    author:
-    - ins: M. Herlihy
-    date: February 2019
-    target: https://doi.org/10.1145/3209623
-    title: Blockchains from a Distributed Computing Perspective, Communications of the ACM, vol. 62, no. 2, pp. 78-85
-  HLP19:
-    author:
-    - ins: T. Hardjono
-    - ins: A. Lipton
-    - ins: A. Pentland
-    date: June 2019
-    target: https://ieeexplore.ieee.org/document/8743548
-    title: Towards an Interoperability Architecture for Blockchain Autonomous Systems, IEEE Transactions on Engineering Management
-  HS2019:
-    author:
-    - ins: T. Hardjono
-    - ins: N. Smith
-    date: December 2019
-    target: https://doi.org/10.3389/fbloc.2019.00024
-    title: Decentralized Trusted Computing Base for Blockchain Infrastructure Security, Frontiers Journal, Special Issue on Blockchain Technology, Vol. 2, No. 24
-  HTLC21:
-    author:
-    date:
-    target: https://en.bitcoin.it/wiki/Hash_Time_Locked_Contracts
-    title: Hash Time Locked Contracts, Bitcoin Wiki
-  IDevID:
-    author:
-    - ins: M. Richardson
-    - ins: J. Yang
-    date: August 2020
-    target: https://tools.ietf.org/html/draft-richardson-t2trg-idevid-considerations-01
-    title: A Taxonomy of operational security of manufacturer installed keys and anchors. IETF draft-richardson-t2trg-idevid-considerations-01
-  SRC84:
-    author:
-    - ins: J. Saltzer
-    - ins: D. Reed
-    - ins: D. Clark
-    date: November 1984
-    title: End-to-End Arguments in System Design, ACM Transactions on Computer Systems, vol. 2, no. 4, pp. 277-288
-
-normative:
   Aug23:
     author:
     - ins: A. Augusto
@@ -172,8 +77,8 @@ normative:
     - ins: A. Vasconcelos
     - ins: M. Correia
     date: 2023
-    target: https://www.techrxiv.org/articles/preprint/CBDC_bridging_between_Hyperledger_Fabric_and_permissioned_EVM-based_blockchains/21809430
-    title: '2023 IEEE International Conference on Blockchain and Cryptocurrency (ICBC), Dubai, United Arab Emirates, 2023, pp. 1-9 (doi: 10.1109/ICBC56567.2023.10174953)'
+    target: https://www.techrxiv.org/doi/full/10.36227/techrxiv.21809430.v2
+    title: 'CBDC bridging between Hyperledger Fabric and permissioned EVM-based blockchains, 2023 IEEE International Conference on Blockchain and Cryptocurrency (ICBC), Dubai, United Arab Emirates, 2023'
   BISCBDC:
     author:
     - ins: Bank of Canada
@@ -236,7 +141,17 @@ normative:
     - ins: E. GS Teo
     - ins: C. H. Suen
     date: April 17, 2018
+    target: https://ieeexplore.ieee.org/document/8360358
     title: Double-Blind Consent-Driven Data Sharing on Blockchain. First IEEE Workshop on Blockchain Technologies and Applications (BTA) 2018, Co-located with 2018 IEEE International Conference on Cloud Engineering (IC2E)
+  BVGC20:
+    author:
+    - ins: R. Belchior
+    - ins: A. Vasconcelos
+    - ins: S. Guerreiro
+    - ins: M. Correia
+    date: May 2020
+    target: https://arxiv.org/abs/2005.14282v2
+    title: 'A Survey on Blockchain Interoperability: Past, Present, and Future Trends'
   CatenaX:
     author:
     - ins: Catena-X
@@ -326,6 +241,11 @@ normative:
     date: April 2018
     target: https://dl.acm.org/doi/pdf/10.1145/3190508.3190538
     title: 'Hyperledger Fabric: A Distributed Operating System for Permissioned Blockchains (EuroSys 2018)'
+  HTLC21:
+    author:
+    date:
+    target: https://en.bitcoin.it/wiki/Hash_Time_Locked_Contracts
+    title: Hash Time Locked Contracts, Bitcoin Wiki
   IDSA:
     author:
     - ins: International Data Spaces Association
@@ -334,31 +254,22 @@ normative:
     title: 'International Standards: Worldwide access, European principles'
   IFT:
     author:
-    - ins: IBM
-    date: 2022
-    target: https://www.ibm.com/docs/en/food-trust
-    title: IBM Food Trust – Blockchain for the world's food supply
-  ISO:
-    author:
-    - ins: ISO
-    date: January 2024
-    target: https://www.iso.org/standard/82208.html
-    title: Blockchain and distributed ledger technologies-Vocabulary (ISO:22739:2024)
+    - ins: LF Decentralized Trust
+    date: 2019
+    target: https://www.lfdecentralizedtrust.org/case-studies/walmart-case-study
+    title: 'Case Study: How Walmart brought unprecedented transparency to the food supply chain with Hyperledger Fabric'
   MP:
     author:
     - ins: P. Ignatova
-    date: 2022
+    date: December 12, 2019
     target: https://www.tradefinanceglobal.com/posts/marco-polo-network-successfully-completes-largest-blockchain-open-account-trade-finance-trial-on-r3s-corda-platform/
     title: Marco Polo Network successfully completes largest Blockchain Open Account Trade Finance Trial on R3's Corda platform, Trade Finance Global
-  NIST:
+  MPEnd:
     author:
-    - ins: D. Yaga
-    - ins: P. Mell
-    - ins: N. Roby
-    - ins: K. Scarfone
-    date: October 2018
-    target: https://doi.org/10.6028/NIST.IR.8202
-    title: NIST Blockchain Technology Overview (NISTR-8202)
+    - ins: Eleanor Wragg
+    date: February 23, 2023
+    target: https://www.gtreview.com/news/top-stories/marco-polo-brings-in-liquidators-as-funds-run-dry/
+    title: Marco Polo brings in liquidators as funds run dry
   OCC:
     author:
     - ins: Adam Hayes
@@ -379,7 +290,7 @@ normative:
     - ins: Singapore Exchange
     - ins: UOB Bank
     date: 2017
-    target: https://www2.deloitte.com/content/dam/Deloitte/sg/Documents/financial-services/sg-fsi-project-ubin-report.pdf
+    target: https://www.mas.gov.sg/-/media/mas/projectubin/project-ubin--sgd-on-distributed-ledger.pdf
     title: 'The future is here: Project Ubin: SGD on Distributed Ledger. Deloitte and Monetary Authority of Singapore (MAS), Report'
   R3C:
     author:
@@ -388,6 +299,76 @@ normative:
     date: August 2019
     target: https://docs.r3.com/en/pdf/corda-technical-whitepaper.pdf
     title: 'Corda: A Distributed Ledger'
+  SKYC:
+    author:
+    - ins: M. Curry
+    date: August 7, 2018
+    target: https://www.linkedin.com/pulse/blockchain-kyc-game-changing-regtech-innovation-michael-curry/
+    title: 'Blockchain for KYC: Game-changing RegTech innovation'
+  STN:
+    author:
+    - ins: Stellar Development Foundation
+    date: 2022
+    target: https://www.stellar.org/
+    title: 'Stellar – Blockchain Network for DeFi, Payments & Asset Tokenization'
+  StOpt:
+    author:
+    - ins: James Chen
+    date: July 20, 2026
+    target: https://www.investopedia.com/terms/s/stockoption.asp
+    title: 'Understanding Stock Options: Trading Basics and Practical Examples (Investopedia)'
+  TL:
+    author:
+    - ins: Maersk
+    date: 2022
+    target: https://www.maersk.com/~/media_sc9/maersk/local-information/files/west-central-asia/india/tradelens-solution-brief.pdf
+    title: 'TradeLens - Solution Brief: Edition Two'
+  TLNews:
+    author:
+    - ins: Maersk
+    date: November 29, 2022
+    target: https://www.maersk.com/news/articles/2022/11/29/maersk-and-ibm-to-discontinue-tradelens
+    title: 'A.P. Moller - Maersk and IBM to discontinue TradeLens, a blockchain-enabled global trade platform'
+  WBGCBP:
+    author:
+    date: November 2021
+    target: https://documents1.worldbank.org/curated/en/369001638871862939/pdf/Central-Bank-Digital-Currencies-for-Cross-border-Payments-A-Review-of-Current-Experiments-and-Ideas.pdf
+    title: 'Central Bank Digital Currencies for Cross-Border Payments: A Review of Current Experiments and Ideas. World Bank Group, Other Financial Sector Study'
+  Web3:
+    author:
+    - ins: Wikipedia
+    date: 2024
+    target: https://en.wikipedia.org/wiki/Web3
+    title: Web3
+  WET:
+    author:
+    - ins: IBM
+    date: 2019
+    target: https://www.ibm.com/case-studies/wetrade-blockchain-fintech-trade-finance
+    title: we.trade
+  WTNews:
+    author:
+    - ins: Matthew Gooding
+    date: June 6, 2022
+    target: https://www.techmonitor.ai/technology/emerging-technology/ibm-backed-blockchain-platform-we-trade-shutting-down
+    title: "IBM-backed blockchain platform we.trade 'shutting down'"
+
+normative:
+  ISO:
+    author:
+    - ins: ISO
+    date: January 2024
+    target: https://www.iso.org/standard/82208.html
+    title: Blockchain and distributed ledger technologies-Vocabulary (ISO:22739:2024)
+  NIST:
+    author:
+    - ins: D. Yaga
+    - ins: P. Mell
+    - ins: N. Roby
+    - ins: K. Scarfone
+    date: October 2018
+    target: https://doi.org/10.6028/NIST.IR.8202
+    title: NIST Blockchain Technology Overview (NISTR-8202)
   RFC1034: RFC1034
   RFC1035: RFC1035
   RFC5730: RFC5730
@@ -407,50 +388,9 @@ normative:
     - ins: R. Belchior
     - ins: V. Ramakrishna
     - ins: A. Chiriac
-    date: March 2026
+    date: July 2026
     target: https://datatracker.ietf.org/doc/draft-ietf-satp-core/
-    title: Secure Asset Transfer Protocol (SATP) Core, IETF, draft-ietf-satp-core-13
-  SKYC:
-    author:
-    - ins: M. Curry
-    date: August 7, 2018
-    target: https://www.linkedin.com/pulse/blockchain-kyc-game-changing-regtech-innovation-michael-curry/
-    title: 'Blockchain for KYC: Game-changing RegTech innovation'
-  STN:
-    author:
-    - ins: Stellar Development Foundation
-    date: 2022
-    target: https://www.stellar.org/
-    title: Stellar – Access your universe of opportunities
-  StOpt:
-    author:
-    - ins: Investopedia
-    date: 2024
-    target: https://www.investopedia.com/terms/s/stockoption.asp
-    title: What Are Stock Options? Parameters and Trading, With Examples
-  TL:
-    author:
-    - ins: TradeLens
-    date: 2022
-    target: https://www.tradelens.com/
-    title: 'TradeLens: Supply chain data and docs'
-  WBGCBP:
-    author:
-    date: November 2021
-    target: https://documents1.worldbank.org/curated/en/369001638871862939/pdf/Central-Bank-Digital-Currencies-for-Cross-border-Payments-A-Review-of-Current-Experiments-and-Ideas.pdf
-    title: 'Central Bank Digital Currencies for Cross-Border Payments: A Review of Current Experiments and Ideas. World Bank Group, Other Financial Sector Study'
-  Web3:
-    author:
-    - ins: Wikipedia
-    date: 2024
-    target: https://en.wikipedia.org/wiki/Web3
-    title: Web3
-  WET:
-    author:
-    - ins: IBM
-    date: 2019
-    target: https://www.ibm.com/case-studies/wetrade-blockchain-fintech-trade-finance
-    title: we.trade
+    title: Secure Asset Transfer Protocol (SATP) Core, IETF, draft-ietf-satp-core-15
 
 --- abstract
 
@@ -492,7 +432,7 @@ The following are some terminology used in the current document, with some borro
 
 {: #trade-sc-overview}
 
-There are several real-world examples of consortium networks managing different aspects of international trade. Networks like We.Trade {{WET}}, built on Hyperledger Fabric {{HLF}}, and Marco Polo {{MP}}, built on R3 Corda {{R3C}}, manage trade finance workflows by connecting exporters, importers, and financial institutions (primarily banks). Other networks like TradeLens {{TL}}, built on Hyperledger Fabric, manage trade shipping and documentation logistics, by connecting exporters and shipping carriers. As an example, consider a system of two networks as illustrated in Figure 1: (a) a trade finance network managing letters of credit business lifecycles from application to fulfilment, and (b) a trade logistics network managing shipping consignment creation and dispatch documents like bills of lading.
+There are several real-world examples of consortium networks managing different aspects of international trade. Networks like We.Trade {{WET}} {{WTNews}}, built on Hyperledger Fabric {{HLF}}, and Marco Polo {{MP}} {{MPEnd}}, built on R3 Corda {{R3C}}, manage trade finance workflows by connecting exporters, importers, and financial institutions (primarily banks). Other networks like TradeLens {{TL}} {{TLNews}}, built on Hyperledger Fabric, manage trade shipping and documentation logistics, by connecting exporters and shipping carriers. As an example, consider a system of two networks as illustrated in Figure 1: (a) a trade finance network managing letters of credit business lifecycles from application to fulfilment, and (b) a trade logistics network managing shipping consignment creation and dispatch documents like bills of lading.
 
 ~~~
   +------------+
@@ -521,7 +461,7 @@ Propose |              | Request       Dispatch   |     | Upload
 ~~~
 {: #trade-bill-figure}
 
-An exporter who belongs to both systems must produce a valid bill of lading in the trade finance network to enforce a payment from the buyer to fulfil the terms of the letter of credit. But this bill, which serves as evidence of a shipping consignment's dispatch via a carrier, lies in the other, i.e., trade logistics, network.  The two networks must therefore be interoperable in such a way that the logistics network can share a bill with the finance network along with independently verifiable proof of authenticity. Otherwise, the trade finance network's workflow must trust that the exporter is acting in good faith and supplying genuine bills of lading, which adds insecurity. This interoperation, which involves sharing of network data, can be extrapolated to other scenarios involving the two networks. The trade logistics network can require an exporter to produce a valid letter of credit from the trade finance network before permitting a consignment record creation. Both these cross-network data sharing instances are illustrated in Figure 2.
+An exporter who belongs to both systems must produce a valid bill of lading in the trade finance network to enforce a payment from the buyer to fulfil the terms of the letter of credit. But this bill, which serves as evidence of a shipping consignment's dispatch via a carrier, lies in the other, i.e., trade logistics, network.  The two networks must therefore be interoperable in such a way that the logistics network can share a bill with the finance network along with independently verifiable proof of authenticity. Otherwise, the trade finance network's workflow must trust that the exporter is acting in good faith and supplying genuine bills of lading, which adds insecurity. This interoperation, which involves sharing of network data, can be extrapolated to other scenarios involving the two networks. The trade logistics network can require an exporter to produce a valid letter of credit from the trade finance network before permitting a consignment record creation. Both these cross-network data sharing {{Abebe19}} {{HLC}} instances are illustrated in Figure 2.
 
 ~~~
            +----------+    1 Agree on      +----------+
@@ -569,7 +509,7 @@ A letter of credit may also assume the properties of a digital asset in certain 
 
 {: #trade-sc-tracking}
 
-The use case linking a trade finance network with a trade logistics network can be augmented by adding a food tracking network like the IBM Food Trust {{IFT}} to the mix. Such a network connects producers, suppliers, manufactures, and retailers, who participate in food supply chains. Purchase orders, like those negotiated between producers and retailers, and which are illustrated as negotiated between exporter and importers in Figure 2, are recorded in this network's ledger. For quality control, its business workflow will track at periodic intervals the state (e.g., temperature and humidity) of containers carrying, for example, produce from farm to source port and from destination port to warehouse. The trade logistics network handles documentation and dispatch but does not track the location or condition of a consignment outside of a carrier's purview. Clearly, these networks play complementary roles in a supply chain. The logistics network should be able to get the state and history of a container before dispatch from the food tracking network, as should the latter from the former after the carrier has delivered a consignment. End-to-end supply chain visibility and effectiveness relies on the interoperability of these two networks, or to be precise, their ability to share verifiably authentic data with each other. Further, such interoperation also enables the trade finance network to allow the creation of a letter of credit only after verifying the existence of a valid purchase order in the food tracking network. Figure 3 illustrates the links between these networks.
+The use case linking a trade finance network with a trade logistics network can be augmented by adding a food tracking network like the IBM Food Trust {{IFT}} to the mix. Such a network connects producers, suppliers, manufactures, and retailers, who participate in food supply chains. Purchase orders, like those negotiated between producers and retailers, and which are illustrated as negotiated between exporter and importers in Figure 2, are recorded in this network's ledger. For quality control, its business workflow will track at periodic intervals the state (e.g., temperature and humidity) of containers carrying, for example, produce from farm to source port and from destination port to warehouse. The trade logistics network handles documentation and dispatch but does not track the location or condition of a consignment outside of a carrier's purview. Clearly, these networks play complementary roles in a supply chain. The logistics network should be able to get the state and history of a container before dispatch from the food tracking network, as should the latter from the former after the carrier has delivered a consignment. End-to-end supply chain visibility and effectiveness relies on the interoperability of these two networks, or to be precise, their ability to share verifiably authentic data with each other {{Abebe19}} {{BVGC20}}. Further, such interoperation also enables the trade finance network to allow the creation of a letter of credit only after verifying the existence of a valid purchase order in the food tracking network. Figure 3 illustrates the links between these networks.
 
 ~~~
                   +-------------------------------+
@@ -755,7 +695,7 @@ Stock options are financial instruments that allow holders to buy or sell stock 
 
 Figure 7 illustrates a simplified flow for the exercising of a "call" option, where a buyer acquires stock from a seller by paying it a strike price. First, the buyer informs its brokerage, which then notifies its exchange about the buyer's intent to exercise the option. The exchange in turn notifies the OCC in the Stock Network. (All these notifications typically occur via a smart contract). Steps 1-2 illustrate these notifications. The OCC then verifies the contract's validity and the buyer's right to exercise the option. If this is successful, the OCC triggers a payment request to the buyer through a contract-to-contract communication from the Stock Network to the Payment Network (step 3). (Alternatively, the buyer may trigger a payment request in the Payment Network, which then requests the Stock Network for proof of the contract's validity from the OCC before approving the payment.) The buyer then pays the strike price to the seller (step 4). The payment receipt is now sent to the Stock Network for the OCC's verification (or alternatively, the buyer can request the OCC to fetch and verify the receipt from the Payment Network) and fulfilment of the contract (step 5). The OCC, via the exchange, requests the brokerage to transfer stock from the seller's to the buyer's account (steps 6-7).
 
-This cross-network transactions require SATP using gateways, either to communicate information of a contract's validity (step 3) or a payment receipt (step 5) with authenticity proof (i.e., data sharing), or by ensuring that strike price payment (step 4) and contract fulfilment (step 6-7) occur atomically as an exchange using a coordinated set of commitments.
+This cross-network transactions require SATP using gateways, either to communicate information of a contract's validity (step 3) or a payment receipt (step 5) with authenticity proof (i.e., data sharing), or by ensuring that strike price payment (step 4) and contract fulfilment (step 6-7) occur atomically as an exchange using a coordinated set of commitments {{HTLC21}}.
 
 ~~~
 +---------------------------------------------------------------------+
@@ -844,6 +784,12 @@ This scenario additionally illustrates an example of what typically occurs in St
 {: #interop-protocol-considerations}
 
 The use cases provided as examples serve to illustrate instances of general phenomena that the Secure Asset Transfer Protocol {{SATP}}, with a limited number of variations, is designed to handle. The data sharing examples in Section 3 can be extrapolated to any kinds of data that need to be shared between networks running arbitrary workflows. The asset transfer example in Section 4.1 and the asset exchange example in Section 4.3 similarly can be extrapolated to any kinds of digital assets lying within any kind of network. Considerations for the interoperability protocol, or SATP, can therefore be limited to standard distributed systems issues like integrity, fault tolerance, and liveness, while completely disregarding the nature of the assets, networks, and workflows, which can all remain opaque to the protocol.
+
+# Security Considerations
+
+{: #satp-sec-considerations}
+
+This document describes exemplifying use cases for the interoperability of asset networks and identifies suitable applications of SATP [SATP] to overcome challenges in these use cases. Since it does not describe any system components, there are no security considerations to list here. Security considerations will apply when any of these use cases is implemented using SATP, and those are described in the SATP architecture [SATA] and SATP core protocol [SATP] specifications.
 
 # IANA Considerations
 
