@@ -126,6 +126,10 @@ informative:
     date: March 2020
     target: https://www.bis.org/publ/qtrpdf/r_qt2003j.htm
     title: The technology of retail central bank digital currency. Bank for International Settlements, BIS Quarterly Review
+  Bitcoin:
+    author:
+    target: https://bitcoin.org/
+    title: 'Bitcoin - Open source P2P money'
   BKYC:
     author:
     - ins: K. Bhaskaran
@@ -158,6 +162,12 @@ informative:
     date: 2025
     target: https://catena-x.net/
     title: Catena-X is the first globally trusted and collaborative data ecosystem for the automotive industry
+  CBOE:
+    author:
+    - ins: Gordon Scott
+    date: May 26, 2026
+    target: https://www.investopedia.com/terms/c/cboe.asp
+    title: "Understanding the CBOE: The World's Foremost Options Exchange (Investopedia)"
   CNDatInf:
     author:
     - ins: Xinhua
@@ -258,6 +268,12 @@ informative:
     date: 2019
     target: https://www.lfdecentralizedtrust.org/case-studies/walmart-case-study
     title: 'Case Study: How Walmart brought unprecedented transparency to the food supply chain with Hyperledger Fabric'
+  IPTV:
+    author:
+    - ins: Wikipedia
+    date: 2026
+    target: https://en.wikipedia.org/wiki/Internet_Protocol_television
+    title: 'Internet Protocol television (Wikipedia)'
   MP:
     author:
     - ins: P. Ignatova
@@ -270,6 +286,16 @@ informative:
     date: February 23, 2023
     target: https://www.gtreview.com/news/top-stories/marco-polo-brings-in-liquidators-as-funds-run-dry/
     title: Marco Polo brings in liquidators as funds run dry
+  Netflix:
+    author:
+    target: https://www.netflix.com
+    title: Netflix
+  NFT:
+    author:
+    - ins: Rakesh Sharma
+    date: December 31, 2025
+    target: https://www.investopedia.com/non-fungible-tokens-nft-5115211
+    title: 'Non-Fungible Token (NFT): What It Means and How It Works (Investopedia)'
   OCC:
     author:
     - ins: Adam Hayes
@@ -299,6 +325,8 @@ informative:
     date: August 2019
     target: https://docs.r3.com/en/pdf/corda-technical-whitepaper.pdf
     title: 'Corda: A Distributed Ledger'
+  RFC2250: RFC2250
+  RFC2435: RFC2435
   SKYC:
     author:
     - ins: M. Curry
@@ -334,10 +362,14 @@ informative:
     date: November 2021
     target: https://documents1.worldbank.org/curated/en/369001638871862939/pdf/Central-Bank-Digital-Currencies-for-Cross-border-Payments-A-Review-of-Current-Experiments-and-Ideas.pdf
     title: 'Central Bank Digital Currencies for Cross-Border Payments: A Review of Current Experiments and Ideas. World Bank Group, Other Financial Sector Study'
+  W3C:
+    author:
+    target: https://www.w3.org/
+    title: 'World Wide Web Consortium (W3C)'
   Web3:
     author:
     - ins: Wikipedia
-    date: 2024
+    date: 2026
     target: https://en.wikipedia.org/wiki/Web3
     title: Web3
   WET:
@@ -412,6 +444,8 @@ The following are some terminology used in the current document, with some borro
 
 - Asset network (system): The network or system where a digital asset is utilized.
 
+- Distributed ledger technology (DLT): Software to maintain a shared and/or replicated ledger (or system-of-record) of digital assets across multiple nodes through distributed consensus, and an SDK and technical stack to develop applications over the ledger. Asset networks can be built on DLTs.
+
 - Secure Asset Transfer Protocol (SATP): The protocol used to transfer (move) a digital asset from one network to another using gateways.
 
 - Origin network: The current network where the digital asset is located.
@@ -432,7 +466,7 @@ The following are some terminology used in the current document, with some borro
 
 {: #trade-sc-overview}
 
-There are several real-world examples of consortium networks managing different aspects of international trade. Networks like We.Trade {{WET}} {{WTNews}}, built on Hyperledger Fabric {{HLF}}, and Marco Polo {{MP}} {{MPEnd}}, built on R3 Corda {{R3C}}, manage trade finance workflows by connecting exporters, importers, and financial institutions (primarily banks). Other networks like TradeLens {{TL}} {{TLNews}}, built on Hyperledger Fabric, manage trade shipping and documentation logistics, by connecting exporters and shipping carriers. As an example, consider a system of two networks as illustrated in Figure 1: (a) a trade finance network managing letters of credit business lifecycles from application to fulfilment, and (b) a trade logistics network managing shipping consignment creation and dispatch documents like bills of lading.
+Several real-world examples of consortium networks have been created to manage different aspects of international trade. Some networks manage trade finance workflows by connecting exporters, importers, and financial institutions (primarily banks) {{WET}} {{WTNews}} {{MP}} {{MPEnd}}. Other networks manage shipping and documentation logistics involved in trade, by connecting exporters and shipping carriers {{TL}} {{TLNews}}. These networks are typically built as asset networks on prominent open source DLTs {{HLF}} {{R3C}}. As an example, consider a system of two networks as illustrated in Figure 1: (a) a trade finance network managing letters of credit business lifecycles from application to fulfilment, and (b) a trade logistics network managing shipping consignment creation and dispatch documents like bills of lading.
 
 ~~~
   +------------+
@@ -509,7 +543,7 @@ A letter of credit may also assume the properties of a digital asset in certain 
 
 {: #trade-sc-tracking}
 
-The use case linking a trade finance network with a trade logistics network can be augmented by adding a food tracking network like the IBM Food Trust {{IFT}} to the mix. Such a network connects producers, suppliers, manufactures, and retailers, who participate in food supply chains. Purchase orders, like those negotiated between producers and retailers, and which are illustrated as negotiated between exporter and importers in Figure 2, are recorded in this network's ledger. For quality control, its business workflow will track at periodic intervals the state (e.g., temperature and humidity) of containers carrying, for example, produce from farm to source port and from destination port to warehouse. The trade logistics network handles documentation and dispatch but does not track the location or condition of a consignment outside of a carrier's purview. Clearly, these networks play complementary roles in a supply chain. The logistics network should be able to get the state and history of a container before dispatch from the food tracking network, as should the latter from the former after the carrier has delivered a consignment. End-to-end supply chain visibility and effectiveness relies on the interoperability of these two networks, or to be precise, their ability to share verifiably authentic data with each other {{Abebe19}} {{BVGC20}}. Further, such interoperation also enables the trade finance network to allow the creation of a letter of credit only after verifying the existence of a valid purchase order in the food tracking network. Figure 3 illustrates the links between these networks.
+The use case linking a trade finance network with a trade logistics network can be augmented by adding a food tracking network to the mix. Such a network, also built as an asset network on a DLT, connects producers, suppliers, manufactures, and retailers, who participate in food supply chains {{IFT}}. Purchase orders, like those negotiated between producers and retailers, and which are illustrated as negotiated between exporter and importers in Figure 2, are recorded in this network's ledger. For quality control, its business workflow will track at periodic intervals the state (e.g., temperature and humidity) of containers carrying, for example, produce from farm to source port and from destination port to warehouse. The trade logistics network handles documentation and dispatch but does not track the location or condition of a consignment outside of a carrier's purview. Clearly, these networks play complementary roles in a supply chain. The logistics network should be able to get the state and history of a container before dispatch from the food tracking network, as should the latter from the former after the carrier has delivered a consignment. End-to-end supply chain visibility and effectiveness relies on the interoperability of these two networks, or to be precise, their ability to share verifiably authentic data with each other {{Abebe19}} {{BVGC20}}. Further, such interoperation also enables the trade finance network to allow the creation of a letter of credit only after verifying the existence of a valid purchase order in the food tracking network. Figure 3 illustrates the links between these networks.
 
 ~~~
                   +-------------------------------+
@@ -533,7 +567,7 @@ The use case linking a trade finance network with a trade logistics network can 
 
 {: #trade-sc-management}
 
-To complete the picture, a payment network can be added to the mix. This payment network maintains currency accounts for clients in different countries and enables cross-border payments, an example being the Stellar network {{STN}}. After goods have been dispatched, and optionally after verification of the delivery and proper condition of a shipment, payment is due from an importer to an exporter. The trade finance network can record a payment obligation on its ledger but it will rely on the payment network to process and confirm the actual transfer of funds. The former shares data about the obligation to the latter, which shares data about a successful (or otherwise) payment in return, as illustrated in Figure 4.
+To complete the picture, a payment network can be added to the mix. This payment network maintains currency accounts for clients in different countries and enables cross-border payments {{STN}}. After goods have been dispatched, and optionally after verification of the delivery and proper condition of a shipment, payment is due from an importer to an exporter. The trade finance network can record a payment obligation on its ledger but it will rely on the payment network to process and confirm the actual transfer of funds. The former shares data about the obligation to the latter, which shares data about a successful (or otherwise) payment in return, as illustrated in Figure 4.
 
 ~~~
                   +-------------------------------+
@@ -565,7 +599,7 @@ Addendum: yet another network, one that manages regulatory compliance, can be ad
 
 {: #finance-currency}
 
-The emerging paradigm of Decentralized Finance (DeFi) and the emerging application of Central Bank Digital Currency (CBDC) have opened up a spectrum of scenarios that require management of financial digital assets across multiple systems, typically built on distributed ledgers.
+The emerging paradigm of Decentralized Finance (DeFi) {{BISDeFi}} and the emerging application of Central Bank Digital Currency (CBDC) {{BISCBDC}} have opened up a spectrum of scenarios that require management of financial digital assets across multiple systems, typically built on distributed ledgers.
 
 DeFi is a "new financial paradigm that leverages distributed ledger technologies to offer services such as lending, investing, or exchanging cryptoassets without relying on a traditional centralized intermediary" {{BISDeFi}}. Following the Web3 philosophy {{Web3}}, scoped for the world of finance, DeFi offers architecture and protocols built on smart contracts deployed on blockchain or other distributed ledger technology. It thereby obviates the need for centralized management and orchestration of financial processes (e.g., currency transfers, exchanges, securities settlements) by trusted authorities who can gain undue leverage.
 
@@ -691,9 +725,9 @@ In a variation of this example, the two commercial banks may hold CBDC accounts 
 
 {: #finance-currency-stock-options}
 
-Stock options are financial instruments that allow holders to buy or sell stock at predetermined prices until specific expiration dates {{StOpt}}. Exercising an option, i.e., buying or selling a stock by paying a "strike price", involves a more complex cross-network financial transaction than the securities DvP use case. Option contracts can be managed and enforced in a specific business network (which can be labeled a "stock network") to which entities like an Options Clearing Corporation (OCC), stock exchanges (e.g., the Chicago Board Options Exchange), and brokerage firms, belong. The OCC is the issuer and guarantor for all options and futures contracts traded on U.S. exchanges {{OCC}}. It provides secured back-end clearing services, while exchanges provide front-end trading markets. Transfer and settlement of payments, just like in the DvP scenario, will typically occur in a dedicated payment network in which buyers and sellers of stock have currency accounts. Options contract fulfilment requires the stock and payment networks to work in concert, and hence need SATP to coordinate transactions across them.
+Stock options are financial instruments that allow holders to buy or sell stock at predetermined prices until specific expiration dates {{StOpt}}. Exercising an option, i.e., buying or selling a stock by paying a "strike price", involves a more complex cross-network financial transaction than the securities DvP use case. Option contracts can be managed and enforced in a specific business network (which can be labeled a "stock network") to which entities like a clearing organization (CO), stock exchanges {{CBOE}}, and brokerage firms, belong. In this example, the CO is the issuer and guarantor for all options and futures contracts traded on a country's exchanges {{OCC}}. It provides secured back-end clearing services, while exchanges provide front-end trading markets. Transfer and settlement of payments, just like in the DvP scenario, will typically occur in a dedicated payment network in which buyers and sellers of stock have currency accounts. Options contract fulfilment requires the stock and payment networks to work in concert, and hence need SATP to coordinate transactions across them.
 
-Figure 7 illustrates a simplified flow for the exercising of a "call" option, where a buyer acquires stock from a seller by paying it a strike price. First, the buyer informs its brokerage, which then notifies its exchange about the buyer's intent to exercise the option. The exchange in turn notifies the OCC in the Stock Network. (All these notifications typically occur via a smart contract). Steps 1-2 illustrate these notifications. The OCC then verifies the contract's validity and the buyer's right to exercise the option. If this is successful, the OCC triggers a payment request to the buyer through a contract-to-contract communication from the Stock Network to the Payment Network (step 3). (Alternatively, the buyer may trigger a payment request in the Payment Network, which then requests the Stock Network for proof of the contract's validity from the OCC before approving the payment.) The buyer then pays the strike price to the seller (step 4). The payment receipt is now sent to the Stock Network for the OCC's verification (or alternatively, the buyer can request the OCC to fetch and verify the receipt from the Payment Network) and fulfilment of the contract (step 5). The OCC, via the exchange, requests the brokerage to transfer stock from the seller's to the buyer's account (steps 6-7).
+Figure 7 illustrates a simplified flow for the exercising of a "call" option, where a buyer acquires stock from a seller by paying it a strike price. First, the buyer informs its brokerage, which then notifies its exchange about the buyer's intent to exercise the option. The exchange in turn notifies the CO in the Stock Network. (All these notifications typically occur via a smart contract). Steps 1-2 illustrate these notifications. The CO then verifies the contract's validity and the buyer's right to exercise the option. If this is successful, the CO triggers a payment request to the buyer through a contract-to-contract communication from the Stock Network to the Payment Network (step 3). (Alternatively, the buyer may trigger a payment request in the Payment Network, which then requests the Stock Network for proof of the contract's validity from the CO before approving the payment.) The buyer then pays the strike price to the seller (step 4). The payment receipt is now sent to the Stock Network for the CO's verification (or alternatively, the buyer can request the CO to fetch and verify the receipt from the Payment Network) and fulfilment of the contract (step 5). The CO, via the exchange, requests the brokerage to transfer stock from the seller's to the buyer's account (steps 6-7).
 
 This cross-network transactions require SATP using gateways, either to communicate information of a contract's validity (step 3) or a payment receipt (step 5) with authenticity proof (i.e., data sharing), or by ensuring that strike price payment (step 4) and contract fulfilment (step 6-7) occur atomically as an exchange using a coordinated set of commitments {{HTLC21}}.
 
@@ -702,7 +736,7 @@ This cross-network transactions require SATP using gateways, either to communica
 | Stock Network                                                       |
 |                                                                     |
 | +-------------+          +--------------+          +--------------+ |
-| |  Brokerage  |          |   Exchange   | 2        |      OCC     | |
+| |  Brokerage  |          |   Exchange   | 2        |      CO      | |
 | |             |          |              | Request  |              | |
 | | +---------+ | 1        | +----------+ | to       | +----------+ | |
 | | | Buyer   | | Exercise | |          | | Clear    | |          | | |
@@ -741,13 +775,13 @@ This cross-network transactions require SATP using gateways, either to communica
 
 {: #decentralized-commerce}
 
-In the emerging Web3 world, undergirded by blockchain and DLT, goods and services are increasingly available on decentralized networks, either as purely digital objects or proxies of physical objects. The networks typically manage these assets in the form of non-fungible tokens (NFTs) using smart contracts and decentralized applications (DApps for short). DeFi in a Web3 ecosystem can create thriving online marketplaces where goods and services can be bought and sold across network boundaries if those networks are interoperable (i.e., assets and data can be moved or managed seamlessly across networks). SATP is a necessary requirement to enable and secure such a decentralized form of commerce.
+In the emerging Web3 world, undergirded by blockchain and DLT, goods and services are increasingly available on decentralized networks, either as purely digital objects or proxies of physical objects. The networks typically manage these assets in the form of non-fungible tokens (NFTs) {{NFT}} using smart contracts and decentralized applications (DApps for short). DeFi in a Web3 ecosystem can create thriving online marketplaces where goods and services can be bought and sold across network boundaries if those networks are interoperable (i.e., assets and data can be moved or managed seamlessly across networks). SATP is a necessary requirement to enable and secure such a decentralized form of commerce.
 
 ## Transferal of Digital Art and Payments across National Borders
 
 {: #decentralized-commerce-digital-art}
 
-There is currently growing interest within many artist communities of developing and selling digital-only artwork, in which the artwork consists of a file in a well-known (e.g., JPEG, MPEG) format that is created by an artist. The artists seek to sell copies of the digital-only artwork on the global marketplace, allowing anyone in the world to purchase a copy and consume (e.g., display offline) the artwork at the buyer's discretion. Currently, the most popular technological vehicle to achieve this goal is through the tokenization of the copies of the artwork coupled with digital encryption/signature technologies to transfer control (and thereby legal ownership) of the digital-only artwork to the buyer.
+There is currently growing interest within many artist communities of developing and selling digital-only artwork, in which the artwork consists of a file in a well-known (e.g., JPEG {{RFC2435}}, MPEG {{RFC2250}}) format that is created by an artist. The artists seek to sell copies of the digital-only artwork on the global marketplace, allowing anyone in the world to purchase a copy and consume (e.g., display offline) the artwork at the buyer's discretion. Currently, the most popular technological vehicle to achieve this goal is through the tokenization of the copies of the artwork coupled with digital encryption/signature technologies to transfer control (and thereby legal ownership) of the digital-only artwork to the buyer.
 
 Although there are a number of technical and legal challenges (e.g., copyright enforcement) to completing such a sale, one key issue pertains to the sale and payment for digital-only artwork across national borders. Many nations enforce taxation upon the sale of any asset, including that of artwork generally both domestically and internationally. Thus, when the control/ownership of a tokenized digital-only artwork is transferred to a new owner in a foreign nation and payment is received, taxation must be obtained at the point-of-sale (which could be an online platform) and proof of delivery must be traceable to ensure that no taxation-avoidance occurs. A secure asset transfer protocol between systems that can be built on distributed or shared ledgers via gateways with designated legal authority is necessary to enforce governmental regulations and provide accountability.
 
@@ -755,7 +789,7 @@ Although there are a number of technical and legal challenges (e.g., copyright e
 
 {: #decentralized-commerce-streaming}
 
-Streaming services like Netflix and IPTV can tap into the cryptocurrency and DeFi user markets by offering content on distributed ledger networks using smart contracts. Instead of monthly subscriptions, they can offer pay-as-you-go streaming of arbitrarily low amounts to large numbers of users on such networks. Content transfer can be backed by NFTs, which users can redeem on any video or audio playback application. Because here already exist several payment networks for unregulated (e.g., Bitcoin) and regulated (e.g., CBDC) currencies, the content networks are likely to remain independent and not involve any monetary transactions on their own ledgers, as that would create safety and regulatory issues. Content transfer in a content network can be backed by a corresponding payment in a payment network if there is a facility to transfer payment receipts from the latter to the former. This can be fulfilled through the data sharing mode of SATP, whereby knowledge of payment along with authenticity proof can be communicated across networks. Alternatively, an atomic swap of the content and the payment can occur across both networks using the asset exchange mode of SATP.
+Several services exist to stream content over the World Wide Web {{W3C}} to users' (or customers') nodes {{Netflix}} {{IPTV}}. Such services can tap into the cryptocurrency and DeFi user markets by offering content on distributed ledger networks using smart contracts. Instead of monthly subscriptions, they can offer pay-as-you-go streaming of arbitrarily low amounts to large numbers of users on such networks. Content transfer can be backed by NFTs, which users can redeem on any video or audio playback application. Because here already exist several payment networks for unregulated (e.g., Bitcoin {{Bitcoin}}) and regulated (e.g., CBDC) currencies, the content networks are likely to remain independent and not involve any monetary transactions on their own ledgers, as that would create safety and regulatory issues. Content transfer in a content network can be backed by a corresponding payment in a payment network if there is a facility to transfer payment receipts from the latter to the former. This can be fulfilled through the data sharing mode of SATP, whereby knowledge of payment along with authenticity proof can be communicated across networks. Alternatively, an atomic swap of the content and the payment can occur across both networks using the asset exchange mode of SATP.
 
 In a related example, if users wish to obtain content that is not available currently with the streaming service provider, that provider may seek and purchase that content from another distributer that is offering it on a different content network. The copyright to that content can be backed by NFTs and the secure transfer of those NFTs from one network to another will require SATP.
 
