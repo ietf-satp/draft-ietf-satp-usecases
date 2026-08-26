@@ -268,12 +268,6 @@ informative:
     date: 2019
     target: https://www.lfdecentralizedtrust.org/case-studies/walmart-case-study
     title: 'Case Study: How Walmart brought unprecedented transparency to the food supply chain with Hyperledger Fabric'
-  IPTV:
-    author:
-    - ins: Wikipedia
-    date: 2026
-    target: https://en.wikipedia.org/wiki/Internet_Protocol_television
-    title: 'Internet Protocol television (Wikipedia)'
   MP:
     author:
     - ins: P. Ignatova
@@ -327,6 +321,16 @@ informative:
     title: 'Corda: A Distributed Ledger'
   RFC2250: RFC2250
   RFC2435: RFC2435
+  RFC6683: RFC6683
+  SATA:
+    author:
+    - ins: T. Hardjono
+    - ins: M. Hargreaves
+    - ins: N. Smith
+    - ins: V. Ramakrishna
+    date: February 2026
+    target: https://datatracker.ietf.org/doc/draft-ietf-satp-architecture/
+    title: Secure Asset Transfer (SAT) Interoperability Architecture, IETF, draft-ietf-satp-architecture-09
   SKYC:
     author:
     - ins: M. Curry
@@ -377,7 +381,7 @@ informative:
     - ins: IBM
     date: 2019
     target: https://www.ibm.com/case-studies/wetrade-blockchain-fintech-trade-finance
-    title: we.trade
+    title: 'we.trade – Helping companies trade seamlessly'
   WTNews:
     author:
     - ins: Matthew Gooding
@@ -404,15 +408,6 @@ normative:
   RFC1034: RFC1034
   RFC1035: RFC1035
   RFC5730: RFC5730
-  SATA:
-    author:
-    - ins: T. Hardjono
-    - ins: M. Hargreaves
-    - ins: N. Smith
-    - ins: V. Ramakrishna
-    date: February 2026
-    target: https://datatracker.ietf.org/doc/draft-ietf-satp-architecture/
-    title: Secure Asset Transfer (SAT) Interoperability Architecture, IETF, draft-ietf-satp-architecture-09
   SATP:
     author:
     - ins: M. Hargreaves
@@ -422,7 +417,7 @@ normative:
     - ins: A. Chiriac
     date: July 2026
     target: https://datatracker.ietf.org/doc/draft-ietf-satp-core/
-    title: Secure Asset Transfer Protocol (SATP) Core, IETF, draft-ietf-satp-core-15
+    title: Secure Asset Transfer Protocol (SATP) Core, IETF, draft-ietf-satp-core-16
 
 --- abstract
 
@@ -789,7 +784,7 @@ Although there are a number of technical and legal challenges (e.g., copyright e
 
 {: #decentralized-commerce-streaming}
 
-Several services exist to stream content over the World Wide Web {{W3C}} to users' (or customers') nodes {{Netflix}} {{IPTV}}. Such services can tap into the cryptocurrency and DeFi user markets by offering content on distributed ledger networks using smart contracts. Instead of monthly subscriptions, they can offer pay-as-you-go streaming of arbitrarily low amounts to large numbers of users on such networks. Content transfer can be backed by NFTs, which users can redeem on any video or audio playback application. Because here already exist several payment networks for unregulated (e.g., Bitcoin {{Bitcoin}}) and regulated (e.g., CBDC) currencies, the content networks are likely to remain independent and not involve any monetary transactions on their own ledgers, as that would create safety and regulatory issues. Content transfer in a content network can be backed by a corresponding payment in a payment network if there is a facility to transfer payment receipts from the latter to the former. This can be fulfilled through the data sharing mode of SATP, whereby knowledge of payment along with authenticity proof can be communicated across networks. Alternatively, an atomic swap of the content and the payment can occur across both networks using the asset exchange mode of SATP.
+Several services exist to stream content over the World Wide Web {{W3C}} to users' (or customers') nodes {{Netflix}} {{RFC6683}}. Such services can tap into the cryptocurrency and DeFi user markets by offering content on distributed ledger networks using smart contracts. Instead of monthly subscriptions, they can offer pay-as-you-go streaming of arbitrarily low amounts to large numbers of users on such networks. Content transfer can be backed by NFTs, which users can redeem on any video or audio playback application. Because here already exist several payment networks for unregulated (e.g., Bitcoin {{Bitcoin}}) and regulated (e.g., CBDC) currencies, the content networks are likely to remain independent and not involve any monetary transactions on their own ledgers, as that would create safety and regulatory issues. Content transfer in a content network can be backed by a corresponding payment in a payment network if there is a facility to transfer payment receipts from the latter to the former. This can be fulfilled through the data sharing mode of SATP, whereby knowledge of payment along with authenticity proof can be communicated across networks. Alternatively, an atomic swap of the content and the payment can occur across both networks using the asset exchange mode of SATP.
 
 In a related example, if users wish to obtain content that is not available currently with the streaming service provider, that provider may seek and purchase that content from another distributer that is offering it on a different content network. The copyright to that content can be backed by NFTs and the secure transfer of those NFTs from one network to another will require SATP.
 
@@ -823,7 +818,7 @@ The use cases provided as examples serve to illustrate instances of general phen
 
 {: #satp-sec-considerations}
 
-This document describes exemplifying use cases for the interoperability of asset networks and identifies suitable applications of SATP [SATP] to overcome challenges in these use cases. Since it does not describe any system components, there are no security considerations to list here. Security considerations will apply when any of these use cases is implemented using SATP, and those are described in the SATP architecture [SATA] and SATP core protocol [SATP] specifications.
+This specification inherits the security considerations of {{SATA}} and {{SATP}}. It describes exemplifying use cases for the interoperability of asset networks and identifies suitable applications of SATP {{SATP}} to overcome challenges in these use cases. When any of these use cases is implemented using SATP, the security considerations described in the SATP architecture {{SATA}} and SATP core protocol {{SATP}} specifications will apply. Since this specification does not describe any system components, there are no additional security considerations to list here.
 
 # IANA Considerations
 
