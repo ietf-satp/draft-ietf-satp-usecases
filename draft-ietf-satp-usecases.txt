@@ -5,10 +5,10 @@
 Secure Asset Transfer Protocol                            V. Ramakrishna
 Internet-Draft                                              IBM Research
 Intended status: Informational                               T. Hardjono
-Expires: 7 February 2027                                             MIT
+Expires: 6 March 2027                                                MIT
                                                                   C. Liu
                                                                   Huawei
-                                                           6 August 2026
+                                                        2 September 2026
 
 
                  Secure Asset Transfer (SAT) Use Cases
@@ -52,7 +52,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 7 February 2027.
+   This Internet-Draft will expire on 6 March 2027.
 
 Copyright Notice
 
@@ -88,11 +88,12 @@ Table of Contents
    6.  Trustworthy DNS Resource Record Migrations using an Augmented
            EPP
    7.  Interoperation Protocol Considerations
-   8.  IANA Considerations
-   9.  Contributors
-   10. References
-     10.1.  Normative References
-     10.2.  Informative References
+   8.  Security Considerations
+   9.  IANA Considerations
+   10. Contributors
+   11. References
+     11.1.  Normative References
+     11.2.  Informative References
    Authors' Addresses
 
 1.  Introduction
@@ -135,6 +136,12 @@ Table of Contents
    *  Asset network (system): The network or system where a digital
       asset is utilized.
 
+   *  Distributed ledger technology (DLT): Software to maintain a shared
+      and/or replicated ledger (or system-of-record) of digital assets
+      across multiple nodes through distributed consensus, and an SDK
+      and technical stack to develop applications over the ledger.
+      Asset networks can be built on DLTs.
+
    *  Secure Asset Transfer Protocol (SATP): The protocol used to
       transfer (move) a digital asset from one network to another using
       gateways.
@@ -164,18 +171,19 @@ Table of Contents
 
 3.1.  Trade Finance and Logistics
 
-   There are several real-world examples of consortium networks managing
-   different aspects of international trade.  Networks like We.Trade
-   [WET], built on Hyperledger Fabric [HLF], and Marco Polo [MP], built
-   on R3 Corda [R3C], manage trade finance workflows by connecting
-   exporters, importers, and financial institutions (primarily banks).
-   Other networks like TradeLens [TL], built on Hyperledger Fabric,
-   manage trade shipping and documentation logistics, by connecting
-   exporters and shipping carriers.  As an example, consider a system of
-   two networks as illustrated in Figure 1: (a) a trade finance network
-   managing letters of credit business lifecycles from application to
-   fulfilment, and (b) a trade logistics network managing shipping
-   consignment creation and dispatch documents like bills of lading.
+   Several real-world examples of consortium networks have been created
+   to manage different aspects of international trade.  Some networks
+   manage trade finance workflows by connecting exporters, importers,
+   and financial institutions (primarily banks) [WET] [WTNews] [MP]
+   [MPEnd].  Other networks manage shipping and documentation logistics
+   involved in trade, by connecting exporters and shipping carriers [TL]
+   [TLNews].  These networks are typically built as asset networks on
+   prominent open source DLTs [HLF] [R3C].  As an example, consider a
+   system of two networks as illustrated in Figure 1: (a) a trade
+   finance network managing letters of credit business lifecycles from
+   application to fulfilment, and (b) a trade logistics network managing
+   shipping consignment creation and dispatch documents like bills of
+   lading.
 
    +------------+
    | Exporter's |  +----------+             +---------------------+
@@ -218,7 +226,8 @@ Table of Contents
    two networks.  The trade logistics network can require an exporter to
    produce a valid letter of credit from the trade finance network
    before permitting a consignment record creation.  Both these cross-
-   network data sharing instances are illustrated in Figure 2.
+   network data sharing [Abebe19] [HLC] instances are illustrated in
+   Figure 2.
 
             +----------+    1 Agree on      +----------+
             | Exporter |<------------------>| Importer |
@@ -282,30 +291,31 @@ Table of Contents
 3.2.  Tracking Food Shipments
 
    The use case linking a trade finance network with a trade logistics
-   network can be augmented by adding a food tracking network like the
-   IBM Food Trust [IFT] to the mix.  Such a network connects producers,
-   suppliers, manufactures, and retailers, who participate in food
-   supply chains.  Purchase orders, like those negotiated between
-   producers and retailers, and which are illustrated as negotiated
-   between exporter and importers in Figure 2, are recorded in this
-   network's ledger.  For quality control, its business workflow will
-   track at periodic intervals the state (e.g., temperature and
-   humidity) of containers carrying, for example, produce from farm to
-   source port and from destination port to warehouse.  The trade
-   logistics network handles documentation and dispatch but does not
-   track the location or condition of a consignment outside of a
-   carrier's purview.  Clearly, these networks play complementary roles
-   in a supply chain.  The logistics network should be able to get the
-   state and history of a container before dispatch from the food
-   tracking network, as should the latter from the former after the
-   carrier has delivered a consignment.  End-to-end supply chain
-   visibility and effectiveness relies on the interoperability of these
-   two networks, or to be precise, their ability to share verifiably
-   authentic data with each other.  Further, such interoperation also
-   enables the trade finance network to allow the creation of a letter
-   of credit only after verifying the existence of a valid purchase
-   order in the food tracking network.  Figure 3 illustrates the links
-   between these networks.
+   network can be augmented by adding a food tracking network to the
+   mix.  Such a network, also built as an asset network on a DLT,
+   connects producers, suppliers, manufactures, and retailers, who
+   participate in food supply chains [IFT].  Purchase orders, like those
+   negotiated between producers and retailers, and which are illustrated
+   as negotiated between exporter and importers in Figure 2, are
+   recorded in this network's ledger.  For quality control, its business
+   workflow will track at periodic intervals the state (e.g.,
+   temperature and humidity) of containers carrying, for example,
+   produce from farm to source port and from destination port to
+   warehouse.  The trade logistics network handles documentation and
+   dispatch but does not track the location or condition of a
+   consignment outside of a carrier's purview.  Clearly, these networks
+   play complementary roles in a supply chain.  The logistics network
+   should be able to get the state and history of a container before
+   dispatch from the food tracking network, as should the latter from
+   the former after the carrier has delivered a consignment.  End-to-end
+   supply chain visibility and effectiveness relies on the
+   interoperability of these two networks, or to be precise, their
+   ability to share verifiably authentic data with each other [Abebe19]
+   [BVGC20].  Further, such interoperation also enables the trade
+   finance network to allow the creation of a letter of credit only
+   after verifying the existence of a valid purchase order in the food
+   tracking network.  Figure 3 illustrates the links between these
+   networks.
 
                    +-------------------------------+
                ____|     Food Tracking Network     |__________
@@ -328,15 +338,15 @@ Table of Contents
 
    To complete the picture, a payment network can be added to the mix.
    This payment network maintains currency accounts for clients in
-   different countries and enables cross-border payments, an example
-   being the Stellar network [STN].  After goods have been dispatched,
-   and optionally after verification of the delivery and proper
-   condition of a shipment, payment is due from an importer to an
-   exporter.  The trade finance network can record a payment obligation
-   on its ledger but it will rely on the payment network to process and
-   confirm the actual transfer of funds.  The former shares data about
-   the obligation to the latter, which shares data about a successful
-   (or otherwise) payment in return, as illustrated in Figure 4.
+   different countries and enables cross-border payments [STN].  After
+   goods have been dispatched, and optionally after verification of the
+   delivery and proper condition of a shipment, payment is due from an
+   importer to an exporter.  The trade finance network can record a
+   payment obligation on its ledger but it will rely on the payment
+   network to process and confirm the actual transfer of funds.  The
+   former shares data about the obligation to the latter, which shares
+   data about a successful (or otherwise) payment in return, as
+   illustrated in Figure 4.
 
                    +-------------------------------+
                ____|     Food Tracking Network     |__________
@@ -372,11 +382,11 @@ Table of Contents
 
 4.  Currency and Finance
 
-   The emerging paradigm of Decentralized Finance (DeFi) and the
-   emerging application of Central Bank Digital Currency (CBDC) have
-   opened up a spectrum of scenarios that require management of
-   financial digital assets across multiple systems, typically built on
-   distributed ledgers.
+   The emerging paradigm of Decentralized Finance (DeFi) [BISDeFi] and
+   the emerging application of Central Bank Digital Currency (CBDC)
+   [BISCBDC] have opened up a spectrum of scenarios that require
+   management of financial digital assets across multiple systems,
+   typically built on distributed ledgers.
 
    DeFi is a "new financial paradigm that leverages distributed ledger
    technologies to offer services such as lending, investing, or
@@ -619,36 +629,36 @@ Table of Contents
    paying a "strike price", involves a more complex cross-network
    financial transaction than the securities DvP use case.  Option
    contracts can be managed and enforced in a specific business network
-   (which can be labeled a "stock network") to which entities like an
-   Options Clearing Corporation (OCC), stock exchanges (e.g., the
-   Chicago Board Options Exchange), and brokerage firms, belong.  The
-   OCC is the issuer and guarantor for all options and futures contracts
-   traded on U.S. exchanges [OCC].  It provides secured back-end
-   clearing services, while exchanges provide front-end trading markets.
-   Transfer and settlement of payments, just like in the DvP scenario,
-   will typically occur in a dedicated payment network in which buyers
-   and sellers of stock have currency accounts.  Options contract
-   fulfilment requires the stock and payment networks to work in
-   concert, and hence need SATP to coordinate transactions across them.
+   (which can be labeled a "stock network") to which entities like a
+   clearing organization (CO), stock exchanges [CBOE], and brokerage
+   firms, belong.  In this example, the CO is the issuer and guarantor
+   for all options and futures contracts traded on a country's exchanges
+   [OCC].  It provides secured back-end clearing services, while
+   exchanges provide front-end trading markets.  Transfer and settlement
+   of payments, just like in the DvP scenario, will typically occur in a
+   dedicated payment network in which buyers and sellers of stock have
+   currency accounts.  Options contract fulfilment requires the stock
+   and payment networks to work in concert, and hence need SATP to
+   coordinate transactions across them.
 
    Figure 7 illustrates a simplified flow for the exercising of a "call"
    option, where a buyer acquires stock from a seller by paying it a
    strike price.  First, the buyer informs its brokerage, which then
    notifies its exchange about the buyer's intent to exercise the
-   option.  The exchange in turn notifies the OCC in the Stock Network.
+   option.  The exchange in turn notifies the CO in the Stock Network.
    (All these notifications typically occur via a smart contract).
-   Steps 1-2 illustrate these notifications.  The OCC then verifies the
+   Steps 1-2 illustrate these notifications.  The CO then verifies the
    contract's validity and the buyer's right to exercise the option.  If
-   this is successful, the OCC triggers a payment request to the buyer
+   this is successful, the CO triggers a payment request to the buyer
    through a contract-to-contract communication from the Stock Network
    to the Payment Network (step 3).  (Alternatively, the buyer may
    trigger a payment request in the Payment Network, which then requests
-   the Stock Network for proof of the contract's validity from the OCC
+   the Stock Network for proof of the contract's validity from the CO
    before approving the payment.)  The buyer then pays the strike price
    to the seller (step 4).  The payment receipt is now sent to the Stock
-   Network for the OCC's verification (or alternatively, the buyer can
-   request the OCC to fetch and verify the receipt from the Payment
-   Network) and fulfilment of the contract (step 5).  The OCC, via the
+   Network for the CO's verification (or alternatively, the buyer can
+   request the CO to fetch and verify the receipt from the Payment
+   Network) and fulfilment of the contract (step 5).  The CO, via the
    exchange, requests the brokerage to transfer stock from the seller's
    to the buyer's account (steps 6-7).
 
@@ -657,13 +667,13 @@ Table of Contents
    payment receipt (step 5) with authenticity proof (i.e., data
    sharing), or by ensuring that strike price payment (step 4) and
    contract fulfilment (step 6-7) occur atomically as an exchange using
-   a coordinated set of commitments.
+   a coordinated set of commitments [HTLC21].
 
  +---------------------------------------------------------------------+
  | Stock Network                                                       |
  |                                                                     |
  | +-------------+          +--------------+          +--------------+ |
- | |  Brokerage  |          |   Exchange   | 2        |      OCC     | |
+ | |  Brokerage  |          |   Exchange   | 2        |      CO      | |
  | |             |          |              | Request  |              | |
  | | +---------+ | 1        | +----------+ | to       | +----------+ | |
  | | | Buyer   | | Exercise | |          | | Clear    | |          | | |
@@ -704,27 +714,27 @@ Table of Contents
    and services are increasingly available on decentralized networks,
    either as purely digital objects or proxies of physical objects.  The
    networks typically manage these assets in the form of non-fungible
-   tokens (NFTs) using smart contracts and decentralized applications
-   (DApps for short).  DeFi in a Web3 ecosystem can create thriving
-   online marketplaces where goods and services can be bought and sold
-   across network boundaries if those networks are interoperable (i.e.,
-   assets and data can be moved or managed seamlessly across networks).
-   SATP is a necessary requirement to enable and secure such a
-   decentralized form of commerce.
+   tokens (NFTs) [NFT] using smart contracts and decentralized
+   applications (DApps for short).  DeFi in a Web3 ecosystem can create
+   thriving online marketplaces where goods and services can be bought
+   and sold across network boundaries if those networks are
+   interoperable (i.e., assets and data can be moved or managed
+   seamlessly across networks).  SATP is a necessary requirement to
+   enable and secure such a decentralized form of commerce.
 
 5.1.  Transferal of Digital Art and Payments across National Borders
 
    There is currently growing interest within many artist communities of
    developing and selling digital-only artwork, in which the artwork
-   consists of a file in a well-known (e.g., JPEG, MPEG) format that is
-   created by an artist.  The artists seek to sell copies of the
-   digital-only artwork on the global marketplace, allowing anyone in
-   the world to purchase a copy and consume (e.g., display offline) the
-   artwork at the buyer's discretion.  Currently, the most popular
-   technological vehicle to achieve this goal is through the
-   tokenization of the copies of the artwork coupled with digital
-   encryption/signature technologies to transfer control (and thereby
-   legal ownership) of the digital-only artwork to the buyer.
+   consists of a file in a well-known (e.g., JPEG [RFC2435], MPEG
+   [RFC2250]) format that is created by an artist.  The artists seek to
+   sell copies of the digital-only artwork on the global marketplace,
+   allowing anyone in the world to purchase a copy and consume (e.g.,
+   display offline) the artwork at the buyer's discretion.  Currently,
+   the most popular technological vehicle to achieve this goal is
+   through the tokenization of the copies of the artwork coupled with
+   digital encryption/signature technologies to transfer control (and
+   thereby legal ownership) of the digital-only artwork to the buyer.
 
    Although there are a number of technical and legal challenges (e.g.,
    copyright enforcement) to completing such a sale, one key issue
@@ -743,25 +753,26 @@ Table of Contents
 
 5.2.  Payment for Streaming Services
 
-   Streaming services like Netflix and IPTV can tap into the
-   cryptocurrency and DeFi user markets by offering content on
-   distributed ledger networks using smart contracts.  Instead of
-   monthly subscriptions, they can offer pay-as-you-go streaming of
-   arbitrarily low amounts to large numbers of users on such networks.
-   Content transfer can be backed by NFTs, which users can redeem on any
-   video or audio playback application.  Because here already exist
-   several payment networks for unregulated (e.g., Bitcoin) and
-   regulated (e.g., CBDC) currencies, the content networks are likely to
-   remain independent and not involve any monetary transactions on their
-   own ledgers, as that would create safety and regulatory issues.
-   Content transfer in a content network can be backed by a
-   corresponding payment in a payment network if there is a facility to
-   transfer payment receipts from the latter to the former.  This can be
-   fulfilled through the data sharing mode of SATP, whereby knowledge of
-   payment along with authenticity proof can be communicated across
-   networks.  Alternatively, an atomic swap of the content and the
-   payment can occur across both networks using the asset exchange mode
-   of SATP.
+   Several services exist to stream content over the World Wide Web
+   [W3C] to users' (or customers') nodes [Netflix] [RFC6683].  Such
+   services can tap into the cryptocurrency and DeFi user markets by
+   offering content on distributed ledger networks using smart
+   contracts.  Instead of monthly subscriptions, they can offer pay-as-
+   you-go streaming of arbitrarily low amounts to large numbers of users
+   on such networks.  Content transfer can be backed by NFTs, which
+   users can redeem on any video or audio playback application.  Because
+   here already exist several payment networks for unregulated (e.g.,
+   Bitcoin [Bitcoin]) and regulated (e.g., CBDC) currencies, the content
+   networks are likely to remain independent and not involve any
+   monetary transactions on their own ledgers, as that would create
+   safety and regulatory issues.  Content transfer in a content network
+   can be backed by a corresponding payment in a payment network if
+   there is a facility to transfer payment receipts from the latter to
+   the former.  This can be fulfilled through the data sharing mode of
+   SATP, whereby knowledge of payment along with authenticity proof can
+   be communicated across networks.  Alternatively, an atomic swap of
+   the content and the payment can occur across both networks using the
+   asset exchange mode of SATP.
 
    In a related example, if users wish to obtain content that is not
    available currently with the streaming service provider, that
@@ -897,11 +908,23 @@ Table of Contents
    disregarding the nature of the assets, networks, and workflows, which
    can all remain opaque to the protocol.
 
-8.  IANA Considerations
+8.  Security Considerations
+
+   This specification inherits the security considerations of [SATA] and
+   [SATP].  It describes exemplifying use cases for the interoperability
+   of asset networks and identifies suitable applications of SATP [SATP]
+   to overcome challenges in these use cases.  When any of these use
+   cases is implemented using SATP, the security considerations
+   described in the SATP architecture [SATA] and SATP core protocol
+   [SATP] specifications will apply.  Since this specification does not
+   describe any system components, there are no additional security
+   considerations to list here.
+
+9.  IANA Considerations
 
    This document has no IANA actions.
 
-9.  Contributors
+10.  Contributors
 
    The authors would like to thank André Augusto of INESC-ID and Técnico
    Lisboa (Portugal), Zainan Victor Zhou of Namefi by D3Serve Labs, and
@@ -911,18 +934,51 @@ Table of Contents
    existing use cases to show more applications for the interoperability
    modes listed in the SATP Architecture document.
 
-10.  References
+11.  References
 
-10.1.  Normative References
+11.1.  Normative References
+
+   [ISO]      ISO, "Blockchain and distributed ledger technologies-
+              Vocabulary (ISO:22739:2024)", January 2024,
+              <https://www.iso.org/standard/82208.html>.
+
+   [NIST]     Yaga, D., Mell, P., Roby, N., and K. Scarfone, "NIST
+              Blockchain Technology Overview (NISTR-8202)", October
+              2018, <https://doi.org/10.6028/NIST.IR.8202>.
+
+   [RFC1034]  Mockapetris, P., "Domain names - concepts and facilities",
+              STD 13, RFC 1034, DOI 10.17487/RFC1034, November 1987,
+              <https://www.rfc-editor.org/rfc/rfc1034>.
+
+   [RFC1035]  Mockapetris, P., "Domain names - implementation and
+              specification", STD 13, RFC 1035, DOI 10.17487/RFC1035,
+              November 1987, <https://www.rfc-editor.org/rfc/rfc1035>.
+
+   [RFC5730]  Hollenbeck, S., "Extensible Provisioning Protocol (EPP)",
+              STD 69, RFC 5730, DOI 10.17487/RFC5730, August 2009,
+              <https://www.rfc-editor.org/rfc/rfc5730>.
+
+   [SATP]     Hargreaves, M., Hardjono, T., Belchior, R., Ramakrishna,
+              V., and A. Chiriac, "Secure Asset Transfer Protocol (SATP)
+              Core, IETF, draft-ietf-satp-core-16", July 2026,
+              <https://datatracker.ietf.org/doc/draft-ietf-satp-core/>.
+
+11.2.  Informative References
+
+   [Abebe19]  Abebe, E., Behl, D., Govindarajan, C., Hu, Y.,
+              Karunamoorthy, D., Novotny, P., Pandit, V., Ramakrishna,
+              V., and C. Vecchiola, "Enabling Enterprise Blockchain
+              Interoperability with Trusted Data Transfer (Middleware
+              2019 - Industry Track)", December 2019,
+              <https://arxiv.org/abs/1911.01064>.
 
    [Aug23]    Augusto, A., Belchior, R., Kocsis, I., Gönczy, L.,
-              Vasconcelos, A., and M. Correia, "2023 IEEE International
-              Conference on Blockchain and Cryptocurrency (ICBC), Dubai,
-              United Arab Emirates, 2023, pp. 1-9 (doi: 10.1109/
-              ICBC56567.2023.10174953)", 2023,
-              <https://www.techrxiv.org/articles/preprint/
-              CBDC_bridging_between_Hyperledger_Fabric_and_permissioned_EVM-
-              based_blockchains/21809430>.
+              Vasconcelos, A., and M. Correia, "CBDC bridging between
+              Hyperledger Fabric and permissioned EVM-based blockchains,
+              2023 IEEE International Conference on Blockchain and
+              Cryptocurrency (ICBC), Dubai, United Arab Emirates, 2023",
+              2023, <https://www.techrxiv.org/doi/full/10.36227/
+              techrxiv.21809430.v2>.
 
    [BISCBDC]  Bank of Canada, European Central Bank, Bank of Japan,
               Sveriges Riksbank, Swiss National Bank, Bank of England,
@@ -954,17 +1010,30 @@ Table of Contents
               BIS Quarterly Review", March 2020,
               <https://www.bis.org/publ/qtrpdf/r_qt2003j.htm>.
 
+   [Bitcoin]  "Bitcoin - Open source P2P money", n.d.,
+              <https://bitcoin.org/>.
+
    [BKYC]     Bhaskaran, K., Ilfrich, P., Liffman, D., Vecchiola, C.,
               Jayachandran, P., Kumar, A., Lim, F., Nandakumar, K., Qin,
               Z., Ramakrishna, V., GS Teo, E., and C. H. Suen, "Double-
               Blind Consent-Driven Data Sharing on Blockchain. First
               IEEE Workshop on Blockchain Technologies and Applications
               (BTA) 2018, Co-located with 2018 IEEE International
-              Conference on Cloud Engineering (IC2E)", April 2018.
+              Conference on Cloud Engineering (IC2E)", April 2018,
+              <https://ieeexplore.ieee.org/document/8360358>.
+
+   [BVGC20]   Belchior, R., Vasconcelos, A., Guerreiro, S., and M.
+              Correia, "A Survey on Blockchain Interoperability: Past,
+              Present, and Future Trends", May 2020,
+              <https://arxiv.org/abs/2005.14282v2>.
 
    [CatenaX]  Catena-X, "Catena-X is the first globally trusted and
               collaborative data ecosystem for the automotive industry",
               2025, <https://catena-x.net/>.
+
+   [CBOE]     Gordon Scott, "Understanding the CBOE: The World's
+              Foremost Options Exchange (Investopedia)", May 2026,
+              <https://www.investopedia.com/terms/c/cboe.asp>.
 
    [CNDatInf] Xinhua, "Data infrastructure blueprint unveiled", November
               2024, <https://english.www.gov.cn/news/202411/23/
@@ -1020,28 +1089,38 @@ Table of Contents
               2018,
               <https://dl.acm.org/doi/pdf/10.1145/3190508.3190538>.
 
+   [HTLC21]   "Hash Time Locked Contracts, Bitcoin Wiki", n.d.,
+              <https://en.bitcoin.it/wiki/Hash_Time_Locked_Contracts>.
+
    [IDSA]     International Data Spaces Association, "International
               Standards: Worldwide access, European principles", 2025,
               <https://internationaldataspaces.org/why/international-
               standards/>.
 
-   [IFT]      IBM, "IBM Food Trust – Blockchain for the world's food
-              supply", 2022, <https://www.ibm.com/docs/en/food-trust>.
-
-   [ISO]      ISO, "Blockchain and distributed ledger technologies-
-              Vocabulary (ISO:22739:2024)", January 2024,
-              <https://www.iso.org/standard/82208.html>.
+   [IFT]      LF Decentralized Trust, "Case Study: How Walmart brought
+              unprecedented transparency to the food supply chain with
+              Hyperledger Fabric", 2019,
+              <https://www.lfdecentralizedtrust.org/case-studies/
+              walmart-case-study>.
 
    [MP]       Ignatova, P., "Marco Polo Network successfully completes
               largest Blockchain Open Account Trade Finance Trial on
-              R3's Corda platform, Trade Finance Global", 2022,
+              R3's Corda platform, Trade Finance Global", December 2019,
               <https://www.tradefinanceglobal.com/posts/marco-polo-
               network-successfully-completes-largest-blockchain-open-
               account-trade-finance-trial-on-r3s-corda-platform/>.
 
-   [NIST]     Yaga, D., Mell, P., Roby, N., and K. Scarfone, "NIST
-              Blockchain Technology Overview (NISTR-8202)", October
-              2018, <https://doi.org/10.6028/NIST.IR.8202>.
+   [MPEnd]    Eleanor Wragg, "Marco Polo brings in liquidators as funds
+              run dry", February 2023, <https://www.gtreview.com/news/
+              top-stories/marco-polo-brings-in-liquidators-as-funds-run-
+              dry/>.
+
+   [Netflix]  "Netflix", n.d., <https://www.netflix.com>.
+
+   [NFT]      Rakesh Sharma, "Non-Fungible Token (NFT): What It Means
+              and How It Works (Investopedia)", December 2025,
+              <https://www.investopedia.com/non-fungible-tokens-nft-
+              5115211>.
 
    [OCC]      Adam Hayes, "Options Clearing Corporation (OCC): Meaning,
               Overview, History (Investopedia)", October 2022,
@@ -1052,26 +1131,29 @@ Table of Contents
               UFJ Financial Group, OCBC Bank, R3, Singapore Exchange,
               and UOB Bank, "The future is here: Project Ubin: SGD on
               Distributed Ledger. Deloitte and Monetary Authority of
-              Singapore (MAS), Report", 2017,
-              <https://www2.deloitte.com/content/dam/Deloitte/sg/
-              Documents/financial-services/sg-fsi-project-ubin-
-              report.pdf>.
+              Singapore (MAS), Report", 2017, <https://www.mas.gov.sg/-
+              /media/mas/projectubin/project-ubin--sgd-on-distributed-
+              ledger.pdf>.
 
    [R3C]      Hearn, M. and R. G. Brown, "Corda: A Distributed Ledger",
               August 2019, <https://docs.r3.com/en/pdf/corda-technical-
               whitepaper.pdf>.
 
-   [RFC1034]  Mockapetris, P., "Domain names - concepts and facilities",
-              STD 13, RFC 1034, DOI 10.17487/RFC1034, November 1987,
-              <https://www.rfc-editor.org/rfc/rfc1034>.
+   [RFC2250]  Hoffman, D., Fernando, G., Goyal, V., and M. Civanlar,
+              "RTP Payload Format for MPEG1/MPEG2 Video", RFC 2250,
+              DOI 10.17487/RFC2250, January 1998,
+              <https://www.rfc-editor.org/rfc/rfc2250>.
 
-   [RFC1035]  Mockapetris, P., "Domain names - implementation and
-              specification", STD 13, RFC 1035, DOI 10.17487/RFC1035,
-              November 1987, <https://www.rfc-editor.org/rfc/rfc1035>.
+   [RFC2435]  Berc, L., Fenner, W., Frederick, R., McCanne, S., and P.
+              Stewart, "RTP Payload Format for JPEG-compressed Video",
+              RFC 2435, DOI 10.17487/RFC2435, October 1998,
+              <https://www.rfc-editor.org/rfc/rfc2435>.
 
-   [RFC5730]  Hollenbeck, S., "Extensible Provisioning Protocol (EPP)",
-              STD 69, RFC 5730, DOI 10.17487/RFC5730, August 2009,
-              <https://www.rfc-editor.org/rfc/rfc5730>.
+   [RFC6683]  Begen, A. and T. Stockhammer, "Guidelines for Implementing
+              Digital Video Broadcasting - IPTV (DVB-IPTV) Application-
+              Layer Hybrid Forward Error Correction (FEC) Protection",
+              RFC 6683, DOI 10.17487/RFC6683, August 2012,
+              <https://www.rfc-editor.org/rfc/rfc6683>.
 
    [SATA]     Hardjono, T., Hargreaves, M., Smith, N., and V.
               Ramakrishna, "Secure Asset Transfer (SAT) Interoperability
@@ -1079,26 +1161,32 @@ Table of Contents
               February 2026, <https://datatracker.ietf.org/doc/draft-
               ietf-satp-architecture/>.
 
-   [SATP]     Hargreaves, M., Hardjono, T., Belchior, R., Ramakrishna,
-              V., and A. Chiriac, "Secure Asset Transfer Protocol (SATP)
-              Core, IETF, draft-ietf-satp-core-13", March 2026,
-              <https://datatracker.ietf.org/doc/draft-ietf-satp-core/>.
-
    [SKYC]     Curry, M., "Blockchain for KYC: Game-changing RegTech
               innovation", August 2018, <https://www.linkedin.com/pulse/
               blockchain-kyc-game-changing-regtech-innovation-michael-
               curry/>.
 
-   [STN]      Stellar Development Foundation, "Stellar – Access your
-              universe of opportunities", 2022,
+   [STN]      Stellar Development Foundation, "Stellar – Blockchain
+              Network for DeFi, Payments & Asset Tokenization", 2022,
               <https://www.stellar.org/>.
 
-   [StOpt]    Investopedia, "What Are Stock Options? Parameters and
-              Trading, With Examples", 2024,
+   [StOpt]    James Chen, "Understanding Stock Options: Trading Basics
+              and Practical Examples (Investopedia)", July 2026,
               <https://www.investopedia.com/terms/s/stockoption.asp>.
 
-   [TL]       TradeLens, "TradeLens: Supply chain data and docs", 2022,
-              <https://www.tradelens.com/>.
+   [TL]       Maersk, "TradeLens - Solution Brief: Edition Two", 2022,
+              <https://www.maersk.com/~/media_sc9/maersk/local-
+              information/files/west-central-asia/india/tradelens-
+              solution-brief.pdf>.
+
+   [TLNews]   Maersk, "A.P. Moller - Maersk and IBM to discontinue
+              TradeLens, a blockchain-enabled global trade platform",
+              November 2022,
+              <https://www.maersk.com/news/articles/2022/11/29/maersk-
+              and-ibm-to-discontinue-tradelens>.
+
+   [W3C]      "World Wide Web Consortium (W3C)", n.d.,
+              <https://www.w3.org/>.
 
    [WBGCBP]   "Central Bank Digital Currencies for Cross-Border
               Payments: A Review of Current Experiments and Ideas. World
@@ -1108,83 +1196,18 @@ Table of Contents
               for-Cross-border-Payments-A-Review-of-Current-Experiments-
               and-Ideas.pdf>.
 
-   [Web3]     Wikipedia, "Web3", 2024,
+   [Web3]     Wikipedia, "Web3", 2026,
               <https://en.wikipedia.org/wiki/Web3>.
 
-   [WET]      IBM, "we.trade", 2019, <https://www.ibm.com/case-studies/
-              wetrade-blockchain-fintech-trade-finance>.
+   [WET]      IBM, "we.trade – Helping companies trade seamlessly",
+              2019, <https://www.ibm.com/case-studies/wetrade-
+              blockchain-fintech-trade-finance>.
 
-10.2.  Informative References
-
-   [ABCH20]   Ankenbrand, T., Bieri, D., Cortivo, R., Hoehener, J., and
-              T. Hardjono, "Proposal for a Comprehensive Crypto Asset
-              Taxonomy", May 2020, <https://arxiv.org/abs/2007.11877>.
-
-   [Abebe19]  Abebe, E., Behl, D., Govindarajan, C., Hu, Y.,
-              Karunamoorthy, D., Novotny, P., Pandit, V., Ramakrishna,
-              V., and C. Vecchiola, "Enabling Enterprise Blockchain
-              Interoperability with Trusted Data Transfer (Middleware
-              2019 - Industry Track)", December 2019,
-              <https://arxiv.org/abs/1911.01064>.
-
-   [Abebe21]  Abebe, E., Hu, Y., Irvin, A., Karunamoorthy, D., Pandit,
-              V., Ramakrishna, V., and J. Yu, "Verifiable Observation of
-              Permissioned Ledgers (ICBC 2021)", May 2021,
-              <https://arxiv.org/abs/2012.07339>.
-
-   [BSN22]    Kharpal, A., "China has been quietly building a blockchain
-              platform. Here's what we know. CNBC", May 2022,
-              <https://www.cnbc.com/2022/05/16/china-blockchain-
-              explainer-what-is-bsn-.html>.
-
-   [BVGC20]   Belchior, R., Vasconcelos, A., Guerreiro, S., and M.
-              Correia, "A Survey on Blockchain Interoperability: Past,
-              Present, and Future Trends", May 2020,
-              <https://arxiv.org/abs/2005.14282v2>.
-
-   [CDE23]    Bhardwaj, S., "China Unveils Revolutionary Blockchain Data
-              Exchange at Hangzhou Summit. Forbes India", August 2023,
-              <https://www.forbesindia.com/article/cryptocurrency/china-
-              unveils-revolutionary-blockchain-data-exchange-at-
-              hangzhou-summit/87745/1>.
-
-   [Clar88]   Clark, D., "The Design Philosophy of the DARPA Internet
-              Protocols, ACM Computer Communication Review, Proc SIGCOMM
-              88, vol. 18, no. 4, pp. 106-114", August 1988.
-
-   [Gray81]   Gray, J., "The Transaction Concept: Virtues and
-              Limitations, in VLDB Proceedings of the 7th International
-              Conference, Cannes, France, September 1981, pp. 144-154",
-              September 1981.
-
-   [Herl19]   Herlihy, M., "Blockchains from a Distributed Computing
-              Perspective, Communications of the ACM, vol. 62, no. 2,
-              pp. 78-85", February 2019,
-              <https://doi.org/10.1145/3209623>.
-
-   [HLP19]    Hardjono, T., Lipton, A., and A. Pentland, "Towards an
-              Interoperability Architecture for Blockchain Autonomous
-              Systems, IEEE Transactions on Engineering Management",
-              June 2019, <https://ieeexplore.ieee.org/document/8743548>.
-
-   [HS2019]   Hardjono, T. and N. Smith, "Decentralized Trusted
-              Computing Base for Blockchain Infrastructure Security,
-              Frontiers Journal, Special Issue on Blockchain Technology,
-              Vol. 2, No. 24", December 2019,
-              <https://doi.org/10.3389/fbloc.2019.00024>.
-
-   [HTLC21]   "Hash Time Locked Contracts, Bitcoin Wiki", n.d.,
-              <https://en.bitcoin.it/wiki/Hash_Time_Locked_Contracts>.
-
-   [IDevID]   Richardson, M. and J. Yang, "A Taxonomy of operational
-              security of manufacturer installed keys and anchors. IETF
-              draft-richardson-t2trg-idevid-considerations-01", August
-              2020, <https://tools.ietf.org/html/draft-richardson-t2trg-
-              idevid-considerations-01>.
-
-   [SRC84]    Saltzer, J., Reed, D., and D. Clark, "End-to-End Arguments
-              in System Design, ACM Transactions on Computer Systems,
-              vol. 2, no. 4, pp. 277-288", November 1984.
+   [WTNews]   Matthew Gooding, "IBM-backed blockchain platform we.trade
+              'shutting down'", June 2022,
+              <https://www.techmonitor.ai/technology/emerging-
+              technology/ibm-backed-blockchain-platform-we-trade-
+              shutting-down>.
 
 Authors' Addresses
 
